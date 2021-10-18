@@ -1,0 +1,199 @@
+﻿using UnityEngine;
+using System.Collections;
+using DG.Tweening;
+//using DG.Tweening;
+
+namespace Mechanics
+{
+    public class SwipeMecLast : MonoBehaviour
+    {
+        #region Singleton
+        public static SwipeMecLast instance = null;
+        void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+        }
+        #endregion
+
+        [Header("Variables to adjust")]
+        [HideInInspector] public bool posSwipe = true; // if the game only use swipe for position set initial value true ,  //for rotation set initial value false    
+        private float clampMaxVal; // min value will be minus of max. 
+        private float lerpMult;//lerp speed adjuster
+
+        private Transform obj; // obj to swipe
+
+        [Header("Others")]
+        private float startPosX;
+        private float deltaMousePos;
+        private float clampedAngle;
+        private float mouseDamp; //if you use rotation method set to 1 (suggested)
+        bool isTouchScreen;
+
+        private float resetTimer;
+        [HideInInspector] public Vector3 desiredPos = Vector3.zero;
+
+        private void Start()
+        {
+            if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+            {
+                isTouchScreen = true;
+                Input.multiTouchEnabled = false;
+            }
+            else
+            {
+                isTouchScreen = false;
+            }
+        }
+
+        public void VariableAdjust(Transform objTocontrol, float lerpMultiplier, float clampMax, float dampValue, bool posActive) // start ta çağır
+        {
+            clampMaxVal = clampMax;
+            lerpMult = lerpMultiplier;
+            posSwipe = posActive;
+            obj = objTocontrol;
+            mouseDamp = dampValue;
+            clampedAngle = 360 - clampMaxVal; // because of euler angles
+        }
+
+
+        public void Swipe() // her frameda çalışıyor
+        {
+            if (isTouchScreen)
+            {
+                TouchControl();
+            }
+            else
+            {
+                MouseControl();
+            }
+        }
+
+        void MouseControl()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                ResetValues();
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                deltaMousePos = Input.mousePosition.x - startPosX;// how much mouse dragged
+                //Debug.Log(deltaMousePos);
+                if (posSwipe)//position swipe
+                {
+                    PositionMethod2();
+                }
+                else ///rotation swipe
+                {
+                    RotationMethod1();
+                }
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                ResetValues();
+                resetTimer = 0f;
+                StartCoroutine(AutoTurnForward());
+            }
+        }
+
+        void TouchControl()
+        {
+            switch (Input.touches[0].phase)
+            {
+                case TouchPhase.Began:
+                    ResetValues();
+                    break;
+
+                case TouchPhase.Moved:
+                    deltaMousePos = Input.mousePosition.x - startPosX;// how much mouse dragged
+
+                    if (posSwipe)//position swipe
+                    {
+                        PositionMethod2();
+                    }
+                    else ///rotation swipe
+                    {
+                        RotationMethod1();
+                    }
+                    break;
+                case TouchPhase.Ended:
+                    resetTimer = 0f;
+                    StartCoroutine(AutoTurnForward());
+                    break;
+            }
+        }
+
+        public void ResetValues()
+        {
+            startPosX = Input.mousePosition.x;
+
+          
+
+        }
+
+        void PositionMethod() // swipe
+        {
+            float xPos = obj.position.x;
+            xPos = Mathf.Lerp(xPos, xPos + (mouseDamp * (deltaMousePos / Screen.width)), Time.deltaTime * lerpMult);
+            xPos = Mathf.Clamp(xPos, -clampMaxVal, clampMaxVal);
+
+            obj.position = new Vector3(xPos, obj.position.y, obj.position.z);
+        }
+
+        void PositionMethod2() // slide
+        {
+            float xPos = obj.position.x;
+            xPos = Mathf.Lerp(xPos, xPos + (mouseDamp * (deltaMousePos / Screen.width)), Time.deltaTime * lerpMult);
+            xPos = Mathf.Clamp(xPos, -clampMaxVal, clampMaxVal);
+
+            obj.position = new Vector3(xPos, obj.position.y, obj.position.z);
+
+            ResetValues();
+        }
+
+        void RotationMethod1()
+        {
+            float zRot = obj.eulerAngles.y;
+            zRot = Mathf.Lerp(zRot, zRot + (mouseDamp * deltaMousePos / Screen.width), Time.deltaTime * lerpMult);
+
+            if (zRot > 180 && zRot < clampedAngle)
+            {
+                zRot = clampedAngle;
+            }
+            else if (zRot < 180 && zRot >= clampMaxVal)
+            {
+                zRot = clampMaxVal;
+            }
+
+            obj.eulerAngles = new Vector3(0, zRot, 0);
+
+            resetTimer += Time.deltaTime;
+            if (resetTimer >= .5f)
+            {
+                ResetValues();
+
+                #region Rotation
+                resetTimer = 0f;
+                StartCoroutine(AutoTurnForward());
+                #endregion
+            }
+        }
+
+        void RotationMethod2()
+        {
+            float zRot = Mathf.Lerp(0, (360 * deltaMousePos / Screen.width), Time.deltaTime * lerpMult);
+            zRot = Mathf.Clamp(zRot, -clampMaxVal, clampMaxVal);
+            obj.eulerAngles -= new Vector3(0, -zRot, 0);
+        }
+
+
+        IEnumerator AutoTurnForward()
+        {
+            yield return null;
+            obj.DORotate(Vector3.zero, .6f);
+        }
+    }
+}
+
