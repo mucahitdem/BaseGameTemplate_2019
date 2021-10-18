@@ -79,22 +79,11 @@ namespace Mechanics
             }
             else if (Input.GetMouseButton(0))
             {
-                deltaMousePos = Input.mousePosition.x - startPosX;// how much mouse dragged
-                //Debug.Log(deltaMousePos);
-                if (posSwipe)//position swipe
-                {
-                    PositionMethod2();
-                }
-                else ///rotation swipe
-                {
-                    RotationMethod1();
-                }
+                ControlOnHold();
             }
             else if (Input.GetMouseButtonUp(0))
             {
-                ResetValues();
-                resetTimer = 0f;
-                StartCoroutine(AutoTurnForward());
+                ControlOnMouseUp();
             }
         }
 
@@ -107,30 +96,36 @@ namespace Mechanics
                     break;
 
                 case TouchPhase.Moved:
-                    deltaMousePos = Input.mousePosition.x - startPosX;// how much mouse dragged
-
-                    if (posSwipe)//position swipe
-                    {
-                        PositionMethod2();
-                    }
-                    else ///rotation swipe
-                    {
-                        RotationMethod1();
-                    }
+                    ControlOnHold();
                     break;
+
                 case TouchPhase.Ended:
-                    resetTimer = 0f;
-                    StartCoroutine(AutoTurnForward());
+                    ControlOnMouseUp();
                     break;
             }
+        }
+
+        void ControlOnHold()
+        {
+            deltaMousePos = Input.mousePosition.x - startPosX;// how much mouse dragged
+
+            if (posSwipe)//position swipe
+            {
+                PositionMethod2();
+            }
+            else ///rotation swipe
+            {
+                RotationMethod1();
+            }
+        }
+        void ControlOnMouseUp() // write things u want to do after mouse up or touch ended 
+        {
+           // TO DO
         }
 
         public void ResetValues()
         {
             startPosX = Input.mousePosition.x;
-
-          
-
         }
 
         void PositionMethod() // swipe
