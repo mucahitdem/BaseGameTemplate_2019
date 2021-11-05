@@ -91,7 +91,6 @@ namespace ElephantSDK
         public void PlayGame()
         {
 //#if !ELEPHANT_DEBUG
-            SceneManager.LoadScene(1);
 //#endif
         }
 
