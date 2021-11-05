@@ -152,7 +152,7 @@ namespace MoreMountains.NiceVibrations
             Debug.Log("[MMNVBuildPostProcessor] Plugin path : " + pluginPath);
 
             pbxProject.AddFrameworkToProject(targetGUID, "CoreHaptics.framework", false);
-            pbxProject.SetBuildProperty(targetGUID, "SWIFT_VERSION", "5.1");
+            pbxProject.SetBuildProperty(targetGUID, "SWIFT_VERSION", "5.0");
             pbxProject.SetBuildProperty(targetGUID, "ENABLE_BITCODE", "NO");
 
             if (forceAlwaysEmbedSwiftStandardLibraries)
@@ -205,7 +205,7 @@ namespace MoreMountains.NiceVibrations
         private static void WritePropertiesToMainTarget(PBXProject pbxProject, string targetGUID, string pbxProjectPath, string pluginPath, bool forceAlwaysEmbedSwiftStandardLibraries)
         {
             Debug.Log("[MMNVBuildPostProcessor] Writing properties to main target");
-            pbxProject.SetBuildProperty(targetGUID, "SWIFT_VERSION", "5.1");
+            pbxProject.SetBuildProperty(targetGUID, "SWIFT_VERSION", "5.0");
             if (forceAlwaysEmbedSwiftStandardLibraries)
             {
                 pbxProject.SetBuildProperty(targetGUID, "EMBEDDED_CONTENT_CONTAINS_SWIFT", "YES");
