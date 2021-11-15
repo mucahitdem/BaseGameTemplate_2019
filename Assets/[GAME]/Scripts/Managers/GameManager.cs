@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         RecordLevel();
         RecordFakeLevel();
 
-        if (levelNum == SceneManager.sceneCountInBuildSettings-1)
+        if (levelNum == SceneManager.sceneCountInBuildSettings)
         {
             levelNum = 1;
             RecordLevel();
