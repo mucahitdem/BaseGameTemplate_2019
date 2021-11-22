@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     void UpdatePlayerPerfs() // initial uı adjust
     {
         fakeLevelNum = PlayerPrefs.GetInt("FakeLevel",1);
-        levelNum = PlayerPrefs.GetInt("Level",1);
+        levelNum = PlayerPrefs.GetInt("Level", 1);
 
         UIManager.instance.UpdateLevelText();
     }

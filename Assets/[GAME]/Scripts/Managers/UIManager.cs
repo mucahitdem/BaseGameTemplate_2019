@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateLevelText()
     {
-        levelText.text = "LEVEL " + PlayerPrefs.GetInt("FakeLevel").ToString();
+        levelText.text = "LEVEL " + PlayerPrefs.GetInt("FakeLevel", 1).ToString();
     }
 
     public void OpenClosePanels(int panelType) //  0 start // 1 fail // 2 nexxtLevel
