@@ -62,7 +62,7 @@ public class UIManager : MonoBehaviour
             case 0:
                 startPanel.SetActive(!startPanel.activeInHierarchy);
                 gameInPanel.SetActive(true);
-                playerController.userActive = true;
+                playerController.UserActiveController(true);
 
                 //Debug.LogError("SET USER ACTIVE");
                 GameManager.instance.SendLevelStartedEvent();
@@ -73,7 +73,7 @@ public class UIManager : MonoBehaviour
             case 1:
                 retryPanel.SetActive(!retryPanel.activeInHierarchy);
                 gameInPanel.SetActive(true);
-                playerController.userActive = false;
+                playerController.UserActiveController(false);
 
                 //Debug.LogError("SET USER PASSIVE");
 
@@ -82,7 +82,7 @@ public class UIManager : MonoBehaviour
             case 2:
                 nextLevelPanel.SetActive(!nextLevelPanel.activeInHierarchy);
                 gameInPanel.SetActive(true);
-                playerController.userActive = false;
+                playerController.UserActiveController(false);
 
                 //Debug.LogError("SET USER PASSIVE");
 

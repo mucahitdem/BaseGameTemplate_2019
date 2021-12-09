@@ -4,20 +4,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : SwipeMecLast
 {
     [Header("Forward Movement")]
-    [SerializeField] float speed;
+    [SerializeField] float forwardSpeed;
 
     [Header("User Control")]
     [HideInInspector] public bool userActive;
+
+    [Header("Player Components")]
+    Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     void Update()
     {
         if (!userActive) return;
 
-        transform.position += transform.forward * Time.deltaTime * speed;
-        SwipeMecLast.instance.Swipe();
+        rb.velocity = forwardSpeed * Time.deltaTime * transform.forward;
+        Swipe();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,5 +38,10 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.instance.EndGame(2);
         }
+    }
+
+    public void UserActiveController(bool desiredVal)
+    {
+        userActive = desiredVal;
     }
 }

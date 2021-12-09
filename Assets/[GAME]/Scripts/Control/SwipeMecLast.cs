@@ -18,7 +18,7 @@ namespace Mechanics
         }
         #endregion
 
-        [Header("Variables to adjust")]
+        [Header("Swipe Variables")]
         public bool posSwipe = true; // if the game only use swipe for position set initial value true ,  //for rotation set initial value false    
         public float clampMaxVal; // min value will be minus of max. 
         public float lerpMult = 1;//lerp speed adjuster
