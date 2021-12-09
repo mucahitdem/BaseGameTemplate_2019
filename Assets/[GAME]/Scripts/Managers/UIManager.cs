@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI diamondNumText;
     [SerializeField] TextMeshProUGUI gameInPanelLevelText;
+    [SerializeField] TextMeshProUGUI retryPanelLevelText;
+    [SerializeField] TextMeshProUGUI successPanelLevelText;
 
     [Header("Diamond Variables")]
     [SerializeField] Image diamondImage;
@@ -53,6 +55,8 @@ public class UIManager : MonoBehaviour
     {
         levelText.text = "LEVEL " + PlayerPrefs.GetInt("FakeLevel", 1).ToString();
         gameInPanelLevelText.text = "LEVEL " + PlayerPrefs.GetInt("FakeLevel", 1).ToString();
+        retryPanelLevelText.text = "LEVEL " + PlayerPrefs.GetInt("FakeLevel", 1).ToString();
+        successPanelLevelText.text = "LEVEL " + PlayerPrefs.GetInt("FakeLevel", 1).ToString();
     }
 
     public void OpenClosePanels(int panelType) //  0 start // 1 fail // 2 nexxtLevel
@@ -60,34 +64,34 @@ public class UIManager : MonoBehaviour
         switch (panelType)
         {
             case 0:
-                startPanel.SetActive(!startPanel.activeInHierarchy);
-                gameInPanel.SetActive(true);
+                PanelController(false, true, false, false);
+
                 playerController.UserActiveController(true);
 
-                //Debug.LogError("SET USER ACTIVE");
                 GameManager.instance.SendLevelStartedEvent();
                 GameManager.instance.ManageGameStatus(GameManager.GameSituation.isStarted);
-
                 break;
 
             case 1:
-                retryPanel.SetActive(!retryPanel.activeInHierarchy);
-                gameInPanel.SetActive(true);
+                PanelController(false, false, true, false);
+
                 playerController.UserActiveController(false);
-
-                //Debug.LogError("SET USER PASSIVE");
-
                 break;
 
             case 2:
-                nextLevelPanel.SetActive(!nextLevelPanel.activeInHierarchy);
-                gameInPanel.SetActive(true);
-                playerController.UserActiveController(false);
+                PanelController(false, false, false, true);
 
-                //Debug.LogError("SET USER PASSIVE");
-
+                playerController.UserActiveController(false);                
                 break;
         }
+    }
+
+    void PanelController(bool startPanelVal, bool gameInPanelVal, bool retryPanelVal, bool nextPanelVal)
+    {
+        startPanel.SetActive(startPanelVal);
+        gameInPanel.SetActive(gameInPanelVal);
+        retryPanel.SetActive(retryPanelVal);
+        nextLevelPanel.SetActive(nextPanelVal);
     }
 
     private void DiamondFirstSet() // initial uı adjust
