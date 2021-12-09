@@ -6,22 +6,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Swipe Components")]
-    [SerializeField] float lerpMult;
-    [SerializeField] float clampMax;
-    [SerializeField] float dampVal;
-    [SerializeField] bool posSwipe;
-
     [Header("Forward Movement")]
     [SerializeField] float speed;
 
     [Header("User Control")]
     [HideInInspector] public bool userActive;
-
-    void Start()
-    {
-        SwipeMecLast.instance.VariableAdjust(transform , lerpMult , clampMax , dampVal , posSwipe);
-    }
 
     void Update()
     {
@@ -36,6 +25,10 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Diamond"))
         {
             UIManager.instance.DiamondCollectAnim(other.transform.position);
+        }
+        else if (other.CompareTag("EndGame"))
+        {
+            GameManager.instance.EndGame(2);
         }
     }
 }

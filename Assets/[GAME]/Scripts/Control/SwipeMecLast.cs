@@ -19,17 +19,17 @@ namespace Mechanics
         #endregion
 
         [Header("Variables to adjust")]
-        [HideInInspector] public bool posSwipe = true; // if the game only use swipe for position set initial value true ,  //for rotation set initial value false    
-        private float clampMaxVal; // min value will be minus of max. 
-        private float lerpMult;//lerp speed adjuster
-
-        private Transform obj; // obj to swipe
+        public bool posSwipe = true; // if the game only use swipe for position set initial value true ,  //for rotation set initial value false    
+        public float clampMaxVal; // min value will be minus of max. 
+        public float lerpMult = 1;//lerp speed adjuster
+        public float mouseDamp = 600; //if you use rotation method set to 1 (suggested)
+        public Transform obj; // obj to swipe
 
         [Header("Others")]
         private float startPosX;
         private float deltaMousePos;
         private float clampedAngle;
-        private float mouseDamp; //if you use rotation method set to 1 (suggested)
+      
         bool isTouchScreen;
 
         private float resetTimer;
@@ -46,6 +46,8 @@ namespace Mechanics
             {
                 isTouchScreen = false;
             }
+
+            RotationClampSettings();
         }
 
         public void VariableAdjust(Transform objTocontrol, float lerpMultiplier, float clampMax, float dampValue, bool posActive) // start ta çağır
@@ -54,7 +56,11 @@ namespace Mechanics
             lerpMult = lerpMultiplier;
             posSwipe = posActive;
             obj = objTocontrol;
-            mouseDamp = dampValue;
+            mouseDamp = dampValue;         
+        }
+
+        void RotationClampSettings()
+        {
             clampedAngle = 360 - clampMaxVal; // because of euler angles
         }
 

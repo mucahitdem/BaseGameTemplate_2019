@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     [Header("Texts")]
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI diamondNumText;
+    [SerializeField] TextMeshProUGUI gameInPanelLevelText;
 
     [Header("Diamond Variables")]
     [SerializeField] Image diamondImage;
@@ -51,6 +52,7 @@ public class UIManager : MonoBehaviour
     public void UpdateLevelText()
     {
         levelText.text = "LEVEL " + PlayerPrefs.GetInt("FakeLevel", 1).ToString();
+        gameInPanelLevelText.text = "LEVEL " + PlayerPrefs.GetInt("FakeLevel", 1).ToString();
     }
 
     public void OpenClosePanels(int panelType) //  0 start // 1 fail // 2 nexxtLevel
