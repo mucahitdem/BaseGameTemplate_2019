@@ -47,12 +47,11 @@ public class UIManager : MonoBehaviour
     PlayerController playerController;
 
     [Header("References")]
-    Camera cam;
+    [SerializeField] Camera cam;
 
 
     private void Start()
-    {
-        cam = FindObjectOfType<Camera>();
+    {       
         playerController = FindObjectOfType<PlayerController>();
         player = playerController.transform;
 

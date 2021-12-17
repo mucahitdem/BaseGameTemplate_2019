@@ -1317,6 +1317,7 @@ MonoBehaviour:
   diamondNum: 0
   levelProgressBar: {fileID: 1764976153}
   endOfLevel: {fileID: 834528311}
+  cam: {fileID: 963194227}
 --- !u!114 &1199395622
 MonoBehaviour:
   m_ObjectHideFlags: 0
