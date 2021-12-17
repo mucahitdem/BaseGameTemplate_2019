@@ -33,6 +33,8 @@ namespace com.adjust.sdk
 
         void Awake()
         {
+            transform.parent = null;
+
             if (IsEditor()) 
             {
                 return;
