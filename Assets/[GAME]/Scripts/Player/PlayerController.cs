@@ -26,12 +26,14 @@ public class PlayerController : SwipeMecLast
 
         rb.velocity = forwardSpeed * Time.deltaTime * transform.forward;
         Swipe();
+        UIManager.instance.UpdateProgressBar();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Diamond"))
         {
+            other.gameObject.SetActive(false);
             UIManager.instance.DiamondCollectAnim(other.transform.position);
         }
         else if (other.CompareTag("EndGame"))

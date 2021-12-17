@@ -36,6 +36,13 @@ public class UIManager : MonoBehaviour
     [HideInInspector] public int diamondNum;
     Vector2 anchoredDiamondPos;
 
+    [Header("Level Progress")]
+    [SerializeField] Image levelProgressBar;
+    [SerializeField] Transform endOfLevel;
+    Transform player;
+    float distToEnd;
+    float currentDistToEnd;
+
     [Header("Scipt References")]
     PlayerController playerController;
 
@@ -47,8 +54,10 @@ public class UIManager : MonoBehaviour
     {
         cam = FindObjectOfType<Camera>();
         playerController = FindObjectOfType<PlayerController>();
+        player = playerController.transform;
 
         DiamondFirstSet();
+        StartCalculate();
     }
 
     public void UpdateLevelText()
@@ -118,4 +127,20 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetInt("Diamond", diamondNum);
         diamondNumText.text = PlayerPrefs.GetInt("Diamond").ToString();
     }
+
+    #region Level Progress Bar
+
+    void StartCalculate()
+    {
+        distToEnd = (player.position - endOfLevel.position).sqrMagnitude;
+    }
+
+    public void UpdateProgressBar()
+    {
+        currentDistToEnd = (player.position - endOfLevel.position).sqrMagnitude;
+        levelProgressBar.fillAmount = currentDistToEnd / distToEnd;
+    }
+
+    #endregion
+
 }

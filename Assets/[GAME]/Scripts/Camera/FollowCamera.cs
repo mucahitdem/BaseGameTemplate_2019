@@ -15,8 +15,8 @@ public class FollowCamera : MonoBehaviour
     public bool follow;
 
     [Header("Follow Method Variables")]
-    [SerializeField] Transform target;
-    [HideInInspector] public float speed = 3f;
+    [SerializeField] Rigidbody target;
+    [SerializeField] float speed = 3f;
 
     [Header("Horizonral Follow")]  
     public HorizontalFollow horizontalFollowType;
@@ -55,7 +55,7 @@ public class FollowCamera : MonoBehaviour
         if (target)//for safety
         {
             NewPosCalculator();
-            transform.position = Vector3.SmoothDamp(transform.position, newPos, ref vel, speed * Time.deltaTime);
+            transform.position = Vector3.SmoothDamp(transform.position, newPos, ref vel, speed);
         }
     }
 
@@ -85,7 +85,7 @@ public class FollowCamera : MonoBehaviour
                 newPos.x = temporaryXVal;
                 return newPos.x;
         }
-
+        Debug.Log(true);
         return newPos.x;
     }
 
@@ -105,7 +105,7 @@ public class FollowCamera : MonoBehaviour
 
     public void ReTarget(Transform desiredObj)
     {
-        target = desiredObj;
+        target = desiredObj.GetComponent<Rigidbody>();
         OffsetCalculate();
     }
 }
