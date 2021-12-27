@@ -91,7 +91,7 @@ namespace ElephantSDK
         public void PlayGame()
         {
 //#if !ELEPHANT_DEBUG
-            SceneManager.LoadScene(PlayerPrefs.GetInt("Level", 1));
+            SceneManager.LoadScene(1);
 //#endif
         }
 

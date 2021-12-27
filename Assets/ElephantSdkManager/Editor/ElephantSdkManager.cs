@@ -502,7 +502,7 @@ namespace ElephantSdkManager
 
         private IEnumerator DownloadSDK(Sdk sdkInfo)
         {
-            var path = Path.Combine(DownloadDirectory, sdkInfo.sdkName);
+            var path = Path.Combine(DownloadDirectory, sdkInfo.sdkName + ".unitypackage");
             _activity = $"Downloading {sdkInfo.sdkName}...";
 
             // Start the async download job.
