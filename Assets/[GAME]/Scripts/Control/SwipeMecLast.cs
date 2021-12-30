@@ -156,7 +156,7 @@ namespace Mechanics
 
         void RotationMethod1()
         {
-            float zRot = obj.eulerAngles.y;
+            float zRot = obj.transform.eulerAngles.y;
             zRot = Mathf.Lerp(zRot, zRot + (mouseDamp * deltaMousePos / Screen.width), Time.deltaTime * lerpMult);
 
             if (zRot > 180 && zRot < clampedAngle)
@@ -168,7 +168,7 @@ namespace Mechanics
                 zRot = clampMaxVal;
             }
 
-            obj.eulerAngles = new Vector3(0, zRot, 0);
+            obj.transform.eulerAngles = new Vector3(0, zRot, 0);
 
             resetTimer += Time.deltaTime;
             if (resetTimer >= .5f)
@@ -186,7 +186,7 @@ namespace Mechanics
         {
             float zRot = Mathf.Lerp(0, (360 * deltaMousePos / Screen.width), Time.deltaTime * lerpMult);
             zRot = Mathf.Clamp(zRot, -clampMaxVal, clampMaxVal);
-            obj.eulerAngles -= new Vector3(0, -zRot, 0);
+            obj.transform.eulerAngles -= new Vector3(0, -zRot, 0);
         }
 
 

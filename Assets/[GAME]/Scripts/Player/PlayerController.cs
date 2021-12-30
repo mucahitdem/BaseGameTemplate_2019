@@ -23,11 +23,17 @@ public class PlayerController : SwipeMecLast
     void Update()
     {
         if (!userActive) return;
-
-        rb.velocity = forwardSpeed * Time.deltaTime * transform.forward;
+        transform.position += forwardSpeed * Time.deltaTime * transform.forward;
         Swipe();
         UIManager.instance.UpdateProgressBar();
     }
+
+    //private void FixedUpdate()
+    //{
+    //    if (!userActive) return;
+
+    //    rb.velocity = forwardSpeed * Time.deltaTime * transform.forward;
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
