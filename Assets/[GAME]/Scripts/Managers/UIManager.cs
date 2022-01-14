@@ -112,14 +112,23 @@ public class UIManager : MonoBehaviour
     public void DiamondCollectAnim(Vector3 diamondPos) // just call this method to increase diamond count "1" 
     {
         Vector2 screenPos = cam.WorldToScreenPoint(diamondPos);
-        GameObject clone = Instantiate(diamond, screenPos, Quaternion.identity, gameInPanel.transform);
-        clone.GetComponent<RectTransform>().DOAnchorPos(anchoredDiamondPos, .5f)
+        GameObject clone = PoolManager.Instance.moneyPool.PullObjFromPool(); /*Instantiate(diamond, screenPos, Quaternion.identity, gameInPanel.transform);*/
+
+        clone.transform.localScale = Vector3.one * .5f; 
+
+        RectTransform rectClone = clone.GetComponent<RectTransform>();
+        rectClone.anchoredPosition = screenPos;
+
+        clone.transform.parent = gameInPanel.transform;
+
+        rectClone.DOAnchorPos(anchoredDiamondPos, .5f)
             .OnComplete(() => 
             { 
                 clone.SetActive(false);
                 UpdateDiamondText();
             });
     }
+
     void UpdateDiamondText()
     {
         diamondNum++;
