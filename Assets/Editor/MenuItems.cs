@@ -59,7 +59,7 @@ public class MenuItems
     {
         string size = Screen.height.ToString();
 
-        path = Application.dataPath + "\\SS\\" + size;
+        path = Application.dataPath + "\\..\\SS\\" + size;
 
         if (!Directory.Exists(path))
             Directory.CreateDirectory(path);
