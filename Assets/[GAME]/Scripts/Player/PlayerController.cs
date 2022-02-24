@@ -20,6 +20,12 @@ public class PlayerController : SwipeMecLast
         rb = GetComponent<Rigidbody>();
     }
 
+    public override void Start()
+    {
+        base.Start(); // BU SATIRI SAKIN SÝLME ----------------------------
+    }
+
+
     void Update()
     {
         if (!userActive) return;

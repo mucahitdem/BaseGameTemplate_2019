@@ -35,7 +35,7 @@ namespace Mechanics
         private float resetTimer;
         [HideInInspector] public Vector3 desiredPos = Vector3.zero;
 
-        private void Start()
+        public virtual void Start()
         {
             if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
             {
