@@ -17,11 +17,11 @@ public class MenuItems
     {
         Time.timeScale = Time.timeScale == .5f ? 1 : .5f;
     }
-    
+
     [MenuItem("Tools/Fast Time _i")]
     private static void TimeScaleFast()
     {
-        switch(Time.timeScale)
+        switch (Time.timeScale)
         {
             case 0:
                 Time.timeScale = 1;
@@ -58,6 +58,19 @@ public class MenuItems
     static void PathCalculator()
     {
         string size = Screen.height.ToString();
+
+        if (size.Contains("2208"))
+        {
+            size = "ip5";
+        }
+        else if (size.Contains("2688"))
+        {
+            size = "ip6";
+        }
+        else if (size.Contains("2732"))
+        {
+            size = "ipad";
+        }
 
         path = Application.dataPath + "\\..\\SS\\" + size;
 
