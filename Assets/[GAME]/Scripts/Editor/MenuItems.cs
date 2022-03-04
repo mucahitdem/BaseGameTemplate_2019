@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.IO;
+using System.Reflection;
+
 public class MenuItems
 {
     static string path;
@@ -17,6 +19,16 @@ public class MenuItems
     {
         Time.timeScale = Time.timeScale == .5f ? 1 : .5f;
     }
+
+    [MenuItem("Tools/Clear Console _c")] // Clear Console added
+    static void ClearConsole()
+    {
+        var assembly = Assembly.GetAssembly(typeof(SceneView));
+        var type = assembly.GetType("UnityEditor.LogEntries");
+        var method = type.GetMethod("Clear");
+        method.Invoke(new object(), null);
+    }
+
 
     [MenuItem("Tools/Fast Time _i")]
     private static void TimeScaleFast()
