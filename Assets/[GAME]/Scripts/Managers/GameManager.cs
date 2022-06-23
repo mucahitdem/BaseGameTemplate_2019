@@ -1,5 +1,4 @@
-﻿using ElephantSDK;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -44,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     public void SendLevelStartedEvent()
     {
-        Elephant.LevelStarted(fakeLevelNum);
+        //Elephant.LevelStarted(fakeLevelNum);
     }
 
     public void EndGame(int endType) // 2 success // 1 fail // call this after level ended 
@@ -55,11 +54,11 @@ public class GameManager : MonoBehaviour
         {
             case 2:
                 UIManager.instance.OpenClosePanels(2);
-                Elephant.LevelCompleted(fakeLevelNum); // düzenlenecek
+                //Elephant.LevelCompleted(fakeLevelNum); // düzenlenecek
                 break;
             case 1:
                 UIManager.instance.OpenClosePanels(1);
-                Elephant.LevelFailed(fakeLevelNum); // düzenlenecek
+                //Elephant.LevelFailed(fakeLevelNum); // düzenlenecek
                 break;
         }
     }
