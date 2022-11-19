@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9192063b-b0da-43f4-b58a-9a380f2dc59a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/861E23C6-7270-4A4A-8ECA-9C234AF0CAC5/4d/c1358f94/ISerializable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/861E23C6-7270-4A4A-8ECA-9C234AF0CAC5/45/6b9a3633/IntPtr.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/861E23C6-7270-4A4A-8ECA-9C234AF0CAC5/2c/447d09e1/Type.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Managers/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/GameStates/GamePlayingState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/MediatorPattern/MediatorPattern.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/GameStates/GameWinState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Managers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Managers/Patterns_SingletonMono.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/StatePattern.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/84F51B1B-0FF2-473C-A787-C217E1EDA8B9/73/36f8aded/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Control/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Player/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/GameStates/MyClass.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/GameStates/GameStartState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/GameStates/GameStateBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/GameStateManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/84F51B1B-0FF2-473C-A787-C217E1EDA8B9/6a/0b491828/CastHelper`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/861E23C6-7270-4A4A-8ECA-9C234AF0CAC5/d6/8c24e588/Assembly.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Control/InputManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Managers/Patterns_SingletonMono.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Managers/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/_Patterns/StatePattern.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/_Patterns/StatePattern/State.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/_Patterns/StatePattern/GameStateManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/_Patterns/StatePattern/StateBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/StateBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/GameStateBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/GameStartState.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/GamePlayingState.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/GameWinState.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/GameStates/GameStartState.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/GameStates/MyClass.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/StatePattern/GameStateManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Patterns/MediatorPattern/MediatorPattern.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="2HK5g2xHGayz8xWZpXc5xp99R9B" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

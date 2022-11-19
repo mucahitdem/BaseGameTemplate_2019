@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : SwipeMecLast
+public class PlayerController : InputManager
 {
     [Header("Forward Movement")]
     [SerializeField] float forwardSpeed;
@@ -22,7 +22,7 @@ public class PlayerController : SwipeMecLast
 
     public override void Start()
     {
-        base.Start(); // BU SATIRI SAKIN SÝLME ----------------------------
+        base.Start(); // BU SATIRI SAKIN SÄ°LME ----------------------------
     }
 
 
@@ -50,7 +50,7 @@ public class PlayerController : SwipeMecLast
         }
         else if (other.CompareTag("EndGame"))
         {
-            GameManager.instance.EndGame(2);
+            GameManager.Instance.EndGame(2);
         }
     }
 

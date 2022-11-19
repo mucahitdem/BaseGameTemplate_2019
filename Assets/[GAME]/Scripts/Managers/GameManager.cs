@@ -2,34 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Core;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Patterns_SingletonMono<GameManager>
 {
-    #region Singleton
-    public static GameManager instance = null;
-
-    private void Awake()
-    {
-        if (instance == null) instance = this;
-
-        //UpdatePlayerPerfs();
-    }
-    #endregion
-
-    public enum GameSituation
-    {
-        notStarted, isStarted, onLevelEnd, isEnded
-    }
-
-    public GameSituation gameSituation;
 
     [HideInInspector] public int fakeLevelNum = 1; // ekranda gözüken (yani fake olmasınn nedeni aslında aynı levellerin dönmesi ama yeni elvelmiş gibi gösterilmesi)
     [HideInInspector] public int levelNum = 1; // gerçek level sayımız index e göre
 
 
+    protected override void UseThisInsteadOfAwake() // => AWAKE
+    {
+        ///
+    }
+
     private void Start()
     {
-        gameSituation = GameSituation.notStarted;
         UpdatePlayerPerfs();
     }
 
@@ -48,8 +36,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(int endType) // 2 success // 1 fail // call this after level ended 
     {
-        gameSituation = GameSituation.isEnded;
-
+  
         switch (endType)
         {
             case 2:
@@ -85,10 +72,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void ManageGameStatus(GameSituation gameState)
-    {
-        gameSituation = gameState;
-    }
 
     void RecordLevel()
     {
@@ -100,5 +83,5 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("FakeLevel", fakeLevelNum);
     }
 
- 
+   
 }

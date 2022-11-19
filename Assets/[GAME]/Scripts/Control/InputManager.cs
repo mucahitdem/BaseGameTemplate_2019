@@ -5,10 +5,10 @@ using DG.Tweening;
 
 namespace Mechanics
 {
-    public class SwipeMecLast : MonoBehaviour
+    public class InputManager : MonoBehaviour
     {
         #region Singleton
-        public static SwipeMecLast instance = null;
+        public static InputManager instance = null;
         void Awake()
         {
             if (instance == null)

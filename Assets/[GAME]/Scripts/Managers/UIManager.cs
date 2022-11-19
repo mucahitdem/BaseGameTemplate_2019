@@ -76,8 +76,7 @@ public class UIManager : MonoBehaviour
 
                 playerController.UserActiveController(true);
 
-                GameManager.instance.SendLevelStartedEvent();
-                GameManager.instance.ManageGameStatus(GameManager.GameSituation.isStarted);
+                GameManager.Instance.SendLevelStartedEvent();
                 break;
 
             case 1:
