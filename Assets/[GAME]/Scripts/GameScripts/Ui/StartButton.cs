@@ -1,4 +1,5 @@
-﻿using Scripts.UI;
+﻿using Scripts.BaseGameScripts;
+using Scripts.UI;
 
 namespace Scripts.GameScripts.Ui
 {

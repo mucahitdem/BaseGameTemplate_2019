@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 using Scripts.BaseGameScripts.Helper;
-using Scripts.BaseGameScripts.State;
-using Scripts.State._Interface;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Scripts.SaveAndLoad
+namespace Scripts.BaseGameScripts.SaveAndLoad
 {
     public class SaveAndLoadManager : MonoBehaviour
     {
@@ -18,9 +15,14 @@ namespace Scripts.SaveAndLoad
         private void Awake()
         {
             GetAllSaveAndLoadDataOnScene();
+            DoForAllListElements(LoadAllData);
         }
 
-
+        public void OnDisable()
+        {
+            DoForAllListElements(SaveAllData);
+        }
+        
         private void GetAllSaveAndLoadDataOnScene()
         {
             List<Type> subClasses = AssemblyManager.GetSubClassesOfType(typeof(ISaveAndLoad));
@@ -32,6 +34,25 @@ namespace Scripts.SaveAndLoad
                 var stateBehaviour = (ISaveAndLoad) gameObject.AddComponent(currentType);
                 _saveAndLoads.Add(stateBehaviour);
             }
+        }
+
+        private void DoForAllListElements(Action<ISaveAndLoad> saveOrLoad)
+        {
+            for (int i = 0; i < _saveAndLoads.Count; i++)
+            {
+                ISaveAndLoad saveAndLoad = _saveAndLoads[i];
+                saveOrLoad?.Invoke(saveAndLoad);
+            }
+        }
+        
+        private void LoadAllData(ISaveAndLoad saveAndLoad)
+        {
+            saveAndLoad.Load();
+        }
+
+        private void SaveAllData(ISaveAndLoad saveAndLoad)
+        {
+            saveAndLoad.Save();
         }
     }
 }

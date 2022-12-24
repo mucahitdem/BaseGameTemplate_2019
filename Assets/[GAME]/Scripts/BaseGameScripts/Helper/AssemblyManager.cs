@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
@@ -32,5 +33,23 @@ namespace Scripts.BaseGameScripts.Helper
             Debug.LogError("THERE IS NO SUBCLASS OF " +  parentClass.Name + " TYPE");
             return null;
         }
+        
+        
+        // public static List<Type> GetClassesImplementedInterface(Type interfaceType)
+        // {
+        //     List<Type> types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
+        //         .Where(interfaceType.IsAssignableFrom)
+        //         .Select(x => x).ToList();
+        //     return types;
+        // }
+        
+        public static List<Type> GetClassesImplementedInterface(Type interfaceType)
+        {
+            List<Type> types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
+                .Where(x => interfaceType.IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+                .Select(x => x).ToList();
+            return types;
+        }
+        
     }
 }

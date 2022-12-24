@@ -1,4 +1,4 @@
-﻿namespace Scripts.SaveAndLoad
+﻿namespace Scripts.BaseGameScripts.SaveAndLoad
 {
     public interface ISaveAndLoad
     {

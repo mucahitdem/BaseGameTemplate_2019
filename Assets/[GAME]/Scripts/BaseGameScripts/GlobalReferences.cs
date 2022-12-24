@@ -4,7 +4,7 @@ using Scripts.State;
 using Scripts.UI;
 using Sirenix.OdinInspector;
 
-namespace Scripts
+namespace Scripts.BaseGameScripts
 {
     public class GlobalReferences : SingletonMono<GlobalReferences>
     {

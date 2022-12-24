@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 namespace BayatGames.SaveGameFree.Examples
 {
-
     public class ExampleSaveCustom : MonoBehaviour
     {
-
         [System.Serializable]
         public struct Level
         {
@@ -25,7 +23,6 @@ namespace BayatGames.SaveGameFree.Examples
         [System.Serializable]
         public class CustomData
         {
-
             public int score;
             public int highScore;
             public List<Level> levels;
@@ -43,7 +40,6 @@ namespace BayatGames.SaveGameFree.Examples
                     new Level ( true, false )
                 };
             }
-
         }
 
         public CustomData customData;
@@ -72,15 +68,13 @@ namespace BayatGames.SaveGameFree.Examples
 
         public void Save()
         {
-            SaveGame.Save<CustomData>(identifier, customData, SerializerDropdown.Singleton.ActiveSerializer);
+            SaveGame.Save(identifier, customData, SerializerDropdown.Singleton.ActiveSerializer);
         }
 
         public void Load()
         {
-            customData = SaveGame.Load<CustomData>(
-                identifier,
-                new CustomData(),
-                SerializerDropdown.Singleton.ActiveSerializer);
+            customData = SaveGame.Load(identifier, new CustomData(), SerializerDropdown.Singleton.ActiveSerializer);
+            
             scoreInputField.text = customData.score.ToString();
             highScoreInputField.text = customData.highScore.ToString();
         }
