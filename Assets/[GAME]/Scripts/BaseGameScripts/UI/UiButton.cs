@@ -1,32 +1,37 @@
-﻿using System;
+﻿using Scripts.BaseGameScripts.Helper;
 using UnityEngine.UI;
 
-namespace Scripts.UI
+namespace Scripts.BaseGameScripts.UI
 {
     public class UiButton : UiItem
     {
         private Button _button;
 
-        private void Awake()
+        protected Button Button
         {
-            _button = GetComponent<Button>();
+            get
+            {
+                if (!_button)
+                    _button = GetComponentInChildren<Button>();
+                return _button;
+            }
+            set => _button = value;
         }
-        
+
         public override void SubscribeEvent()
         {
             base.SubscribeEvent();
-            _button.onClick.AddListener(OnClick);
+            Button.onClick.AddListener(OnClick);
         }
-        
+
         public override void UnsubscribeEvent()
         {
             base.SubscribeEvent();
-            _button.onClick.RemoveListener(OnClick);
+            Button.onClick.RemoveListener(OnClick);
         }
 
         protected virtual void OnClick()
         {
-            
         }
     }
 }

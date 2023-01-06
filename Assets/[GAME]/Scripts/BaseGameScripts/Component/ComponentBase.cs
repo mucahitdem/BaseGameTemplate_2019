@@ -1,10 +1,24 @@
-﻿using UnityEngine;
+﻿using Scripts.BaseGameScripts.EventManagement;
+using Scripts.BaseGameScripts.Helper;
+using UnityEngine;
 
-namespace Scripts.Component
+namespace Scripts.BaseGameScripts.Component
 {
     public class ComponentBase : EventSubscriber
     {
+        private Collider _col;
+
+        private GameObject _go;
+
+        private LineRenderer _lineRenderer;
+
+        private Rigidbody _rb;
+
+        private RectTransform _rect;
         private Transform _transformOfObj;
+
+        protected Animator Anim;
+
         public Transform TransformOfObj
         {
             get
@@ -16,7 +30,6 @@ namespace Scripts.Component
             set => _transformOfObj = value;
         }
 
-        private GameObject _go;
         public GameObject Go
         {
             get
@@ -28,8 +41,7 @@ namespace Scripts.Component
             set => _go = value;
         }
 
-        private Rigidbody _rb;
-        public Rigidbody Rb
+        protected Rigidbody Rb
         {
             get
             {
@@ -39,8 +51,7 @@ namespace Scripts.Component
             }
             set => _rb = value;
         }
-        
-        private Collider _col;
+
         public Collider Col
         {
             get
@@ -52,7 +63,6 @@ namespace Scripts.Component
             set => _col = value;
         }
 
-        private RectTransform _rect;
         public RectTransform Rect
         {
             get
@@ -64,14 +74,35 @@ namespace Scripts.Component
             set => _rect = value;
         }
 
+        public virtual Animator AnimOfObj
+        {
+            get
+            {
+                if (!Anim)
+                    Anim = GetComponent<Animator>();
+
+                return Anim;
+            }
+            set => Anim = value;
+        }
+
+        protected LineRenderer LineRend
+        {
+            get
+            {
+                if (!_lineRenderer) _lineRenderer = GetComponent<LineRenderer>();
+                return _lineRenderer;
+            }
+            set => _lineRenderer = value;
+        }
+
+
         public override void SubscribeEvent()
         {
-            
         }
 
         public override void UnsubscribeEvent()
         {
-            
         }
     }
 }

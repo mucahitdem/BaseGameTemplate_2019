@@ -1,65 +1,60 @@
-﻿using Scripts.BaseGameScripts;
-using Scripts.UI;
+﻿using BayatGames.SaveGameFree;
+using Scripts.BaseGameScripts.SaveAndLoad;
+using Scripts.BaseGameScripts.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Scripts.Managers
+namespace Scripts.BaseGameScripts.Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviour, ISaveAndLoad
     {
+        [Title("Private Variables")]
+        private int _fakeLevelNum = 1;
+
+        private int _levelNum = 1;
+
         [Title("Managers")]
         private UiManager _uiManager;
-    
-        [Title("Private Variables")]
-        private int _fakeLevelNum = 1; 
-        private int _levelNum = 1; 
-  
+
+        public void Save()
+        {
+            SaveGame.Save("Level", _levelNum);
+            SaveGame.Save("FakeLevel", _fakeLevelNum);
+        }
+
+        public void Load()
+        {
+            _levelNum = SaveGame.Load("Level", 0);
+            _fakeLevelNum = SaveGame.Load("FakeLevel", _fakeLevelNum);
+        }
+
+        private void Awake()
+        {
+            Load();
+        }
+
         private void Start()
         {
             _uiManager = GlobalReferences.Instance.uiManager;
-            UpdatePlayerPrefs();
         }
 
-        void UpdatePlayerPrefs() // initial uı adjust
-        {
-            _fakeLevelNum = PlayerPrefs.GetInt("FakeLevel",1);
-            _levelNum = PlayerPrefs.GetInt("Level", 1);
-        }
-        
-
-        public void NextLevel() // button method
+        public void NextLevel()
         {
             _fakeLevelNum++;
             _levelNum++;
 
-            RecordLevel();
-            RecordFakeLevel();
-
-            if (_levelNum == SceneManager.sceneCountInBuildSettings)
-            {
+            if (_levelNum == SceneManager.sceneCountInBuildSettings) // loop
                 _levelNum = 1;
-                RecordLevel();
-            }
+
+            Save();
 
             SceneManager.LoadScene(_levelNum);
         }
 
-        public void RetryLevel() // button method
+        public void RetryLevel()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-    
-        void RecordLevel()
-        {
-            PlayerPrefs.SetInt("Level", _levelNum);
-        }
-
-        void RecordFakeLevel()
-        {
-            PlayerPrefs.SetInt("FakeLevel", _fakeLevelNum);
-        }
-
- 
     }
 }

@@ -1,12 +1,13 @@
 ﻿//Cristian Pop - https://boxophobic.com/
 
-using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PolyverseSkiesShaderGUI : ShaderGUI
 {
-    bool multiSelection = false;
+    private bool multiSelection;
 
     public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] props)
     {
@@ -17,17 +18,16 @@ public class PolyverseSkiesShaderGUI : ShaderGUI
 
         if (materials.Length > 1)
             multiSelection = true;
-        
+
         DrawDynamicInspector(material0, materialEditor, props);
     }
 
-    void DrawDynamicInspector(Material material, MaterialEditor materialEditor, MaterialProperty[] props)
+    private void DrawDynamicInspector(Material material, MaterialEditor materialEditor, MaterialProperty[] props)
     {
         var customPropsList = new List<MaterialProperty>();
 
         if (multiSelection)
-        {
-            for (int i = 0; i < props.Length; i++)
+            for (var i = 0; i < props.Length; i++)
             {
                 var prop = props[i];
 
@@ -36,17 +36,12 @@ public class PolyverseSkiesShaderGUI : ShaderGUI
 
                 customPropsList.Add(prop);
             }
-        }
         else
-        {
-            for (int i = 0; i < props.Length; i++)
+            for (var i = 0; i < props.Length; i++)
             {
                 var prop = props[i];
 
-                if (prop.flags == MaterialProperty.PropFlags.HideInInspector)
-                {
-                    continue;
-                }
+                if (prop.flags == MaterialProperty.PropFlags.HideInInspector) continue;
 
                 if (material.HasProperty("_BackgroundMode"))
                 {
@@ -77,10 +72,9 @@ public class PolyverseSkiesShaderGUI : ShaderGUI
 
                 customPropsList.Add(prop);
             }
-        }
 
         //Draw Custom GUI
-        for (int i = 0; i < customPropsList.Count; i++)
+        for (var i = 0; i < customPropsList.Count; i++)
         {
             var prop = customPropsList[i];
 
@@ -92,22 +86,17 @@ public class PolyverseSkiesShaderGUI : ShaderGUI
 
                 Texture tex = null;
 
-                if (prop.textureDimension == UnityEngine.Rendering.TextureDimension.Tex2D)
-                {
-                    tex = (Texture2D)EditorGUILayout.ObjectField(prop.displayName, prop.textureValue, typeof(Texture2D), false, GUILayout.Height(50));
-                }
+                if (prop.textureDimension == TextureDimension.Tex2D)
+                    tex = (Texture2D) EditorGUILayout.ObjectField(prop.displayName, prop.textureValue,
+                        typeof(Texture2D), false, GUILayout.Height(50));
 
-                if (prop.textureDimension == UnityEngine.Rendering.TextureDimension.Cube)
-                {
-                    tex = (Cubemap)EditorGUILayout.ObjectField(prop.displayName, prop.textureValue, typeof(Cubemap), false, GUILayout.Height(50));
-                }
+                if (prop.textureDimension == TextureDimension.Cube)
+                    tex = (Cubemap) EditorGUILayout.ObjectField(prop.displayName, prop.textureValue, typeof(Cubemap),
+                        false, GUILayout.Height(50));
 
                 EditorGUI.showMixedValue = false;
 
-                if (EditorGUI.EndChangeCheck())
-                {
-                    prop.textureValue = tex;
-                }
+                if (EditorGUI.EndChangeCheck()) prop.textureValue = tex;
             }
             else
             {

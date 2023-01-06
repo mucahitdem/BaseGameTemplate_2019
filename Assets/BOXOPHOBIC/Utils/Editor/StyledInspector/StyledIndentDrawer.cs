@@ -1,18 +1,18 @@
 ﻿// Cristian Pop - https://boxophobic.com/
 
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 namespace Boxophobic.StyledGUI
 {
     [CustomPropertyDrawer(typeof(StyledIndent))]
     public class StyledIndentAttributeDrawer : PropertyDrawer
     {
-        StyledIndent a;
+        private StyledIndent a;
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            a = (StyledIndent)attribute;
+            a = (StyledIndent) attribute;
 
             EditorGUI.indentLevel = a.indent;
         }

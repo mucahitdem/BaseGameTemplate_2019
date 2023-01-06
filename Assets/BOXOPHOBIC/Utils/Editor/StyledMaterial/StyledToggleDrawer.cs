@@ -1,18 +1,16 @@
 ﻿// Cristian Pop - https://boxophobic.com/
 
-using UnityEngine;
 using UnityEditor;
-using System;
+using UnityEngine;
 
 namespace Boxophobic.StyledGUI
 {
     public class StyledToggleDrawer : MaterialPropertyDrawer
     {
-        public float width = 0;
+        public float width;
 
         public StyledToggleDrawer()
         {
-
         }
 
         public StyledToggleDrawer(float width)
@@ -20,7 +18,7 @@ namespace Boxophobic.StyledGUI
             this.width = width;
         }
 
-        public override void OnGUI(Rect position, MaterialProperty prop, String label, MaterialEditor materialEditor)
+        public override void OnGUI(Rect position, MaterialProperty prop, string label, MaterialEditor materialEditor)
         {
             //Material material = materialEditor.target as Material;
 
@@ -30,7 +28,7 @@ namespace Boxophobic.StyledGUI
 
             if (width == 0)
             {
-                bool toggle = false;
+                var toggle = false;
 
                 if (prop.floatValue > 0.5f)
                 {
@@ -59,7 +57,7 @@ namespace Boxophobic.StyledGUI
 
                 GUILayout.Label(label);
 
-                bool toggle = false;
+                var toggle = false;
 
                 if (prop.floatValue > 0.5f)
                 {

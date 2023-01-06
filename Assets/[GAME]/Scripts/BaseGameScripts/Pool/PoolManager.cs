@@ -1,35 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Scripts.BaseGameScripts.Helper;
-using Sirenix.OdinInspector;
-using UnityEditor.PackageManager.Requests;
+﻿using Scripts.BaseGameScripts.CoinControl;
 using UnityEngine;
 
 namespace Scripts.BaseGameScripts.Pool
 {
     public class PoolManager : MonoBehaviour
     {
-        [ReadOnly]
-        [ShowInInspector]
-        public List<Type> poolObjects = new List<Type>();
+        [SerializeField]
+        private Coin coin;
         
-        private void Awake()
+        [HideInInspector]
+        public PoolingPattern<Coin> coinPool;
+
+        
+        protected void Awake()
         {
-            CreatePoolObjects();
+            StartCreation();
         }
 
-        private void CreatePoolObjects()
+        private void StartCreation()
         {
-            List<Type> subClasses = AssemblyManager.GetClassesImplementedInterface(typeof(IPoolObject));
-            
-            for (int i = 0; i < subClasses.Count; i++)
-            {
-                Type currentType = subClasses[i];
-                Debug.LogError(currentType.Name);
-                
-                poolObjects.Add(currentType);
-            }
+            coinPool = new PoolingPattern<Coin>(coin.ObjToPool);
         }
     }
 }

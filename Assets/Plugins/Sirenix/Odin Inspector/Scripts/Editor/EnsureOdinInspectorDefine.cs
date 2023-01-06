@@ -4,54 +4,43 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using System;
+using System.Linq;
+using UnityEditor;
+
 #if UNITY_EDITOR
 
 namespace Sirenix.Utilities
 {
-    using System;
-    using System.Linq;
-    using UnityEditor;
-
     /// <summary>
-    /// Defines the ODIN_INSPECTOR symbol.
+    ///     Defines the ODIN_INSPECTOR symbol.
     /// </summary>
     internal static class EnsureOdinInspectorDefine
     {
-        private static readonly string[] DEFINES = new string[] { "ODIN_INSPECTOR", "ODIN_INSPECTOR_3" };
+        private static readonly string[] DEFINES = {"ODIN_INSPECTOR", "ODIN_INSPECTOR_3"};
 
         [InitializeOnLoadMethod]
         private static void EnsureScriptingDefineSymbol()
         {
             var currentTarget = EditorUserBuildSettings.selectedBuildTargetGroup;
 
-            if (currentTarget == BuildTargetGroup.Unknown)
-            {
-                return;
-            }
+            if (currentTarget == BuildTargetGroup.Unknown) return;
 
             var definesString = PlayerSettings.GetScriptingDefineSymbolsForGroup(currentTarget).Trim();
             var defines = definesString.Split(';');
 
-            bool changed = false;
+            var changed = false;
 
             foreach (var define in DEFINES)
-            {
                 if (defines.Contains(define) == false)
                 {
-                    if (definesString.EndsWith(";", StringComparison.InvariantCulture) == false)
-                    {
-                        definesString += ";";
-                    }
+                    if (definesString.EndsWith(";", StringComparison.InvariantCulture) == false) definesString += ";";
 
                     definesString += define;
                     changed = true;
                 }
-            }
 
-            if (changed)
-            {
-                PlayerSettings.SetScriptingDefineSymbolsForGroup(currentTarget, definesString);
-            }
+            if (changed) PlayerSettings.SetScriptingDefineSymbolsForGroup(currentTarget, definesString);
         }
     }
 

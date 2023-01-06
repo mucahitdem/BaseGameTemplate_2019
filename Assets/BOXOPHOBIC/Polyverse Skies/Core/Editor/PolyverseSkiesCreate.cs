@@ -3,11 +3,12 @@
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PolyverseSkiesCreate
 {
     [MenuItem("GameObject/BOXOPHOBIC/Polyverse Skies/Manager", false, 8)]
-    static void CreateManager()
+    private static void CreateManager()
     {
         if (GameObject.Find("Polyverse Skies") != null)
         {
@@ -15,18 +16,14 @@ public class PolyverseSkiesCreate
             return;
         }
 
-        GameObject go = new GameObject();
+        var go = new GameObject();
         go.name = "Polyverse Skies";
         go.AddComponent<PolyverseSkies>();
 
-        if (Selection.activeGameObject != null)
-        {
-            go.transform.parent = Selection.activeGameObject.transform;
-        }
+        if (Selection.activeGameObject != null) go.transform.parent = Selection.activeGameObject.transform;
 
         Selection.activeGameObject = go;
 
-        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
     }
 }
-

@@ -10,49 +10,22 @@ namespace Scripts.BaseGameScripts.SaveAndLoad
     {
         [ReadOnly]
         [ShowInInspector]
-        private List<ISaveAndLoad> _saveAndLoads = new List<ISaveAndLoad>();
-        
+        private List<Type> _saveAndLoads = new List<Type>();
+
         private void Awake()
         {
             GetAllSaveAndLoadDataOnScene();
-            DoForAllListElements(LoadAllData);
         }
 
-        public void OnDisable()
-        {
-            DoForAllListElements(SaveAllData);
-        }
-        
         private void GetAllSaveAndLoadDataOnScene()
         {
-            List<Type> subClasses = AssemblyManager.GetSubClassesOfType(typeof(ISaveAndLoad));
+            var subClasses = AssemblyManager.GetClassesImplementedInterface(typeof(ISaveAndLoad));
             
-            for (int i = 0; i < subClasses.Count; i++)
+            for (var i = 0; i < subClasses.Count; i++)
             {
-                Type currentType = subClasses[i];
-                
-                var stateBehaviour = (ISaveAndLoad) gameObject.AddComponent(currentType);
-                _saveAndLoads.Add(stateBehaviour);
+                var currentType = subClasses[i];
+                _saveAndLoads.Add(currentType);
             }
-        }
-
-        private void DoForAllListElements(Action<ISaveAndLoad> saveOrLoad)
-        {
-            for (int i = 0; i < _saveAndLoads.Count; i++)
-            {
-                ISaveAndLoad saveAndLoad = _saveAndLoads[i];
-                saveOrLoad?.Invoke(saveAndLoad);
-            }
-        }
-        
-        private void LoadAllData(ISaveAndLoad saveAndLoad)
-        {
-            saveAndLoad.Load();
-        }
-
-        private void SaveAllData(ISaveAndLoad saveAndLoad)
-        {
-            saveAndLoad.Save();
         }
     }
 }

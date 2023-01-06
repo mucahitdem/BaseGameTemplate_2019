@@ -1,56 +1,51 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using System;
+using BayatGames.SaveGameFree.Serializers;
 using BayatGames.SaveGameFree.Types;
+using UnityEngine;
 
 namespace BayatGames.SaveGameFree.Examples
 {
-
-    [System.Serializable]
+    [Serializable]
     public class StorageSG
     {
-        public System.DateTime myDateTime;
+        public DateTime myDateTime;
 
         public StorageSG()
         {
-            myDateTime = System.DateTime.UtcNow;
+            myDateTime = DateTime.UtcNow;
         }
     }
 
     public class ExampleSavePosition : MonoBehaviour
     {
         private string _encodePassword;
+        public string identifier = "exampleSavePosition.dat";
+        public bool loadOnStart = true;
 
         public Transform target;
-        public bool loadOnStart = true;
-        public string identifier = "exampleSavePosition.dat";
 
-        void Start()
+        private void Start()
         {
             _encodePassword = "12345678910abcdef12345678910abcdef";
             SaveGame.EncodePassword = _encodePassword;
             SaveGame.Encode = true;
-            SaveGame.Serializer = new SaveGameFree.Serializers.SaveGameBinarySerializer();
-            StorageSG ssg = new StorageSG();
-            SaveGame.Save<StorageSG>("pizza2", ssg);
-            StorageSG ssgLoaded = SaveGame.Load<StorageSG>("pizza2");
+            SaveGame.Serializer = new SaveGameBinarySerializer();
+            var ssg = new StorageSG();
+            SaveGame.Save("pizza2", ssg);
+            var ssgLoaded = SaveGame.Load<StorageSG>("pizza2");
             Debug.Log(ssgLoaded.myDateTime.ToLocalTime().ToString());
-            if (loadOnStart)
-            {
-                Load();
-            }
+            if (loadOnStart) Load();
         }
 
-        void Update()
+        private void Update()
         {
-            Vector3 newPosition = target.position;
+            var newPosition = target.position;
             newPosition.x += Input.GetAxis("Horizontal");
             newPosition.y += Input.GetAxis("Vertical");
             target.position = newPosition;
         }
 
-        void OnApplicationQuit()
+        private void OnApplicationQuit()
         {
             Save();
         }
@@ -67,7 +62,5 @@ namespace BayatGames.SaveGameFree.Examples
                 Vector3.zero,
                 SerializerDropdown.Singleton.ActiveSerializer);
         }
-
     }
-
 }

@@ -1,62 +1,50 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
+﻿using System.Collections.Generic;
 using BayatGames.SaveGameFree.Serializers;
+using UnityEngine.UI;
 
 namespace BayatGames.SaveGameFree.Examples
 {
-
     public class SerializerDropdown : Dropdown
     {
-
-        private static SerializerDropdown m_Singleton;
-
-        public static SerializerDropdown Singleton
+        private static readonly ISaveGameSerializer[] m_Serializers =
         {
-            get
-            {
-                return m_Singleton;
-            }
-        }
-
-        private static ISaveGameSerializer[] m_Serializers = new ISaveGameSerializer[] {
-            new SaveGameXmlSerializer (),
-            new SaveGameJsonSerializer (),
-            new SaveGameBinarySerializer ()
+            new SaveGameXmlSerializer(),
+            new SaveGameJsonSerializer(),
+            new SaveGameBinarySerializer()
         };
 
         protected ISaveGameSerializer m_ActiveSerializer;
+
+        public static SerializerDropdown Singleton { get; private set; }
 
         public ISaveGameSerializer ActiveSerializer
         {
             get
             {
-                if (m_ActiveSerializer == null)
-                {
-                    m_ActiveSerializer = new SaveGameJsonSerializer();
-                }
+                if (m_ActiveSerializer == null) m_ActiveSerializer = new SaveGameJsonSerializer();
                 return m_ActiveSerializer;
             }
         }
 
         protected override void Awake()
         {
-            if (m_Singleton != null)
+            if (Singleton != null)
             {
                 Destroy(gameObject);
                 return;
             }
-            m_Singleton = this;
+
+            Singleton = this;
             base.Awake();
-            options = new List<OptionData>() {
-                new OptionData ( "XML" ),
-                new OptionData ( "JSON" ),
-                new OptionData ( "Binary" )
+            options = new List<OptionData>
+            {
+                new OptionData("XML"),
+                new OptionData("JSON"),
+                new OptionData("Binary")
             };
             onValueChanged.AddListener(OnValueChanged);
-            value = SaveGame.Load<int>("serializer", 0, false, "", new SaveGameJsonSerializer(), null, SaveGame.DefaultEncoding, SaveGame.SavePath);
+            value = SaveGame.Load("serializer", 0, false, "", new SaveGameJsonSerializer(), null,
+                SaveGame.DefaultEncoding, SaveGame.SavePath);
         }
 
         protected virtual void OnValueChanged(int index)
@@ -66,9 +54,8 @@ namespace BayatGames.SaveGameFree.Examples
 
         protected virtual void OnApplicationQuit()
         {
-            SaveGame.Save<int>("serializer", value, false, "", new SaveGameJsonSerializer(), null, SaveGame.DefaultEncoding, SaveGame.SavePath);
+            SaveGame.Save("serializer", value, false, "", new SaveGameJsonSerializer(), null, SaveGame.DefaultEncoding,
+                SaveGame.SavePath);
         }
-
     }
-
 }

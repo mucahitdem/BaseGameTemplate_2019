@@ -5,10 +5,10 @@ namespace Scripts.Helper
 {
     public class TimeManager : MonoBehaviour
     {
-        [SerializeField]
-        List<float> timeScales = new List<float>();
-
         private int _index;
+
+        [SerializeField]
+        private List<float> timeScales = new List<float>();
 
         public void ChangeTimeScale()
         {
@@ -19,10 +19,7 @@ namespace Scripts.Helper
         private void IncreaseIndex()
         {
             _index++;
-            if (_index >= timeScales.Count)
-            {
-                _index = 0;
-            }
+            if (_index >= timeScales.Count) _index = 0;
         }
     }
 }

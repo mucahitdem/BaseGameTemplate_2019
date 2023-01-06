@@ -1,5 +1,5 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 namespace KevinCastejon.MoreAttributes
 {
@@ -8,19 +8,13 @@ namespace KevinCastejon.MoreAttributes
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            ReadOnlyOnPlayAttribute att = (ReadOnlyOnPlayAttribute)attribute;
-            bool rdOnly = att.invert ? !Application.isPlaying : Application.isPlaying;
-            if (rdOnly)
-            {
-                EditorGUI.BeginDisabledGroup(true);
-            }
+            var att = (ReadOnlyOnPlayAttribute) attribute;
+            var rdOnly = att.invert ? !Application.isPlaying : Application.isPlaying;
+            if (rdOnly) EditorGUI.BeginDisabledGroup(true);
 
             EditorGUI.PropertyField(position, property, label);
 
-            if (rdOnly)
-            {
-                EditorGUI.EndDisabledGroup();
-            }
+            if (rdOnly) EditorGUI.EndDisabledGroup();
         }
     }
 }

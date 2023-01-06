@@ -1,22 +1,22 @@
-﻿using Scripts.BaseGameScripts.Pool;
-using Scripts.Managers;
-using Scripts.State;
-using Scripts.UI;
+﻿using Scripts.BaseGameScripts.Managers;
+using Scripts.BaseGameScripts.Pool;
+using Scripts.BaseGameScripts.State;
+using Scripts.BaseGameScripts.UI;
 using Sirenix.OdinInspector;
 
 namespace Scripts.BaseGameScripts
 {
     public class GlobalReferences : SingletonMono<GlobalReferences>
     {
-        [Title("Managers")]
-        public UiManager uiManager;
         public GameManager gameManager;
         public GameStateManager gameStateManager;
         public PoolManager poolManager;
-        
-        protected override void UseThisInsteadOfAwake()
+
+        [Title("Managers")]
+        public UiManager uiManager;
+
+        protected override void OnAwake()
         {
-            
         }
     }
 }

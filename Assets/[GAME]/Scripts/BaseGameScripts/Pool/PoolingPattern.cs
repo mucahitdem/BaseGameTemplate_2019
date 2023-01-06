@@ -5,27 +5,29 @@ namespace Scripts.BaseGameScripts.Pool
 {
     public class PoolingPattern<TObj> : MonoBehaviour where TObj : MonoBehaviour
     {
-        private readonly Stack<TObj> _objPool = new Stack<TObj>();
-        private readonly TObj _prefab;
+        private readonly int _amount;
         private readonly HideFlags _hide;
+        private readonly Stack<TObj> _objPool = new Stack<TObj>(); // dependency inversion yapıalcak
 
-        public PoolingPattern(TObj prefab, int count, HideFlags hideFlags = HideFlags.HideInHierarchy)
+        private readonly IPoolObject<TObj> _prefab;
+
+        public PoolingPattern(IPoolObject<TObj> prefab)
         {
-            _hide = hideFlags;
-            this._prefab = prefab;
-            FillPool(count);
+            _prefab = prefab;
+            _hide = prefab.HideFlag;
+            _amount = prefab.ItemCount;
+            FillPool();
         }
-        private void FillPool(int amount)
+
+        private void FillPool()
         {
-            for (var i = 0; i < amount; i++)
+            for (var i = 0; i < _amount; i++)
             {
-                var obje = Instantiate(_prefab);
-                obje.gameObject.hideFlags = _hide;
-                AddObjToPool(obje);
+                AddNewItemToPool();
             }
         }
-
-        public TObj PullObjFromPool()
+        
+        public TObj PullObj()
         {
             if (_objPool.Count > 0)
             {
@@ -35,12 +37,23 @@ namespace Scripts.BaseGameScripts.Pool
                 return obje;
             }
 
-            return Instantiate(_prefab);
+            return AddNewItemToPool();
         }
-        public void AddObjToPool(TObj objToPool)
+
+        public void AddBackToPool(TObj objToPool)
         {
             objToPool.gameObject.SetActive(false);
             _objPool.Push(objToPool);
+        }
+
+        private TObj AddNewItemToPool()
+        {
+            var obje = Instantiate(_prefab.ObjToPool);
+            ((IPoolObject<TObj>) obje).SetPool(this);
+            obje.gameObject.hideFlags = _hide;
+            AddBackToPool(obje);
+
+            return obje;
         }
     }
 }

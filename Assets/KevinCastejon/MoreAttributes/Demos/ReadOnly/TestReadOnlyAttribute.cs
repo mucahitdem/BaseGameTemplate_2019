@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using KevinCastejon.MoreAttributes;
+using UnityEngine;
 
-public class TestReadOnlyAttribute: MonoBehaviour
+public class TestReadOnlyAttribute : MonoBehaviour
 {
     [ReadOnly]
-    [SerializeField] private int _healthPoints;
+    [SerializeField]
+    private int _damages;
+
     [ReadOnly]
-    [SerializeField] private int _damages;
+    [SerializeField]
+    private int _healthPoints;
 }

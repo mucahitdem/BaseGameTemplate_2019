@@ -4,18 +4,21 @@ namespace Scripts.Ragdoll
 {
     public class RagDoll : MonoBehaviour
     {
-        [Header("Sub-Components")]
-        Collider[] _subCollider;
-        Rigidbody[] _subRigidbody;
-
         [Header("Main Components")]
-        Animator _animatorOfTransform;
-        Rigidbody _rigidbodyOfTransform;
-        Collider _mainColliderOfTransform;
+        private Animator _animatorOfTransform;
+
+        private Collider _mainColliderOfTransform;
+        private Rigidbody _rigidbodyOfTransform;
+
+        [Header("Sub-Components")]
+        private Collider[] _subCollider;
+
+        private Rigidbody[] _subRigidbody;
 
         [Header("Spines-Neck-Head")]
-        [SerializeField] Transform[] spinesAndNeck;
-    
+        [SerializeField]
+        private Transform[] spinesAndNeck;
+
 
         public void SetUp(Transform ragDollParent, Animator anim, Rigidbody rbTransform, Collider colliderMain)
         {
@@ -31,28 +34,19 @@ namespace Scripts.Ragdoll
 
         private void WholeBodyRagDoll(bool ragDollState)
         {
-            foreach (Collider col in _subCollider)
-            {
-                col.enabled = ragDollState;
-            }
+            foreach (var col in _subCollider) col.enabled = ragDollState;
 
-            foreach (Rigidbody npcRb in _subRigidbody)
-            {
-                npcRb.isKinematic = !ragDollState;
-            }
+            foreach (var npcRb in _subRigidbody) npcRb.isKinematic = !ragDollState;
 
             _rigidbodyOfTransform.isKinematic = ragDollState; // main rigidbody on player
 
             _mainColliderOfTransform.enabled = !ragDollState; // main collider on player
             _animatorOfTransform.enabled = !ragDollState; //
         }
-    
+
         public void AddForceToRagDoll()
         {
-            foreach (Rigidbody npcRb in _subRigidbody)
-            {
-                npcRb.AddForce(new Vector3(0,.1f,1) * 50, ForceMode.Impulse);
-            }
+            foreach (var npcRb in _subRigidbody) npcRb.AddForce(new Vector3(0, .1f, 1) * 50, ForceMode.Impulse);
         }
     }
 }

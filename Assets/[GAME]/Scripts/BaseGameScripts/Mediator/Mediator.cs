@@ -1,11 +1,10 @@
 ﻿using System;
-using UnityEngine;
 
 namespace Scripts.Mediator
 {
     public class Mediator : SingletonMono<Mediator>
     {
-        protected override void UseThisInsteadOfAwake()
+        protected override void OnAwake()
         {
             //
         }

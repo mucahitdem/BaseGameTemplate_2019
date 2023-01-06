@@ -1,19 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnvironmentManager : MonoBehaviour
 {
     [Header("Sky Components")]
-    [SerializeField] Color fogColor;
-    [SerializeField] Material skyMaterial;
+    [SerializeField]
+    private Color fogColor;
 
-    void Awake()
+    [SerializeField]
+    private Material skyMaterial;
+
+    private void Awake()
     {
         SetSkyboxSettings();
     }
 
-    void SetSkyboxSettings()
+    private void SetSkyboxSettings()
     {
         RenderSettings.skybox = skyMaterial;
         RenderSettings.fogColor = fogColor;

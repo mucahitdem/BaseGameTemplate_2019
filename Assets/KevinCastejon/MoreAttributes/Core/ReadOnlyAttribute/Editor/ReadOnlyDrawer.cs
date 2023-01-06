@@ -1,5 +1,5 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 namespace KevinCastejon.MoreAttributes
 {
@@ -8,13 +8,13 @@ namespace KevinCastejon.MoreAttributes
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            // Pour désactiver l'UI (rendre en lecture seule)
+            // Pour dÃ©sactiver l'UI (rendre en lecture seule)
             EditorGUI.BeginDisabledGroup(true);
 
-            // On dessine la propriété
+            // On dessine la propriÃ©tÃ©
             EditorGUI.PropertyField(position, property, label);
 
-            // On réactive l'UI
+            // On rÃ©active l'UI
             EditorGUI.EndDisabledGroup();
         }
     }

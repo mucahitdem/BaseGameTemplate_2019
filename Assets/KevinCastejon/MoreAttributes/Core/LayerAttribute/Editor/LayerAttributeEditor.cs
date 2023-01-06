@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomPropertyDrawer(typeof(LayerAttribute))]
-class LayerAttributeEditor : PropertyDrawer
+internal class LayerAttributeEditor : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
@@ -12,6 +12,7 @@ class LayerAttributeEditor : PropertyDrawer
             base.OnGUI(position, property, label);
             return;
         }
+
         property.intValue = EditorGUI.LayerField(position, label, property.intValue);
     }
 }

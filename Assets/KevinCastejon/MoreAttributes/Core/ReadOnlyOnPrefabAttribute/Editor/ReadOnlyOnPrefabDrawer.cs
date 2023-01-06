@@ -1,6 +1,6 @@
-using UnityEngine;
 using UnityEditor;
-
+using UnityEditor.SceneManagement;
+using UnityEngine;
 
 namespace KevinCastejon.MoreAttributes
 {
@@ -9,19 +9,15 @@ namespace KevinCastejon.MoreAttributes
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            ReadOnlyOnPrefabAttribute att = (ReadOnlyOnPrefabAttribute)attribute;
-            bool rdOnly = att.invert ? UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() == null : UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null;
-            if (rdOnly)
-            {
-                EditorGUI.BeginDisabledGroup(true);
-            }
+            var att = (ReadOnlyOnPrefabAttribute) attribute;
+            var rdOnly = att.invert
+                ? PrefabStageUtility.GetCurrentPrefabStage() == null
+                : PrefabStageUtility.GetCurrentPrefabStage() != null;
+            if (rdOnly) EditorGUI.BeginDisabledGroup(true);
 
             EditorGUI.PropertyField(position, property, label);
 
-            if (rdOnly)
-            {
-                EditorGUI.EndDisabledGroup();
-            }
+            if (rdOnly) EditorGUI.EndDisabledGroup();
         }
     }
 }

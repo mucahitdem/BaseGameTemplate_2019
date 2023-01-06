@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts.UI
+namespace Scripts.BaseGameScripts.UI
 {
     public class UiManager : MonoBehaviour
     {
@@ -15,12 +15,12 @@ namespace Scripts.UI
         {
             ShowOneHideRest(screens, uiItemId);
         }
-        
-        public void ShowOneHideRest(List<UiItem> itemGroup, string uiItemId)
+
+        private void ShowOneHideRest(List<UiItem> itemGroup, string uiItemId)
         {
-            for (int i = 0; i < itemGroup.Count; i++)
+            for (var i = 0; i < itemGroup.Count; i++)
             {
-                UiItem currentUi = itemGroup[i];
+                var currentUi = itemGroup[i];
 
                 currentUi.Go.SetActive(uiItemId == currentUi.id);
             }
@@ -28,9 +28,9 @@ namespace Scripts.UI
 
         public void ShowUi(string uiId)
         {
-            for (int i = 0; i < uiItems.Count; i++)
+            for (var i = 0; i < uiItems.Count; i++)
             {
-                UiItem currentUi = screens[i];
+                var currentUi = screens[i];
 
                 if (uiId == currentUi.id)
                     currentUi.Go.SetActive(true);
@@ -39,18 +39,15 @@ namespace Scripts.UI
 
         public void ShowMultipleUis(params string[] ids) // not recommend to use because it is too slow
         {
-            for (int i = 0; i < uiItems.Count; i++)
+            for (var i = 0; i < uiItems.Count; i++)
             {
-                UiItem currentUi = screens[i];
+                var currentUi = screens[i];
 
-                for (int j = 0; j < ids.Length; j++)
+                for (var j = 0; j < ids.Length; j++)
                 {
-                    string itemId = ids[j];
+                    var itemId = ids[j];
 
-                    if (itemId == currentUi.id)
-                    {
-                        currentUi.Go.SetActive(true);
-                    }
+                    if (itemId == currentUi.id) currentUi.Go.SetActive(true);
                 }
             }
         }

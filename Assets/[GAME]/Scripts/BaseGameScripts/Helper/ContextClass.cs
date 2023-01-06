@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace Scripts.Helper
+namespace Scripts.BaseGameScripts.Helper
 {
     public static class ContextClass
     {

@@ -4,79 +4,86 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using System.Linq;
+using Sirenix.Utilities;
+using Sirenix.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
+
 #if UNITY_EDITOR && UNITY_2018_3_OR_NEWER
 #pragma warning disable
 
 namespace Sirenix.OdinInspector.Editor.Drawers
 {
-    using Sirenix.OdinInspector;
-    using Sirenix.OdinInspector.Editor;
-    using Sirenix.Utilities;
-    using Sirenix.Utilities.Editor;
-    using System.Linq;
-    using UnityEditor;
-    using UnityEngine;
-
-    [DrawerPriority(0.001, 0, 0)]
+    [DrawerPriority(0.001)]
     public class FixBrokenUnityObjectWrapperDrawer<T> : OdinValueDrawer<T>, IDefinesGenericMenuItems
-        where T : UnityEngine.Component
+        where T : Component
     {
         private const string AUTO_FIX_PREFS_KEY = "TemporarilyBrokenUnityObjectWrapperDrawer.autoFix";
-
-        private bool isBroken = false;
-        private T realWrapperInstance;
-        private bool allowSceneViewObjects;
         private static bool autoFix;
+        private bool allowSceneViewObjects;
+
+        private bool isBroken;
+        private T realWrapperInstance;
+
+        public void PopulateGenericMenu(InspectorProperty property, GenericMenu genericMenu)
+        {
+            if (EditorPrefs.HasKey(AUTO_FIX_PREFS_KEY))
+                genericMenu.AddItem(new GUIContent("Disable auto-fix of broken prefab instance references"), false, x =>
+                {
+                    EditorPrefs.DeleteKey(AUTO_FIX_PREFS_KEY);
+                    autoFix = false;
+                }, null);
+        }
 
         protected override void Initialize()
         {
-            this.allowSceneViewObjects = this.ValueEntry.Property.GetAttribute<AssetsOnlyAttribute>() == null;
+            allowSceneViewObjects = ValueEntry.Property.GetAttribute<AssetsOnlyAttribute>() == null;
             autoFix = EditorPrefs.HasKey(AUTO_FIX_PREFS_KEY);
         }
 
         protected override void DrawPropertyLayout(GUIContent label)
         {
-            if (!(this.ValueEntry.ValueState == PropertyValueState.NullReference || this.ValueEntry.ValueState == PropertyValueState.ReferenceValueConflict))
+            if (!(ValueEntry.ValueState == PropertyValueState.NullReference ||
+                  ValueEntry.ValueState == PropertyValueState.ReferenceValueConflict))
             {
-                this.CallNextDrawer(label);
+                CallNextDrawer(label);
                 return;
             }
 
             if (Event.current.type == EventType.Layout)
             {
-                this.isBroken = false;
-                var count = this.ValueEntry.ValueCount;
-                for (int i = 0; i < count; i++)
+                isBroken = false;
+                var count = ValueEntry.ValueCount;
+                for (var i = 0; i < count; i++)
                 {
-                    var component = this.ValueEntry.Values[i];
+                    var component = ValueEntry.Values[i];
 
-                    if (ComponentIsBroken(component, ref this.realWrapperInstance))
+                    if (ComponentIsBroken(component, ref realWrapperInstance))
                     {
-                        this.isBroken = true;
+                        isBroken = true;
                         break;
                     }
                 }
 
-                if (this.isBroken && autoFix)
+                if (isBroken && autoFix)
                 {
-                    this.isBroken = false;
+                    isBroken = false;
 
-                    for (int i = 0; i < this.ValueEntry.ValueCount; i++)
+                    for (var i = 0; i < ValueEntry.ValueCount; i++)
                     {
                         T fixedComponent = null;
-                        if (ComponentIsBroken(this.ValueEntry.Values[i], ref fixedComponent) && fixedComponent)
-                        {
-                            (this.ValueEntry as IValueEntryActualValueSetter<T>).SetActualValue(i, fixedComponent);
-                        }
+                        if (ComponentIsBroken(ValueEntry.Values[i], ref fixedComponent) && fixedComponent)
+                            (ValueEntry as IValueEntryActualValueSetter<T>).SetActualValue(i, fixedComponent);
                     }
 
-                    this.ValueEntry.Update();
+                    ValueEntry.Update();
                 }
             }
 
-            if (!this.isBroken)
+            if (!isBroken)
             {
-                this.CallNextDrawer(label);
+                CallNextDrawer(label);
                 return;
             }
 
@@ -88,45 +95,36 @@ namespace Sirenix.OdinInspector.Editor.Drawers
 
             EditorGUI.BeginChangeCheck();
             {
-                if (this.ValueEntry.BaseValueType.IsInterface)
-                {
+                if (ValueEntry.BaseValueType.IsInterface)
                     newInstance = SirenixEditorFields.PolymorphicObjectField(controlRect,
                         label,
-                        this.realWrapperInstance,
-                        this.ValueEntry.BaseValueType,
-                        this.allowSceneViewObjects);
-                }
+                        realWrapperInstance,
+                        ValueEntry.BaseValueType,
+                        allowSceneViewObjects);
                 else
-                {
                     newInstance = SirenixEditorFields.UnityObjectField(
                         controlRect,
                         label,
-                        this.realWrapperInstance,
-                        this.ValueEntry.BaseValueType,
-                        this.allowSceneViewObjects) as Component;
-                }
+                        realWrapperInstance,
+                        ValueEntry.BaseValueType,
+                        allowSceneViewObjects) as Component;
             }
-            if (EditorGUI.EndChangeCheck())
-            {
-                this.ValueEntry.WeakSmartValue = newInstance;
-            }
+            if (EditorGUI.EndChangeCheck()) ValueEntry.WeakSmartValue = newInstance;
 
             if (GUI.Button(btnRect, " ", EditorStyles.miniButton))
             {
-                var popup = new FixBrokenUnityObjectWrapperPopup(this.ValueEntry);
+                var popup = new FixBrokenUnityObjectWrapperPopup(ValueEntry);
                 OdinEditorWindow.InspectObjectInDropDown(popup, 300);
             }
 
             if (Event.current.type == EventType.Repaint)
-            {
                 GUI.DrawTexture(btnRect, EditorIcons.ConsoleWarnicon, ScaleMode.ScaleToFit);
-            }
         }
 
         private static bool ComponentIsBroken(T component, ref T realInstance)
         {
             var uObj = component;
-            var oObj = (object)uObj;
+            var oObj = (object) uObj;
 
             if (oObj != null && uObj == null)
             {
@@ -134,7 +132,8 @@ namespace Sirenix.OdinInspector.Editor.Drawers
                 if (AssetDatabase.Contains(instanceId))
                 {
                     var path = AssetDatabase.GetAssetPath(instanceId);
-                    var realWrapper = AssetDatabase.LoadAllAssetsAtPath(path).FirstOrDefault(n => n.GetInstanceID() == instanceId) as T;
+                    var realWrapper = AssetDatabase.LoadAllAssetsAtPath(path)
+                        .FirstOrDefault(n => n.GetInstanceID() == instanceId) as T;
                     if (realWrapper)
                     {
                         realInstance = realWrapper;
@@ -146,60 +145,43 @@ namespace Sirenix.OdinInspector.Editor.Drawers
             return false;
         }
 
-        public void PopulateGenericMenu(InspectorProperty property, GenericMenu genericMenu)
-        {
-            if (EditorPrefs.HasKey(AUTO_FIX_PREFS_KEY))
-            {
-                genericMenu.AddItem(new GUIContent("Disable auto-fix of broken prefab instance references"), false, (x) =>
-                {
-                    EditorPrefs.DeleteKey(AUTO_FIX_PREFS_KEY);
-                    autoFix = false;
-                }, null);
-            }
-        }
-
-        [TypeInfoBox("This asset reference is temporarily broken until the next reload, because of an error in Unity where the C# wrapper object of a prefab asset is destroyed when changes are made to that prefab asset. This error has been reported to Unity.\n\nMeanwhile, Odin can fix this for you by getting a new, valid wrapper object from the asset database and replacing the broken wrapper instance with the new one.")]
+        [TypeInfoBox(
+            "This asset reference is temporarily broken until the next reload, because of an error in Unity where the C# wrapper object of a prefab asset is destroyed when changes are made to that prefab asset. This error has been reported to Unity.\n\nMeanwhile, Odin can fix this for you by getting a new, valid wrapper object from the asset database and replacing the broken wrapper instance with the new one.")]
         private class FixBrokenUnityObjectWrapperPopup
         {
-            private IPropertyValueEntry<T> valueEntry;
+            private readonly IPropertyValueEntry<T> valueEntry;
 
             public FixBrokenUnityObjectWrapperPopup(IPropertyValueEntry<T> valueEntry)
             {
                 this.valueEntry = valueEntry;
             }
 
-            [HorizontalGroup, Button(ButtonSizes.Large)]
+            [HorizontalGroup]
+            [Button(ButtonSizes.Large)]
             public void FixItThisTime()
             {
-                for (int i = 0; i < this.valueEntry.ValueCount; i++)
+                for (var i = 0; i < valueEntry.ValueCount; i++)
                 {
                     var localI = i;
                     T fixedComponent = null;
-                    if (ComponentIsBroken(this.valueEntry.Values[i], ref fixedComponent) && fixedComponent)
-                    {
-                        this.valueEntry.Property.Tree.DelayActionUntilRepaint(() =>
+                    if (ComponentIsBroken(valueEntry.Values[i], ref fixedComponent) && fixedComponent)
+                        valueEntry.Property.Tree.DelayActionUntilRepaint(() =>
                         {
-                            (this.valueEntry as IValueEntryActualValueSetter<T>).SetActualValue(localI, fixedComponent);
+                            (valueEntry as IValueEntryActualValueSetter<T>).SetActualValue(localI, fixedComponent);
                         });
-                    }
                 }
 
-                if (GUIHelper.CurrentWindow) 
-                {
-                    EditorApplication.delayCall += GUIHelper.CurrentWindow.Close;
-                }
+                if (GUIHelper.CurrentWindow) EditorApplication.delayCall += GUIHelper.CurrentWindow.Close;
             }
 
-            [HorizontalGroup, Button(ButtonSizes.Large)]
+            [HorizontalGroup]
+            [Button(ButtonSizes.Large)]
             public void FixItAlways()
             {
                 EditorPrefs.SetBool(AUTO_FIX_PREFS_KEY, true);
                 autoFix = true;
 
-                if (GUIHelper.CurrentWindow) 
-                {
-                    EditorApplication.delayCall += GUIHelper.CurrentWindow.Close;
-                }
+                if (GUIHelper.CurrentWindow) EditorApplication.delayCall += GUIHelper.CurrentWindow.Close;
             }
         }
     }

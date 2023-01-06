@@ -1,19 +1,18 @@
 ﻿// Cristian Pop - https://boxophobic.com/
 
-using UnityEngine;
 using UnityEditor;
-using Boxophobic.Constants;
+using UnityEngine;
 
 namespace Boxophobic.StyledGUI
 {
     [CustomPropertyDrawer(typeof(StyledCategory))]
     public class StyledCategoryAttributeDrawer : PropertyDrawer
     {
-        StyledCategory a;
+        private StyledCategory a;
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            a = (StyledCategory)attribute;
+            a = (StyledCategory) attribute;
 
             GUI.enabled = true;
             EditorGUI.indentLevel = 0;

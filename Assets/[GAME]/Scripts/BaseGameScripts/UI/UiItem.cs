@@ -1,9 +1,9 @@
-﻿using Scripts.Component;
-using UnityEngine;
+﻿using Scripts.BaseGameScripts.Component;
 
-namespace Scripts.UI
+
+namespace Scripts.BaseGameScripts.UI
 {
-    public class UiItem : ComponentBase 
+    public class UiItem : ComponentBase
     {
         public string id;
     }

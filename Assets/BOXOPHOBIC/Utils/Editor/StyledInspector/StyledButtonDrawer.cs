@@ -1,25 +1,22 @@
 ﻿// Cristian Pop - https://boxophobic.com/
 
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 namespace Boxophobic.StyledGUI
 {
     [CustomPropertyDrawer(typeof(StyledButton))]
     public class StyledButtonAttributeDrawer : PropertyDrawer
     {
-        StyledButton a;
+        private StyledButton a;
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            a = (StyledButton)attribute;
+            a = (StyledButton) attribute;
 
             GUILayout.Space(a.Top);
 
-            if (GUILayout.Button(a.Text))
-            {
-                property.boolValue = true;
-            }
+            if (GUILayout.Button(a.Text)) property.boolValue = true;
 
             GUILayout.Space(a.Down);
         }
@@ -30,4 +27,3 @@ namespace Boxophobic.StyledGUI
         }
     }
 }
-

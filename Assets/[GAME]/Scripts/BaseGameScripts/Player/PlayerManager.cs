@@ -4,6 +4,5 @@ namespace Scripts.Player
 {
     public class PlayerManager : MonoBehaviour
     {
-        
     }
 }

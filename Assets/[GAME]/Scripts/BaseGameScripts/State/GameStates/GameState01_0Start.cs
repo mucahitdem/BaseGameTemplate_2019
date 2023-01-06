@@ -12,7 +12,6 @@ namespace Scripts.State.GameStates
 
         public override void ExitState()
         {
-            
         }
     }
 }

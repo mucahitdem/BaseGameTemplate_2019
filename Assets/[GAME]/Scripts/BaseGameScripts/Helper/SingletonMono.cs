@@ -5,6 +5,9 @@ namespace Scripts
     public abstract class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
     {
         private static T s_instance;
+
+        public bool dontDestroyOnLoad;
+
         public static T Instance
         {
             get
@@ -16,8 +19,16 @@ namespace Scripts
             set => s_instance = value;
         }
 
-        public bool dontDestroyOnLoad;
-        
+        public static bool IsNull
+        {
+            get
+            {
+                if (!Application.isPlaying)
+                    s_instance = FindObjectOfType<T>();
+                return s_instance == null;
+            }
+        }
+
         protected virtual void Awake()
         {
             if (s_instance == null)
@@ -30,18 +41,8 @@ namespace Scripts
                 return;
             }
 
-            (Instance as SingletonMono<T>)?.UseThisInsteadOfAwake();
+            (Instance as SingletonMono<T>)?.OnAwake();
             SetIfDontDestroyOnLoad();
-        }
-        
-        public static bool IsNull
-        {
-            get
-            {
-                if (!Application.isPlaying) 
-                    s_instance = FindObjectOfType<T>();
-                return s_instance == null;
-            }
         }
 
         private static void BuildNewInstanceIfNull()
@@ -62,6 +63,6 @@ namespace Scripts
             }
         }
 
-        protected abstract void UseThisInsteadOfAwake();
+        protected abstract void OnAwake();
     }
 }

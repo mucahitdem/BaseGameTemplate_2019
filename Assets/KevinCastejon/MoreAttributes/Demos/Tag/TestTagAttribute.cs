@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using KevinCastejon.MoreAttributes;
+using UnityEngine;
 
 public class TestTagAttribute : MonoBehaviour
 {
     [Tag]
-    [SerializeField] private string _targetTag;
+    [SerializeField]
+    private string _targetTag;
 }

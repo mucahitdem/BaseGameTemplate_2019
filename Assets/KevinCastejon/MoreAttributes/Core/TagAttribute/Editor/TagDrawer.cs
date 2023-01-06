@@ -1,5 +1,6 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEditorInternal;
+using UnityEngine;
 
 namespace KevinCastejon.MoreAttributes
 {
@@ -14,10 +15,8 @@ namespace KevinCastejon.MoreAttributes
                 base.OnGUI(position, property, label);
                 return;
             }
-            if (property.stringValue == "")
-            {
-                property.stringValue = UnityEditorInternal.InternalEditorUtility.tags[0];
-            }
+
+            if (property.stringValue == "") property.stringValue = InternalEditorUtility.tags[0];
             property.stringValue = EditorGUI.TagField(position, label, property.stringValue);
         }
     }

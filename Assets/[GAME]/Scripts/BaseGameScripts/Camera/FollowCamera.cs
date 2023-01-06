@@ -10,31 +10,37 @@ public class FollowCamera : MonoBehaviour
         Gradually
     }
 
+
+    [Header("Camera")]
+    private Camera cam;
+
     [Header("Follow Settings")]
     /*[HideInInspector]*/
     public bool follow;
 
-    [Header("Follow Method Variables")]
-    [SerializeField] Rigidbody target;
-    [SerializeField] float speed = 3f;
-
-    [Header("Horizonral Follow")]  
-    public HorizontalFollow horizontalFollowType;
-    public float horizontalFollowLerpMult;
     public float horizontalClampVal;
+    public float horizontalFollowLerpMult;
+
+    [Header("Horizonral Follow")]
+    public HorizontalFollow horizontalFollowType;
 
 
     private Vector3 newPos = Vector3.zero;
+
+    [HideInInspector]
+    public Vector3 offset;
+
+    [SerializeField]
+    private float speed = 3f;
+
+    [Header("Follow Method Variables")]
+    [SerializeField]
+    private Rigidbody target;
+
+    private float temporaryXVal;
     private Vector3 vel = Vector3.zero;
-    float temporaryXVal;
 
-    [HideInInspector] public Vector3 offset;
-    
-
-    [Header("Camera")]
-    Camera cam;
-
-    void Awake()
+    private void Awake()
     {
         follow = true;
         OffsetCalculate();
@@ -42,24 +48,21 @@ public class FollowCamera : MonoBehaviour
         newPos.x = transform.position.x;
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
-        if (follow)
-        {
-            FollowMethod();
-        }
+        if (follow) FollowMethod();
     }
 
-    void FollowMethod()
+    private void FollowMethod()
     {
-        if (target)//for safety
+        if (target) //for safety
         {
             NewPosCalculator();
             transform.position = Vector3.SmoothDamp(transform.position, newPos, ref vel, speed);
         }
     }
 
-    Vector3 NewPosCalculator()
+    private Vector3 NewPosCalculator()
     {
         NewPosX();
         newPos.y = target.position.y + offset.y;
@@ -67,7 +70,7 @@ public class FollowCamera : MonoBehaviour
         return newPos;
     }
 
-    float NewPosX()
+    private float NewPosX()
     {
         switch (horizontalFollowType)
         {
@@ -85,6 +88,7 @@ public class FollowCamera : MonoBehaviour
                 newPos.x = temporaryXVal;
                 return newPos.x;
         }
+
         Debug.Log(true);
         return newPos.x;
     }

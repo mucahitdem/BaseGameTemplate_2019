@@ -1,4 +1,4 @@
-﻿using Scripts.Component;
+﻿using Scripts.BaseGameScripts.Component;
 using Scripts.State._Interface;
 
 namespace Scripts.BaseGameScripts.State
