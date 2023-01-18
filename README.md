@@ -4,7 +4,7 @@ Base game template
 <h1 align="center">Hi 👋, I'm Mücahit DEMİRCİ</h1>
 <h3 align="center">A passionate game developer from Turkey</h3>
 
-<h3 align="left"><a href="https://www.linkedin.com/in/m%C3%BCcahit-demirci-4181451a2/" target="_blank" rel="noopener">Connect to me!</a></h3>
+<h3 align="left"><a href="https://www.linkedin.com/in/m%C3%BCcahit-demirci-4181451a2/" target="_blank">Connect to me!</a></h3>
 <p align="left">
 </p>
 
