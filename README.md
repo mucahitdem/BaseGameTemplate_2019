@@ -25,7 +25,7 @@ Easy implement timer
 
 - WHAT WILL BE INCLUDED ON THIS TEMPLATE ? 
 
-Mediator pattern for event handling and creating (This is also help you to understand zenject and Ioc for creating casual games)
+Mediator pattern for event handling and creating (This template also helps you to understand zenject and Ioc for creating casual games)
 More designer tools
 More ready code blocks which ll help you to create faster (It ll be like merge code blocks almost in a year)
 
