@@ -3,8 +3,8 @@
 
 Hi 👋, I'm Mücahit DEMİRCİ 
 
-+ This repository is made for rapid prototyping and not to struggle same things over 
-+ and over on every new game. You can find useful assets to use here.
+This repository is made for rapid prototyping and not to struggle same things over 
+and over on every new game. You can find useful assets to use here.
 
 + WHAT IS INCLUDED ON THIS TEMPLATE ? 
 
