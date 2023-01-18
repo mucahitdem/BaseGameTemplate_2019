@@ -1,4 +1,5 @@
 # BaseGameTemplate 2021
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,7 @@
 
 <div>
 
-<h1> BASE GAME TEMPLATE </h1>
+<h1> Hi 👋, I'm Mücahit DEMİRCİ </h1>
 
 <p> This template is made for rapid prototyping </p>
 
