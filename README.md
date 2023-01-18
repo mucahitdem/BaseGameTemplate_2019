@@ -1,13 +1,60 @@
 # BaseGameTemplate 2021
-Base game template
+<!DOCTYPE html>
+<html>
+<head>
+   
+<style>
+ body {
+        background-color: lightblue;
+      }
+      
+      h1 {
+        color: white;
+        text-align: center;
+      }
+      
+      p {
+        font-family: verdana;
+        font-size: 20px;
+      }
+    
+      #para1 {
+        text-align: center;
+        color: red;
+      }
+</style>
+   
 
-<h1 align="center">Hi 👋, I'm Mücahit DEMİRCİ</h1>
-<h3 align="center">A passionate game developer from Turkey</h3>
+</head>
 
-<h3 align="left"><a href="https://www.linkedin.com/in/m%C3%BCcahit-demirci-4181451a2/" target="_blank">Connect to me!</a></h3>
-<p align="left">
-</p>
+<body>
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.w3schools.com/cs/" target="_blank" rel="noreferrer">
- <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://unity.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/unity3d/unity3d-icon.svg" alt="unity" width="40" height="40"/> </a> </p>
+<div>
+
+<h1> BASE GAME TEMPLATE </h1>
+
+<p> This template is made for rapid prototyping </p>
+
+<h2> WHAT IS INCLUDED ON THIS TEMPLATE ? </h2>
+
+<p id = "para1"> Tools for designers and developers </p>
+<p> State management via state pattern </p>
+<p> Pool management via pooling pattern </p>
+<p> Save and Load system. You can save and load "also" custom classes like data containers </p>
+<p> Input system implemented which both works on mobile and pc </p>
+<p> Different kind of control systems. Swipe, slide, rotate etc.  </p>
+<p> Easy subscribtion system which allows you to control your code better </p>
+<p> Some scripts helps you to improve performance </p>
+<p> Debug helper system. It helps you to create colorful and at different sizes debugs </p>
+<p> Easy implemented ragdoll system </p>
+<p> Coin management system. Save , Add, Reduce coin etc. </p>
+<p> Easy and performant animator control system </p>
+
+
+<p> THIS TEMPLATE IS STILL IN DEVELOPMENT PROCESS </p>
+
+</div>
+
+
+</body>
+</html>
