@@ -34,7 +34,7 @@
 
 <h1> Hi 👋, I'm Mücahit DEMİRCİ </h1>
 
-<p> This template is made for rapid prototyping </p>
+<p> I am a game developer for 6 years. 2 years for learning, 2 years for individual working and 2 years for professional working. I dont have much recent repositories because i was working for studios mostly so cant share the projects i made. This is a template repository for rapid prototyping. </p>
 
 <h2> WHAT IS INCLUDED ON THIS TEMPLATE ? </h2>
 
