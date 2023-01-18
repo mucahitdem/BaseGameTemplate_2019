@@ -22,7 +22,7 @@ Coin management system. Save , Add, Reduce coin etc.
 Easy and performant animator control system
 
 
-@@ THIS TEMPLATE IS STILL IN DEVELOPMENT PROCESS 
+@ THIS TEMPLATE IS STILL IN DEVELOPMENT PROCESS @
 ```
 
 
