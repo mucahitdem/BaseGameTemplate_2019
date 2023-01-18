@@ -1,7 +1,7 @@
 # BaseGameTemplate 2021
 ```diff
 
-@@ Hi 👋, I'm Mücahit DEMİRCİ 
+Hi 👋, I'm Mücahit DEMİRCİ 
 
 + This repository is made for rapid prototyping and not to struggle same things over 
 + and over on every new game. You can find useful assets to use here.
