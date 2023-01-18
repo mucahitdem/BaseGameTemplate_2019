@@ -8,7 +8,7 @@ I am a game developer for 6 years. 2 years for learning, 2 years for individual 
 
  WHAT IS INCLUDED ON THIS TEMPLATE ? 
 
-Tools for designers and developers
++ Tools for designers and developers
 State management via state pattern
 Pool management via pooling pattern
 Save and Load system. You can save and load "also" custom classes like data containers 
