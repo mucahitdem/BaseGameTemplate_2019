@@ -29,5 +29,5 @@
 + More designer tools
 + More ready code blocks which ll help you to create faster (It ll be like merge code blocks almost in a year)
 
- @@ THIS TEMPLATE IS STILL IN DEVELOPMENT PROCESS @@
+@@ THIS TEMPLATE IS STILL IN DEVELOPMENT PROCESS @@
 ```
