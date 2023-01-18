@@ -1,6 +1,6 @@
 # BaseGameTemplate 2021
 ```diff
-- text in red
+- yamete
 + text in green
 ! text in orange
 # text in gray
