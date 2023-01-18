@@ -7,6 +7,7 @@
 and over on every new game. You can find useful assets to use here.
 
 - WHAT IS INCLUDED ON THIS TEMPLATE ? 
+
 + Tools for designers and developers
 + State management via state pattern
 + Pool management via pooling pattern
@@ -20,6 +21,8 @@ and over on every new game. You can find useful assets to use here.
 + Coin management system. Save , Add, Reduce coin etc. 
 + Easy and performant animator control system
 + Easy implement timer
+
+
 - WHAT WILL BE INCLUDED ON THIS TEMPLATE ? 
 
 + Mediator pattern for event handling and creating (This is also help you to understand zenject and Ioc for creating casual games)
