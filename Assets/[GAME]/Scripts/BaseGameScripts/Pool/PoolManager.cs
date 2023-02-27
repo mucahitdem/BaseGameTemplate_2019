@@ -1,25 +1,49 @@
-﻿using Scripts.BaseGameScripts.CoinControl;
+﻿using System.Collections.Generic;
+using Scripts.BaseGameScripts.Component;
+using Scripts.GameScripts;
 using UnityEngine;
 
 namespace Scripts.BaseGameScripts.Pool
 {
-    public class PoolManager : MonoBehaviour
+    public class PoolManager : SingletonMono<PoolManager>
     {
+        private Dictionary<string, Pool> idAndPool;
+        
         [SerializeField]
-        private Coin coin;
+        public Pool coinPool;
         
-        [HideInInspector]
-        public PoolingPattern<Coin> coinPool;
+        [SerializeField]
+        public Pool brickPool;
+        
+        [SerializeField]
+        public Pool brickHolderPool;
 
-        
-        protected void Awake()
+        protected override void OnAwake()
         {
-            StartCreation();
+            idAndPool = new Dictionary<string, Pool>();
+            
+            // idAndPool.Add(Defs.POOL_BRICK, brickPool);
+            // idAndPool.Add(Defs.POOL_BRICK_HOLDER, brickHolderPool);
         }
 
-        private void StartCreation()
+        public BaseComponent SpawnItem(string poolId)
         {
-            coinPool = new PoolingPattern<Coin>(coin.ObjToPool);
+            Pool pool = GetPool(poolId);
+            return pool.pool.Pull();
+        }
+        
+        public void DeSpawnItem(string poolId, BaseComponent comp)
+        {
+            Pool pool = GetPool(poolId); 
+            pool.pool.Push(comp);
+        }
+
+        private Pool GetPool(string poolId)
+        {
+            if (idAndPool.TryGetValue(poolId, out Pool pool))
+                return pool;
+                
+            return null;
         }
     }
 }

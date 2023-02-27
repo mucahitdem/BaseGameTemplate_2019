@@ -10,7 +10,7 @@ namespace Scripts.BaseGameScripts.CoinControl
 
         public void Create(Vector3 createPositionOn3d)
         {
-            var coinCreated = GlobalReferences.Instance.poolManager.coinPool.PullObj();
+            var coinCreated = GlobalReferences.Instance.poolManager.coinPool.pool.Pull<Coin>();
             
             coinCreated.TransformOfObj.position = CameraManager.Instance.MainCamera.WorldToScreenPoint(createPositionOn3d);
             coinCreated.MoveToCounter(coinIconOnScreen.position);

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts.Helper
+namespace Scripts.BaseGameScripts.Helper
 {
     public class TimeManager : MonoBehaviour
     {
@@ -19,7 +19,8 @@ namespace Scripts.Helper
         private void IncreaseIndex()
         {
             _index++;
-            if (_index >= timeScales.Count) _index = 0;
+            if (_index >= timeScales.Count) 
+                _index = 0;
         }
     }
 }

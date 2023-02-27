@@ -8,7 +8,7 @@ namespace Scripts.BaseGameScripts
 {
     public class GlobalReferences : SingletonMono<GlobalReferences>
     {
-        public GameManager gameManager;
+        public LevelManager levelManager;
         public GameStateManager gameStateManager;
         public PoolManager poolManager;
 
