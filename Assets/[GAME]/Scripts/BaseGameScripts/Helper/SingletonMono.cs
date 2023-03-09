@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Scripts
+namespace Scripts.BaseGameScripts.Helper
 {
     public abstract class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
     {
@@ -12,8 +12,9 @@ namespace Scripts
         {
             get
             {
-                if (!Application.isPlaying) s_instance = FindObjectOfType<T>();
-                BuildNewInstanceIfNull();
+                if (!Application.isPlaying) 
+                    s_instance = FindObjectOfType<T>();
+                //BuildNewInstanceIfNull();
                 return s_instance;
             }
             set => s_instance = value;

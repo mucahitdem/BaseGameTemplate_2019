@@ -1,56 +1,68 @@
+using System;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
+using Scripts.BaseGameScripts.Component;
+using Scripts.BaseGameScripts.Helper;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Scripts.GameScripts.Upgrade
+namespace Scripts.BaseGameSystemRelatedScripts.Others
 {
-    public class TapManager : MonoBehaviour
+    public class TapManager : BaseComponent
     {
+        public static Action<float> onTapFactorChanged;
+        public static bool isTapActive;
+        
         private float _timer = 0.5f;
 
-        [ReadOnly]
-        public float factor = 1;
+        private static float s_currentFactor;
+        public static float CurrentFactor
+        {
+            get => s_currentFactor;
+            set
+            {
+                if (Math.Abs(value - s_currentFactor) > .0001f)
+                {
+                    s_currentFactor = value;
+                    onTapFactorChanged?.Invoke(s_currentFactor);
+                }
+            }
+        }
 
         [SerializeField]
+        private float defaultVal;
+        
+        [SerializeField]
         private float maxFactor = 5f;
-
-        private void OnEnable()
-        {
-            Subscribe();
-        }
-
-        private void OnDisable()
-        {
-            Unsubscribe();
-        }
-
-        private void Subscribe()
-        {
-        }
-
-        private void Unsubscribe()
-        {
-        }
 
         private void Update()
         {
             if (Input.GetMouseButtonDown(0) && !TouchOnUI())
             {
-                _timer = 0.5f;
-                factor = maxFactor;
+                OnTap();
             }
             else
             {
-                _timer -= Time.deltaTime;
-                if (_timer < 0) factor = 1;
+                Resetting();
             }
+            
+            //DebugHelper.LogYellow("CURRENT TAP FACTOR : " + CurrentFactor);
         }
-
+        
         private void OnTap()
         {
             _timer = 0.5f;
-            factor = maxFactor;
+            CurrentFactor = maxFactor;
+            isTapActive = true;
+        }
+
+        private void Resetting()
+        {
+            _timer -= Time.deltaTime;
+            if (_timer < 0)
+            {
+                CurrentFactor = defaultVal;
+                isTapActive = false;
+            }
         }
 
         private bool TouchOnUI()

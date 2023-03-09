@@ -1,7 +1,6 @@
-﻿using Scripts.BaseGameSystemRelatedScripts.Upgrade;
-using Scripts.GameScripts.Grid;
+﻿
 
-namespace Scripts.GameScripts.Upgrade.Buttons
+namespace Scripts.BaseGameSystemRelatedScripts.Upgrade.Buttons
 {
     public class AddButton : BaseUpgradeButton
     {
@@ -14,18 +13,18 @@ namespace Scripts.GameScripts.Upgrade.Buttons
         public override void SubscribeEvent()
         {
             base.SubscribeEvent();
-            GridManager.gridsFilled += OnGridsFilled;
+            //CellManager.cellsFilled += OnGridsFilled;
         }
 
         public override void UnsubscribeEvent()
         {
             base.UnsubscribeEvent();
-            GridManager.gridsFilled -= OnGridsFilled;
+            //CellManager.cellsFilled -= OnGridsFilled;
         }
         
-        private void OnGridsFilled()
+        private void OnGridsFilled(bool isFilled)
         {
-            ButtonControl(false);
+            ButtonControl(isFilled);
         }
     }
 }

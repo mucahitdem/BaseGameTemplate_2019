@@ -21,13 +21,17 @@ namespace Scripts.BaseGameScripts.UI
         public override void SubscribeEvent()
         {
             base.SubscribeEvent();
-            Button.onClick.AddListener(OnClick);
+            if(Button)
+                Button.onClick.AddListener(OnClick);
+            else
+                DebugHelper.LogRed("NO BUTTON FOUND !!!! ");
         }
 
         public override void UnsubscribeEvent()
         {
             base.SubscribeEvent();
-            Button.onClick.RemoveListener(OnClick);
+            if(Button)
+                Button.onClick.RemoveListener(OnClick);
         }
 
         protected virtual void OnClick()

@@ -19,8 +19,8 @@ namespace Scripts.BaseGameScripts.Managers
 
         public void Save()
         {
-            SaveGame.Save("Level", _levelNum);
-            SaveGame.Save("FakeLevel", _fakeLevelNum);
+            SaveGame.Save("Level", _levelNum); // replace
+            SaveGame.Save("FakeLevel", _fakeLevelNum); // replace
         }
 
         public void Load()

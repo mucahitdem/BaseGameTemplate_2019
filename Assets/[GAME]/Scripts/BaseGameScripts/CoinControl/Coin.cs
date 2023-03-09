@@ -18,13 +18,17 @@ namespace Scripts.BaseGameScripts.CoinControl
 
         private void Awake()
         {
-            if(sprite)
+            if(sprite && image)
                 image.sprite = sprite;
         }
         
         public void MoveToCounter(Vector2 targetPos, float duration = 1f)
         {
-            Rect.DOMove(targetPos, duration);
+            Rect.DOMove(targetPos, duration)
+                .OnComplete(() =>
+                {
+                    PoolManager.Instance.coinPool.pool.Push(this);
+                });
         }
     }
 }

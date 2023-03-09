@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections;
-using BayatGames.SaveGameFree;
+using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.SaveAndLoad;
+using Scripts.GameScripts;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Scripts.BaseGameScripts.CoinControl
@@ -16,37 +17,33 @@ namespace Scripts.BaseGameScripts.CoinControl
         protected override void OnAwake()
         {
             Load();
+        }
+
+        private void Start()
+        {
             onCoinCountChanged?.Invoke(TotalCoins);
         }
 
-        private void OnDisable()
-        {
-            Save();
-        }
-
-
-        #region Save And Load
-        
         public void Save()
         {
-            SaveGame.Save("totalCoinCount", TotalCoins);
+            PlayerPrefs.SetFloat(Defs.COIN_COUNT, TotalCoins);
         }
 
         public void Load()
         {
-            TotalCoins = SaveGame.Load("totalCoinCount", TotalCoins);
+            TotalCoins = PlayerPrefs.GetFloat(Defs.COIN_COUNT, 0);
             Debug.Log("TOTAL COIN COUNT LOADED: " + TotalCoins);
         }
         
-
-        #endregion
-
+        
+        [Button]
         public void AddCoin(float coinToAdd)
         {
             TotalCoins += coinToAdd;
             onCoinCountChanged?.Invoke(TotalCoins);
         }
         
+        [Button]
         public void SpendCoin(float coinToSpend)
         {
             TotalCoins -= coinToSpend;

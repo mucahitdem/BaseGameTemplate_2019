@@ -17,8 +17,8 @@ namespace Scripts.BaseGameScripts.Component
         private RectTransform _rect;
         private Transform _transformOfObj;
 
-        private Animator anim;
-        private Renderer rendOfObj;
+        private Animator _anim;
+        private Renderer _rendOfObj;
 
         public Transform TransformOfObj
         {
@@ -79,12 +79,12 @@ namespace Scripts.BaseGameScripts.Component
         {
             get
             {
-                if (!anim)
-                    anim = GetComponent<Animator>();
+                if (!_anim)
+                    _anim = GetComponent<Animator>();
 
-                return anim;
+                return _anim;
             }
-            set => anim = value;
+            set => _anim = value;
         }
 
         protected LineRenderer LineRend
@@ -101,18 +101,18 @@ namespace Scripts.BaseGameScripts.Component
         {
             get
             {
-                if (!rendOfObj)
+                if (!_rendOfObj)
                 {
-                    rendOfObj = GetComponent<Renderer>();
+                    _rendOfObj = GetComponent<Renderer>();
 
-                    if (!rendOfObj)
-                        rendOfObj = GetComponentInChildren<Renderer>();
+                    if (!_rendOfObj)
+                        _rendOfObj = GetComponentInChildren<Renderer>();
                 }
                    
 
-                return rendOfObj;
+                return _rendOfObj;
             }
-            set => rendOfObj = value;
+            set => _rendOfObj = value;
         }
         
         public override void SubscribeEvent()
@@ -130,7 +130,7 @@ namespace Scripts.BaseGameScripts.Component
             Go.SetActive(true);
         }
 
-        public virtual void OnGiveToPool()
+        public virtual void OnPushToPool()
         {
             TransformOfObj.parent = null;
             Go.hideFlags = HideFlags.HideInHierarchy;

@@ -11,7 +11,7 @@
         <e p="[GAME]" t="Include">
           <e p="Scripts" t="Include">
             <e p="BaseGameScripts" t="Include">
-              <e p="Camera" t="Include">
+              <e p="CameraManagement" t="Include">
                 <e p="CameraManager.cs" t="Include" />
                 <e p="FollowCamera.cs" t="Include" />
               </e>
@@ -35,6 +35,7 @@
                   <e p="ControlMoveWithSlide.cs" t="Include" />
                   <e p="ControlMoveWithSwipe.cs" t="Include" />
                   <e p="ControlRotateWithSwipe.cs" t="Include" />
+                  <e p="ControlSendRayToMousePosition.cs" t="Include" />
                   <e p="ControlSlide.cs" t="Include" />
                   <e p="ControlSwipe.cs" t="Include" />
                   <e p="ControlWithDeltaMouse.cs" t="Include" />
@@ -69,7 +70,6 @@
               </e>
               <e p="Managers" t="Include">
                 <e p="EnvironmentManager.cs" t="Include" />
-                <e p="GameManager.cs" t="Include" />
                 <e p="LevelManager.cs" t="Include" />
               </e>
               <e p="Mediator" t="Include">
@@ -154,6 +154,7 @@
             </e>
             <e p="GameScripts" t="Include">
               <e p="Defs.cs" t="Include" />
+              <e p="GameManager.cs" t="Include" />
               <e p="Player" t="Include">
                 <e p="PlayerManager.cs" t="Include" />
               </e>

@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Scripts.BaseGameScripts.Helper;
+using UnityEngine;
 
-namespace Scripts.BaseGameScripts.Camera
+namespace Scripts.BaseGameScripts.CameraManagement
 {
     public class CameraManager : SingletonMono<CameraManager>
     {
@@ -11,7 +12,7 @@ namespace Scripts.BaseGameScripts.Camera
             get
             {
                 if (_mainCamera == null)
-                    _mainCamera = UnityEngine.Camera.main;
+                    _mainCamera = Camera.main;
                 return _mainCamera;
             }
             set => _mainCamera = value;
@@ -19,7 +20,7 @@ namespace Scripts.BaseGameScripts.Camera
 
         protected override void OnAwake()
         {
-            throw new NotImplementedException();
+           
         }
     }
 }

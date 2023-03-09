@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using Scripts.BaseGameScripts.EventManagement;
 using Scripts.BaseGameScripts.Helper;
+using Scripts.GameScripts.Grid;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Scripts.GameScripts.Grid
+namespace Scripts.BaseGameSystemRelatedScripts.Grid
 {
     public class GridManager : EventSubscriber
     {
@@ -152,7 +153,7 @@ namespace Scripts.GameScripts.Grid
                 if (!currentGrid.isFull)
                 {
                     currentGrid.isFull = true;
-                    DebugHelper.LogRed("GRID ELEMENT " + i + " IS FULL ");
+                    //DebugHelper.LogRed("GRID ELEMENT " + i + " IS FULL ");
                     
                     if(IsAllGridsFull())
                         gridsFilled?.Invoke();
@@ -181,7 +182,7 @@ namespace Scripts.GameScripts.Grid
             {
                 var currentGrid = gridElements[i];
                 currentGrid.isFull = false;
-                DebugHelper.LogYellow("GRID ELEMENT " + i + " IS NOT FULL ");
+                //DebugHelper.LogYellow("GRID ELEMENT " + i + " IS NOT FULL ");
             }
         }
         public void MakeAllGridsEmpty()
@@ -189,7 +190,7 @@ namespace Scripts.GameScripts.Grid
             for (int i = 0; i < gridElementsToMove.Count; i++)
             {
                 gridElementsToMove[i].isFull = false;
-                DebugHelper.LogYellow("GRID ELEMENT " + i + " IS NOT FULL ");
+                //DebugHelper.LogYellow("GRID ELEMENT " + i + " IS NOT FULL ");
             }
         }
         private void MakeGridEmpty(int gridIndex)

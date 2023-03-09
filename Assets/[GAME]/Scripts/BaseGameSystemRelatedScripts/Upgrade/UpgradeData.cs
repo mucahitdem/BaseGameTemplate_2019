@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BayatGames.SaveGameFree;
 using Scripts.BaseGameScripts.SaveAndLoad;
+using Scripts.GameScripts;
 using Scripts.GameScripts.Upgrade;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -20,16 +21,16 @@ namespace Scripts.BaseGameSystemRelatedScripts.Upgrade
         [GUIColor(0.81f, 1, 0.57f)]
         [TabGroup("Income")]
         public IncomeData incomeData;
-
-        [HideLabel]
-        [GUIColor(0.81f, 1, 0.57f)]
-        [TabGroup("Merge")]
-        public MergeData mergeData;
-
-        [HideLabel]
-        [GUIColor(0.81f, 1, 0.57f)]
-        [TabGroup("Speed")]
-        public SpeedData speedData;
+        
+        // [HideLabel]
+        // [GUIColor(0.81f, 1, 0.57f)]
+        // [TabGroup("Merge")]
+        // public MergeData mergeData;
+        //
+        // [HideLabel]
+        // [GUIColor(0.81f, 1, 0.57f)]
+        // [TabGroup("Speed")]
+        // public SpeedData speedData;
     }
 
     [Serializable]
@@ -52,14 +53,21 @@ namespace Scripts.BaseGameSystemRelatedScripts.Upgrade
         {
             return upgradeCount * speedIncreaseAmount;
         }
+
+        public override void Save()
+        {
+            
+        }
+
+        public override void Load()
+        {
+            
+        }
     }
 
     [Serializable]
     public class IncomeData : UpgradableData
     {
-        [BoxGroup("Income of Sushi")]
-        public List<float> defaultIncomeOfCandy = new List<float>();
-
         [SerializeField]
         private int incomeIncreasePercentage;
 
@@ -70,11 +78,31 @@ namespace Scripts.BaseGameSystemRelatedScripts.Upgrade
         {
             return incomeIncreasePercentage;
         }
+        
+        public override void Save()
+        {
+            PlayerPrefs.SetInt(Defs.INCOME_UPGRADE_COUNT, upgradeCount);
+        }
+
+        public override void Load()
+        {
+            upgradeCount = PlayerPrefs.GetInt(Defs.INCOME_UPGRADE_COUNT, 0);
+        }
     }
 
     [Serializable]
     public class MergeData : UpgradableData
     {
+        public override void Save()
+        {
+            
+        }
+
+        public override void Load()
+        {
+            
+        }
+
         public override void Upgrade()
         {
             base.Upgrade();
@@ -84,9 +112,15 @@ namespace Scripts.BaseGameSystemRelatedScripts.Upgrade
     [Serializable]
     public class AddData : UpgradableData
     {
-        public override void Upgrade()
+        public override void Save()
         {
-            base.Upgrade();
+            PlayerPrefs.SetInt(Defs.ADD_UPGRADE_COUNT, upgradeCount);
+
+        }
+
+        public override void Load()
+        {
+            upgradeCount = PlayerPrefs.GetInt(Defs.ADD_UPGRADE_COUNT, 0);
         }
     }
 
@@ -94,13 +128,19 @@ namespace Scripts.BaseGameSystemRelatedScripts.Upgrade
     [PropertyOrder(-1)]
     public abstract class UpgradableData : ISaveAndLoad
     {
+        public Action onUpgradeCountChanged;
+        public int UpgradeCount
+        {
+            get => upgradeCount;
+            set => upgradeCount = value;
+        }
+        
         [SerializeField]
         [FoldoutGroup("UpgradableData")]
         [PropertyOrder(-5)]
         [GUIColor(0.57f, 0.91f, 1)]
         protected int maxUpgradeCount;
-
-        public Action onUpgradeCountChanged;
+        
 
         [SerializeField]
         [HorizontalGroup("UpgradableData/cost")]
@@ -139,15 +179,9 @@ namespace Scripts.BaseGameSystemRelatedScripts.Upgrade
 
         private string UpgradePercentSuffix => "/" + maxUpgradeCount; //used by odin
 
-        public void Save()
-        {
-            SaveGame.Save("upgradeCount", upgradeCount);
-        }
+        public abstract void Save();
 
-        public void Load()
-        {
-            upgradeCount = SaveGame.Load<int>("upgradeCount");
-        }
+        public abstract void Load();
 
         public float GetCost()
         {
@@ -169,6 +203,7 @@ namespace Scripts.BaseGameSystemRelatedScripts.Upgrade
         public virtual void Upgrade()
         {
             upgradeCount++;
+            onUpgradeCountChanged?.Invoke();
             CheckLevelBound();
         }
 
@@ -179,7 +214,7 @@ namespace Scripts.BaseGameSystemRelatedScripts.Upgrade
         public void Reset()
         {
             upgradeCount = 0;
-            onUpgradeCountChanged?.Invoke();
+            //onUpgradeCountChanged?.Invoke();
         }
 
         [Button]

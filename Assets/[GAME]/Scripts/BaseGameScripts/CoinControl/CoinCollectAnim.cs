@@ -1,4 +1,6 @@
-﻿using Scripts.BaseGameScripts.Camera;
+﻿using Scripts.BaseGameScripts.Pool;
+using Scripts.GameScripts;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Scripts.BaseGameScripts.CoinControl
@@ -8,11 +10,29 @@ namespace Scripts.BaseGameScripts.CoinControl
         [SerializeField]
         private RectTransform coinIconOnScreen;
 
-        public void Create(Vector3 createPositionOn3d)
+        [SerializeField]
+        private RectTransform panelToCreateCoin;
+
+        private Camera _camera;
+        private Camera Camera
         {
-            var coinCreated = GlobalReferences.Instance.poolManager.coinPool.pool.Pull<Coin>();
+            get
+            {
+                if (!_camera)
+                    _camera = GameManager.Instance.MainCam;
+                
+                return _camera;
+            }
+            set => _camera = value;
+        }
+        
+        [Button]
+        public void Create(Vector3 createPositionOn3d, RectTransform panelToCreate = null)
+        {
+            var coinCreated = PoolManager.Instance.coinPool.pool.Pull<Coin>();
             
-            coinCreated.TransformOfObj.position = CameraManager.Instance.MainCamera.WorldToScreenPoint(createPositionOn3d);
+            coinCreated.TransformOfObj.parent = panelToCreate ? panelToCreate : panelToCreateCoin;
+            coinCreated.TransformOfObj.position = Camera.WorldToScreenPoint(createPositionOn3d);
             coinCreated.MoveToCounter(coinIconOnScreen.position);
         }
     }

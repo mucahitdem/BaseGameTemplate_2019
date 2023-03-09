@@ -77,7 +77,7 @@ namespace Scripts.BaseGameSystemRelatedScripts.Timer
         public void PausePlayTimer(bool pause)
         {
             IsPaused = pause;
-            DebugHelper.LogRed("IS PAUSED : " + IsPaused);
+            //DebugHelper.LogRed("IS PAUSED : " + IsPaused);
             
             if(IsPaused)
                 StopTimer();

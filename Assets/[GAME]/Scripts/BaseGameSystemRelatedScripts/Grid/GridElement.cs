@@ -44,8 +44,6 @@ namespace Scripts.GameScripts.Grid
         public void ResetGrid()
         {
             isFull = false;
-            DebugHelper.LogYellow("GRID ELEMENT " + gridIndex + " IS NOT FULL ");
-
         }
         
         #region Queue Tweens

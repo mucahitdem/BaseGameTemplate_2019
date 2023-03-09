@@ -1,11 +1,13 @@
 ﻿using System.Globalization;
+using DG.Tweening;
 using Scripts.BaseGameScripts.CoinControl;
 using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.UI;
-using Scripts.BaseGameSystemRelatedScripts.Upgrade;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scripts.GameScripts.Upgrade
+namespace Scripts.BaseGameSystemRelatedScripts.Upgrade
 {
     public abstract class BaseUpgradeButton : UiButton
     {
@@ -14,15 +16,18 @@ namespace Scripts.GameScripts.Upgrade
 
         private float _cost;
         public Button button;
-        public Text costText;
+        public TextMeshPro costText;
         public Image icon;
         public Text levelText;
         public Text nameOfButton;
         protected UpgradableData upgradableData;
 
+        private bool _canPlayAnim;
+
         protected virtual void Awake()
         {
             _bgImage = GetComponent<Image>();
+            _canPlayAnim = true;
         }
 
         protected virtual void Start()
@@ -53,17 +58,31 @@ namespace Scripts.GameScripts.Upgrade
             TryUpgrade();
         }
 
-        private void TryUpgrade()
+        protected void TryUpgrade()
         {
+            if (upgradableData.UpgradeMaxed) 
+                return;
+            
             var upCost = upgradableData.UpgradeCost;
             if (!_coinManager.CheckIfYouHaveEnoughCoin(upCost))
                 //NotEnoughTextController.NotEnoughAction?.Invoke();
                 return;
-
+            
+            if (_canPlayAnim)
+            {
+                _canPlayAnim = false;
+                TransformOfObj.DOPunchScale(Vector3.one * .1f, .3f)
+                    .OnComplete(() =>
+                    {
+                        _canPlayAnim = true;
+                    });
+            }
+           
             CoinManager.Instance.SpendCoin(upCost);
             upgradableData.Upgrade();
 
             OnUpgradeCountChanged();
+            
             if (upgradableData.UpgradeMaxed) 
                 ButtonControl(false);
         }
@@ -102,18 +121,25 @@ namespace Scripts.GameScripts.Upgrade
 
         protected void ButtonControl(bool isActive)
         {
-            button.interactable = isActive;
+            if(button)
+                button.interactable = isActive;
            
             ButtonActivateControlVisually(isActive);
         }
 
         private void ButtonActivateControlVisually(bool isActive)
         {
-            nameOfButton.enabled = isActive;
-            icon.enabled = isActive;
-            costText.enabled = isActive;
-            _bgImage.enabled = isActive;
-            _bgImage.raycastTarget = isActive;
+            if(nameOfButton)
+                nameOfButton.enabled = isActive;
+            if(icon)
+                icon.enabled = isActive;
+            
+            //costText.enabled = isActive;
+            if (_bgImage)
+            {
+                _bgImage.enabled = isActive;
+                _bgImage.raycastTarget = isActive;
+            }
         }
 
         #endregion

@@ -1,5 +1,5 @@
 ﻿using DG.Tweening;
-using Scripts.BaseGameScripts.Camera;
+using Scripts.BaseGameScripts.CameraManagement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
