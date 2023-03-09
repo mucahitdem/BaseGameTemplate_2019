@@ -93,6 +93,7 @@
               <e p="SaveAndLoad" t="Include">
                 <e p="ISaveAndLoad.cs" t="Include" />
                 <e p="SaveAndLoadManager.cs" t="Include" />
+                <e p="SaveManager.cs" t="Include" />
               </e>
               <e p="State" t="Include">
                 <e p="_Interface" t="Include">
@@ -146,6 +147,11 @@
                 <e p="BaseUpgradeButton.cs" t="Include" />
                 <e p="Buttons" t="Include">
                   <e p="AddButton.cs" t="Include" />
+                  <e p="Button3dManagement" t="Include">
+                    <e p="BaseButton3D.cs" t="Include" />
+                    <e p="Button3dAdd.cs" t="Include" />
+                    <e p="Button3dIncome.cs" t="Include" />
+                  </e>
                   <e p="MergeButton.cs" t="Include" />
                 </e>
                 <e p="UpgradeData.cs" t="Include" />

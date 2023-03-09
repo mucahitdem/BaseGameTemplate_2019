@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a481a84ed062ce47821f1cf6b634e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: {fileID: 4811036214406835832, guid: 066a9b3a05381454c9d9b6c1c95a5ad5, type: 3}
+  dontDestroyOnLoad: 0
   coinPool: {fileID: 0}
 --- !u!1 &298749663
 GameObject:
@@ -475,6 +475,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea50f52f275498469e40f0a5fd2ced2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fakeLevelNum: 1
+  _levelNum: 1
+  _uiManager: {fileID: 0}
 --- !u!1 &470672677
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
-  gameManager: {fileID: 318874860}
+  levelManager: {fileID: 0}
   gameStateManager: {fileID: 1561222549}
   poolManager: {fileID: 154703197}
   uiManager: {fileID: 1847765930}
@@ -930,7 +933,7 @@ GameObject:
   - component: {fileID: 1345128816}
   - component: {fileID: 1345128817}
   m_Layer: 0
-  m_Name: SaveAndLoadManager
+  m_Name: SaveManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -960,9 +963,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1345128815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04d5406084cc4768ac83a9dc94a692f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e245a013f7ac9340888df0eb8d86b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveAndLoads: []
 --- !u!850595691 &1354838251
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1299,6 +1303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinIconOnScreen: {fileID: 1732680182}
+  panelToCreateCoin: {fileID: 0}
 --- !u!1 &1561222548
 GameObject:
   m_ObjectHideFlags: 0
