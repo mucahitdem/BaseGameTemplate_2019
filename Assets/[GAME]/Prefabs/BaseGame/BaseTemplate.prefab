@@ -120,6 +120,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3195690297058569224}
     m_Modifications:
+    - target: {fileID: 4329867154558619812, guid: a9446cedaa952d14b8e939dcc9bfd2f0, type: 3}
+      propertyPath: saveAndLoads.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329867154558619812, guid: a9446cedaa952d14b8e939dcc9bfd2f0, type: 3}
+      propertyPath: saveAndLoads.Array.data[0]
+      value: 
+      objectReference: {fileID: 3195690297986388107}
     - target: {fileID: 4329867155330216575, guid: a9446cedaa952d14b8e939dcc9bfd2f0, type: 3}
       propertyPath: screens.Array.data[0]
       value: 
@@ -189,6 +197,11 @@ PrefabInstance:
 --- !u!4 &3195690295879477763 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4329867155339118519, guid: a9446cedaa952d14b8e939dcc9bfd2f0, type: 3}
+  m_PrefabInstance: {fileID: 1175325532373495220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3195690297986388107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4329867155684572479, guid: a9446cedaa952d14b8e939dcc9bfd2f0, type: 3}
   m_PrefabInstance: {fileID: 1175325532373495220}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3195690297044844697
