@@ -14,6 +14,10 @@ namespace Scripts.GameScripts
 
         public static readonly string COIN_COUNT = "TotalCoinCount";
         
+        public static readonly string SAVE_KEY_LEVEL = "Level";
+        public static readonly string SAVE_KEY_FAKE_LEVEL = "FakeLevel";
+
+        
         #region Upgrade Data
 
         public static readonly string INCOME_UPGRADE_COUNT = "IncomeUpgradeCount";

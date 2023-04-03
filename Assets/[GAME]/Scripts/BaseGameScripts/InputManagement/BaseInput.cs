@@ -3,9 +3,9 @@ using Scripts.BaseGameScripts.Component;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Scripts.BaseGameScripts.Input
+namespace Scripts.BaseGameScripts.InputManagement
 {
-    public abstract class BaseInput : ComponentBase
+    public abstract class BaseInput : BaseComponent
     {
         private bool _isTouchScreen;
 
@@ -24,7 +24,7 @@ namespace Scripts.BaseGameScripts.Input
             if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
             {
                 _isTouchScreen = true;
-                UnityEngine.Input.multiTouchEnabled = false;
+                Input.multiTouchEnabled = false;
             }
             else
             {
@@ -42,16 +42,18 @@ namespace Scripts.BaseGameScripts.Input
 
         private void MouseControl()
         {
-            if (UnityEngine.Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
                 OnTapDown();
-            else if (UnityEngine.Input.GetMouseButton(0))
+            else if (Input.GetMouseButton(0))
                 OnTapHold();
-            else if (UnityEngine.Input.GetMouseButtonUp(0)) OnTapUp();
+            else if (Input.GetMouseButtonUp(0)) OnTapUp();
         }
 
         private void TouchControl()
         {
-            switch (UnityEngine.Input.touches[0].phase)
+            if(Input.touchCount <= 0)
+                return;
+            switch (Input.touches[0].phase)
             {
                 case TouchPhase.Began:
                     OnTapDown();
@@ -75,13 +77,24 @@ namespace Scripts.BaseGameScripts.Input
         {
             if(TouchOnUI())
                 return;
+            
+            InputActionManager.onTapDown?.Invoke();
         }
 
-        protected abstract void OnTapHold();
+        protected virtual void OnTapHold()
+        {
+            InputActionManager.onTapAndHold?.Invoke();
+        }
 
-        protected abstract void OnTapHoldAndNotMove();
+        protected virtual void OnTapHoldAndNotMove()
+        {
+            InputActionManager.onTapAndHoldAndNotMove?.Invoke();
+        }
 
-        protected abstract void OnTapUp();
+        protected virtual void OnTapUp()
+        {
+            InputActionManager.onTapUp?.Invoke();
+        }
         
         
         private bool TouchOnUI()
@@ -89,7 +102,7 @@ namespace Scripts.BaseGameScripts.Input
             if (!EventSystem.current) 
                 return false;
             var eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-            eventDataCurrentPosition.position = UnityEngine.Input.mousePosition;
+            eventDataCurrentPosition.position = Input.mousePosition;
 
             var results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(eventDataCurrentPosition, results);

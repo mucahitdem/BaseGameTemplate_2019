@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Scripts
+namespace Scripts.BaseGameScripts.Helper
 {
     public class ShortCutManager : MonoBehaviour
     {
@@ -16,7 +16,7 @@ namespace Scripts
             for (var i = 0; i < keycodes.Count; i++)
             {
                 _shortCutData = keycodes[i];
-                if (Input.GetKeyDown(_shortCutData.keyCode)) _shortCutData.unityEvent?.Invoke();
+                if (UnityEngine.Input.GetKeyDown(_shortCutData.keyCode)) _shortCutData.unityEvent?.Invoke();
             }
         }
     }

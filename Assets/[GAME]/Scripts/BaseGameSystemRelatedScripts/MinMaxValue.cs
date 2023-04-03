@@ -9,6 +9,12 @@ namespace Scripts.BaseGameSystemRelatedScripts
         private float _rangeBetweenMaxAndMin;
         public float minVal;
         public float maxVal;
+
+        public MinMaxValue(float minVal, float maxVal)
+        {
+            this.minVal = minVal;
+            this.maxVal = maxVal;
+        }
         
         public float RangeBetweenMaxAndMin
         {

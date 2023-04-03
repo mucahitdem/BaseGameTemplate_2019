@@ -15,6 +15,7 @@ namespace Scripts.BaseGameSystemRelatedScripts.Others
         private float _timer = 0.5f;
 
         private static float s_currentFactor;
+
         public static float CurrentFactor
         {
             get => s_currentFactor;
@@ -67,13 +68,18 @@ namespace Scripts.BaseGameSystemRelatedScripts.Others
 
         private bool TouchOnUI()
         {
-            if (!EventSystem.current) return false;
+            if (!EventSystem.current) 
+                return false;
+            
             var eventDataCurrentPosition = new PointerEventData(EventSystem.current);
             eventDataCurrentPosition.position = Input.mousePosition;
 
             var results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-            return results.Count != 0;
+            var onUi = results.Count != 0;
+            
+            //DebugHelper.LogRed("ON UI : " + onUi);
+            return onUi;
         }
     }
 }

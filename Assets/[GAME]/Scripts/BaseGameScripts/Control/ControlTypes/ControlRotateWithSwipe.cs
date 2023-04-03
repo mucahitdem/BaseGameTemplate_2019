@@ -1,55 +1,144 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Scripts.BaseGameSystemRelatedScripts;
+using Sirenix.OdinInspector;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Scripts.BaseGameScripts.Control.ControlTypes
 {
     public class ControlRotateWithSwipe : BaseControl
     {
-        private CalculateDeltaMouse _calculateDeltaMouse;
-        
+        protected CalculateDeltaMouse calculateDeltaMouse;
+
+        [SerializeField]
+        protected Transform objToRotate;
+
         [Header("Swipe Variables")]
-        public float clampMaxVal;
+        [SerializeField]
+        protected float clampMaxVal;
 
-        public float lerpMultiplier = 1;
-        public float mouseDamp = 600;
+        [SerializeField]
+        protected float lerpMultiplier = 1;
+        [SerializeField]
+        protected float mouseDamp = 600;
+        
+        [SerializeField]
+        protected MinMaxValue xRot;
+        
+        [SerializeField]
+        protected MinMaxValue yRot;
+        
+        protected float clampedXRot;
+        protected float clampedYRot;
+        
+        
+        protected float screenWidth;
+        protected float screenHeight;
 
-        private float _screenWidth;
-
-
+        private bool _isTouchOnUi;
+       
+        
         private void Awake()
         {
-            _screenWidth = Screen.width;
-            _calculateDeltaMouse = new CalculateDeltaMouse();
+            screenWidth = Screen.width;
+            screenHeight = Screen.height;
+            calculateDeltaMouse = new CalculateDeltaMouse();
         }
+        
+
+        public override void Start()
+        {
+            base.Start();
+            clampedXRot = 360 - xRot.maxVal;
+            clampedYRot = 360 - yRot.maxVal;
+        }
+
+        [Button]
+        public void UpdateClamps(MinMaxValue minMaxYRot)
+        {
+            yRot = minMaxYRot;
+            clampedYRot = 360 - yRot.maxVal;
+        }
+        
 
         protected override void OnTapDown()
         {
             base.OnTapDown();
-            _calculateDeltaMouse.ResetValues();
+            TouchOnUI();
+
+            calculateDeltaMouse.ResetValues();
         }
 
         protected override void OnTapHold()
         {
+            if(_isTouchOnUi)
+               return; 
             base.OnTapHold();
             GetInput();
         }
         
         public override void GetInput()
         {
-            _calculateDeltaMouse.CalculateDeltaMousePos();
+            calculateDeltaMouse.CalculateDeltaMousePos();
             Swipe();
         }
 
-        private void Swipe()
+        protected virtual void Swipe()
         {
-            var objRot = TransformOfObj.eulerAngles;
+            if(!isControlEnabled)
+                return;
+            
+            var objRot = objToRotate.eulerAngles;
 
-            var yRot = objRot.y;
-            yRot = Mathf.Lerp(yRot, yRot + mouseDamp * (_calculateDeltaMouse.deltaMousePos.x / _screenWidth), Time.deltaTime * lerpMultiplier);
-            //yRot = Mathf.Clamp(yRot, -clampMaxVal, clampMaxVal);
+            var objRotY = objRot.y;
+            var objRotX = objRot.x;
+            
+            objRotY = Mathf.Lerp(objRotY, objRotY + mouseDamp * (calculateDeltaMouse.deltaMousePos.x / screenWidth), Time.deltaTime * lerpMultiplier);
+            objRotX = Mathf.Lerp(objRotX, objRotX - mouseDamp * (calculateDeltaMouse.deltaMousePos.y / screenHeight), Time.deltaTime * lerpMultiplier);
+            
+            Clamp(ref objRotY, ref objRotX);
+            
+            objToRotate.eulerAngles = new Vector3(objRotX, objRotY, objRot.z);
 
-            TransformOfObj.eulerAngles = new Vector3(objRot.x, yRot, objRot.z);
+            calculateDeltaMouse.ResetValues();
+        }
 
-            _calculateDeltaMouse.ResetValues();
+        private float Clamp(ref float objRotY, ref float objRotX)
+        {
+            if (objRotY > 180 && objRotY < clampedYRot)
+            {
+                objRotY = clampedYRot;
+            }
+            else if (objRotY < 180 && objRotY >= yRot.maxVal)
+            {
+                objRotY = yRot.maxVal;
+            }
+
+
+            if (objRotX > 180 && objRotX < clampedXRot)
+            {
+                objRotX = clampedXRot;
+            }
+            else if (objRotX < 180 && objRotX >= xRot.maxVal)
+            {
+                objRotX = clampMaxVal;
+            }
+
+            return objRotY;
+        }
+
+
+        private bool TouchOnUI()
+        {
+            if (!EventSystem.current) return false;
+            var eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+            eventDataCurrentPosition.position = UnityEngine.Input.mousePosition;
+
+            var results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+            var value = results.Count != 0;
+            _isTouchOnUi = value;
+            return _isTouchOnUi;
         }
     }
 }

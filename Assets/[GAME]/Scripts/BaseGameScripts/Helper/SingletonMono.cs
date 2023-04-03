@@ -59,7 +59,7 @@ namespace Scripts.BaseGameScripts.Helper
         {
             if (dontDestroyOnLoad)
             {
-                transform.parent = null;
+                //transform.parent = null;
                 DontDestroyOnLoad(gameObject);
             }
         }

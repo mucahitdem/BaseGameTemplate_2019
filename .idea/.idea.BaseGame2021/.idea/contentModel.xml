@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Sefir i Mevt\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Sefir i Mevt\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_BaseGame2021.-826401772.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Sefir i Mevt\Documents\GitHub\BaseGame2021" t="IncludeRecursive">
+    <e p="C:\Users\sefir\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\sefir\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_BaseGame2021.1502584115.00" t="ExcludeRecursive" />
+    <e p="C:\Users\sefir\Documents\GitHub\BaseGame2021" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -12,6 +12,7 @@
           <e p="Scripts" t="Include">
             <e p="BaseGameScripts" t="Include">
               <e p="CameraManagement" t="Include">
+                <e p="CameraFollowTargetCentered.cs" t="Include" />
                 <e p="CameraManager.cs" t="Include" />
                 <e p="FollowCamera.cs" t="Include" />
               </e>
@@ -23,15 +24,13 @@
               </e>
               <e p="Component" t="Include">
                 <e p="BaseComponent.cs" t="Include" />
-                <e p="ComponentBase.cs" t="Include" />
-                <e p="IPhysicObj.cs" t="Include" />
-                <e p="IUiObj.cs" t="Include" />
               </e>
               <e p="Control" t="Include">
                 <e p="BaseControl.cs" t="Include" />
                 <e p="CalculateDeltaMouse.cs" t="Include" />
                 <e p="ControlManager.cs" t="Include" />
                 <e p="ControlTypes" t="Include">
+                  <e p="ControlGetHoldAndNotMove.cs" t="Include" />
                   <e p="ControlMoveWithSlide.cs" t="Include" />
                   <e p="ControlMoveWithSwipe.cs" t="Include" />
                   <e p="ControlRotateWithSwipe.cs" t="Include" />
@@ -62,10 +61,11 @@
                 <e p="ShortCutManager.cs" t="Include" />
                 <e p="SingletonMono.cs" t="Include" />
                 <e p="TimeManager.cs" t="Include" />
+                <e p="TimeScalingManager.cs" t="Include" />
               </e>
-              <e p="Input" t="Include">
+              <e p="InputManagement" t="Include">
                 <e p="BaseInput.cs" t="Include" />
-                <e p="Input.cs" t="Include" />
+                <e p="InputActionManager.cs" t="Include" />
                 <e p="InputHandler.cs" t="Include" />
               </e>
               <e p="Managers" t="Include">
@@ -88,6 +88,9 @@
                 <e p="PoolPattern.cs" t="Include" />
               </e>
               <e p="Ragdoll" t="Include">
+                <e p="RagDoll.cs" t="Include" />
+              </e>
+              <e p="RagDollManagement" t="Include">
                 <e p="RagDoll.cs" t="Include" />
               </e>
               <e p="SaveAndLoad" t="Include">
@@ -119,6 +122,8 @@
             <e p="BaseGameSystemRelatedScripts" t="Include">
               <e p="Animator Control" t="Include">
                 <e p="AnimatorManager.cs" t="Include" />
+                <e p="AnimatorParameter.cs" t="Include" />
+                <e p="AnimatorParameterController.cs" t="Include" />
               </e>
               <e p="Ease.cs" t="Include" />
               <e p="Editor" t="Include">
@@ -132,16 +137,23 @@
               <e p="Others" t="Include">
                 <e p="TapManager.cs" t="Include" />
               </e>
+              <e p="SceneLoader.cs" t="Include" />
               <e p="Timer" t="Include">
                 <e p="Timer.cs" t="Include" />
                 <e p="TimerManager.cs" t="Include" />
               </e>
+              <e p="TimerManagement" t="Include">
+                <e p="Timer.cs" t="Include" />
+                <e p="TimerManager.cs" t="Include" />
+              </e>
               <e p="UI" t="Include">
+                <e p="AdScreen.cs" t="Include" />
                 <e p="CoinUi.cs" t="Include" />
                 <e p="NextButton.cs" t="Include" />
                 <e p="RetryButton.cs" t="Include" />
                 <e p="StartButton.cs" t="Include" />
                 <e p="StartPanel.cs" t="Include" />
+                <e p="WatchAdButton.cs" t="Include" />
               </e>
               <e p="Upgrade" t="Include">
                 <e p="BaseUpgradeButton.cs" t="Include" />

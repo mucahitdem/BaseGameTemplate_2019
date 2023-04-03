@@ -1,5 +1,7 @@
 ﻿using Scripts.BaseGameScripts;
 using Scripts.BaseGameScripts.UI;
+using Scripts.State._Interface;
+using Scripts.State.GameStates;
 
 namespace Scripts.BaseGameSystemRelatedScripts.UI
 {
@@ -8,7 +10,7 @@ namespace Scripts.BaseGameSystemRelatedScripts.UI
         protected override void OnClick()
         {
             base.OnClick();
-            GlobalReferences.Instance.gameStateManager.NextState();
+            GlobalReferences.Instance.gameStateManager.NextState(true);
         }
     }
 }

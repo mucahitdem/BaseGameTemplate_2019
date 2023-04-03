@@ -22,7 +22,7 @@ namespace Scripts.BaseGameScripts.Control.ControlTypes
         protected override void OnTapDown()
         {
             base.OnTapDown();
-            mouseStartPos = UnityEngine.Input.mousePosition;
+            mouseStartPos = Input.mousePosition;
         }
 
         protected override void OnTapHold()
@@ -33,7 +33,7 @@ namespace Scripts.BaseGameScripts.Control.ControlTypes
 
         public override void GetInput()
         {
-            dir = -(mouseStartPos - UnityEngine.Input.mousePosition).normalized;
+            dir = -(mouseStartPos - Input.mousePosition).normalized;
             dir = new Vector3(dir.x, 0, dir.y) + TransformOfObj.position;
             
             //TransformOfObj.LookAt(dir, Vector3.up);

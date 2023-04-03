@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Scripts.BaseGameScripts.Helper;
 using Scripts.State._Interface;
+using Scripts.State.GameStates;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -69,11 +70,19 @@ namespace Scripts.BaseGameScripts.State
         ///     "isSucceeded" represent win/lose situation of current state. If sub level is "0", it is fail. Else if it is "1", it
         ///     is success
         /// </summary>
-        /// <param name="isSucceeded"></param>
-        public void NextState(bool isSucceeded)
+        /// <param name="newGameState"></param>
+        public void NextState(IGameState newGameState)
         {
+            _currentState = FindState(newGameState);
+            _currentState.InitState();
         }
 
+        public void NextState(bool isSucceed)
+        {
+            _currentState = FindState(isSucceed);
+            _currentState.InitState();
+        }
+        
         private void IncreaseIndex()
         {
             _indexInList++;
@@ -89,6 +98,45 @@ namespace Scripts.BaseGameScripts.State
             {
                 throw e;
             }
+        }
+
+        private IGameState FindState(IGameState gameState)
+        {
+            for (int i = 0; i < states.Count; i++)
+            {
+                var currentState = states[i];
+                if (currentState == gameState)
+                {
+                    return currentState;
+                }
+            }
+
+            return null;
+        }
+        
+        private IGameState FindState(bool isSucceed)
+        {
+            for (int i = 0; i < states.Count; i++)
+            {
+                var currentState = states[i];
+                if (isSucceed)
+                {
+                    if (currentState.GetType() == typeof(GameState03_1Win))
+                    {
+                        DebugHelper.LogGreen(" WIN LEVEL ");
+                        return currentState;
+                    }
+                }
+                else
+                {
+                    if ((Type) currentState == typeof(GameState03_0Lose))
+                    {
+                        DebugHelper.LogGreen(" LOSE LEVEL ");
+                        return currentState;
+                    }
+                }
+            }
+            return null;
         }
     }
 }

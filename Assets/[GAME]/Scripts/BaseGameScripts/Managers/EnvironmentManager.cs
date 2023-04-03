@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 
-public class EnvironmentManager : MonoBehaviour
+namespace Scripts.BaseGameScripts.Managers
 {
-    [Header("Sky Components")]
-    [SerializeField]
-    private Color fogColor;
-
-    [SerializeField]
-    private Material skyMaterial;
-
-    private void Awake()
+    public class EnvironmentManager : MonoBehaviour
     {
-        SetSkyboxSettings();
-    }
+        [Header("Sky Components")]
+        [SerializeField]
+        private Color fogColor;
 
-    private void SetSkyboxSettings()
-    {
-        RenderSettings.skybox = skyMaterial;
-        RenderSettings.fogColor = fogColor;
+        [SerializeField]
+        private Material skyMaterial;
+
+        private void Awake()
+        {
+            SetSkyboxSettings();
+        }
+
+        private void SetSkyboxSettings()
+        {
+            RenderSettings.skybox = skyMaterial;
+            RenderSettings.fogColor = fogColor;
+        }
     }
 }

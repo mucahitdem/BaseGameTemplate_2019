@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Scripts.BaseGameScripts.UI
@@ -26,6 +27,36 @@ namespace Scripts.BaseGameScripts.UI
             }
         }
 
+        [Button]
+        
+        public void HideScreen(string uiId)
+        {
+            for (var i = 0; i < screens.Count; i++)
+            {
+                var currentUi = screens[i];
+
+                if (uiId == currentUi.id)
+                {
+                    currentUi.Go.SetActive(false);
+                    break;
+                }
+            }
+        }
+        
+        public void ShowUniqueScreen(string uiId)
+        {
+            for (var i = 0; i < screens.Count; i++)
+            {
+                var currentUi = screens[i];
+
+                if (uiId == currentUi.id)
+                {
+                    currentUi.Go.SetActive(true);
+                    break;
+                }
+            }
+        }
+
         public void ShowUi(string uiId)
         {
             for (var i = 0; i < uiItems.Count; i++)
@@ -34,6 +65,20 @@ namespace Scripts.BaseGameScripts.UI
 
                 if (uiId == currentUi.id)
                     currentUi.Go.SetActive(true);
+            }
+        }
+        
+        public void HideUi(string uiId)
+        {
+            for (var i = 0; i < uiItems.Count; i++)
+            {
+                var currentUi = screens[i];
+
+                if (uiId == currentUi.id)
+                {
+                    currentUi.Go.SetActive(false);
+                    break;
+                }
             }
         }
 

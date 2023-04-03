@@ -1,5 +1,4 @@
 ﻿using Scripts.BaseGameScripts.EventManagement;
-using Scripts.BaseGameScripts.Helper;
 using UnityEngine;
 
 namespace Scripts.BaseGameScripts.Component
@@ -7,16 +6,11 @@ namespace Scripts.BaseGameScripts.Component
     public class BaseComponent : EventSubscriber
     {
         private Collider _col;
-
         private GameObject _go;
-
         private LineRenderer _lineRenderer;
-
         private Rigidbody _rb;
-
         private RectTransform _rect;
         private Transform _transformOfObj;
-
         private Animator _anim;
         private Renderer _rendOfObj;
 
@@ -30,7 +24,6 @@ namespace Scripts.BaseGameScripts.Component
             }
             set => _transformOfObj = value;
         }
-
         public GameObject Go
         {
             get
@@ -41,7 +34,6 @@ namespace Scripts.BaseGameScripts.Component
             }
             set => _go = value;
         }
-
         public Rigidbody Rb
         {
             get
@@ -52,7 +44,6 @@ namespace Scripts.BaseGameScripts.Component
             }
             set => _rb = value;
         }
-
         public Collider Col
         {
             get
@@ -63,7 +54,6 @@ namespace Scripts.BaseGameScripts.Component
             }
             set => _col = value;
         }
-
         protected RectTransform Rect
         {
             get
@@ -74,7 +64,6 @@ namespace Scripts.BaseGameScripts.Component
             }
             set => _rect = value;
         }
-
         public virtual Animator AnimOfObj
         {
             get
@@ -84,7 +73,7 @@ namespace Scripts.BaseGameScripts.Component
 
                 return _anim;
             }
-            set => _anim = value;
+            private set => _anim = value;
         }
 
         protected LineRenderer LineRend
@@ -115,6 +104,8 @@ namespace Scripts.BaseGameScripts.Component
             set => _rendOfObj = value;
         }
         
+        
+        
         public override void SubscribeEvent()
         {
         }
@@ -123,6 +114,8 @@ namespace Scripts.BaseGameScripts.Component
         {
         }
 
+        
+        
         public virtual void OnGetFromPool()
         {
             TransformOfObj.parent = null;

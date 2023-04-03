@@ -1,6 +1,9 @@
-﻿using BayatGames.SaveGameFree;
+﻿using System;
+using BayatGames.SaveGameFree;
+using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.SaveAndLoad;
 using Scripts.BaseGameScripts.UI;
+using Scripts.GameScripts;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,38 +16,37 @@ namespace Scripts.BaseGameScripts.Managers
         private int _fakeLevelNum = 1;
 
         private int _levelNum = 1;
-
-        [Title("Managers")]
-        private UiManager _uiManager;
+        
+        private void Awake()
+        {
+            Application.targetFrameRate = 30;
+            Load();
+        }
 
         public void Save()
         {
-            SaveGame.Save("Level", _levelNum); // replace
-            SaveGame.Save("FakeLevel", _fakeLevelNum); // replace
+            SaveGame.Save(Defs.SAVE_KEY_LEVEL, _levelNum); // replace
+            SaveGame.Save(Defs.SAVE_KEY_FAKE_LEVEL, _fakeLevelNum); // replace
+            
+            
         }
 
         public void Load()
         {
-            _levelNum = SaveGame.Load("Level", 0);
-            _fakeLevelNum = SaveGame.Load("FakeLevel", _fakeLevelNum);
+            _levelNum = SaveGame.Load(Defs.SAVE_KEY_LEVEL, 1);
+            _fakeLevelNum = SaveGame.Load(Defs.SAVE_KEY_FAKE_LEVEL, 1);
+            
+            DebugHelper.LogRed("LEVEL NUM : " + _levelNum);
+            DebugHelper.LogRed("FAKE LEVEL NUM : " + _fakeLevelNum);
         }
-
-        private void Awake()
-        {
-            Load();
-        }
-
-        private void Start()
-        {
-            _uiManager = GlobalReferences.Instance.uiManager;
-        }
+        
 
         public void NextLevel()
         {
             _fakeLevelNum++;
             _levelNum++;
 
-            if (_levelNum == SceneManager.sceneCountInBuildSettings) // loop
+            if (_levelNum == SceneManager.sceneCountInBuildSettings) // loop // -1 is for loading scene
                 _levelNum = 1;
 
             Save();
@@ -55,6 +57,21 @@ namespace Scripts.BaseGameScripts.Managers
         public void RetryLevel()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        private void OnApplicationFocus(bool hasFocus)
+        {
+            Save();
+        }
+
+        private void OnApplicationPause(bool pauseStatus)
+        {
+            Save();
+        }
+
+        private void OnApplicationQuit()
+        {
+            Save();
         }
     }
 }

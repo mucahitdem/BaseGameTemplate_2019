@@ -12,11 +12,14 @@ namespace Scripts.BaseGameScripts.Pool
         
         [SerializeField]
         public Pool coinPool;
+
+        [SerializeField]
+        public Pool basicBulletPool;
+        
         
         protected override void OnAwake()
         {
             _idAndPool = new Dictionary<string, Pool>();
-            
             _idAndPool.Add(Defs.COIN_POOL_ID, coinPool);
             
         }
@@ -27,18 +30,18 @@ namespace Scripts.BaseGameScripts.Pool
         //     return pool.pool.Pull();
         // }
         
-        public void DeSpawnItem(string poolId, BaseComponent comp)
-        {
-            Pool pool = GetPool(poolId); 
-            pool.pool.Push(comp);
-        }
+        // public void DeSpawnItem(string poolId, BaseComponent comp)
+        // {
+        //     Pool pool = GetPool(poolId); 
+        //     pool.pool.Push(comp);
+        // }
 
-        public Pool GetPool(string poolId)
-        {
-            if (_idAndPool.TryGetValue(poolId, out Pool pool))
-                return pool;
-                
-            return null;
-        }
+        // public Pool GetPool(string poolId)
+        // {
+        //     if (_idAndPool.TryGetValue(poolId, out Pool pool))
+        //         return pool;
+        //         
+        //     return null;
+        // }
     }
 }

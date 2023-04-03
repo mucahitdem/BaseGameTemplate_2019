@@ -3,7 +3,7 @@ using Scripts.State._Interface;
 
 namespace Scripts.BaseGameScripts.State
 {
-    public abstract class BaseGameState : ComponentBase, IGameState
+    public abstract class BaseGameState : BaseComponent, IGameState
     {
         public abstract void InitState();
 
