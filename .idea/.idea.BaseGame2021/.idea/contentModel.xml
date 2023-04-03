@@ -138,10 +138,6 @@
                 <e p="TapManager.cs" t="Include" />
               </e>
               <e p="SceneLoader.cs" t="Include" />
-              <e p="Timer" t="Include">
-                <e p="Timer.cs" t="Include" />
-                <e p="TimerManager.cs" t="Include" />
-              </e>
               <e p="TimerManagement" t="Include">
                 <e p="Timer.cs" t="Include" />
                 <e p="TimerManager.cs" t="Include" />

@@ -73,6 +73,7 @@ namespace Scripts.BaseGameSystemRelatedScripts.TimerManagement
             ResetTimer();
             StartTimer();
         }
+        
         public void PausePlayTimer(bool pause)
         {
             IsPaused = pause;
@@ -83,14 +84,7 @@ namespace Scripts.BaseGameSystemRelatedScripts.TimerManagement
             else
                 StartTimer();
         }
-        private void StartTimer()
-        {
-            if(IsPaused)
-                return;
-
-            IsRunning = true;
-            TimerManager.Instance.AddNewTimer(this);
-        }
+        
         public void StopTimer()
         {
             IsRunning = false;
@@ -121,6 +115,14 @@ namespace Scripts.BaseGameSystemRelatedScripts.TimerManagement
 
         #region Private Variables
         
+        private void StartTimer()
+        {
+            if(IsPaused)
+                return;
+
+            IsRunning = true;
+            TimerManager.Instance.AddNewTimer(this);
+        }
         
         private void ResetTimer()
         {
