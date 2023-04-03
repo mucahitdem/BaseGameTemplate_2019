@@ -1,7 +1,7 @@
 ﻿using Scripts.BaseGameScripts;
+using Scripts.BaseGameScripts.State.GameStates;
 using Scripts.BaseGameScripts.UI;
 using Scripts.State._Interface;
-using Scripts.State.GameStates;
 
 namespace Scripts.BaseGameSystemRelatedScripts.UI
 {

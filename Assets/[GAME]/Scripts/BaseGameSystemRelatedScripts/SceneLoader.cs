@@ -1,6 +1,8 @@
-﻿using BayatGames.SaveGameFree;
+﻿using System.Collections;
+using BayatGames.SaveGameFree;
 using Scripts.BaseGameScripts.Helper;
 using Scripts.GameScripts;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,11 +10,19 @@ namespace Scripts.BaseGameSystemRelatedScripts
 {
     public class SceneLoader : MonoBehaviour
     {
+        [SerializeField]
+        private bool addDelayBeforeLoad;
+
+        [ShowIf("addDelayBeforeLoad")]
+        [SerializeField]
+        private float delayDuration;
+        
         private int _fakeLevelNum = 1;
         private int _levelNum = 1;
         
-        private void Awake()
+        private IEnumerator Start()
         {
+            yield return new WaitForSeconds(addDelayBeforeLoad ? delayDuration : 0);
             LoadScene();
         }
 

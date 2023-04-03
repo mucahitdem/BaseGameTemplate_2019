@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 1034767451}
   - component: {fileID: 1034767450}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SceneLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,6 +329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32db84d1d5b3c84585fdc3066256f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  addDelayBeforeLoad: 1
+  delayDuration: 2
 --- !u!4 &1034767451
 Transform:
   m_ObjectHideFlags: 0

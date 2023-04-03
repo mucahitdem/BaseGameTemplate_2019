@@ -26,12 +26,12 @@ namespace Scripts.BaseGameScripts.CoinControl
 
         public void Save()
         {
-            PlayerPrefs.SetFloat(Defs.COIN_COUNT, TotalCoins);
+            PlayerPrefs.SetFloat(Defs.SAVE_KEY_COIN_COUNT, TotalCoins);
         }
 
         public void Load()
         {
-            TotalCoins = PlayerPrefs.GetFloat(Defs.COIN_COUNT, 0);
+            TotalCoins = PlayerPrefs.GetFloat(Defs.SAVE_KEY_COIN_COUNT, 0);
             Debug.Log("TOTAL COIN COUNT LOADED: " + TotalCoins);
         }
         

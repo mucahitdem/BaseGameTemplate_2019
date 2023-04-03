@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Scripts.BaseGameScripts.Helper;
+using Scripts.BaseGameScripts.State.GameStates;
 using Scripts.State._Interface;
-using Scripts.State.GameStates;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -45,6 +45,11 @@ namespace Scripts.BaseGameScripts.State
         }
 
 
+        public bool IsStateGamePlaying()
+        {
+            return _currentState == ((IGameState)typeof(GameState02_0Playing));
+        }
+
         /// <summary>
         ///     Go to next state from list of states
         /// </summary>
@@ -76,18 +81,16 @@ namespace Scripts.BaseGameScripts.State
             _currentState = FindState(newGameState);
             _currentState.InitState();
         }
-
+        
         public void NextState(bool isSucceed)
         {
             _currentState = FindState(isSucceed);
             _currentState.InitState();
         }
-        
         private void IncreaseIndex()
         {
             _indexInList++;
         }
-
         private IGameState GetStateWithIndex()
         {
             try
@@ -99,7 +102,6 @@ namespace Scripts.BaseGameScripts.State
                 throw e;
             }
         }
-
         private IGameState FindState(IGameState gameState)
         {
             for (int i = 0; i < states.Count; i++)
@@ -113,7 +115,6 @@ namespace Scripts.BaseGameScripts.State
 
             return null;
         }
-        
         private IGameState FindState(bool isSucceed)
         {
             for (int i = 0; i < states.Count; i++)

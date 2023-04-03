@@ -81,12 +81,12 @@ namespace Scripts.BaseGameSystemRelatedScripts.Upgrade
         
         public override void Save()
         {
-            PlayerPrefs.SetInt(Defs.INCOME_UPGRADE_COUNT, upgradeCount);
+            PlayerPrefs.SetInt(Defs.SAVE_KEY_INCOME_UPGRADE_COUNT, upgradeCount);
         }
 
         public override void Load()
         {
-            upgradeCount = PlayerPrefs.GetInt(Defs.INCOME_UPGRADE_COUNT, 0);
+            upgradeCount = PlayerPrefs.GetInt(Defs.SAVE_KEY_INCOME_UPGRADE_COUNT, 0);
         }
     }
 
@@ -114,13 +114,13 @@ namespace Scripts.BaseGameSystemRelatedScripts.Upgrade
     {
         public override void Save()
         {
-            PlayerPrefs.SetInt(Defs.ADD_UPGRADE_COUNT, upgradeCount);
+            PlayerPrefs.SetInt(Defs.SAVE_KEY_ADD_UPGRADE_COUNT, upgradeCount);
 
         }
 
         public override void Load()
         {
-            upgradeCount = PlayerPrefs.GetInt(Defs.ADD_UPGRADE_COUNT, 0);
+            upgradeCount = PlayerPrefs.GetInt(Defs.SAVE_KEY_ADD_UPGRADE_COUNT, 0);
         }
     }
 

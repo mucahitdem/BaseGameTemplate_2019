@@ -9,9 +9,6 @@ namespace Scripts.BaseGameScripts.UI
         [SerializeField]
         private List<UiItem> screens = new List<UiItem>();
 
-        [SerializeField]
-        private List<UiItem> uiItems = new List<UiItem>();
-
         public void ShowScreen(string uiItemId)
         {
             ShowOneHideRest(screens, uiItemId);
@@ -26,9 +23,9 @@ namespace Scripts.BaseGameScripts.UI
                 currentUi.Go.SetActive(uiItemId == currentUi.id);
             }
         }
+        
 
         [Button]
-        
         public void HideScreen(string uiId)
         {
             for (var i = 0; i < screens.Count; i++)
@@ -39,60 +36,6 @@ namespace Scripts.BaseGameScripts.UI
                 {
                     currentUi.Go.SetActive(false);
                     break;
-                }
-            }
-        }
-        
-        public void ShowUniqueScreen(string uiId)
-        {
-            for (var i = 0; i < screens.Count; i++)
-            {
-                var currentUi = screens[i];
-
-                if (uiId == currentUi.id)
-                {
-                    currentUi.Go.SetActive(true);
-                    break;
-                }
-            }
-        }
-
-        public void ShowUi(string uiId)
-        {
-            for (var i = 0; i < uiItems.Count; i++)
-            {
-                var currentUi = screens[i];
-
-                if (uiId == currentUi.id)
-                    currentUi.Go.SetActive(true);
-            }
-        }
-        
-        public void HideUi(string uiId)
-        {
-            for (var i = 0; i < uiItems.Count; i++)
-            {
-                var currentUi = screens[i];
-
-                if (uiId == currentUi.id)
-                {
-                    currentUi.Go.SetActive(false);
-                    break;
-                }
-            }
-        }
-
-        public void ShowMultipleUis(params string[] ids) // not recommend to use because it is too slow
-        {
-            for (var i = 0; i < uiItems.Count; i++)
-            {
-                var currentUi = screens[i];
-
-                for (var j = 0; j < ids.Length; j++)
-                {
-                    var itemId = ids[j];
-
-                    if (itemId == currentUi.id) currentUi.Go.SetActive(true);
                 }
             }
         }

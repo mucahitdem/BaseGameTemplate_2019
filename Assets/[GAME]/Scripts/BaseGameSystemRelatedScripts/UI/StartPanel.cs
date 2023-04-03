@@ -1,7 +1,7 @@
 ﻿using Scripts.BaseGameScripts;
+using Scripts.BaseGameScripts.State.GameStates;
 using Scripts.BaseGameScripts.UI;
 using Scripts.State._Interface;
-using Scripts.State.GameStates;
 
 namespace Scripts.BaseGameSystemRelatedScripts.UI
 {
@@ -10,7 +10,7 @@ namespace Scripts.BaseGameSystemRelatedScripts.UI
         protected override void OnClick()
         {
             base.OnClick();
-            GlobalReferences.Instance.gameStateManager.NextState(true);
+            GlobalReferences.Instance.gameStateManager.NextState(((IGameState)typeof(GameState02_0Playing)));
         }
     }
 }
