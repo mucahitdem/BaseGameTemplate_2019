@@ -1,47 +1,53 @@
 ﻿using System.Collections.Generic;
-using Scripts.BaseGameScripts.Component;
 using Scripts.BaseGameScripts.Helper;
-using Scripts.GameScripts;
 using UnityEngine;
 
 namespace Scripts.BaseGameScripts.Pool
 {
     public class PoolManager : SingletonMono<PoolManager>
     {
-        private Dictionary<string, Pool> _idAndPool;
-        
-        [SerializeField]
-        public Pool coinPool;
+        private PoolingPattern _tempPool;
+
+        private readonly Dictionary<string, PoolingPattern> idAndPool = new Dictionary<string, PoolingPattern>();
+
+        [HideInInspector]
+        public PoolingPattern[] itemsPool;
 
         [SerializeField]
-        public Pool basicBulletPool;
-        
-        
+        private BasePoolItem[] poolItems;
+
         protected override void OnAwake()
         {
-            _idAndPool = new Dictionary<string, Pool>();
-            _idAndPool.Add(Defs.COIN_POOL_ID, coinPool);
-            
+            Create();
         }
-
-        // public BaseComponent SpawnItem(string poolId)
-        // {
-        //     Pool pool = GetPool(poolId);
-        //     return pool.pool.Pull();
-        // }
         
-        // public void DeSpawnItem(string poolId, BaseComponent comp)
-        // {
-        //     Pool pool = GetPool(poolId); 
-        //     pool.pool.Push(comp);
-        // }
+        
+        public PoolingPattern GetPoolWithId(string poolId)
+        {
+            if (idAndPool.TryGetValue(poolId, out _tempPool)) return _tempPool;
 
-        // public Pool GetPool(string poolId)
-        // {
-        //     if (_idAndPool.TryGetValue(poolId, out Pool pool))
-        //         return pool;
-        //         
-        //     return null;
-        // }
+            //DebugHelper.LogRed("THERE IS NO POOL WITH ID : " + poolId);
+            return null;
+        }
+        
+
+        private void Create()
+        {
+            itemsPool = new PoolingPattern[poolItems.Length];
+            for (var i = 0; i < poolItems.Length; i++)
+            {
+                var currentItem = poolItems[i];
+                var currentPool = itemsPool[i];
+                try
+                {
+                    currentPool = new PoolingPattern(currentItem, currentItem.Count);
+                }
+                catch
+                {
+                    //DebugHelper.LogYellow(ex.ToString());
+                }
+                idAndPool.Add(currentItem.PoolId, currentPool);
+            }
+        }
     }
 }

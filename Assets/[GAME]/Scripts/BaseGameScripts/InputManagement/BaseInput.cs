@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Scripts.BaseGameScripts.Component;
+using Scripts.BaseGameScripts.ComponentManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -51,7 +51,7 @@ namespace Scripts.BaseGameScripts.InputManagement
 
         private void TouchControl()
         {
-            if(Input.touchCount <= 0)
+            if (Input.touchCount <= 0)
                 return;
             switch (Input.touches[0].phase)
             {
@@ -75,9 +75,9 @@ namespace Scripts.BaseGameScripts.InputManagement
 
         protected virtual void OnTapDown()
         {
-            if(TouchOnUI())
+            if (TouchOnUI())
                 return;
-            
+
             InputActionManager.onTapDown?.Invoke();
         }
 
@@ -95,11 +95,11 @@ namespace Scripts.BaseGameScripts.InputManagement
         {
             InputActionManager.onTapUp?.Invoke();
         }
-        
-        
+
+
         private bool TouchOnUI()
         {
-            if (!EventSystem.current) 
+            if (!EventSystem.current)
                 return false;
             var eventDataCurrentPosition = new PointerEventData(EventSystem.current);
             eventDataCurrentPosition.position = Input.mousePosition;

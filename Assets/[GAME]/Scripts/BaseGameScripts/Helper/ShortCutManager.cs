@@ -16,7 +16,7 @@ namespace Scripts.BaseGameScripts.Helper
             for (var i = 0; i < keycodes.Count; i++)
             {
                 _shortCutData = keycodes[i];
-                if (UnityEngine.Input.GetKeyDown(_shortCutData.keyCode)) _shortCutData.unityEvent?.Invoke();
+                if (Input.GetKeyDown(_shortCutData.keyCode)) _shortCutData.unityEvent?.Invoke();
             }
         }
     }
