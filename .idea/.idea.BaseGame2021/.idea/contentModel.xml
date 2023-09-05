@@ -11,15 +11,17 @@
       <e p="Assets" t="Include">
         <e p="[GAME]" t="Include">
           <e p="Animations" t="Include" />
-          <e p="Datas" t="Include" />
+          <e p="Datas" t="Include">
+            <e p="Levels" t="Include" />
+            <e p="Sources" t="Include" />
+          </e>
           <e p="Fonts" t="Include" />
           <e p="Materials" t="Include" />
           <e p="Models" t="Include" />
-          <e p="Prefabs" t="Include">
-            <e p="BaseGame" t="Include" />
-            <e p="UI" t="Include" />
+          <e p="Prefabs" t="Include" />
+          <e p="Scenes" t="Include">
+            <e p="Level_1" t="Include" />
           </e>
-          <e p="Scenes" t="Include" />
           <e p="Scripts" t="Include">
             <e p="BaseGameScripts" t="Include">
               <e p="Animator Control" t="Include">
@@ -176,6 +178,7 @@
               </e>
             </e>
             <e p="Defs.cs" t="Include" />
+            <e p="GameScripts" t="Include" />
           </e>
           <e p="SOs" t="Include" />
           <e p="Textures" t="Include">

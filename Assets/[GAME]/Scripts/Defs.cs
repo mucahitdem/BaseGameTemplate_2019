@@ -49,7 +49,7 @@ namespace Scripts
 
         #region Others
 
-        public static readonly string DEFINE_SYMBOLS_ENABLE_LOG = "EnableLog";
+        public static readonly string DEFINE_SYMBOLS_ENABLE_LOG = "ENABLE_LOG";
 
         #endregion
     }
