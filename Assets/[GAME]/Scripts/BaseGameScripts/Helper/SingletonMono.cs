@@ -8,7 +8,6 @@ namespace Scripts.BaseGameScripts.Helper
 
         [SerializeField]
         private bool dontDestroyOnLoad;
-
         public static T Instance
         {
             get
@@ -36,7 +35,6 @@ namespace Scripts.BaseGameScripts.Helper
                 return s_instance;
             }
         }
-
         protected virtual void Awake()
         {
             if (dontDestroyOnLoad)
@@ -44,10 +42,8 @@ namespace Scripts.BaseGameScripts.Helper
                 transform.SetParent(null);
                 DontDestroyOnLoad(gameObject);
             }
-
             OnAwake();
         }
-
         protected abstract void OnAwake();
     }
 }

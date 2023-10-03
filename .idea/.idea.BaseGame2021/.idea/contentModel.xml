@@ -79,6 +79,7 @@
                 <e p="EventSystemHelper.cs" t="Include" />
                 <e p="IEventSubscriber.cs" t="Include" />
               </e>
+              <e p="EventQueue.cs" t="Include" />
               <e p="FadeUiManagement" t="Include">
                 <e p="FadeManager.cs" t="Include" />
               </e>
@@ -126,8 +127,9 @@
                 <e p="RagDoll.cs" t="Include" />
               </e>
               <e p="SaveAndLoadManagement" t="Include">
-                <e p="ISaveAndLoad.cs" t="Include" />
+                <e p="SaveAndLoad.cs" t="Include" />
                 <e p="SaveAndLoadManager.cs" t="Include" />
+                <e p="SaveMoney.cs" t="Include" />
               </e>
               <e p="SceneLoadingManagement" t="Include">
                 <e p="AllLevelsDataSo.cs" t="Include" />

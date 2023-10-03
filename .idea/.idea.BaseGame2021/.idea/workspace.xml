@@ -17,19 +17,21 @@
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/AllGameStateDataSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/Defs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Helper/SingletonMono.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSourceUi.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/BaseGameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Managers/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/Editor/ObjectSearchEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStates/GameStateStart.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/EventQueue.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStateActionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStateManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/Editor/HelperTools.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStates/GameStateLose.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Pool/PoolManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Pool/BasePoolItem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/ISaveAndLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/SaveAndLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/BaseClickableImage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/SaveAndLoadManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/RagDollManagement/RagDoll.cs" root0="FORCE_HIGHLIGHTING" />
@@ -47,6 +49,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStates/GameStateWin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/BaseUiItemManagement/BaseUiItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameSettingsDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/SaveMoney.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/Editor/GameWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/InputHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/SourceTypes/RenewableClampedSource.cs" root0="FORCE_HIGHLIGHTING" />
@@ -54,22 +57,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSourceDataSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Helper/AssemblyManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/BaseInput.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/EventQueue.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/InputActionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/SoCreator/SoCreatorEditorWindow.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/InputActionManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/InputHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Managers/LevelManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameSystemRelatedScripts/UI/WatchAdButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Control/ControlTypes/RotateWithJoyStick.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Managers/EnvironmentManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/BaseInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Component/IPhysicObj.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameSystemRelatedScripts/TimerManagement/Timer.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameSystemRelatedScripts/SceneLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/Defs.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/State/GameStates/GameState02_0Playing.cs" />
@@ -87,7 +80,6 @@
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Pool/BasePoolItem.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Pool/PoolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/RagDollManagement/RagDoll.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/SaveAndLoadManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/SceneLoadManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/BaseGameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSourceData.cs" />
@@ -100,7 +92,6 @@
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/SourceTypes/RenewableClampedSource.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/SourceManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSourceDataSo.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/EventQueue.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/AllLevelsDataSo.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/AllGameStateDataSo.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/BaseAsyncSceneLoader.cs" />
@@ -112,6 +103,17 @@
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/ButtonStartGame.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/ButtonClosePanel.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/BaseUiButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/EventQueue.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Helper/SingletonMono.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/SaveMoney.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/ISaveAndLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/SaveManagement/SavedDatas/SavedLevels.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/SaveManagement/ISaveAndLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/SaveManagement/BaseSaveAndLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/SaveAndLoadManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/SaveManagement/SaveSystem.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Managers/LevelManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/SaveAndLoad.cs" />
       </list>
     </option>
   </component>
@@ -145,6 +147,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="794" y="256" key="RiderGenerateDialog" timestamp="1696360626467">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="794" y="256" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1696360626467" />
     <state x="567" y="275" width="786" height="530" key="find.popup" timestamp="1692526856592">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

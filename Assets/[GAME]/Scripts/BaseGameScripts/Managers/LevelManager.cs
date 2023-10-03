@@ -1,12 +1,12 @@
 ﻿using Scripts.BaseGameScripts.Helper;
-using Scripts.BaseGameScripts.SaveAndLoad;
+using Scripts.BaseGameScripts.SaveAndLoadManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Scripts.BaseGameScripts.Managers
 {
-    public class LevelManager : MonoBehaviour, ISaveAndLoad
+    public class LevelManager : MonoBehaviour
     {
         private int _fakeLevelNum = 1;
         private int _levelNum = 1;

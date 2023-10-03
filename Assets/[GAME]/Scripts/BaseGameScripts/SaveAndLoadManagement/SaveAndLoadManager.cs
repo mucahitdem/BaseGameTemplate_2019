@@ -1,15 +1,14 @@
 ﻿using Scripts.BaseGameScripts.Helper;
-using Scripts.BaseGameScripts.SaveAndLoad;
 using UnityEngine;
 
 namespace Scripts.BaseGameScripts.SaveAndLoadManagement
 {
-    public class SaveAndLoadManager : SingletonMono<SaveAndLoadManager>, ISaveAndLoad
+    public class SaveAndLoadManager : SingletonMono<SaveAndLoadManager>
     {
         private ISaveAndLoad _tempSaveAndLoad;
 
-        [SerializeField]
-        private MonoBehaviour[] saveAndLoads;
+        //[SerializeField]
+        private ISaveAndLoad[] saveAndLoads;
 
         public void Save()
         {
@@ -29,19 +28,18 @@ namespace Scripts.BaseGameScripts.SaveAndLoadManagement
 
         public void Load()
         {
-            for (var i = 0; i < saveAndLoads.Length; i++)
-            {
-                var currentData = saveAndLoads[i];
-                if (currentData.TryGetComponent(out _tempSaveAndLoad))
-                    _tempSaveAndLoad.Save();
-                else
-                    DebugHelper.LogYellow(currentData.name + " --- " + "NOT SAVE AND LOAD");
-            }
+            // for (var i = 0; i < saveAndLoads.Length; i++)
+            // {
+            //     var currentData = saveAndLoads[i];
+            //     if (currentData.TryGetComponent(out _tempSaveAndLoad))
+            //         _tempSaveAndLoad.Save();
+            //     else
+            //         DebugHelper.LogYellow(currentData.name + " --- " + "NOT SAVE AND LOAD");
+            // }
         }
 
         protected override void OnAwake()
-        {
-            // Load();
+        { 
         }
 
         private void OnApplicationFocus(bool hasFocus)
