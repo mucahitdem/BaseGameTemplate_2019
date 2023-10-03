@@ -33,6 +33,7 @@
               <e p="ComponentManagement" t="Include">
                 <e p="BaseComponent.cs" t="Include" />
                 <e p="BaseMono.cs" t="Include" />
+                <e p="BaseScriptableObject.cs" t="Include" />
               </e>
               <e p="ControlManagement" t="Include">
                 <e p="BaseControl.cs" t="Include" />
@@ -63,7 +64,6 @@
                   <e p="ScriptGeneratorWindow.cs" t="Include" />
                 </e>
                 <e p="SoCreator" t="Include">
-                  <e p="BaseScriptableObject.cs" t="Include" />
                   <e p="SoCreatorEditorWindow.cs" t="Include" />
                 </e>
               </e>
@@ -79,7 +79,6 @@
                 <e p="EventSystemHelper.cs" t="Include" />
                 <e p="IEventSubscriber.cs" t="Include" />
               </e>
-              <e p="EventQueue.cs" t="Include" />
               <e p="FadeUiManagement" t="Include">
                 <e p="FadeManager.cs" t="Include" />
               </e>
@@ -177,8 +176,9 @@
                 <e p="UiManager.cs" t="Include" />
               </e>
             </e>
-            <e p="Defs.cs" t="Include" />
-            <e p="GameScripts" t="Include" />
+            <e p="GameScripts" t="Include">
+              <e p="Defs.cs" t="Include" />
+            </e>
           </e>
           <e p="SOs" t="Include" />
           <e p="Textures" t="Include">
@@ -186,74 +186,6 @@
               <e p="Company" t="Include" />
             </e>
             <e p="UI" t="Include" />
-          </e>
-        </e>
-        <e p="BayatGames" t="Include">
-          <e p="SaveGameFree" t="Include">
-            <e p="Documentation" t="Include">
-              <e p="Save Game Free Documentation - Plain Text Version.txt" t="Include" />
-            </e>
-            <e p="Editor" t="Include">
-              <e p="Tests" t="Include">
-                <e p="SaveGameTests.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Examples" t="Include">
-              <e p="Auto Save" t="Include">
-                <e p="ExampleMoveObject.cs" t="Include" />
-              </e>
-              <e p="Save Custom" t="Include">
-                <e p="ExampleSaveCustom.cs" t="Include" />
-              </e>
-              <e p="Save Position" t="Include">
-                <e p="ExampleSavePosition.cs" t="Include" />
-              </e>
-              <e p="Save Rotation" t="Include">
-                <e p="ExampleSaveRotation.cs" t="Include" />
-              </e>
-              <e p="Save Scale" t="Include">
-                <e p="ExampleSaveScale.cs" t="Include" />
-              </e>
-              <e p="Save Web" t="Include">
-                <e p="ExampleSaveWeb.cs" t="Include" />
-              </e>
-              <e p="Shared" t="Include">
-                <e p="Prefabs" t="Include" />
-                <e p="Scripts" t="Include">
-                  <e p="SerializerDropdown.cs" t="Include" />
-                </e>
-              </e>
-            </e>
-            <e p="Plugins" t="Include">
-              <e p="FullSerializer.xml" t="Include" />
-            </e>
-            <e p="PressKit" t="Include" />
-            <e p="Readme.txt" t="Include" />
-            <e p="Scripts" t="Include">
-              <e p="Encoders" t="Include">
-                <e p="ISaveGameEncoder.cs" t="Include" />
-                <e p="SaveGameSimpleEncoder.cs" t="Include" />
-              </e>
-              <e p="SaveGame.cs" t="Include" />
-              <e p="SaveGameAuto.cs" t="Include" />
-              <e p="SaveGameWeb.cs" t="Include" />
-              <e p="Serializers" t="Include">
-                <e p="ISaveGameSerializer.cs" t="Include" />
-                <e p="SaveGameBinarySerializer.cs" t="Include" />
-                <e p="SaveGameJsonSerializer.cs" t="Include" />
-                <e p="SaveGameXmlSerializer.cs" t="Include" />
-              </e>
-              <e p="Types" t="Include">
-                <e p="Color32Save.cs" t="Include" />
-                <e p="ColorSave.cs" t="Include" />
-                <e p="MeshSave.cs" t="Include" />
-                <e p="QuaternionSave.cs" t="Include" />
-                <e p="Vector2Save.cs" t="Include" />
-                <e p="Vector3Save.cs" t="Include" />
-                <e p="Vector4Save.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Web" t="Include" />
           </e>
         </e>
         <e p="BOXOPHOBIC" t="Include">
@@ -378,23 +310,6 @@
               </e>
             </e>
           </e>
-        </e>
-        <e p="Confetti FX" t="Include">
-          <e p="Materials" t="Include">
-            <e p="3D Materials" t="Include" />
-          </e>
-          <e p="Models" t="Include">
-            <e p="Materials" t="Include" />
-          </e>
-          <e p="Prefabs" t="Include">
-            <e p="2D" t="Include">
-              <e p="Directional" t="Include" />
-            </e>
-            <e p="3D" t="Include">
-              <e p="DirectionalExplosion" t="Include" />
-            </e>
-          </e>
-          <e p="Textures" t="Include" />
         </e>
         <e p="Hierarchy 2" t="Include">
           <e p="Editor" t="Include">
@@ -681,55 +596,6 @@
             </e>
           </e>
         </e>
-        <e p="PathCreator" t="Include">
-          <e p="Core" t="Include">
-            <e p="Editor" t="Include">
-              <e p="Helper" t="Include">
-                <e p="MouseUtility.cs" t="Include" />
-                <e p="PathHandle.cs" t="Include" />
-                <e p="ScreenSpacePolyLine.cs" t="Include" />
-              </e>
-              <e p="PathCreatorEditor.asmdef" t="Include" />
-              <e p="PathEditor.cs" t="Include" />
-            </e>
-            <e p="Runtime" t="Include">
-              <e p="Objects" t="Include">
-                <e p="BezierPath.cs" t="Include" />
-                <e p="EndOfPathInstruction.cs" t="Include" />
-                <e p="GlobalDisplaySettings.cs" t="Include" />
-                <e p="MinMax3D.cs" t="Include" />
-                <e p="PathCreator.cs" t="Include" />
-                <e p="PathCreatorData.cs" t="Include" />
-                <e p="PathSpace.cs" t="Include" />
-                <e p="VertexPath.cs" t="Include" />
-              </e>
-              <e p="PathCreator.asmdef" t="Include" />
-              <e p="Utility" t="Include">
-                <e p="CubicBezierUtility.cs" t="Include" />
-                <e p="MathUtility.cs" t="Include" />
-                <e p="VertexPathUtility.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Settings" t="Include" />
-          </e>
-          <e p="Documentation" t="Include" />
-          <e p="Examples" t="Include">
-            <e p="Materials" t="Include" />
-            <e p="Prefabs" t="Include" />
-            <e p="Scenes" t="Include" />
-            <e p="Scripts" t="Include">
-              <e p="Editor" t="Include">
-                <e p="PathSceneToolEditor.cs" t="Include" />
-              </e>
-              <e p="GeneratePathExample.cs" t="Include" />
-              <e p="PathFollower.cs" t="Include" />
-              <e p="PathPlacer.cs" t="Include" />
-              <e p="PathSceneTool.cs" t="Include" />
-              <e p="PathSpawner.cs" t="Include" />
-              <e p="RoadMeshCreator.cs" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="Plugins" t="Include">
           <e p="Demigiant" t="Include">
             <e p="DOTween" t="Include">
@@ -809,8 +675,6 @@
       <e p="MoreAttributesEditorAssembly.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="PathCreator.csproj" t="IncludeRecursive" />
-      <e p="PathCreatorEditor.csproj" t="IncludeRecursive" />
       <e p="Sirenix.OdinInspector.CompatibilityLayer.csproj" t="IncludeRecursive" />
       <e p="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj" t="IncludeRecursive" />
       <e p="Temp\Bin" t="ExcludeRecursive" />

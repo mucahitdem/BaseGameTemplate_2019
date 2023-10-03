@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Scripts.BaseGameScripts.UiManagement
 {
-    public class BaseUiButton : BaseUiItem
+    public abstract class BaseUiButton : BaseUiItem
     {
         private Button _button;
 

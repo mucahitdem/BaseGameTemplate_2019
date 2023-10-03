@@ -8,58 +8,59 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/SaveAndLoadManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Helper/AssemblyManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStates/GameStateLose.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/AllGameStateDataSo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStateManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStateActionManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/BaseGameManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/ScenesToLoadAtLevelDataSo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/SceneLoadManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/SourceManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/BaseInput.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/Editor/ObjectSearchEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/InputActionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/Editor/SceneLoaderTool.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Hierarchy 2/Editor/HierarchyEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/Editor/GameWindow.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStates/GameStateStart.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSourceDataSo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/Editor/HelperTools.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStates/GameStateWin.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSource.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSourceData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/InputHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Animator Control/AnimatorStateManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Pool/BasePoolItem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/RagDollManagement/RagDoll.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Animator Control/AnimatorParameter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/ComponentManagement/BaseComponent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Pool/PoolManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/SourceTypes/RenewableClampedSourceDataSo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Animator Control/AnimatorParameterController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/ComponentManagement/BaseMono.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/SourceTypes/RenewableClampedSource.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/EventQueue.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/SoCreator/SoCreatorEditorWindow.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Defs.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/ISaveAndLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/SourceTypes/RenewableClampedSourceData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/SourceManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/SceneLoadManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/BaseAsyncSceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Managers/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/FloatingUiManagement/FloatingText.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/ScenesToLoadAtLevelDataSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/AllLevelsDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/AllGameStateDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/Defs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSourceUi.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/BaseGameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Managers/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/Editor/ObjectSearchEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStates/GameStateStart.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStateActionManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStateManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/Editor/HelperTools.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStates/GameStateLose.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Pool/PoolManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Pool/BasePoolItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/ISaveAndLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/BaseClickableImage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/SaveAndLoadManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/RagDollManagement/RagDoll.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/UiManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/BaseUiButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/SourceTypes/RenewableClampedSourceData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSourceData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Animator Control/AnimatorParameterController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Animator Control/AnimatorStateManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Animator Control/AnimatorParameter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/ComponentManagement/BaseMono.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/SourceTypes/RenewableClampedSourceDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/ComponentManagement/BaseComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Hierarchy 2/Editor/HierarchyEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStates/GameStateWin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/BaseUiItemManagement/BaseUiItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameSettingsDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/Editor/GameWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/InputHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/SourceTypes/RenewableClampedSource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/FloatingUiManagement/FloatingText.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSourceDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Helper/AssemblyManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/BaseInput.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/EventQueue.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/InputActionManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/SoCreator/SoCreatorEditorWindow.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/CameraManagement/CameraManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/CoinControl/CoinCollectAnim.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameSystemRelatedScripts/Upgrade/Buttons/Button3dManagement/Button3dAdd.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoad/SaveManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/InputActionManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/InputManagement/InputHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Managers/LevelManager.cs" />
@@ -89,7 +90,6 @@
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/SaveAndLoadManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/SceneLoadManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/BaseGameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Defs.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSourceData.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/SourceTypes/RenewableClampedSourceData.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Animator Control/AnimatorParameter.cs" />
@@ -107,6 +107,11 @@
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/ScenesToLoadAtLevelDataSo.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SceneLoadingManagement/SceneLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/Editor/SceneLoaderTool.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Defs.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/StartGameButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/ButtonStartGame.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/ButtonClosePanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/BaseUiButton.cs" />
       </list>
     </option>
   </component>
