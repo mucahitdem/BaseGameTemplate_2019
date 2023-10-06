@@ -20,13 +20,11 @@ namespace Scripts
 
         public static readonly string UI_KEY_START_SCREEN = "StartScreen";
         public static readonly string UI_KEY_GENERIC_SCREEN = "GenericScreen";
-        public static readonly string UI_KEY_GAMEPLAY_SCREEN = "GamePlayScreen";
+        public static readonly string UI_KEY_GAME_PLAY_SCREEN = "GamePlayScreen";
         public static readonly string UI_KEY_WIN_SCREEN = "WinScreen";
-        public static readonly string UI_KEY_LOSE_SCREEN = "LoseScreen";
+        public static readonly string UI_KEY_FAIL_SCREEN = "LoseScreen";
         
         public static readonly string UI_KEY_LOADING_SCREEN = "LoadingScreen";
-        public static readonly string UI_KEY_LEVEL_SUCCESS_PANEL = "SuccessPanel";
-        public static readonly string UI_KEY_LEVEL_FAILED_PANEL = "FailPanel";
 
         public static readonly string UI_KEY_FLOATING_JOYSTICK = "FloatingJoystick";
 

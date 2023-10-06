@@ -15,11 +15,12 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
     {
         private const string IdSceneViewerOverlay = "sceneViewerOverlay";
         private static bool s_additive;
-        private static readonly Button s_loadWithLoaderButton = new Button(LoadTypeButton);
-        private static readonly Button s_mainLevelButton = new Button(LoadMainLevel);
-        private static readonly Button s_level1Button = new Button(LoadLevel1);
-        private static readonly List<int> s_indicesMainLevel = new List<int>();
-        private static readonly List<int> s_indicesLevel1 = new List<int>();
+        private static readonly Button s_isAdditive = new Button(LoadTypeButton);
+        
+        // private static readonly Button s_mainLevelButton = new Button(LoadMainLevel);
+        // private static readonly Button s_level1Button = new Button(LoadLevel1);
+        // private static readonly List<int> s_indicesMainLevel = new List<int>();
+        // private static readonly List<int> s_indicesLevel1 = new List<int>();
         private VisualElement _root;
 
         public override VisualElement CreatePanelContent()
@@ -57,11 +58,6 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
             _root.Clear();
 
             AddLoadTypeButton();
-            _root.Add(s_level1Button);
-            s_level1Button.text = "Load Level1";
-            _root.Add(s_mainLevelButton);
-            s_mainLevelButton.text = "Load Main Level";
-
 
             if (CheckIfBuildSettingsIfWeHaveAnyScenes())
                 return;
@@ -70,7 +66,7 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
         }
         private void AddLoadTypeButton()
         {
-            _root.Add(s_loadWithLoaderButton);
+            _root.Add(s_isAdditive);
             s_additive = PlayerPrefs.GetInt(Defs.SAVE_KEY_SCENE_LOADER_TOOL, 0) == 1;
             UpdateLoadTypeButtonText();
         }
@@ -83,26 +79,9 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
                 var fileName = Path.GetFileName(SceneUtility.GetScenePathByBuildIndex(i));
                 var sceneIndex = i;
                 var sceneButton = new Button(() => LoadSceneWithIndex(sceneIndex));
-                var buttonText =
-                    fileName.Substring(0,
-                        fileName.Length -
-                        6); //Removes the extension part of the file name (e.g: "MainScene.unity" -> "MainScene")
+                var buttonText = fileName.Substring(0, fileName.Length - 6); //Removes the extension part of the file name (e.g: "MainScene.unity" -> "MainScene")
                 sceneButton.text = buttonText;
-
-                if (buttonText.Contains("Pool"))
-                {
-                    s_indicesLevel1.Add(i);
-                    s_indicesMainLevel.Add(i);
-                }
-                else if (buttonText.Contains("Level1"))
-                {
-                    s_indicesLevel1.Add(i);
-                }
-                else if (buttonText.Contains("MainLevel"))
-                {
-                    s_indicesMainLevel.Add(i);
-                }
-
+                
                 _root.Add(sceneButton);
             }
         }
@@ -151,38 +130,7 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
                 EditorSceneManager.OpenScene(SceneUtility.GetScenePathByBuildIndex(index), s_additive ? OpenSceneMode.Additive : OpenSceneMode.Single);
             }
         }
-        private static void LoadLevel1()
-        {
-            if (SceneManager.GetActiveScene().isDirty)
-            {
-                var dialogResult = EditorUtility.DisplayDialogComplex(
-                    "Scene has been modified",
-                    "Do you want to save the changes you made in the current scene?",
-                    "Save", "Don't Save", "Cancel");
-            }
-            else
-            {
-                for (var i = 0; i < s_indicesLevel1.Count; i++)
-                    EditorSceneManager.OpenScene(SceneUtility.GetScenePathByBuildIndex(s_indicesLevel1[i]),
-                        i == 0 ? OpenSceneMode.Single : OpenSceneMode.Additive);
-            }
-        }
-        private static void LoadMainLevel()
-        {
-            if (SceneManager.GetActiveScene().isDirty)
-            {
-                var dialogResult = EditorUtility.DisplayDialogComplex(
-                    "Scene has been modified",
-                    "Do you want to save the changes you made in the current scene?",
-                    "Save", "Don't Save", "Cancel");
-            }
-            else
-            {
-                for (var i = 0; i < s_indicesMainLevel.Count; i++)
-                    EditorSceneManager.OpenScene(SceneUtility.GetScenePathByBuildIndex(s_indicesMainLevel[i]),
-                        i == 0 ? OpenSceneMode.Single : OpenSceneMode.Additive);
-            }
-        }
+     
         private static void LoadTypeButton()
         {
             s_additive = !s_additive;
@@ -192,9 +140,9 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
         private static void UpdateLoadTypeButtonText()
         {
             if (s_additive)
-                s_loadWithLoaderButton.text = "Additive";
+                s_isAdditive.text = "Additive";
             else
-                s_loadWithLoaderButton.text = "Single";
+                s_isAdditive.text = "Single";
         }
     }
 }

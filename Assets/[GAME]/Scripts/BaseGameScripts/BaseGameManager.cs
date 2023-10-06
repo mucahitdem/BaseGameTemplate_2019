@@ -1,5 +1,5 @@
-﻿using Scripts.BaseGameScripts.Helper;
-using Scripts.GameScripts.GameStateManagement;
+﻿using Scripts.BaseGameScripts.GameStateManagement;
+using Scripts.BaseGameScripts.Helper;
 using Scripts.GameScripts.SceneLoadingManagement;
 using UnityEngine;
 
@@ -17,13 +17,8 @@ namespace Scripts.BaseGameScripts
         [SerializeField]
         private Camera loaderCamera;
 
-        [SerializeField]
-        private int targetFrameRate;
-
-
         protected override void OnAwake()
         {
-            Application.targetFrameRate = targetFrameRate;
         }
 
         

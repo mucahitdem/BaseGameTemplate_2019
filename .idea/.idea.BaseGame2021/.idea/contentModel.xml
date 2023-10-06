@@ -85,17 +85,14 @@
               </e>
               <e p="GameSettingsDataSo.cs" t="Include" />
               <e p="GameStateManagement" t="Include">
-                <e p="AllGameStateDataSo.cs" t="Include" />
-                <e p="BaseGameState.cs" t="Include" />
-                <e p="GameStateActionManager.cs" t="Include" />
                 <e p="GameStateManager.cs" t="Include" />
-                <e p="GameStates" t="Include">
-                  <e p="GameStateLose.cs" t="Include" />
-                  <e p="GameStatePlaying.cs" t="Include" />
-                  <e p="GameStateStart.cs" t="Include" />
-                  <e p="GameStateWin.cs" t="Include" />
-                </e>
                 <e p="IGameState.cs" t="Include" />
+                <e p="States" t="Include">
+                  <e p="FailState.cs" t="Include" />
+                  <e p="GamePlayState.cs" t="Include" />
+                  <e p="StartState.cs" t="Include" />
+                  <e p="WinState.cs" t="Include" />
+                </e>
               </e>
               <e p="Helper" t="Include">
                 <e p="AssemblyManager.cs" t="Include" />
@@ -129,7 +126,6 @@
               <e p="SaveAndLoadManagement" t="Include">
                 <e p="SaveAndLoad.cs" t="Include" />
                 <e p="SaveAndLoadManager.cs" t="Include" />
-                <e p="SaveMoney.cs" t="Include" />
               </e>
               <e p="SceneLoadingManagement" t="Include">
                 <e p="AllLevelsDataSo.cs" t="Include" />
@@ -148,7 +144,6 @@
                 <e p="BaseSourceData.cs" t="Include" />
                 <e p="BaseSourceDataSo.cs" t="Include" />
                 <e p="BaseSourceUi.cs" t="Include" />
-                <e p="ClampedSourceUi.cs" t="Include" />
                 <e p="SourceActionManager.cs" t="Include" />
                 <e p="SourceManager.cs" t="Include" />
                 <e p="SourceTypes" t="Include">
@@ -163,10 +158,14 @@
                 <e p="TimerManager.cs" t="Include" />
               </e>
               <e p="UiManagement" t="Include">
-                <e p="BaseClickableImage.cs" t="Include" />
-                <e p="BaseUiButton.cs" t="Include" />
                 <e p="BaseUiItemManagement" t="Include">
+                  <e p="BaseClickableImage.cs" t="Include" />
+                  <e p="BaseUiButton.cs" t="Include" />
                   <e p="BaseUiItem.cs" t="Include" />
+                  <e p="BaseUiPanel.cs" t="Include" />
+                  <e p="Panels" t="Include">
+                    <e p="StartPanel.cs" t="Include" />
+                  </e>
                 </e>
                 <e p="FloatingUiManagement" t="Include">
                   <e p="BaseFloatingUi.cs" t="Include" />
@@ -180,10 +179,13 @@
             </e>
             <e p="GameScripts" t="Include">
               <e p="Defs.cs" t="Include" />
+              <e p="Helpers" t="Include">
+                <e p="AnchorSetter.cs" t="Include" />
+              </e>
             </e>
           </e>
-          <e p="SOs" t="Include" />
           <e p="Textures" t="Include">
+            <e p="_Trail" t="Include" />
             <e p="Icons" t="Include">
               <e p="Company" t="Include" />
             </e>
@@ -309,6 +311,15 @@
               <e p="StyledMono" t="Include">
                 <e p="StyledMonoBehaviour.cs" t="Include" />
                 <e p="StyledScriptableObject.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="GUI Kit - Yellow Kid" t="Include">
+          <e p="ResourcesData" t="Include">
+            <e p="Sprite" t="Include">
+              <e p="Component" t="Include">
+                <e p="UI_Etc" t="Include" />
               </e>
             </e>
           </e>
@@ -632,7 +643,9 @@
             <e p="Demos" t="Include" />
             <e p="Odin Inspector" t="Include">
               <e p="Assets" t="Include">
-                <e p="Editor" t="Include" />
+                <e p="Editor" t="Include">
+                  <e p="Bootstrap License.txt" t="Include" />
+                </e>
               </e>
               <e p="Config" t="Include">
                 <e p="Editor" t="Include" />
@@ -641,23 +654,6 @@
                 </e>
               </e>
               <e p="Modules" t="Include" />
-              <e p="Scripts" t="Include">
-                <e p="Editor" t="Include">
-                  <e p="AssemblyImportSettingsAutomation.cs" t="Include" />
-                  <e p="BuildAOTAutomation.cs" t="Include" />
-                  <e p="EnsureOdinInspectorDefine.cs" t="Include" />
-                  <e p="FixBrokenUnityObjectWrapperDrawer.cs" t="Include" />
-                  <e p="Sirenix.OdinInspector.CompatibilityLayer.Editor.asmdef" t="Include" />
-                  <e p="SyncListDrawer.cs" t="Include" />
-                  <e p="SyncVarAttributeDrawer.cs" t="Include" />
-                  <e p="Vector2IntMinMaxAttributeDrawer.cs" t="Include" />
-                  <e p="VectorIntDrawers.cs" t="Include" />
-                  <e p="VectorIntPropertyResolvers.cs" t="Include" />
-                </e>
-                <e p="SerializedNetworkBehaviour.cs" t="Include" />
-                <e p="Sirenix.OdinInspector.CompatibilityLayer.asmdef" t="Include" />
-                <e p="VectorIntFormatters.cs" t="Include" />
-              </e>
             </e>
             <e p="Readme.txt" t="Include" />
           </e>
@@ -677,8 +673,6 @@
       <e p="MoreAttributesEditorAssembly.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="Sirenix.OdinInspector.CompatibilityLayer.csproj" t="IncludeRecursive" />
-      <e p="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj" t="IncludeRecursive" />
       <e p="Temp\Bin" t="ExcludeRecursive" />
     </e>
   </component>

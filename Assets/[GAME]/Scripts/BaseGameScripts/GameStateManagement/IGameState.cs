@@ -1,9 +1,8 @@
-﻿namespace Scripts.BaseGameScripts.StateManagement._Interface
+﻿namespace Scripts.BaseGameScripts.GameStateManagement
 {
     public interface IGameState
     {
-        void InitState();
-
-        void ExitState();
+        void OnEnter();
+        void OnExit();
     }
 }
