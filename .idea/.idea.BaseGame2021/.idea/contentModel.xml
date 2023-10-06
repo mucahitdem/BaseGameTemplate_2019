@@ -100,6 +100,8 @@
                 <e p="DebugHelper.cs" t="Include" />
                 <e p="DefineSymbolsManager.cs" t="Include" />
                 <e p="FindClasses.cs" t="Include" />
+                <e p="FPSDisplay.cs" t="Include" />
+                <e p="FrameRateManager.cs" t="Include" />
                 <e p="MinMaxValue.cs" t="Include" />
                 <e p="MoneyConverter.cs" t="Include" />
                 <e p="ShortCutManager.cs" t="Include" />
@@ -179,9 +181,7 @@
             </e>
             <e p="GameScripts" t="Include">
               <e p="Defs.cs" t="Include" />
-              <e p="Helpers" t="Include">
-                <e p="AnchorSetter.cs" t="Include" />
-              </e>
+              <e p="GameManager.cs" t="Include" />
             </e>
           </e>
           <e p="Textures" t="Include">

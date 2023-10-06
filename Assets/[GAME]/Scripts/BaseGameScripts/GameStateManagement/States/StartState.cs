@@ -1,7 +1,6 @@
-﻿using Scripts.BaseGameScripts.GameStateManagement;
-using Scripts.BaseGameScripts.UiManagement;
+﻿using Scripts.BaseGameScripts.UiManagement;
 
-namespace Scripts.GameScripts.GameStateManagement.States
+namespace Scripts.BaseGameScripts.GameStateManagement.States
 {
     public class StartState : IGameState
     {
