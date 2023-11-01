@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeAmmoManagement.SkillRapidReload
@@ -22,8 +22,8 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeAmmoManagement.
         {
             var data = RapidReloadDataSo.rapidReloadData;
             var player = GameManager.Instance.Player;
-            player.Weapon.increaseReloadSpeedPercentage?.Invoke(data.reloadSpeedIncreasePercentage);
-            player.Weapon.increaseFireRatePercentage?.Invoke(data.fireRateIncreasePercentage);
+            // player.Weapon.increaseReloadSpeedPercentage?.Invoke(data.reloadSpeedIncreasePercentage);
+            // player.Weapon.increaseFireRatePercentage?.Invoke(data.fireRateIncreasePercentage);
         }
     }
 }

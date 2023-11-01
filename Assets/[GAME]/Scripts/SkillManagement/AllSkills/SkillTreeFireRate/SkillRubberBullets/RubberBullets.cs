@@ -1,6 +1,6 @@
 using Scripts.EnemyManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.EnemyManagement;
-using Scripts.GameScripts.GameManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.SkillHelpersManagement.FireBulletManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
@@ -34,10 +34,8 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeFireRate.SkillR
                 _playerManager = GameManager.Instance.Player;
 
             _rubberBulletsData = RubberBulletsDataSo.rubberBulletsData;
-            GameManager.Instance.Player.Weapon.increaseFireRatePercentage?.Invoke(_rubberBulletsData
-                .fireRateIncreasePercentage);
-            GameManager.Instance.Player.Weapon.increaseBulletDamagePercentage?.Invoke(_rubberBulletsData
-                .bulletDamageIncreasePercentage);
+            // GameManager.Instance.Player.Weapon.increaseFireRatePercentage?.Invoke(_rubberBulletsData.fireRateIncreasePercentage);
+            // GameManager.Instance.Player.Weapon.increaseBulletDamagePercentage?.Invoke(_rubberBulletsData.bulletDamageIncreasePercentage);
             fireBullet.SetData(_rubberBulletsData.ricochetingBulletCount,
                 _rubberBulletsData.ricochetingBulletSpreadAmount);
         }
@@ -56,10 +54,10 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeFireRate.SkillR
 
         private void OnEnemyDiedAtPosition(Vector3 pos, float damageTaken, FireType fireType)
         {
-            var weapon = _playerManager.Weapon;
-            var createPos = pos + Vector3.up;
-            fireBullet.FireBullet(weapon.CurrentBulletDamage, weapon.CurrentBulletSize, createPos,
-                TransformOfObj.forward, _rubberBulletsData.fireType);
+            // var weapon = _playerManager.Weapon;
+            // var createPos = pos + Vector3.up;
+            // fireBullet.FireBullet(weapon.CurrentBulletDamage, weapon.CurrentBulletSize, createPos,
+            //     TransformOfObj.forward, _rubberBulletsData.fireType);
         }
     }
 }

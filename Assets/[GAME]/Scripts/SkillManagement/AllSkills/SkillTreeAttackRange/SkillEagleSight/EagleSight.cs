@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeAttackRange.SkillEagleSight
@@ -20,7 +20,7 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeAttackRange.Ski
         public override void UseSkill()
         {
             var data = EagleSightDataSo.eagleSightData;
-            GameManager.Instance.Player.Weapon.increaseFireRangePercentage?.Invoke(data.fireRangeIncreasePercentage);
+            //GameManager.Instance.Player.Weapon.increaseFireRangePercentage?.Invoke(data.fireRangeIncreasePercentage);
         }
     }
 }

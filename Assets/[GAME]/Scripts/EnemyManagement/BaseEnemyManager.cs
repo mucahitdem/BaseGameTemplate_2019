@@ -2,12 +2,12 @@
 using Scripts.BaseGameScripts;
 using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.Pool;
+using Scripts.GameManagement;
 using Scripts.GameScripts;
 using Scripts.GameScripts.CharacterManagement;
 using Scripts.GameScripts.EnemyManagement;
 using Scripts.GameScripts.EnemyManagement.AiMovementManagement.BaseAiMovementManagement;
 using Scripts.GameScripts.FindTargetsInAreaManagement;
-using Scripts.GameScripts.GameManagement;
 using Scripts.GameScripts.StatsManagement.EnemyStatsManagement;
 using UnityEngine;
 
@@ -41,21 +41,6 @@ namespace Scripts.EnemyManagement
         public BaseEnemyStatsManager EnemyStatsManager { get; private set; }
 
         private BaseAiMovement BaseAiMovement => baseAiMovement;
-
-        private EventQueue EventQueue
-        {
-            get
-            {
-                if (_eventQueue == null)
-                {
-                    var eventQueue = GameManager.Instance.EventQueue;
-                    _eventQueue = eventQueue ? eventQueue : FindObjectOfType<EventQueue>();
-                }
-
-                return _eventQueue;
-            }
-            set => _eventQueue = value;
-        }
 
         protected override void Awake()
         {
@@ -160,15 +145,11 @@ namespace Scripts.EnemyManagement
             if (enemyEffectManager)
                 enemyEffectManager.CreateDieEffect();
 
-            if (EventQueue)
-                EventQueue.Add(() =>
-                {
-                    var position = TransformOfObj.position;
-                    EnemyActionManager.onEnemyDiedWithHp?.Invoke(position,
-                        EnemyStatsManager.BaseEnemyStatsDataSo.enemyStatsData.xpValue);
-                    EnemyActionManager.onEnemyDiedAtPosition?.Invoke(position, takenDamage, fireType);
-                    EnemyActionManager.onEnemyDied?.Invoke(this);
-                }, "CART");
+            
+            var position = TransformOfObj.position;
+            EnemyActionManager.onEnemyDiedWithHp?.Invoke(position, EnemyStatsManager.BaseEnemyStatsDataSo.enemyStatsData.xpValue);
+            EnemyActionManager.onEnemyDiedAtPosition?.Invoke(position, takenDamage, fireType);
+            EnemyActionManager.onEnemyDied?.Invoke(this);
 
             baseAiMovement.SetTarget(null);
         }

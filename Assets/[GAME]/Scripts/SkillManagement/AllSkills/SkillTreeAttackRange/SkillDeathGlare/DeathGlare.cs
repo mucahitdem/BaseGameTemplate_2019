@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeAttackRange.SkillDeathGlare
@@ -22,7 +22,7 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeAttackRange.Ski
             var data = DeathGlareDataSo.deathGlareData;
             var player = GameManager.Instance.Player;
 
-            player.Weapon.increaseFireRangePercentage?.Invoke(data.fireRangeIncreasePercentage);
+            //player.Weapon.increaseFireRangePercentage?.Invoke(data.fireRangeIncreasePercentage);
         }
     }
 }

@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeFireRate.SkillRapidFire
@@ -22,7 +22,7 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeFireRate.SkillR
         {
             var data = RapidFireDataSo.rapidFireData;
 
-            GameManager.Instance.Player.Weapon.increaseFireRatePercentage?.Invoke(data.fireRateIncreasePercentage);
+            //GameManager.Instance.Player.Weapon.increaseFireRatePercentage?.Invoke(data.fireRateIncreasePercentage);
         }
     }
 }

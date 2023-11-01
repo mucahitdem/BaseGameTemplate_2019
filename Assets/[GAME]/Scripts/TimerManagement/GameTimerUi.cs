@@ -1,5 +1,5 @@
 using System.Collections;
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 
 namespace Scripts.GameScripts.TimerManagement
 {

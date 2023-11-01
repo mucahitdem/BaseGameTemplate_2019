@@ -1,5 +1,5 @@
 ﻿using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.PlayerManagement;
 using UnityEngine;

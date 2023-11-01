@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.SkillHelpersManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 using UnityEngine;
@@ -29,11 +29,11 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeAmmoManagement.
 
             var playerManager = GameManager.Instance.Player;
 
-            playerManager.Weapon.increaseReloadSpeedPercentage?.Invoke(data.reloadSpeedIncreasePercentage);
-
-            increaseBulletDamage.SetData(data.bulletDamageIncreaseDurationOnReloadEnd,
-                data.bulletDamageIncreasePercentageOnReloadEnd,
-                ref playerManager.Weapon.onReloadEnd);
+            // playerManager.Weapon.increaseReloadSpeedPercentage?.Invoke(data.reloadSpeedIncreasePercentage);
+            //
+            // increaseBulletDamage.SetData(data.bulletDamageIncreaseDurationOnReloadEnd,
+            //     data.bulletDamageIncreasePercentageOnReloadEnd,
+            //     ref playerManager.Weapon.onReloadEnd);
         }
     }
 }

@@ -6,7 +6,6 @@ using Scripts.BaseGameScripts.FadeUiManagement;
 using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.TimerManagement;
 using Scripts.EnemyManagement;
-using Scripts.GameScripts;
 using Scripts.GameScripts.AnimationEventsManagement;
 using Scripts.GameScripts.CameraManagement;
 using Scripts.GameScripts.CharacterManagement;
@@ -14,16 +13,14 @@ using Scripts.GameScripts.FindTargetsInAreaManagement;
 using Scripts.GameScripts.GfxManagement;
 using Scripts.GameScripts.Helpers;
 using Scripts.GameScripts.InteractionManagement;
-using Scripts.GameScripts.MovementManagement.BaseMovementManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.RigUpdaterManagement;
 using Scripts.GameScripts.SkillManagement;
 using Scripts.GameScripts.StatsManagement.PlayerStatsManagement;
-using Scripts.GameScripts.WeaponManagement.Weapons;
 using Scripts.InteractionManagement;
 using Scripts.MovementManagement.BaseMovementManagement;
 using Scripts.StatsManagement.PlayerStatsManagement;
-using Scripts.WeaponManagement.Weapons;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Scripts.PlayerManagement
@@ -52,10 +49,7 @@ namespace Scripts.PlayerManagement
 
         [SerializeField]
         private Timer healthFillingTimer;
-
-
-        public bool isRiding;
-
+        
         [SerializeField]
         private PlayerInteractionManager playerInteractionManager;
 
@@ -64,32 +58,11 @@ namespace Scripts.PlayerManagement
 
         [SerializeField]
         private SkillManager skillManager;
-
-        [SerializeField]
-        private BaseWeapon weapon;
-
-        public PlayerAnimator PlayerAnimator
-        {
-            get
-            {
-                if (!_playerAnimator)
-                    _playerAnimator = (PlayerAnimator) animator;
-
-                return _playerAnimator;
-            }
-        }
-
-        public BaseWeapon Weapon
-        {
-            get
-            {
-                if (!weapon)
-                    weapon = GetComponentInChildren<BaseWeapon>();
-
-                return weapon;
-            }
-        }
-
+        
+        
+        
+        [ReadOnly]
+        public bool isRiding;
         public SkillManager SkillManager => skillManager;
         public PlayerStatsManager PlayerStatsManager => playerStatsManager;
         public FindNearestTargetInArea FindNearestTargetInArea => findNearestTargetInArea;
@@ -103,7 +76,6 @@ namespace Scripts.PlayerManagement
             baseMovement.Insert(this);
             animator.Insert(this);
             baseRigUpdater.Insert(this);
-            //xpCollector.Insert(this);
             playerInteractionManager.Insert(this);
             healthLevelIndex = PlayerPrefs.GetInt(Defs.SAVE_KEY_PLAYER_HEALTH, 0);
             damageLevelIndex = PlayerPrefs.GetInt(Defs.SAVE_KEY_PLAYER_DAMAGE, 0);
@@ -113,14 +85,6 @@ namespace Scripts.PlayerManagement
         private IEnumerator Start()
         {
             yield return new WaitForEndOfFrame();
-            Weapon.Insert(this);
-            Weapon.onShootingState += OnShoot;
-            Weapon.targetToShoot += GetNearestEnemy;
-            Weapon.onFireRangeUpdated += OnFireRangeUpdated;
-            var damage = BaseCharacterDataSo.baseCharacterData.characterData.damageAndCost[damageLevelIndex].value;
-            DebugHelper.LogYellow("PLAYER DAMAGE : " + damage);
-            Weapon.updateDamage?.Invoke(damage);
-            findNearestTargetInArea.SetNewRange(Weapon.CurrentFireRange);
             baseStatsManager.UpgradeHealth(healthLevelIndex);
             baseMovement.UpgradeSpeed(movementLevelIndex);
         }
@@ -192,9 +156,7 @@ namespace Scripts.PlayerManagement
             PlayerActionManager.gainHp += GainHp;
             PlayerActionManager.gainMaxHp += GainMaxHp;
             PlayerActionManager.increasePlayerSizePercentage += IncreasePlayerSizePercentage;
-            UpgradeDamage += UpgradeDmg;
-            UpgradeHealth += UpgradeHlth;
-            UpgradeMovementSpeed += UpgradeMvment;
+          
             healthFillingTimer.onTimerEnded += HealthFillComplete;
         }
 
@@ -203,43 +165,16 @@ namespace Scripts.PlayerManagement
             base.UnsubscribeEvent();
             playerInteractionManager.onInteractedWithEnemy -= OnInteractedWithEnemy;
             PlayerStatsActionManager.onLevelChanged -= OnLevelChanged;
-
-            Weapon.onShootingState -= OnShoot;
-            Weapon.targetToShoot -= GetNearestEnemy;
-            Weapon.onFireRangeUpdated -= OnFireRangeUpdated;
-
             PlayerActionManager.gainHp -= GainHp;
             PlayerActionManager.gainMaxHp -= GainMaxHp;
             PlayerActionManager.increasePlayerSizePercentage -= IncreasePlayerSizePercentage;
-            UpgradeDamage -= UpgradeDmg;
-            UpgradeHealth -= UpgradeHlth;
-            UpgradeMovementSpeed -= UpgradeMvment;
+          
             healthFillingTimer.onTimerEnded -= HealthFillComplete;
         }
-
-        public CostAndValue HealthValues(int additionalValue)
-        {
-            return baseStatsManager.UpgradeHealthValues(healthLevelIndex + additionalValue);
-        }
-
-        public CostAndValue SpeedValues(int additionalValue) // 0 means current Level Values
-        {
-            return baseMovement.UpgradeSpeedValues(movementLevelIndex + additionalValue);
-        }
-
-        public CostAndValue DamageValues(int additionalValue)
-        {
-            var allValues = BaseCharacterDataSo.baseCharacterData.characterData.damageAndCost;
-            if (additionalValue >= allValues.Length)
-                return new CostAndValue(-1, -1);
-            return allValues[damageLevelIndex + additionalValue];
-        }
-
-
+        
         public override void Reset()
         {
             base.Reset();
-            Weapon.isDisabled = false;
             PlayerStatsManager.ResetHealth();
             animator.AnimatorStateManager.SetBool(Defs.ANIM_KEY_DIE, false, true);
             Rb.constraints = RigidbodyConstraints.FreezePositionY |
@@ -253,7 +188,6 @@ namespace Scripts.PlayerManagement
             if (IsDead)
                 return;
 
-            Weapon.isDisabled = true;
             SoundManager.Instance.PlayGlobalAudio(Defs.AUDIO_PLAYER_DEATH);
             base.OnDied(takenDamage);
             Rb.constraints = RigidbodyConstraints.FreezeAll;
@@ -274,30 +208,6 @@ namespace Scripts.PlayerManagement
         private void HealthFillComplete()
         {
             playerStatsManager.UpgradeHealth(healthLevelIndex);
-        }
-        
-        private void UpgradeHlth()
-        {
-            healthLevelIndex++;
-            baseStatsManager.UpgradeHealth(healthLevelIndex);
-            PlayerPrefs.SetInt(Defs.SAVE_KEY_PLAYER_HEALTH, healthLevelIndex);
-        }
-
-        private void UpgradeDmg()
-        {
-            damageLevelIndex++;
-            var damage = BaseCharacterDataSo.baseCharacterData.characterData.damageAndCost[damageLevelIndex].value;
-            Weapon.updateDamage?.Invoke(damage);
-
-            PlayerPrefs.SetInt(Defs.SAVE_KEY_PLAYER_DAMAGE, damageLevelIndex);
-        }
-
-        private void UpgradeMvment()
-        {
-            movementLevelIndex++;
-            baseMovement.UpgradeSpeed(movementLevelIndex);
-
-            PlayerPrefs.SetInt(Defs.SAVE_KEY_PLAYER_SPEED, movementLevelIndex);
         }
 
         private void IncreasePlayerSizePercentage(float percentage)
@@ -341,8 +251,6 @@ namespace Scripts.PlayerManagement
 
         private BaseEnemyManager GetNearestEnemy()
         {
-            if (Weapon.isDisabled)
-                return null;
             var targetToShoot = FindNearestTargetInArea.FindNearestChar<BaseEnemyManager>();
             return targetToShoot;
         }

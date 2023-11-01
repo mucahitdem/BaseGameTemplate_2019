@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.Helpers;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
@@ -42,17 +42,17 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeVoid.SkillParag
             var data = ParagonDataSo.paragonData;
         }
 
-        public override void SubscribeEvent()
-        {
-            base.SubscribeEvent();
-            _playerManager.Weapon.onOutOfAmmo += OnOutOfAmmo;
-        }
-
-        public override void UnsubscribeEvent()
-        {
-            base.UnsubscribeEvent();
-            _playerManager.Weapon.onOutOfAmmo -= OnOutOfAmmo;
-        }
+        // public override void SubscribeEvent()
+        // {
+        //     base.SubscribeEvent();
+        //     _playerManager.Weapon.onOutOfAmmo += OnOutOfAmmo;
+        // }
+        //
+        // public override void UnsubscribeEvent()
+        // {
+        //     base.UnsubscribeEvent();
+        //     _playerManager.Weapon.onOutOfAmmo -= OnOutOfAmmo;
+        // }
 
         private void OnOutOfAmmo(float currentDamage, float currentBulletDamage)
         {

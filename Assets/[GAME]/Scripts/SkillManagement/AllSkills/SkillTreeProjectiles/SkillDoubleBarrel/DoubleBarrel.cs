@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeProjectiles.SkillDoubleBarrel
@@ -21,10 +21,9 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeProjectiles.Ski
         public override void UseSkill()
         {
             var data = DoubleBarrelDataSo.doubleBarrelData;
-            GameManager.Instance.Player.Weapon.increaseProjectileCount?.Invoke(data.projectileIncreaseCount);
-            GameManager.Instance.Player.Weapon.increaseBulletSpreadAmount?.Invoke(data.bulletSpreadIncreaseAmount);
-            GameManager.Instance.Player.Weapon.increaseBulletDamagePercentage?.Invoke(
-                data.bulletDamageDecreasePercentage);
+            // GameManager.Instance.Player.Weapon.increaseProjectileCount?.Invoke(data.projectileIncreaseCount);
+            // GameManager.Instance.Player.Weapon.increaseBulletSpreadAmount?.Invoke(data.bulletSpreadIncreaseAmount);
+            // GameManager.Instance.Player.Weapon.increaseBulletDamagePercentage?.Invoke(data.bulletDamageDecreasePercentage);
         }
     }
 }

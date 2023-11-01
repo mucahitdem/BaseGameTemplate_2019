@@ -8,118 +8,181 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimatorManagement/Animators/DefaultAnimator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimatorManagement/Animators/MeshAnimatedChar.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/NavMeshManagement/NavMeshAgentManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/_NewData/CharacterData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/_MainScene/WeaponUiManagement/WeaponUiManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimatorManagement/PlayerAnimator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/MovementManagement/BaseMovementManagement/BaseMovement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/PlayerManagement/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeBulletDamage/SkillFragmentation/Fragmentation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeBulletDamage/SkillLargeCaliber/LargeCaliber.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/CharacterManagement/BaseCharacterManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemyManagement/BaseEnemyManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeCollectRange/SkillJuryRigging/JuryRigging.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Helpers/MoveTowardsTarget.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/UpgradeManagement/BaseUpgradableData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/AllSpawners/BaseEnemySpawnerByTime.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/AllSpawners/BaseEnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/EnemySpawnActionManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/WeaponManagement/Weapons/BaseWeaponData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeCollectRange/SkillPsionic/Psionic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/CharacterManagement/BaseCharacterDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/CharacterManagement/BaseCharacterData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAmmoManagement/SkillRapidReload/RapidReload.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAmmoManagement/SkillFieldFittings/FieldFittings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Editor/FloatingJoystickEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleEPOOutline.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeVoid/SkillParagon/Paragon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemyManagement/EnemyActionManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/EnemySpawnManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/WeaponManagement/Weapons/BaseWeapon.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/WeaponManagement/WeaponLevelAndRankManagement/RankManagement/WeaponRankData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/EnemySpawnStateManagement/States/BaseOnlyOneEnemyCreateState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/SkillTreeManagement/BaseSkillTreeDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/GameStateManagement/IGameState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAmmoManagement/SkillLockedAndLoaded/LockedAndLoaded.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/CostAndValue.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/GameStateManagement/GameStateManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/GameStateManagement/States/StartState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BulletManagement/AllBullets/BaseBulletManagement/BaseBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/BaseBuildingManagement/BaseBuilding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/_AllDataSo/AllEnemiesDataSo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/UiManagement/BaseUiItemManagement/BaseUiItem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/WeaponManagement/WeaponLevelAndRankManagement/WeaponLevelUpgradeData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeVoid/SkillForbearance/Forbearance.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAmmoManagement/SkillFieldFittings/FieldFittingsDataSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/RagDollManagement/RagDoll.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/EnemySpawnStateManagement/States/BaseEnemySpawnUpdateState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeFrostDamage/SkillColdMastery/ColdMastery.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/WeaponManagement/Weapons/WeaponTypes/BasicWeapon.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/TurretManagement/Turret.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/RigUpdaterManagement/UpdateRigWithBoneTransform.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAmmoManagement/SkillSoulStealClip/SoulStealClip.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/SceneLoadingManagement/SceneSerialization.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/SceneLoadingManagement/ScenesToLoadAtLevelDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/BaseBuildingManagement/BaseBuildingDataSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/GameStateManagement/States/GamePlayState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/GameStateManagement/States/FailState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/_AllDataSo/AllSourceDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/BaseBuildingManagement/BaseBuildingData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/GfxManagement/GfxManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/SceneLoadingManagement/SceneLoadManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/UpgradableBuildingManagement/BaseUpgradableBuildingData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/Defs.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/InteractionManagement/PlayerInteractionManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/LevelEndManagement/LevelSuccessPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/UpgradableBuildingManagement/BaseUpgradableBuildingDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeThunder/SkillLightningMastery/LightningMastery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/LevelEndManagement/GoToMainLevelButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/UpgradableBuildingManagement/BaseUpgradableBuilding.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/AllBuildings/Market.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/DefendAreaManagement/DefendAreaSoldierManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/_MainScene/BattleUiManagement/StartBattleButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/IncreaseBulletDamage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeFireRate/SkillRapidFire/RapidFire.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeFireRate/SkillEntrenched/Entrenched.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/IncreaseReloadSpeed.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/DealDamageEnemies.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/EventQueue.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/DealDamageWithTime.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EffectManagement/_BaseClasses/ParticleSystemAutoRePoolEffect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/DealDamageInAttackRange.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/CameraManagement/VirtualCameraChanger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeFireRate/SkillLightweightAmmo/LightweightAmmo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/FireBulletManagement/BaseFireBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/LightningManagement/LightningCreator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/_NewData/AllCharData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/GameManagement/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/FadeUiManagement/FadeManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/CameraManagement/VirtualCameraManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/CameraManagement/CameraOffsetController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/CameraManagement/CameraShaker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/BuildingGfxManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeFireRate/SkillRubberBullets/RubberBullets.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimatorManagement/Animators/DefaultAnimator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/InGameStateManagement/IInGameState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimationEventsManagement/AnimationEvents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/InGameStateManagement/InGameStateManagement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimatorManagement/Animators/MeshAnimatedChar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/NavMeshManagement/NavMeshAgentManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeMovement/SkillHighRider/HighRider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimatorManagement/PlayerAnimator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeMovement/SkillRunAndGun/RunAndGun.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimatorManagement/EnemyAnimatedChar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/MovementManagement/BaseMovementManagement/BaseMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/InGameStateManagement/InGameStates/LevelSelectState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/PlayerManagement/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAttackRange/SkillEvilEye/EvilEye.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAttackRange/SkillDeathGlare/DeathGlare.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimationEventsManagement/PlayerAnimationEvents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BOXOPHOBIC/Utils/Editor/StyledGUI/DrawInspectorBanner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/UpgradeManagement/BaseUpgradableData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/AllSpawners/BaseEnemySpawnerByTime.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/BaseEconomyBuilding.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAttackRange/SkillWitheringGlare/WitheringGlare.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/AllSpawners/BaseEnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/UpgradeManagement/BaseSimpleUpgradableData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/SkillUiManagement/SkillDataUi.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/EnemySpawnActionManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/EnemySpawnManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAttackRange/SkillEagleSight/EagleSight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/EnemySpawnStateManagement/States/BaseOnlyOneEnemyCreateState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/SkillTreeManagement/BaseSkillTreeDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BulletManagement/AllBullets/BaseBulletManagement/BaseBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/_SkillBase/BaseSkillDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/UiManagement/BaseUiItemManagement/BaseUiItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/_SkillBase/BaseSkillData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/UpgradeManagement/UpgradeData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/EnemySpawnStateManagement/States/BaseEnemySpawnUpdateState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeFrostDamage/SkillColdMastery/ColdMastery.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BOXOPHOBIC/Utils/Editor/StyledInspector/StyledTexturePreviewDrawer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/TurretManagement/Turret.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/RigUpdaterManagement/UpdateRigWithBoneTransform.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeProjectiles/SkillTailGun/TailGun.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeProjectiles/SkillFusillade/Fusillade.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A1EFE864-7803-4C12-AA24-D00C7DC715FE/8c/7d7e6b33/ScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeFrostDamage/SkillFrostEnchantment/FrostEnchantment.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/IDamageable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeProjectiles/SkillDoubleBarrel/DoubleBarrel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/InteractionManagement/PlayerInteractionManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeProjectiles/SkillCoupDeGrace/CoupDeGrace.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/_MainScene/BattleUiManagement/StartBattleButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/_MainScene/_GeneralUi/CloseUi.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeBulletDamage/SkillDeathreap/Deathreap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/GameManagement/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeBulletDamage/SkillPowerShot/PowerShot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/FadeUiManagement/FadeManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/GameManagement/GameActionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeRadioactive/SkillFireEnchantment/FireEnchantment.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hierarchy 2/Editor/HierarchyEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/CameraManagement/CameraOffsetController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/StatsManagement/PlayerStatsManagement/PlayerStatsManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/CameraManagement/CameraShaker.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/EnemySpawnActionManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/EnemySpawnStateManagement/States/BaseEnemySpawnUpdateState.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/AllSpawners/BaseEnemySpawnerByTime.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/EnemySpawnManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemySpawnManagement/EnemySpawnStateManagement/States/BaseOnlyOneEnemyCreateState.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/InGameStatsManagement/InGameStats.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/RigUpdaterManagement/UpdateRigWithBoneTransform.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/InteractionManagement/PlayerInteractionManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/AbandonedAreaManagement/AbandonedArea.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/_NewData/CharacterData.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/MissionManagement/BaseAiMission.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/DealDamageEnemies.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimationEventsManagement/EnemyAnimationEvent.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/DealDamageWithTime.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeFrostDamage/SkillColdMastery/ColdMastery.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeRadioactive/SkillFireEnchantment/FireEnchantment.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/_AllDataSo/AllEnemiesDataSo.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimatorManagement/PlayerAnimator.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/CameraManagement/CameraOffsetController.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/CameraManagement/CameraShaker.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/CameraManagement/VirtualCameraManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/TurretManagement/Turret.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimatorManagement/Animators/MeshAnimatedChar.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/FadeUiManagement/FadeManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemyManagement/BaseEnemyManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Helpers/MoveTowardsTarget.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/WeaponManagement/Weapons/BaseWeaponData.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/WeaponManagement/WeaponLevelAndRankManagement/WeaponLevelUpgradeData.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/WeaponManagement/WeaponLevelAndRankManagement/RankManagement/WeaponRankData.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/UpgradeManagement/UpgradeData.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/UpgradableBuildingManagement/BaseUpgradableBuildingData.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/UpgradeManagement/BaseSimpleUpgradableData.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/AllBuildings/Market.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/IDamageable.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/BuildingGfxManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/BaseBuildingManagement/BaseBuilding.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BuildingManagement/UpgradableBuildingManagement/BaseUpgradableBuilding.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameManagement/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/StatsManagement/PlayerStatsManagement/PlayerStatsManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/SkillTreeManagement/BaseSkillTreeDataSo.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/_AllDataSo/AllSourceDataSo.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/NavMeshManagement/NavMeshAgentManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/UpgradeManagement/BaseUpgradableData.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/EffectManagement/_BaseClasses/ParticleSystemAutoRePoolEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GfxManagement/GfxManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/LightningManagement/LightningCreator.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/_MainScene/WeaponUiManagement/WeaponUiManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/GameStateManagement/States/FailState.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/GameStateManagement/States/GamePlayState.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/GameStateManagement/States/StartState.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/SceneLoadingManagement/SceneLoadManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/LevelEndManagement/GoToMainLevelButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/Defs.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/_MainScene/BattleUiManagement/StartBattleButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/MovementManagement/BaseMovementManagement/BaseMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/WeaponManagement/Weapons/BaseWeapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/BaseGameScripts/RagDollManagement/RagDoll.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/WeaponManagement/Weapons/WeaponTypes/BasicWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeProjectiles/SkillFusillade/Fusillade.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeProjectiles/SkillDoubleBarrel/DoubleBarrel.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeProjectiles/SkillCoupDeGrace/CoupDeGrace.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeBulletDamage/SkillFragmentation/Fragmentation.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeProjectiles/SkillTailGun/TailGun.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeMovement/SkillHighRider/HighRider.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeFireRate/SkillLightweightAmmo/LightweightAmmo.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeFireRate/SkillRubberBullets/RubberBullets.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeCollectRange/SkillJuryRigging/JuryRigging.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeFrostDamage/SkillFrostEnchantment/FrostEnchantment.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeMovement/SkillRunAndGun/RunAndGun.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/IncreaseBulletDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/EnemyManagement/BaseEnemyManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/DealDamageWithTime.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/DealDamageInAttackRange.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillHelpersManagement/IncreaseReloadSpeed.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeVoid/SkillParagon/Paragon.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAmmoManagement/SkillSoulStealClip/SoulStealClip.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAmmoManagement/SkillFieldFittings/FieldFittings.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAttackRange/SkillWitheringGlare/WitheringGlare.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAttackRange/SkillEvilEye/EvilEye.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAmmoManagement/SkillRapidReload/RapidReload.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAttackRange/SkillDeathGlare/DeathGlare.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAttackRange/SkillEagleSight/EagleSight.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeAmmoManagement/SkillLockedAndLoaded/LockedAndLoaded.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeBulletDamage/SkillPowerShot/PowerShot.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeBulletDamage/SkillDeathreap/Deathreap.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeBulletDamage/SkillLargeCaliber/LargeCaliber.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeCollectRange/SkillPsionic/Psionic.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeFireRate/SkillEntrenched/Entrenched.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeFireRate/SkillRapidFire/RapidFire.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeThunder/SkillLightningMastery/LightningMastery.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/SkillManagement/AllSkills/SkillTreeVoid/SkillForbearance/Forbearance.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/_NewData/CharacterData.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/CharacterManagement/BaseCharacterManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/PlayerManagement/PlayerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/_MainScene/_GeneralUi/CloseUi.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimationEventsManagement/PlayerAnimationEvents.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimatorManagement/EnemyAnimatedChar.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/AnimatorManagement/PlayerAnimator.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/CharacterManagement/BaseCharacterDataSo.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/CharacterManagement/BaseCharacterData.cs" />
       </list>
     </option>
   </component>
@@ -157,5 +220,13 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="674" y="400" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1080@0.0.1920.1080" timestamp="1698821606435" />
+    <state x="794" y="241" key="RiderGenerateDialog" timestamp="1698825061730">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="794" y="241" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1698825061730" />
+    <state x="596" y="275" width="727" height="530" key="find.popup" timestamp="1698832257050">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="596" y="275" width="727" height="530" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1698832257050" />
   </component>
 </project>

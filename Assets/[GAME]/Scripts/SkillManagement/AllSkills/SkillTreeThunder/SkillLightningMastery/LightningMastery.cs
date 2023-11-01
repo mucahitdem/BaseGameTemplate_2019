@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.Helpers;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.SkillHelpersManagement.LightningManagement;
@@ -53,17 +53,17 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeThunder.SkillLi
             _data = LightningMasteryDataSo.lightningMasteryData;
         }
 
-        public override void SubscribeEvent()
-        {
-            base.SubscribeEvent();
-            GameManager.Instance.Player.Weapon.onFired += OnFired;
-        }
-
-        public override void UnsubscribeEvent()
-        {
-            base.UnsubscribeEvent();
-            GameManager.Instance.Player.Weapon.onFired -= OnFired;
-        }
+        // public override void SubscribeEvent()
+        // {
+        //     base.SubscribeEvent();
+        //     GameManager.Instance.Player.Weapon.onFired += OnFired;
+        // }
+        //
+        // public override void UnsubscribeEvent()
+        // {
+        //     base.UnsubscribeEvent();
+        //     GameManager.Instance.Player.Weapon.onFired -= OnFired;
+        // }
 
         private void OnFired(Vector3 bulletDirection, float attackDamage, float bulletDamage)
         {

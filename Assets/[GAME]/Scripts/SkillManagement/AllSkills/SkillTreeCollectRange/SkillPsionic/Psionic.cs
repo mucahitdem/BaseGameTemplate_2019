@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.Helpers;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 using Scripts.GameScripts.XpManagement;
@@ -42,8 +42,8 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeCollectRange.Sk
 
         private void OnCollectedXp(float xp)
         {
-            if (ProbabilityCalculator.CheckProbability(_psionicData.onXpCollectedFillAmmoProbability))
-                GameManager.Instance.Player.Weapon.fillAmmo?.Invoke(_psionicData.onXpCollectedFillAmmoCount);
+            // if (ProbabilityCalculator.CheckProbability(_psionicData.onXpCollectedFillAmmoProbability))
+            //     GameManager.Instance.Player.Weapon.fillAmmo?.Invoke(_psionicData.onXpCollectedFillAmmoCount);
         }
     }
 }

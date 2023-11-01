@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeProjectiles.SkillFusillade
@@ -21,12 +21,10 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeProjectiles.Ski
         public override void UseSkill()
         {
             var data = FusilladeDataSo.fusilladeData;
-            GameManager.Instance.Player.Weapon.increaseProjectileCount?.Invoke(data.projectileIncreaseAmount);
-            GameManager.Instance.Player.Weapon.increaseBulletSpreadAmount?.Invoke(data.bulletSpreadIncreaseAmount);
-            GameManager.Instance.Player.Weapon.increaseBulletDamagePercentage?.Invoke(
-                data.bulletDamageIncreasePercentage);
-            GameManager.Instance.Player.Weapon.increaseMaxBulletCountPercentage?.Invoke(
-                data.ammoAmountIncreasePercentage);
+            // GameManager.Instance.Player.Weapon.increaseProjectileCount?.Invoke(data.projectileIncreaseAmount);
+            // GameManager.Instance.Player.Weapon.increaseBulletSpreadAmount?.Invoke(data.bulletSpreadIncreaseAmount);
+            // GameManager.Instance.Player.Weapon.increaseBulletDamagePercentage?.Invoke(data.bulletDamageIncreasePercentage);
+            // GameManager.Instance.Player.Weapon.increaseMaxBulletCountPercentage?.Invoke(data.ammoAmountIncreasePercentage);
         }
     }
 }

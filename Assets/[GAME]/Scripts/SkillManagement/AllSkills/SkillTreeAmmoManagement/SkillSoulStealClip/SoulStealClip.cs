@@ -1,6 +1,6 @@
 using Scripts.EnemyManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.EnemyManagement;
-using Scripts.GameScripts.GameManagement;
 using Scripts.GameScripts.SkillHelpersManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 using UnityEngine;
@@ -30,9 +30,9 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeAmmoManagement.
             var data = SoulStealClipDataSo.soulStealClipData;
             var playerManager = GameManager.Instance.Player;
 
-            increaseReloadSpeed.SetData(data.bulletReloadSpeedIncreasePercentageOnEnemyDied,
-                ref EnemyActionManager.onEnemyDiedAtPosition,
-                ref playerManager.Weapon.onReloadEnd);
+            // increaseReloadSpeed.SetData(data.bulletReloadSpeedIncreasePercentageOnEnemyDied,
+            //     ref EnemyActionManager.onEnemyDiedAtPosition,
+            //     ref playerManager.Weapon.onReloadEnd);
         }
     }
 }

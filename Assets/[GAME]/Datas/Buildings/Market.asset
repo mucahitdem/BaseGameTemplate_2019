@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ac5a31fc44a33af21b967579ea50b, type: 3}
+  m_Name: Market
+  m_EditorClassIdentifier: 
+  baseBuildingData:
+    buildingName: market
+    buildingIcon: {fileID: 0}
+    buildingDescription: GAINS MONEY FOR EVERY HOUSE YOU HAVE
+  upgradableBuildingData:
+    buildingUpgradeData:
+      upgradeData:
+      - cost: 0
+        data: 0
+      enableSave: 0
+      saveKey: 

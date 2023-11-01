@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.MovementManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 
@@ -23,7 +23,7 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeMovement.SkillR
         {
             var data = RunAndGunDataSo.runAndGunData;
             MovementActionManager.increaseMovementSpeedPercentage?.Invoke(data.movementSpeedIncreasePercentage);
-            GameManager.Instance.Player.Weapon.increaseFireRatePercentage?.Invoke(data.fireRateIncreasePercentage);
+            //GameManager.Instance.Player.Weapon.increaseFireRatePercentage?.Invoke(data.fireRateIncreasePercentage);
         }
     }
 }

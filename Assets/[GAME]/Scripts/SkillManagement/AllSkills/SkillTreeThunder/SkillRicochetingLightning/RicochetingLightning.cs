@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.SkillHelpersManagement.LightningManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;

@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.MovementManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 
@@ -23,8 +23,7 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeMovement.SkillH
         {
             var data = HighRiderDataSo.highRiderData;
             MovementActionManager.increaseMovementSpeedPercentage?.Invoke(data.movementSpeedIncreasePercentage);
-            GameManager.Instance.Player.Weapon.increaseBulletMovementSpeedPercentage?.Invoke(
-                data.bulletSpeedIncreasePercentage);
+            //GameManager.Instance.Player.Weapon.increaseBulletMovementSpeedPercentage?.Invoke(data.bulletSpeedIncreasePercentage);
         }
     }
 }

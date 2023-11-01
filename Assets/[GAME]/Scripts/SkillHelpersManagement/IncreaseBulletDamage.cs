@@ -1,7 +1,7 @@
 using System;
 using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.BaseGameScripts.TimerManagement;
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.PlayerManagement;
 using UnityEngine;
@@ -48,13 +48,13 @@ namespace Scripts.GameScripts.SkillHelpersManagement
 
         private void IncreaseBulletDamagePercentage()
         {
-            PlayerManager.Weapon.increaseBulletDamagePercentage?.Invoke(_percentage);
+            //PlayerManager.Weapon.increaseBulletDamagePercentage?.Invoke(_percentage);
             timer.RestartTimer();
         }
 
         private void OnTimerEnded()
         {
-            PlayerManager.Weapon.increaseBulletDamagePercentage?.Invoke(-_percentage);
+            //PlayerManager.Weapon.increaseBulletDamagePercentage?.Invoke(-_percentage);
         }
     }
 }

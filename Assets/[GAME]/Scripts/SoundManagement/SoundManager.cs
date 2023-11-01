@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Scripts;
 using Scripts.BaseGameScripts.Helper;
+using Scripts.GameManagement;
 using Scripts.GameScripts;
-using Scripts.GameScripts.GameManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.PlayerManagement;
 using UnityEngine;

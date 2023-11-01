@@ -1,6 +1,6 @@
 using Scripts.EnemyManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.EnemyManagement;
-using Scripts.GameScripts.GameManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 using UnityEngine;
 
@@ -51,8 +51,8 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeVoid.SkillForbe
             {
                 var player = GameManager.Instance.Player;
 
-                player.Weapon.increaseBulletDamagePercentage?.Invoke(data.bulletDamageIncreasePercentage);
-                _diedEnemyCount = 0;
+                // player.Weapon.increaseBulletDamagePercentage?.Invoke(data.bulletDamageIncreasePercentage);
+                // _diedEnemyCount = 0;
             }
         }
     }

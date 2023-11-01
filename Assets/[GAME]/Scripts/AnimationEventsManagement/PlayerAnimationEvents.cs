@@ -2,7 +2,7 @@ using System;
 using Scripts.GameScripts.AnimationEventsManagement;
 using UnityEngine;
 
-namespace _GAME_.Scripts.GameScripts.AnimationEventsManagement
+namespace Scripts.AnimationEventsManagement
 {
     public class PlayerAnimationEvents : AnimationEvents
     {

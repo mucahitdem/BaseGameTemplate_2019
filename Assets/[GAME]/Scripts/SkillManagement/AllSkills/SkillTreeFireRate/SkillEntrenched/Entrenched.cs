@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeFireRate.SkillEntrenched
@@ -20,8 +20,8 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeFireRate.SkillE
 
         public override void UseSkill()
         {
-            var data = EntrenchedDataSo.entrenchedData;
-            GameManager.Instance.Player.Weapon.notToWasteBulletProbability?.Invoke(data.notToWasteBulletProbability);
+            // var data = EntrenchedDataSo.entrenchedData;
+            // GameManager.Instance.Player.Weapon.notToWasteBulletProbability?.Invoke(data.notToWasteBulletProbability);
         }
     }
 }

@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeFrostDamage.SkillFrostEnchantment
@@ -21,8 +21,8 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeFrostDamage.Ski
         public override void UseSkill()
         {
             var data = FrostEnchantmentDataSo.frostEnchantmentData;
-            GameManager.Instance.Player.Weapon.setFrostDuration?.Invoke(data.frostDuration);
-            GameManager.Instance.Player.Weapon.increaseFrostProbability?.Invoke(data.frostProbability);
+            // GameManager.Instance.Player.Weapon.setFrostDuration?.Invoke(data.frostDuration);
+            // GameManager.Instance.Player.Weapon.increaseFrostProbability?.Invoke(data.frostProbability);
         }
     }
 }

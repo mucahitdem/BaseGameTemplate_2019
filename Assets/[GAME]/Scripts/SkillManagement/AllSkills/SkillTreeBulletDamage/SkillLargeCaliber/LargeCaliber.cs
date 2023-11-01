@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeBulletDamage.SkillLargeCaliber
@@ -19,11 +19,11 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeBulletDamage.Sk
 
         public override void UseSkill()
         {
-            var data = LargeCaliberDataSo.largeCaliberData;
-            GameManager.Instance.Player.Weapon.increaseBulletDamagePercentage?.Invoke(
-                data.bulletDamageIncreasePercentage);
-            GameManager.Instance.Player.Weapon.increaseFireRatePercentage?.Invoke(data.fireRateIncreasePercentage);
-            GameManager.Instance.Player.Weapon.increaseBulletSizePercentage?.Invoke(data.bulletSizeIncreaseAmount);
+            // var data = LargeCaliberDataSo.largeCaliberData;
+            // GameManager.Instance.Player.Weapon.increaseBulletDamagePercentage?.Invoke(
+            //     data.bulletDamageIncreasePercentage);
+            // GameManager.Instance.Player.Weapon.increaseFireRatePercentage?.Invoke(data.fireRateIncreasePercentage);
+            // GameManager.Instance.Player.Weapon.increaseBulletSizePercentage?.Invoke(data.bulletSizeIncreaseAmount);
         }
     }
 }

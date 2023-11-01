@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.SkillHelpersManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 using UnityEngine;
@@ -27,8 +27,8 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeAttackRange.Ski
             var data = WitheringGlareDataSo.witheringGlareData;
             var player = GameManager.Instance.Player;
 
-            player.Weapon.increaseFireRangePercentage?.Invoke(data.fireRangeIncreasePercentage);
-            dealDamageInAttackRange.SetData(data.damagePercentage, data.damageTimeRate);
+            // player.Weapon.increaseFireRangePercentage?.Invoke(data.fireRangeIncreasePercentage);
+            // dealDamageInAttackRange.SetData(data.damagePercentage, data.damageTimeRate);
         }
     }
 }

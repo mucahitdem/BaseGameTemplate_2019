@@ -1,7 +1,7 @@
 using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.TimerManagement;
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.Helpers;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.PlayerManagement;
@@ -41,18 +41,18 @@ namespace Scripts.GameScripts.SkillHelpersManagement
 
         public void SetData(float newPercentage, float newTimeRate)
         {
-            percentage = newPercentage;
-            timeRate = newTimeRate;
-            _playerManager = GameManager.Instance.Player;
-            var playerDamage = _playerManager.Weapon.CurrentDamage;
-            _damage = (int) MathCalculations.CalculatePercentage(playerDamage, percentage);
-
-            DebugHelper.LogGreen("PLAYER DAMAGE : " + playerDamage);
-            DebugHelper.LogGreen("PERCENTAGE : " + percentage);
-            DebugHelper.LogGreen("DAMAGE : " + _damage);
-
-            burnTimer.UpdateInitialValue(timeRate);
-            burnTimer.RestartTimer();
+            // percentage = newPercentage;
+            // timeRate = newTimeRate;
+            // _playerManager = GameManager.Instance.Player;
+            // var playerDamage = _playerManager.Weapon.CurrentDamage;
+            // _damage = (int) MathCalculations.CalculatePercentage(playerDamage, percentage);
+            //
+            // DebugHelper.LogGreen("PLAYER DAMAGE : " + playerDamage);
+            // DebugHelper.LogGreen("PERCENTAGE : " + percentage);
+            // DebugHelper.LogGreen("DAMAGE : " + _damage);
+            //
+            // burnTimer.UpdateInitialValue(timeRate);
+            // burnTimer.RestartTimer();
         }
 
         private void OnTimerEnded()

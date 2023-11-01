@@ -2,6 +2,7 @@
 using Scripts.AnimatorManagement.Animators;
 using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.BaseGameScripts.RagDollManagement;
+using Scripts.CharacterManagement;
 using Scripts.GameScripts.AnimatorManagement.Animators;
 using Scripts.GameScripts.StatsManagement;
 using Sirenix.OdinInspector;
@@ -34,10 +35,6 @@ namespace Scripts.GameScripts.CharacterManagement
         [SerializeField]
         [FoldoutGroup("Base Char Variables")]
         protected RagDoll ragDoll;
-
-        public Action UpgradeDamage;
-        public Action UpgradeHealth;
-        public Action UpgradeMovementSpeed;
 
         public virtual BaseAnimator Animator => animator;
         public BaseCharacterDataSo BaseCharacterDataSo => characterDataSo;

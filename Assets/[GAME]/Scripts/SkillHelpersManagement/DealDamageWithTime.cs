@@ -3,8 +3,8 @@ using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.TimerManagement;
 using Scripts.EnemyManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts;
-using Scripts.GameScripts.GameManagement;
 using Scripts.GameScripts.Helpers;
 using Scripts.PlayerManagement;
 using Sirenix.OdinInspector;
@@ -65,21 +65,21 @@ namespace Scripts.SkillHelpersManagement
 
         private void OnTimerEnded()
         {
-            var playerAttackDamage = PlayerManager.Weapon.CurrentDamage;
-            var damage = (int) MathCalculations.CalculatePercentage(playerAttackDamage, percentage);
-            DebugHelper.LogGreen("DEAL DAMAGE : " + damage);
-
-            for (var i = 0; i < _enemyManagers.Count; i++)
-            {
-                var currentEnemy = _enemyManagers[i];
-                if (currentEnemy.IsDead)
-                {
-                    _enemyManagers.Remove(currentEnemy);
-                    continue;
-                }
-
-                currentEnemy.TakeDamage(damage, FireType.RadioActive);
-            }
+            // var playerAttackDamage = PlayerManager.Weapon.CurrentDamage;
+            // var damage = (int) MathCalculations.CalculatePercentage(playerAttackDamage, percentage);
+            // DebugHelper.LogGreen("DEAL DAMAGE : " + damage);
+            //
+            // for (var i = 0; i < _enemyManagers.Count; i++)
+            // {
+            //     var currentEnemy = _enemyManagers[i];
+            //     if (currentEnemy.IsDead)
+            //     {
+            //         _enemyManagers.Remove(currentEnemy);
+            //         continue;
+            //     }
+            //
+            //     currentEnemy.TakeDamage(damage, FireType.RadioActive);
+            // }
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using UnityEngine;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills._SkillBase

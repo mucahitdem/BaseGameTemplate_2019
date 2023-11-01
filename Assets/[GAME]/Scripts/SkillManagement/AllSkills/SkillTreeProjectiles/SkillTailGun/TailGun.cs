@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.SkillHelpersManagement.FireBulletManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
@@ -37,24 +37,24 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeProjectiles.Ski
             fireBullet.SetData(_tailGunData.bulletCount, _tailGunData.spreadAmount);
         }
 
-        public override void SubscribeEvent()
-        {
-            base.SubscribeEvent();
-            GameManager.Instance.Player.Weapon.onFired += OnFired;
-        }
-
-        public override void UnsubscribeEvent()
-        {
-            base.UnsubscribeEvent();
-            GameManager.Instance.Player.Weapon.onFired -= OnFired;
-        }
+        // public override void SubscribeEvent()
+        // {
+        //     base.SubscribeEvent();
+        //     GameManager.Instance.Player.Weapon.onFired += OnFired;
+        // }
+        //
+        // public override void UnsubscribeEvent()
+        // {
+        //     base.UnsubscribeEvent();
+        //     GameManager.Instance.Player.Weapon.onFired -= OnFired;
+        // }
 
         private void OnFired(Vector3 dir, float currentDamage, float bulletDamage)
         {
-            var weapon = _playerManager.Weapon;
-            var fireDir = _playerManager.BaseRigUpdater.RigLookDir;
-            var createPos = TransformOfObj.position + Vector3.up;
-            fireBullet.FireBullet(bulletDamage, weapon.CurrentBulletSize, createPos, -fireDir, _tailGunData.fireType);
+            // var weapon = _playerManager.Weapon;
+            // var fireDir = _playerManager.BaseRigUpdater.RigLookDir;
+            // var createPos = TransformOfObj.position + Vector3.up;
+            // fireBullet.FireBullet(bulletDamage, weapon.CurrentBulletSize, createPos, -fireDir, _tailGunData.fireType);
         }
     }
 }

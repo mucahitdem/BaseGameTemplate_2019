@@ -2,7 +2,7 @@
 using Scripts.BaseGameScripts.UiManagement;
 using UnityEngine.EventSystems;
 
-namespace Scripts.GameScripts._MainScene._GeneralUi
+namespace Scripts._MainScene._GeneralUi
 {
     public abstract class CloseUi : BaseClickableImage
     {

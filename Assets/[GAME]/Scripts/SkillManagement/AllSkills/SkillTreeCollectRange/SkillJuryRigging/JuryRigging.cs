@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 using Scripts.GameScripts.XpManagement;
 
@@ -25,7 +25,7 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeCollectRange.Sk
             // + %15 saldırı menzilinde artış gerçekleşir.
             var data = JuryRiggingDataSoDataSo.juryRiggingData;
             XpCollectActionManager.increaseCollectRadiusPercentage?.Invoke(data.collectRangeIncreasePercentage);
-            GameManager.Instance.Player.Weapon.increaseFireRangePercentage?.Invoke(data.attackRangeIncreasePercentage);
+            //GameManager.Instance.Player.Weapon.increaseFireRangePercentage?.Invoke(data.attackRangeIncreasePercentage);
         }
     }
 }

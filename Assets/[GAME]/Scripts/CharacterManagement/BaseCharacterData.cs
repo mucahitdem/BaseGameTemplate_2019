@@ -1,16 +1,17 @@
 ﻿using System;
-using _GAME_.Scripts.GameScripts._NewData;
-using Scripts._NewData;
+using Scripts.GameScripts.CharacterManagement;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Scripts.GameScripts.CharacterManagement
+namespace Scripts.CharacterManagement
 {
     [Serializable]
     public class BaseCharacterData
     {
-        public BaseCharacterManager baseCharacter;
-        public CharacterData characterData;
-        public Sprite charIcon;
         public string name;
+        [PreviewField(ObjectFieldAlignment.Left)]
+        public Sprite charIcon;
+        
+        public BaseCharacterManager baseCharacter;
     }
 }

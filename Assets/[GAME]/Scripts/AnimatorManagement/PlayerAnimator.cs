@@ -1,7 +1,6 @@
 ﻿using Scripts.AnimatorManagement.Animators;
 using Scripts.BaseGameScripts.Animator_Control;
 using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.GameScripts;
 using Scripts.PlayerManagement;
 using UnityEngine;
 
@@ -23,7 +22,7 @@ namespace Scripts.AnimatorManagement
         public override void Insert(BaseComponent baseComponent)
         {
             _playerManager = (PlayerManager) baseComponent;
-            _animatorStateManager = _playerManager.PlayerAnimator.AnimatorStateManager;
+            _animatorStateManager = ((DefaultAnimator)_playerManager.Animator).AnimatorStateManager;
         }
 
 

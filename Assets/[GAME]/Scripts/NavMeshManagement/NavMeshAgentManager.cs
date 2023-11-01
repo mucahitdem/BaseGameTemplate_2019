@@ -1,7 +1,7 @@
 ﻿using System;
 using Scripts.BaseGameScripts.Animator_Control;
 using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.NavMeshManagement;
 using UnityEngine;
 using UnityEngine.AI;

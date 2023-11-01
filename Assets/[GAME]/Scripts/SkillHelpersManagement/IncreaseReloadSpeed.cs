@@ -1,6 +1,6 @@
 using System;
 using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.PlayerManagement;
 using UnityEngine;
@@ -33,14 +33,14 @@ namespace Scripts.GameScripts.SkillHelpersManagement
 
         private void IncreaseReloadSpeedPercentage(Vector3 pos, float value, FireType fireType)
         {
-            PlayerManager.Weapon.increaseReloadSpeedPercentage?.Invoke(_percentage);
-            _totalPercentage += _percentage;
+            // PlayerManager.Weapon.increaseReloadSpeedPercentage?.Invoke(_percentage);
+            // _totalPercentage += _percentage;
         }
 
         private void DecreaseReloadSpeedPercentage()
         {
-            PlayerManager.Weapon.increaseReloadSpeedPercentage?.Invoke(-_totalPercentage);
-            _totalPercentage = 0f;
+            // PlayerManager.Weapon.increaseReloadSpeedPercentage?.Invoke(-_totalPercentage);
+            // _totalPercentage = 0f;
         }
     }
 }

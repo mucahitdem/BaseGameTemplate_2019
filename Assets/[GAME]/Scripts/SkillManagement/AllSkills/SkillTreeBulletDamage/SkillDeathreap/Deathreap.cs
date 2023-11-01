@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeBulletDamage.SkillDeathreap
@@ -21,7 +21,7 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeBulletDamage.Sk
         {
             var data = DeathreapDataSo.deathreapData;
             var player = GameManager.Instance.Player;
-            player.Weapon.increaseBulletDamagePercentage?.Invoke(data.bulletDamageIncreasePercentage);
+            //player.Weapon.increaseBulletDamagePercentage?.Invoke(data.bulletDamageIncreasePercentage);
         }
     }
 }

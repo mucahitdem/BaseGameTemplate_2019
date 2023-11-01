@@ -11,16 +11,26 @@
       <e p="Assets" t="Include">
         <e p="[GAME]" t="Include">
           <e p="Animations" t="Include" />
+          <e p="Datas" t="Include">
+            <e p="Buildings" t="Include" />
+            <e p="Characters" t="Include" />
+          </e>
           <e p="Materials" t="Include" />
           <e p="Models" t="Include" />
-          <e p="Prefabs" t="Include" />
+          <e p="Prefabs" t="Include">
+            <e p="Buildings" t="Include" />
+            <e p="Characters" t="Include" />
+          </e>
+          <e p="Scenes" t="Include">
+            <e p="Level_1" t="Include" />
+            <e p="Level_Select" t="Include" />
+          </e>
           <e p="Scripts" t="Include">
             <e p="_AllDataSo" t="Include">
               <e p="AllEnemiesDataSo.cs" t="Include" />
               <e p="AllSkillsDataSo.cs" t="Include" />
               <e p="AllSkillTreeDataSo.cs" t="Include" />
               <e p="AllSourceDataSo.cs" t="Include" />
-              <e p="AllWeaponsDataSo.cs" t="Include" />
             </e>
             <e p="_MainScene" t="Include">
               <e p="_GeneralUi" t="Include">
@@ -34,37 +44,12 @@
               <e p="MainSceneMainPanelManagement" t="Include">
                 <e p="BattleButtonMainPanel.cs" t="Include" />
                 <e p="MainSceneUiActionManager.cs" t="Include" />
-                <e p="MainSceneUiManager.cs" t="Include" />
                 <e p="ShopButtonMainPanel.cs" t="Include" />
                 <e p="WeaponButtonMainPanel.cs" t="Include" />
               </e>
               <e p="ShopUiManagement" t="Include">
                 <e p="ShopUiManager.cs" t="Include" />
               </e>
-              <e p="WeaponUiManagement" t="Include">
-                <e p="CloseUis" t="Include">
-                  <e p="CloseWeaponRankUpPanel.cs" t="Include" />
-                  <e p="CloseWeaponSpecsUi.cs" t="Include" />
-                </e>
-                <e p="EquipButton.cs" t="Include" />
-                <e p="OpenUis" t="Include">
-                  <e p="OpenWeaponRankUpPanel.cs" t="Include" />
-                  <e p="OpenWeaponSpecsUi.cs" t="Include" />
-                </e>
-                <e p="RankUpSuccessfulPanel.cs" t="Include" />
-                <e p="WeaponLevelUpgradeUi.cs" t="Include" />
-                <e p="WeaponRankUpPanel.cs" t="Include" />
-                <e p="WeaponRankUpUi.cs" t="Include" />
-                <e p="WeaponSpecsUi.cs" t="Include" />
-                <e p="WeaponStatsManagerUi.cs" t="Include" />
-                <e p="WeaponStatsUpgradeButton.cs" t="Include" />
-                <e p="WeaponUiActionManager.cs" t="Include" />
-                <e p="WeaponUiManager.cs" t="Include" />
-              </e>
-            </e>
-            <e p="_NewData" t="Include">
-              <e p="AllCharData.cs" t="Include" />
-              <e p="CharacterData.cs" t="Include" />
             </e>
             <e p="AnimationEventsManagement" t="Include">
               <e p="AnimationEvents.cs" t="Include" />
@@ -80,6 +65,23 @@
               <e p="PlayerAnimator.cs" t="Include" />
             </e>
             <e p="AttackByTime.cs" t="Include" />
+            <e p="BuildingManagement" t="Include">
+              <e p="AllBuildings" t="Include">
+                <e p="Market.cs" t="Include" />
+              </e>
+              <e p="BaseBuildingManagement" t="Include">
+                <e p="BaseBuilding.cs" t="Include" />
+                <e p="BaseBuildingData.cs" t="Include" />
+                <e p="BaseBuildingDataSo.cs" t="Include" />
+              </e>
+              <e p="BaseEconomyBuilding.cs" t="Include" />
+              <e p="BuildingGfxManager.cs" t="Include" />
+              <e p="UpgradableBuildingManagement" t="Include">
+                <e p="BaseUpgradableBuilding.cs" t="Include" />
+                <e p="BaseUpgradableBuildingData.cs" t="Include" />
+                <e p="BaseUpgradableBuildingDataSo.cs" t="Include" />
+              </e>
+            </e>
             <e p="BulletManagement" t="Include">
               <e p="AllBullets" t="Include">
                 <e p="AutoRePooler.cs" t="Include" />
@@ -218,6 +220,14 @@
               <e p="RandomStringGenerator.cs" t="Include" />
               <e p="SecondToMinuteConvert.cs" t="Include" />
               <e p="VectorRotater.cs" t="Include" />
+            </e>
+            <e p="IDamageable.cs" t="Include" />
+            <e p="InGameStateManagement" t="Include">
+              <e p="IInGameState.cs" t="Include" />
+              <e p="InGameStateManagement.cs" t="Include" />
+              <e p="InGameStates" t="Include">
+                <e p="LevelSelectState.cs" t="Include" />
+              </e>
             </e>
             <e p="InputManagement" t="Include">
               <e p="PlayerInputActionManager.cs" t="Include" />
@@ -649,34 +659,12 @@
               </e>
             </e>
             <e p="UpgradeManagement" t="Include">
+              <e p="BaseSimpleUpgradableData.cs" t="Include" />
               <e p="BaseUpgradableData.cs" t="Include" />
+              <e p="UpgradeData.cs" t="Include" />
             </e>
             <e p="WallManagement" t="Include">
               <e p="BaseWall.cs" t="Include" />
-            </e>
-            <e p="WeaponManagement" t="Include">
-              <e p="WeaponActivator.cs" t="Include" />
-              <e p="WeaponLevelAndRankManagement" t="Include">
-                <e p="RankManagement" t="Include">
-                  <e p="WeaponRankData.cs" t="Include" />
-                  <e p="WeaponRankDataSo.cs" t="Include" />
-                </e>
-                <e p="WeaponLevelUpgradeData.cs" t="Include" />
-              </e>
-              <e p="WeaponManager.cs" t="Include" />
-              <e p="WeaponRangeUi.cs" t="Include" />
-              <e p="Weapons" t="Include">
-                <e p="BaseWeapon.cs" t="Include" />
-                <e p="BaseWeaponData.cs" t="Include" />
-                <e p="BaseWeaponDataSo.cs" t="Include" />
-                <e p="WeaponEffectManager.cs" t="Include" />
-                <e p="WeaponTypes" t="Include">
-                  <e p="BasicWeapon.cs" t="Include" />
-                  <e p="BasicWeaponData.cs" t="Include" />
-                  <e p="BasicWeaponDataSo.cs" t="Include" />
-                </e>
-                <e p="WeaponUi.cs" t="Include" />
-              </e>
             </e>
             <e p="XpManagement" t="Include">
               <e p="XpCollectActionManager.cs" t="Include" />
@@ -694,9 +682,7 @@
           </e>
           <e p="Fonts" t="Include" />
           <e p="Prefabs" t="Include" />
-          <e p="Scenes" t="Include">
-            <e p="Level_1" t="Include" />
-          </e>
+          <e p="Scenes" t="Include" />
           <e p="Scripts" t="Include">
             <e p="BaseGameScripts" t="Include">
               <e p="Animator Control" t="Include">
@@ -856,9 +842,7 @@
             </e>
           </e>
           <e p="Textures" t="Include">
-            <e p="Icons" t="Include">
-              <e p="Company" t="Include" />
-            </e>
+            <e p="Icons" t="Include" />
           </e>
         </e>
         <e p="BOXOPHOBIC" t="Include">

@@ -1,4 +1,4 @@
-using Scripts.GameScripts.GameManagement;
+using Scripts.GameManagement;
 using Scripts.GameScripts.Helpers;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.SkillHelpersManagement.FireBulletManagement;
@@ -40,22 +40,21 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeProjectiles.Ski
         public override void SubscribeEvent()
         {
             base.SubscribeEvent();
-            GameManager.Instance.Player.Weapon.onOutOfAmmo += OnOutOfAmmo;
+            //GameManager.Instance.Player.Weapon.onOutOfAmmo += OnOutOfAmmo;
         }
 
         public override void UnsubscribeEvent()
         {
             base.UnsubscribeEvent();
-            GameManager.Instance.Player.Weapon.onOutOfAmmo -= OnOutOfAmmo;
+            //GameManager.Instance.Player.Weapon.onOutOfAmmo -= OnOutOfAmmo;
         }
 
 
         private void OnOutOfAmmo(float currentDamage, float bulletDamage)
         {
-            var damage = MathCalculations.CalculatePercentage(bulletDamage, _coupDeGraceData.bulletDamagePercentage);
-            var createPos = TransformOfObj.position + Vector3.up;
-            fireBullet.FireBullet(damage, _playerManager.Weapon.CurrentBulletSize, createPos, TransformOfObj.forward,
-                _coupDeGraceData.fireType);
+            // var damage = MathCalculations.CalculatePercentage(bulletDamage, _coupDeGraceData.bulletDamagePercentage);
+            // var createPos = TransformOfObj.position + Vector3.up;
+            // fireBullet.FireBullet(damage, _playerManager.Weapon.CurrentBulletSize, createPos, TransformOfObj.forward, _coupDeGraceData.fireType);
         }
     }
 }
