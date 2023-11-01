@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEditor.Overlays;
@@ -16,7 +15,7 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
         private const string IdSceneViewerOverlay = "sceneViewerOverlay";
         private static bool s_additive;
         private static readonly Button s_isAdditive = new Button(LoadTypeButton);
-        
+
         // private static readonly Button s_mainLevelButton = new Button(LoadMainLevel);
         // private static readonly Button s_level1Button = new Button(LoadLevel1);
         // private static readonly List<int> s_indicesMainLevel = new List<int>();
@@ -64,12 +63,14 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
 
             TryGetScenes();
         }
+
         private void AddLoadTypeButton()
         {
             _root.Add(s_isAdditive);
             s_additive = PlayerPrefs.GetInt(Defs.SAVE_KEY_SCENE_LOADER_TOOL, 0) == 1;
             UpdateLoadTypeButtonText();
         }
+
         private void TryGetScenes()
         {
             var sceneCount = SceneManager.sceneCountInBuildSettings;
@@ -79,12 +80,16 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
                 var fileName = Path.GetFileName(SceneUtility.GetScenePathByBuildIndex(i));
                 var sceneIndex = i;
                 var sceneButton = new Button(() => LoadSceneWithIndex(sceneIndex));
-                var buttonText = fileName.Substring(0, fileName.Length - 6); //Removes the extension part of the file name (e.g: "MainScene.unity" -> "MainScene")
+                var buttonText =
+                    fileName.Substring(0,
+                        fileName.Length -
+                        6); //Removes the extension part of the file name (e.g: "MainScene.unity" -> "MainScene")
                 sceneButton.text = buttonText;
-                
+
                 _root.Add(sceneButton);
             }
         }
+
         private bool CheckIfBuildSettingsIfWeHaveAnyScenes()
         {
             if (SceneManager.sceneCountInBuildSettings == 0)
@@ -100,6 +105,7 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
 
             return false;
         }
+
         private void LoadSceneWithIndex(int index)
         {
             if (SceneManager.GetActiveScene().isDirty)
@@ -127,16 +133,18 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
             }
             else
             {
-                EditorSceneManager.OpenScene(SceneUtility.GetScenePathByBuildIndex(index), s_additive ? OpenSceneMode.Additive : OpenSceneMode.Single);
+                EditorSceneManager.OpenScene(SceneUtility.GetScenePathByBuildIndex(index),
+                    s_additive ? OpenSceneMode.Additive : OpenSceneMode.Single);
             }
         }
-     
+
         private static void LoadTypeButton()
         {
             s_additive = !s_additive;
             PlayerPrefs.SetInt(Defs.SAVE_KEY_SCENE_LOADER_TOOL, s_additive ? 1 : 0);
             UpdateLoadTypeButtonText();
         }
+
         private static void UpdateLoadTypeButtonText()
         {
             if (s_additive)

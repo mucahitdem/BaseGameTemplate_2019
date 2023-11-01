@@ -1,11 +1,12 @@
 ﻿using System;
-using Scripts.BaseGameScripts.Helper;
 using UnityEngine;
 
 namespace Scripts.BaseGameScripts.TimerManagement
 {
     public sealed class Timer : MonoBehaviour
     {
+        private float _timerValue;
+
         // public Action<float> onTimerValueUpdate;
         // public Action<float> onPassedTimePercentageUpdate;
         public Action onTimerEnded;
@@ -14,6 +15,7 @@ namespace Scripts.BaseGameScripts.TimerManagement
         private TimerData timerData;
 
         private float DataTimerValue => timerData.timerValue;
+
         private float TimerValue
         {
             get => _timerValue;
@@ -22,20 +24,17 @@ namespace Scripts.BaseGameScripts.TimerManagement
                 if (Math.Abs(value - _timerValue) > .0001f)
                 {
                     _timerValue = value;
-          
-                    if (IsTimerEnded())
-                    {
-                        OnTimerEnded();
-                    }
+
+                    if (IsTimerEnded()) OnTimerEnded();
                 }
             }
         }
+
         public bool IsRunning { get; private set; }
         public float PassedDurationRate => (DataTimerValue - TimerValue) / DataTimerValue; // returns between 0 - 1
-        
+
         private bool IsPaused { get; set; }
         private float CurrentTimerValue { get; set; }
-        private float _timerValue;
 
         private void Start()
         {
@@ -54,6 +53,7 @@ namespace Scripts.BaseGameScripts.TimerManagement
             ResetTimer();
             StartTimer();
         }
+
         /// <summary>
         ///     play and pause timer
         /// </summary>
@@ -68,6 +68,7 @@ namespace Scripts.BaseGameScripts.TimerManagement
             else
                 StartTimer();
         }
+
         /// <summary>
         ///     Stop timer
         /// </summary>
@@ -76,11 +77,13 @@ namespace Scripts.BaseGameScripts.TimerManagement
             IsRunning = false;
             TimerManager.Instance.RemoveTimer(this);
         }
+
         public void UpdateInitialValue(float newTimerValue)
         {
             timerData.timerValue = newTimerValue;
             ResetToInitialValue();
         }
+
         public void UpdateTimerValue(float newTimer = 0f, float percentage = 0f)
         {
             if (newTimer > 0)
@@ -111,12 +114,13 @@ namespace Scripts.BaseGameScripts.TimerManagement
 
             StopTimer();
         }
-        
-        
+
+
         private void ResetToInitialValue()
         {
             CurrentTimerValue = DataTimerValue;
         }
+
         private void SetTimerVariables()
         {
             CurrentTimerValue = DataTimerValue;
@@ -126,6 +130,7 @@ namespace Scripts.BaseGameScripts.TimerManagement
 
             if (!timerData.restartManually) RestartTimer();
         }
+
         private void StartTimer()
         {
             if (IsPaused)
@@ -134,6 +139,7 @@ namespace Scripts.BaseGameScripts.TimerManagement
             IsRunning = true;
             TimerManager.Instance.AddNewTimer(this);
         }
+
         private void ResetTimer()
         {
             TimerValue = CurrentTimerValue;

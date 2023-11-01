@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
 using Scripts.GameScripts;
 using Sirenix.OdinInspector;
@@ -38,10 +37,8 @@ namespace Scripts.BaseGameScripts.UiManagement
                 try
                 {
                     if (currentUi.UiItemId == Defs.UI_KEY_NOT_IMPLEMENTED)
-                    {
                         //DebugHelper.LogRed("THIS IS A BUG OR STH");
                         continue;
-                    }
 
                     _idAndItems.Add(currentUi.UiItemId, currentUi);
                 }
@@ -73,10 +70,7 @@ namespace Scripts.BaseGameScripts.UiManagement
 
         private BaseUiItem GetUiItem(string id)
         {
-            if (_idAndItems.TryGetValue(id, out _baseUiItem))
-            {
-                return _baseUiItem;
-            }
+            if (_idAndItems.TryGetValue(id, out _baseUiItem)) return _baseUiItem;
 
             //DebugHelper.LogRed("THERE IS NO UI ITEM WITH ID : " + id);
             return null;
@@ -84,36 +78,21 @@ namespace Scripts.BaseGameScripts.UiManagement
 
         private void ShowItem(string id, Object component)
         {
-            if (_idAndItems.TryGetValue(id, out _baseUiItem))
-            {
-                _baseUiItem.ShowUi(component);
-                return;
-            }
+            if (_idAndItems.TryGetValue(id, out _baseUiItem)) _baseUiItem.ShowUi(component);
 
             //DebugHelper.LogRed("THERE IS NO UI ITEM WITH ID : " + id);
         }
 
         private void HideItem(string id, Object component)
         {
-            if (_idAndItems.TryGetValue(id, out _baseUiItem))
-            {
-                _baseUiItem.HideUi(component);
-                return;
-            }
+            if (_idAndItems.TryGetValue(id, out _baseUiItem)) _baseUiItem.HideUi(component);
 
             //DebugHelper.LogRed("THERE IS NO UI ITEM WITH ID : " + id);
         }
 
         private void AddUiItem(string id, BaseUiItem uiItem)
         {
-            if (_idAndItems.TryGetValue(id, out _baseUiItem) == false)
-            {
-                _idAndItems.Add(id, uiItem);
-            }
-            else
-            {
-                //DebugHelper.LogRed("THERE IS AN UI ITEM ALREADY EXIST WITH ID : " + id);
-            }
+            if (_idAndItems.TryGetValue(id, out _baseUiItem) == false) _idAndItems.Add(id, uiItem);
         }
     }
 }

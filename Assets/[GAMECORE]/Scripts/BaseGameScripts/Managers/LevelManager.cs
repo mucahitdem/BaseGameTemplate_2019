@@ -1,6 +1,4 @@
 ﻿using Scripts.BaseGameScripts.Helper;
-using Scripts.BaseGameScripts.SaveAndLoadManagement;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +14,7 @@ namespace Scripts.BaseGameScripts.Managers
             // SaveGame.Save(Defs.SAVE_KEY_LEVEL, _levelNum); // replace
             // SaveGame.Save(Defs.SAVE_KEY_FAKE_LEVEL, _fakeLevelNum); // replace
         }
+
         public void Load()
         {
             // _levelNum = SaveGame.Load(Defs.SAVE_KEY_LEVEL, 1);
@@ -24,6 +23,7 @@ namespace Scripts.BaseGameScripts.Managers
             DebugHelper.LogRed("LEVEL NUM : " + _levelNum);
             DebugHelper.LogRed("FAKE LEVEL NUM : " + _fakeLevelNum);
         }
+
         private void Awake()
         {
             //Load();
@@ -48,15 +48,17 @@ namespace Scripts.BaseGameScripts.Managers
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        
+
         private void OnApplicationFocus(bool hasFocus)
         {
             Save();
         }
+
         private void OnApplicationPause(bool pauseStatus)
         {
             Save();
         }
+
         private void OnApplicationQuit()
         {
             Save();

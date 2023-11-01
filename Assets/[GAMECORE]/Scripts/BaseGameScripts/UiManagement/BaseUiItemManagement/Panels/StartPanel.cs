@@ -1,4 +1,4 @@
-﻿using Scripts.GameScripts.GameStateManagement.States;
+﻿using Scripts.BaseGameScripts.GameStateManagement.States;
 using UnityEngine.EventSystems;
 
 namespace Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement.Panels

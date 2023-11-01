@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class ComponentCopyEditor : EditorWindow
 {
+    private readonly List<GameObject> selectedTargetObjects = new List<GameObject>();
     private GameObject newSourceObject;
     private bool[] selectedComponents;
-    private readonly List<GameObject> selectedTargetObjects = new List<GameObject>();
     private Component[] sourceComponents;
     private GameObject sourceObject;
 

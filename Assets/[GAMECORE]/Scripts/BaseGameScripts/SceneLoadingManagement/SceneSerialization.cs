@@ -8,9 +8,6 @@ namespace Scripts.GameScripts.SceneLoadingManagement
     [Serializable]
     public class SceneSerialization
     {
-        public bool IsActiveScene => isActiveScene;
-        public bool NeverUnloadScene => neverUnloadScene;
-        
         [SerializeField]
         private bool isActiveScene;
 
@@ -22,6 +19,8 @@ namespace Scripts.GameScripts.SceneLoadingManagement
         private Object scene;
 
         public string sceneName;
+        public bool IsActiveScene => isActiveScene;
+        public bool NeverUnloadScene => neverUnloadScene;
         public Object Scene => scene;
 
         [Button]

@@ -9,10 +9,10 @@ namespace Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement
     {
         [SerializeField]
         private bool setIdViaInspector;
-        
+
         [ShowIf("setIdViaInspector")]
         [SerializeField]
-        private string uiItemId;
+        protected string uiItemId;
 
         [ShowInInspector]
         public string UiItemId
