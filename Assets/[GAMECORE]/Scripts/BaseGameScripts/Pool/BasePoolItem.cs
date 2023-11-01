@@ -45,7 +45,6 @@ namespace Scripts.BaseGameScripts.Pool
                 DontDestroyOnLoad(Go);
         }
 
-     
 
         public BaseComponent PullObjFromPool(Transform parent, Vector3 localPos, Vector3 localAngles)
         {
@@ -77,7 +76,6 @@ namespace Scripts.BaseGameScripts.Pool
             try
             {
                 PoolingPattern.AddObjToPool(objToPool);
-
             }
             catch
             {

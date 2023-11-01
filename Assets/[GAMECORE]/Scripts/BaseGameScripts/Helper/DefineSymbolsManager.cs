@@ -7,24 +7,29 @@ namespace Scripts.GameScripts
     {
         public static void AddDefineSymbol(string symbol)
         {
-            string defineSymbols = PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
+            var defineSymbols =
+                PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
 
             if (!defineSymbols.Contains(symbol))
             {
                 defineSymbols += ";" + symbol;
-                PlayerSettings.SetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup, defineSymbols);
+                PlayerSettings.SetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup,
+                    defineSymbols);
                 AssetDatabase.Refresh();
             }
         }
+
         public static void RemoveDefineSymbol(string symbol)
         {
-            string defineSymbols = PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
+            var defineSymbols =
+                PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
 
             if (defineSymbols.Contains(symbol))
             {
                 defineSymbols = defineSymbols.Replace(symbol, "");
                 defineSymbols = defineSymbols.Replace(";;", ";"); // Remove any duplicate semicolons if present.
-                PlayerSettings.SetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup, defineSymbols);
+                PlayerSettings.SetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup,
+                    defineSymbols);
                 AssetDatabase.Refresh();
             }
         }

@@ -8,8 +8,10 @@ namespace Scripts.BaseGameScripts.SourceManagement
     public class BaseSourceData
     {
         public int initialSourceCount;
+
         [PreviewField(ObjectFieldAlignment.Left)]
         public Sprite sourceIcon;
+
         public string sourceName;
     }
 }

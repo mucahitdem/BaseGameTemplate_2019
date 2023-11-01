@@ -20,6 +20,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Helper/SingletonMono.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Helper/TargetFrameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Helper/FPSDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/States/StartState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Helper/FrameRateManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStateManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SourceManagement/BaseSourceUi.cs" root0="FORCE_HIGHLIGHTING" />
@@ -28,6 +30,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Managers/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/Editor/ObjectSearchEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/EventQueue.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/DevHelperTools/Editor/HelperTools.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Pool/PoolManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/BaseUiItemManagement/BaseUiPanel.cs" root0="FORCE_HIGHLIGHTING" />
@@ -61,10 +64,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/State/GameStates/GameState03_1Win.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UI/UiManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/State/GameStateManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameSystemRelatedScripts/SaveManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameSystemRelatedScripts/UI/StartPanel.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStates/GameStateStart.cs" />
@@ -108,10 +108,13 @@
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/SaveAndLoadManagement/SaveAndLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/GameStateManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/BaseGameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/BaseUiItemManagement/Panels/StartPanel.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/Defs.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/BaseUiItemManagement/BaseUiItem.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Helper/FPSDisplay.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/Helper/FrameRateManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/GameStateManagement/States/StartState.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/BaseGameScripts/UiManagement/BaseUiItemManagement/Panels/StartPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAME]/Scripts/GameScripts/GameManager.cs" />
       </list>
     </option>
   </component>
