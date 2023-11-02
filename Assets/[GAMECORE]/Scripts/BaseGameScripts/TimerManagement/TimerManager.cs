@@ -39,7 +39,7 @@ namespace Scripts.BaseGameScripts.TimerManagement
         private void UpdateTimers()
         {
             var currentDeltaTime = Time.deltaTime;
-            for (var i = 0; i < _timerList.Count; i++) _timerList[i].UpdateTimer(currentDeltaTime);
+            for (var i = 0; i < _timerList.Count; i++) _timerList[i].OnUpdate(currentDeltaTime);
         }
     }
 }

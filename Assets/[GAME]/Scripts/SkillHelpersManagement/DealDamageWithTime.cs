@@ -59,7 +59,7 @@ namespace Scripts.SkillHelpersManagement
         {
             percentage = newPercentage;
             timeRate = newTimeRate;
-            burnTimer.UpdateInitialValue(timeRate);
+            burnTimer.UpdateTimerValue(timeRate);
             burnTimer.RestartTimer();
         }
 

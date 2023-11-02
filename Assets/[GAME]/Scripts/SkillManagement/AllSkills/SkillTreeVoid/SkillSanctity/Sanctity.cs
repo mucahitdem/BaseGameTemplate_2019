@@ -39,8 +39,8 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeVoid.SkillSanct
 
         public int TryIncreaseDamage(int damage)
         {
-            damage += (int) MathCalculations.CalculatePercentage(damage,
-                SanctityDataSo.sanctityData.increasePercentage * PlayerManager.PlayerStatsManager.CurrentHealth);
+            // damage += (int) MathCalculations.CalculatePercentage(damage,
+            //     SanctityDataSo.sanctityData.increasePercentage * PlayerManager.PlayerStatsManager.CurrentHealth);
             return damage;
         }
     }

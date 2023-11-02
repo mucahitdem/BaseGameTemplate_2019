@@ -1,6 +1,7 @@
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.SkillHelpersManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
+using Scripts.PlayerManagement;
 using UnityEngine;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeHealth.SkillBerserk
@@ -24,9 +25,9 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeHealth.SkillBer
 
         public override void UseSkill()
         {
-            var data = BerserkDataSo.berserkData;
-            increaseBulletDamage.SetData(data.durationToGainBulletDamage, data.bulletDamageIncreasePercentage,
-                ref PlayerActionManager.onPlayerTakeDamage);
+            // var data = BerserkDataSo.berserkData;
+            // increaseBulletDamage.SetData(data.durationToGainBulletDamage, data.bulletDamageIncreasePercentage,
+            //     ref PlayerActionManager.onPlayerTakeDamage);
         }
     }
 }

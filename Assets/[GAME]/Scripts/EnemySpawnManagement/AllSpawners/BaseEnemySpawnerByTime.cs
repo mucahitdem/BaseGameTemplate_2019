@@ -27,7 +27,7 @@ namespace Scripts.EnemySpawnManagement.AllSpawners
         public void SetData(BaseEnemyManager[] enemiesToSpawn, float timeRate)
         {
             _enemies = enemiesToSpawn;
-            spawnTimer.UpdateInitialValue(timeRate);
+            spawnTimer.UpdateTimerValue(timeRate);
             spawnTimer.RestartTimer();
         }
 

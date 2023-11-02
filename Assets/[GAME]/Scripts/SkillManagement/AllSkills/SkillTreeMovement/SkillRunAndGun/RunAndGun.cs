@@ -1,8 +1,7 @@
-using Scripts.GameManagement;
-using Scripts.GameScripts.MovementManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
+using Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeMovement.SkillRunAndGun;
 
-namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeMovement.SkillRunAndGun
+namespace Scripts.SkillManagement.AllSkills.SkillTreeMovement.SkillRunAndGun
 {
     public class RunAndGun : BaseSkill
     {
@@ -22,7 +21,7 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeMovement.SkillR
         public override void UseSkill()
         {
             var data = RunAndGunDataSo.runAndGunData;
-            MovementActionManager.increaseMovementSpeedPercentage?.Invoke(data.movementSpeedIncreasePercentage);
+            //MovementActionManager.increaseMovementSpeedPercentage?.Invoke(data.movementSpeedIncreasePercentage);
             //GameManager.Instance.Player.Weapon.increaseFireRatePercentage?.Invoke(data.fireRateIncreasePercentage);
         }
     }

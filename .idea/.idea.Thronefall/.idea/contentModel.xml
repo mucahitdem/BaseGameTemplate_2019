@@ -62,9 +62,11 @@
                 <e p="MeshAnimatedChar.cs" t="Include" />
               </e>
               <e p="EnemyAnimatedChar.cs" t="Include" />
-              <e p="PlayerAnimator.cs" t="Include" />
             </e>
             <e p="AttackByTime.cs" t="Include" />
+            <e p="AttackManagement" t="Include">
+              <e p="BaseAttackManager.cs" t="Include" />
+            </e>
             <e p="BuildingManagement" t="Include">
               <e p="AllBuildings" t="Include">
                 <e p="Market.cs" t="Include" />
@@ -200,8 +202,6 @@
               <e p="FindNearestTargetInArea.cs" t="Include" />
               <e p="FindTargetInAreaVisualizer.cs" t="Include" />
               <e p="FindTargetsInArea.cs" t="Include" />
-              <e p="FindTargetsInAreaData.cs" t="Include" />
-              <e p="FindTargetsInAreaDataSo.cs" t="Include" />
             </e>
             <e p="FireType.cs" t="Include" />
             <e p="GameManagement" t="Include">
@@ -209,7 +209,7 @@
               <e p="GameManager.cs" t="Include" />
             </e>
             <e p="GfxManagement" t="Include">
-              <e p="GfxManager.cs" t="Include" />
+              <e p="CharacterGfxManager.cs" t="Include" />
             </e>
             <e p="Helpers" t="Include">
               <e p="CreateCircle.cs" t="Include" />
@@ -230,13 +230,11 @@
               </e>
             </e>
             <e p="InputManagement" t="Include">
-              <e p="PlayerInputActionManager.cs" t="Include" />
+              <e p="Joystick.cs" t="Include" />
               <e p="PlayerInputManager.cs" t="Include" />
             </e>
             <e p="InteractionManagement" t="Include">
               <e p="BaseInteractionManager.cs" t="Include" />
-              <e p="GroundChecker.cs" t="Include" />
-              <e p="PlayerInteractionManager.cs" t="Include" />
             </e>
             <e p="LevelEndManagement" t="Include">
               <e p="GoToMainLevelButton.cs" t="Include" />
@@ -248,16 +246,8 @@
               <e p="LookAtCameraManager.cs" t="Include" />
             </e>
             <e p="MovementManagement" t="Include">
-              <e p="BaseMovementManagement" t="Include">
-                <e p="BaseMovement.cs" t="Include" />
-                <e p="BaseMovementData.cs" t="Include" />
-                <e p="BaseMovementDataSo.cs" t="Include" />
-              </e>
-              <e p="MovementActionManager.cs" t="Include" />
-              <e p="MovementHelper.cs" t="Include" />
-              <e p="SpeedAcceleratorManagement" t="Include">
-                <e p="MovementSpeedAccelerator.cs" t="Include" />
-              </e>
+              <e p="BaseMovement.cs" t="Include" />
+              <e p="BaseMovementWithInput.cs" t="Include" />
             </e>
             <e p="NavMeshManagement" t="Include">
               <e p="NavMeshAgentAnimation.cs" t="Include" />
@@ -265,7 +255,6 @@
             </e>
             <e p="ParticleSizeController.cs" t="Include" />
             <e p="PlayerManagement" t="Include">
-              <e p="PlayerActionManager.cs" t="Include" />
               <e p="PlayerManager.cs" t="Include" />
               <e p="PlayerManagerData.cs" t="Include" />
               <e p="PlayerManagerDataSo.cs" t="Include" />
@@ -615,20 +604,7 @@
             </e>
             <e p="SpriteAnim.cs" t="Include" />
             <e p="StatsManagement" t="Include">
-              <e p="BaseStatsData.cs" t="Include" />
-              <e p="BaseStatsDataSo.cs" t="Include" />
               <e p="BaseStatsManager.cs" t="Include" />
-              <e p="EnemyStatsManagement" t="Include">
-                <e p="BaseEnemyStatsData.cs" t="Include" />
-                <e p="BaseEnemyStatsDataSo.cs" t="Include" />
-                <e p="BaseEnemyStatsManager.cs" t="Include" />
-              </e>
-              <e p="PlayerStatsManagement" t="Include">
-                <e p="PlayerStatsActionManager.cs" t="Include" />
-                <e p="PlayerStatsData.cs" t="Include" />
-                <e p="PlayerStatsDataSo.cs" t="Include" />
-                <e p="PlayerStatsManager.cs" t="Include" />
-              </e>
               <e p="StatsPerLevel.cs" t="Include" />
               <e p="StatsUiManagement" t="Include">
                 <e p="StatsUiBar.cs" t="Include" />
@@ -643,13 +619,6 @@
             <e p="TurretManagement" t="Include">
               <e p="Turret.cs" t="Include" />
               <e p="TurretDataSo.cs" t="Include" />
-            </e>
-            <e p="UiManagement" t="Include">
-              <e p="HealthUiManagement" t="Include">
-                <e p="HealthIconController.cs" t="Include" />
-                <e p="HealthUiManager.cs" t="Include" />
-              </e>
-              <e p="StatsAndAbilityPanelController.cs" t="Include" />
             </e>
             <e p="UnlockSystemManagement" t="Include">
               <e p="BaseUnlockManagement" t="Include">

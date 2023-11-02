@@ -46,7 +46,7 @@ namespace Scripts.CameraManagement
         [Button]
         private void ShakeCamera(CameraShakeData shakeData)
         {
-            timer.UpdateInitialValue(shakeData.duration);
+            timer.UpdateTimerValue(shakeData.duration);
             timer.RestartTimer();
             _perlin.m_FrequencyGain = shakeData.frequency;
             _perlin.m_AmplitudeGain = shakeData.amplitude;

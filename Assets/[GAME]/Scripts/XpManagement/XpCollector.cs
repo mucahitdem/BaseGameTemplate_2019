@@ -1,11 +1,10 @@
 ﻿using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.GameScripts.FindTargetsInAreaManagement;
-using Scripts.GameScripts.Helpers;
-using Scripts.GameScripts.PlayerManagement;
+using Scripts.FindTargetsInAreaManagement;
+using Scripts.GameScripts.XpManagement;
 using Scripts.PlayerManagement;
 using UnityEngine;
 
-namespace Scripts.GameScripts.XpManagement
+namespace Scripts.XpManagement
 {
     public class XpCollector : BaseComponent
     {
@@ -38,10 +37,10 @@ namespace Scripts.GameScripts.XpManagement
 
         private void IncreaseCollectRadiusPercentage(float percentage)
         {
-            var newRadius = findTargetsInArea.CurrentRadius +
-                            MathCalculations.CalculatePercentage(findTargetsInArea.InitialRadius, percentage);
-            //DebugHelper.LogYellow("XP COLLECT RADIUS : " + findTargetsInArea.CurrentRadius + " /// " + newRadius);
-            findTargetsInArea.UpdateRadius(newRadius);
+            // var newRadius = findTargetsInArea.CurrentRadius +
+            //                 MathCalculations.CalculatePercentage(findTargetsInArea.InitialRadius, percentage);
+            // //DebugHelper.LogYellow("XP COLLECT RADIUS : " + findTargetsInArea.CurrentRadius + " /// " + newRadius);
+            // findTargetsInArea.UpdateRadius(newRadius);
         }
 
         private void Update()

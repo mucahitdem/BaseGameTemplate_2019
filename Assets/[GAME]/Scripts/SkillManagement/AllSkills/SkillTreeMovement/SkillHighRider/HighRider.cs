@@ -1,8 +1,7 @@
-using Scripts.GameManagement;
-using Scripts.GameScripts.MovementManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
+using Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeMovement.SkillHighRider;
 
-namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeMovement.SkillHighRider
+namespace Scripts.SkillManagement.AllSkills.SkillTreeMovement.SkillHighRider
 {
     public class HighRider : BaseSkill
     {
@@ -22,7 +21,7 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeMovement.SkillH
         public override void UseSkill()
         {
             var data = HighRiderDataSo.highRiderData;
-            MovementActionManager.increaseMovementSpeedPercentage?.Invoke(data.movementSpeedIncreasePercentage);
+            //MovementActionManager.increaseMovementSpeedPercentage?.Invoke(data.movementSpeedIncreasePercentage);
             //GameManager.Instance.Player.Weapon.increaseBulletMovementSpeedPercentage?.Invoke(data.bulletSpeedIncreasePercentage);
         }
     }

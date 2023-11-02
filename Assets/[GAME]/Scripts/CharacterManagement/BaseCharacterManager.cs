@@ -5,6 +5,7 @@ using Scripts.BaseGameScripts.RagDollManagement;
 using Scripts.CharacterManagement;
 using Scripts.GameScripts.AnimatorManagement.Animators;
 using Scripts.GameScripts.StatsManagement;
+using Scripts.StatsManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -12,6 +13,16 @@ namespace Scripts.GameScripts.CharacterManagement
 {
     public abstract class BaseCharacterManager : BaseComponent
     {
+        public Action<BaseCharacterManager> onDied;
+        
+        public bool IsEnabled { get; set; }
+        public bool IsDead { get; protected set; }
+        protected bool CanTakeDamage { get; set; }
+        
+        public virtual BaseAnimator Animator => animator;
+        public BaseCharacterDataSo BaseCharacterDataSo => characterDataSo;
+        protected BaseStatsManager StatsManager => baseStatsManager;
+        
         [SerializeField]
         [FoldoutGroup("Base Char Variables")]
         protected DefaultAnimator animator;
@@ -23,27 +34,14 @@ namespace Scripts.GameScripts.CharacterManagement
         [SerializeField]
         [FoldoutGroup("Base Char Variables")]
         private BaseCharacterDataSo characterDataSo;
-
-        protected int damageLevelIndex;
-
-        protected FireType fireType;
-
-        protected int healthLevelIndex;
-        protected int movementLevelIndex;
-        public Action<BaseCharacterManager> onDied;
-
+        
         [SerializeField]
         [FoldoutGroup("Base Char Variables")]
         protected RagDoll ragDoll;
 
-        public virtual BaseAnimator Animator => animator;
-        public BaseCharacterDataSo BaseCharacterDataSo => characterDataSo;
-        protected BaseStatsManager StatsManager => baseStatsManager;
+        protected FireType fireType;
 
-        public bool IsEnabled { get; set; }
-        public bool IsDead { get; protected set; }
-        protected bool CanTakeDamage { get; set; }
-        protected bool IsPushedBack { get; set; }
+   
 
         protected virtual void Awake()
         {

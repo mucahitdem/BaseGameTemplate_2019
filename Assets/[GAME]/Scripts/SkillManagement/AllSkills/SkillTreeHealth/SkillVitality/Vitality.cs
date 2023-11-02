@@ -1,5 +1,6 @@
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
+using Scripts.PlayerManagement;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeHealth.SkillVitality
 {
@@ -20,7 +21,7 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeHealth.SkillVit
         public override void UseSkill()
         {
             var data = VitalityDataSo.vitalityData;
-            PlayerActionManager.gainMaxHp?.Invoke(data.healthIncreaseAmount);
+            //PlayerActionManager.gainMaxHp?.Invoke(data.healthIncreaseAmount);
         }
     }
 }

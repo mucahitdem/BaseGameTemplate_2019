@@ -1,8 +1,9 @@
-using Scripts.GameScripts.MovementManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
+using Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeHealth.SkillBruiser;
+using Scripts.PlayerManagement;
 
-namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeHealth.SkillBruiser
+namespace Scripts.SkillManagement.AllSkills.SkillTreeHealth.SkillBruiser
 {
     public class Bruiser : BaseSkill
     {
@@ -20,10 +21,10 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeHealth.SkillBru
 
         public override void UseSkill()
         {
-            var data = BruiserDataSo.bruiserData;
-            PlayerActionManager.gainMaxHp?.Invoke(data.healthIncreaseAmount);
-            PlayerActionManager.increasePlayerSizePercentage?.Invoke(data.charSizeIncreasePercentage);
-            MovementActionManager.increaseMovementSpeedPercentage?.Invoke(data.moveSpeedIncreasePercentage);
+            // var data = BruiserDataSo.bruiserData;
+            // PlayerActionManager.gainMaxHp?.Invoke(data.healthIncreaseAmount);
+            // PlayerActionManager.increasePlayerSizePercentage?.Invoke(data.charSizeIncreasePercentage);
+            //MovementActionManager.increaseMovementSpeedPercentage?.Invoke(data.moveSpeedIncreasePercentage);
         }
     }
 }

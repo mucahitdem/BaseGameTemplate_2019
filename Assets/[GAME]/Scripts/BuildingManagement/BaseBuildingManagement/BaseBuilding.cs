@@ -1,5 +1,6 @@
 ﻿using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.GameScripts.StatsManagement;
+using Scripts.StatsManagement;
 using Scripts.UpgradeManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;

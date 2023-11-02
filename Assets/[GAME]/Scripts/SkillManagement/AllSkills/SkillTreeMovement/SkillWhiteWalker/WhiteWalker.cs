@@ -1,10 +1,11 @@
-using Scripts.GameScripts.MovementManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.SkillHelpersManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
+using Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeMovement.SkillWhiteWalker;
+using Scripts.PlayerManagement;
 using UnityEngine;
 
-namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeMovement.SkillWhiteWalker
+namespace Scripts.SkillManagement.AllSkills.SkillTreeMovement.SkillWhiteWalker
 {
     public class WhiteWalker : BaseSkill
     {
@@ -27,9 +28,9 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeMovement.SkillW
         public override void UseSkill()
         {
             var data = WhiteWalkerDataSo.walkerData;
-            MovementActionManager.increaseMovementSpeedPercentage?.Invoke(data.movementSpeedIncreasePercentage);
-            stepCounter.SetData(data.walkAmountToGainHp,
-                () => { PlayerActionManager.gainHp?.Invoke(data.hpAmountToGain); });
+            //MovementActionManager.increaseMovementSpeedPercentage?.Invoke(data.movementSpeedIncreasePercentage);
+            // stepCounter.SetData(data.walkAmountToGainHp,
+            //     () => { PlayerActionManager.gainHp?.Invoke(data.hpAmountToGain); });
         }
     }
 }

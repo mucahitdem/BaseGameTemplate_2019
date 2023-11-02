@@ -1,25 +1,16 @@
-﻿using System;
-using System.Collections;
-using _GAME_.Scripts.GameScripts.SoundManagement;
-using Scripts.AnimatorManagement;
-using Scripts.BaseGameScripts.FadeUiManagement;
+﻿using _GAME_.Scripts.GameScripts.SoundManagement;
+using Scripts.AttackManagement;
 using Scripts.BaseGameScripts.Helper;
-using Scripts.BaseGameScripts.TimerManagement;
 using Scripts.EnemyManagement;
 using Scripts.GameScripts.AnimationEventsManagement;
 using Scripts.GameScripts.CameraManagement;
 using Scripts.GameScripts.CharacterManagement;
 using Scripts.GameScripts.FindTargetsInAreaManagement;
-using Scripts.GameScripts.GfxManagement;
-using Scripts.GameScripts.Helpers;
-using Scripts.GameScripts.InteractionManagement;
-using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.RigUpdaterManagement;
-using Scripts.GameScripts.SkillManagement;
-using Scripts.GameScripts.StatsManagement.PlayerStatsManagement;
-using Scripts.InteractionManagement;
-using Scripts.MovementManagement.BaseMovementManagement;
-using Scripts.StatsManagement.PlayerStatsManagement;
+using Scripts.GfxManagement;
+using Scripts.InputManagement;
+using Scripts.MovementManagement;
+using Scripts.SkillManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -27,13 +18,17 @@ namespace Scripts.PlayerManagement
 {
     public sealed class PlayerManager : BaseCharacterManager
     {
-        private PlayerAnimator _playerAnimator;
+        public SkillManager SkillManager => skillManager;
+        public FindNearestTargetInArea FindNearestTargetInArea => findNearestTargetInArea;
+        public BaseRigUpdater BaseRigUpdater => baseRigUpdater;
+        private BaseMovementWithInput BaseMovementWithInput => baseMovementWithInput;
+        
 
         [SerializeField]
-        private AnimationEvents animationEvents;
+        private PlayerInputManager playerInputManager;
 
         [SerializeField]
-        private BaseMovement baseMovement;
+        private BaseMovementWithInput baseMovementWithInput;
 
         [SerializeField]
         private BaseRigUpdater baseRigUpdater;
@@ -42,147 +37,87 @@ namespace Scripts.PlayerManagement
         private FindNearestTargetInArea findNearestTargetInArea;
 
         [SerializeField]
-        private GfxManager gfxManager;
-
-        [SerializeField]
-        private GroundChecker groundChecker;
-
-        [SerializeField]
-        private Timer healthFillingTimer;
+        private CharacterGfxManager characterGfxManager;
         
-        [SerializeField]
-        private PlayerInteractionManager playerInteractionManager;
-
-        [SerializeField]
-        private PlayerStatsManager playerStatsManager;
-
         [SerializeField]
         private SkillManager skillManager;
+
+        [SerializeField]
+        private BaseAttackManager attackManager;
         
-        
+        [SerializeField]
+        private AnimationEvents animationEvents;
         
         [ReadOnly]
         public bool isRiding;
-        public SkillManager SkillManager => skillManager;
-        public PlayerStatsManager PlayerStatsManager => playerStatsManager;
-        public FindNearestTargetInArea FindNearestTargetInArea => findNearestTargetInArea;
-        public BaseRigUpdater BaseRigUpdater => baseRigUpdater;
-        private BaseMovement BaseMovement => baseMovement;
+        
+        private Vector3 input;
 
+        
         protected override void Awake()
         {
             base.Awake();
-            _playerAnimator = (PlayerAnimator) animator;
-            baseMovement.Insert(this);
+            baseMovementWithInput.Insert(this);
             animator.Insert(this);
             baseRigUpdater.Insert(this);
-            playerInteractionManager.Insert(this);
-            healthLevelIndex = PlayerPrefs.GetInt(Defs.SAVE_KEY_PLAYER_HEALTH, 0);
-            damageLevelIndex = PlayerPrefs.GetInt(Defs.SAVE_KEY_PLAYER_DAMAGE, 0);
-            movementLevelIndex = PlayerPrefs.GetInt(Defs.SAVE_KEY_PLAYER_SPEED, 0);
         }
-
-        private IEnumerator Start()
-        {
-            yield return new WaitForEndOfFrame();
-            baseStatsManager.UpgradeHealth(healthLevelIndex);
-            baseMovement.UpgradeSpeed(movementLevelIndex);
-        }
-
         private void Update()
         {
-            if (IsDead)
+            if (!IsEnabled)
             {
-                if (animator.AnimatorStateManager.GetBool(Defs.ANIM_KEY_DIE) == false)
-                    animator.AnimatorStateManager.SetBool(Defs.ANIM_KEY_DIE, true, true);
-
+                if (IsDead)
+                {
+                    if (animator.AnimatorStateManager.GetBool(Defs.ANIM_KEY_DIE) == false)
+                        animator.AnimatorStateManager.SetBool(Defs.ANIM_KEY_DIE, true, true);
+                }
+                
                 return;
             }
 
-            if (!IsEnabled)
-                return;
+            input = playerInputManager.GetInput();
 
-
-            if (Time.frameCount % 10 == 0)
+            if (Time.frameCount % 10 == 0)// to do cancel
             {
                 var targetToShoot = FindNearestTargetInArea.FindNearestChar<BaseEnemyManager>();
-                PlayerStatsManager.showUiBar?.Invoke(targetToShoot);
-                if (targetToShoot)
-                {
-                    if (healthFillingTimer.IsRunning) healthFillingTimer.StopTimer();
-                }
-                else
-                {
-                    if (!healthFillingTimer.IsRunning && !playerStatsManager.IsHealthFilled)
-                        healthFillingTimer.RestartTimer();
-                }
             }
 
-            baseMovement.OnUpdate();
+            baseMovementWithInput.OnUpdate();
 
 
             if (isRiding)
                 DebugHelper.LogRed("IS RIDING");
             else
-                _playerAnimator.UpdateAnimatorWithInput(IsInputExist());
+               UpdateAnimator();
         }
-
         private void FixedUpdate()
         {
             if (!IsEnabled || IsDead)
                 return;
-            baseMovement.OnFixedUpdate();
+            baseMovementWithInput.OnFixedUpdate();
         }
-
         private void LateUpdate()
         {
-            if (!IsEnabled || IsDead)
-                return;
-            var target = GetNearestEnemy()?.TransformOfObj;
-            baseRigUpdater.UpdateRig(target);
-        }
-
-        private void OnCollisionEnter(Collision other)
-        {
-            Rb.velocity = Vector3.zero;
-        }
-
-        public override void SubscribeEvent()
-        {
-            base.SubscribeEvent();
-            playerInteractionManager.onInteractedWithEnemy += OnInteractedWithEnemy;
-            PlayerStatsActionManager.onLevelChanged += OnLevelChanged;
-
-            PlayerActionManager.gainHp += GainHp;
-            PlayerActionManager.gainMaxHp += GainMaxHp;
-            PlayerActionManager.increasePlayerSizePercentage += IncreasePlayerSizePercentage;
-          
-            healthFillingTimer.onTimerEnded += HealthFillComplete;
-        }
-
-        public override void UnsubscribeEvent()
-        {
-            base.UnsubscribeEvent();
-            playerInteractionManager.onInteractedWithEnemy -= OnInteractedWithEnemy;
-            PlayerStatsActionManager.onLevelChanged -= OnLevelChanged;
-            PlayerActionManager.gainHp -= GainHp;
-            PlayerActionManager.gainMaxHp -= GainMaxHp;
-            PlayerActionManager.increasePlayerSizePercentage -= IncreasePlayerSizePercentage;
-          
-            healthFillingTimer.onTimerEnded -= HealthFillComplete;
+            // if (!IsEnabled || IsDead)
+            //     return;
+            // var target = GetNearestEnemy()?.TransformOfObj;
+            // baseRigUpdater.UpdateRig(target);
         }
         
+        
+        
+
+  
         public override void Reset()
         {
             base.Reset();
-            PlayerStatsManager.ResetHealth();
             animator.AnimatorStateManager.SetBool(Defs.ANIM_KEY_DIE, false, true);
-            Rb.constraints = RigidbodyConstraints.FreezePositionY |
-                             RigidbodyConstraints.FreezeRotationZ |
-                             RigidbodyConstraints.FreezeRotationX;
-            gfxManager.Gfx.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(Vector3.zero));
+            Rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+            characterGfxManager.Gfx.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(Vector3.zero));
         }
-
+        
+        
+        
+        
         protected override void OnDied(float takenDamage)
         {
             if (IsDead)
@@ -193,7 +128,6 @@ namespace Scripts.PlayerManagement
             Rb.constraints = RigidbodyConstraints.FreezeAll;
             animator.AnimatorStateManager.SetBool(Defs.ANIM_KEY_DIE, true, true);
         }
-
         protected override void TakeDamage(float damage)
         {
             if (IsDead || !IsEnabled || !CanTakeDamage)
@@ -201,69 +135,33 @@ namespace Scripts.PlayerManagement
             base.TakeDamage(damage);
             animator.AnimatorStateManager.SetTrigger(Defs.ANIM_KEY_HIT, true);
             CameraActionManager.shakeCamera?.Invoke(new CameraShakeData(.09f, 6f, .1f));
-            PlayerActionManager.onPlayerTakeDamage?.Invoke();
         }
+
         
 
-        private void HealthFillComplete()
+
+        private void UpdateAnimator()
         {
-            playerStatsManager.UpgradeHealth(healthLevelIndex);
+            var animStateManager = animator.AnimatorStateManager;
+            if (IsInputExist())
+            {
+                if (!animStateManager.GetBool(Defs.ANIM_KEY_WALK))
+                    animStateManager.SetBool(Defs.ANIM_KEY_WALK, true);
+            }
+            else
+            {
+                if (animStateManager.GetBool(Defs.ANIM_KEY_WALK))
+                    animStateManager.SetBool(Defs.ANIM_KEY_WALK, false);
+            }
         }
-
-        private void IncreasePlayerSizePercentage(float percentage)
-        {
-            var currentSize = TransformOfObj.localScale;
-            var nextSize = currentSize + Vector3.one * MathCalculations.CalculatePercentage(currentSize.x, percentage);
-            //DebugHelper.LogYellow("PLAYER SIZE : " + currentSize + " /// " + nextSize);
-            TransformOfObj.localScale = nextSize;
-        }
-
-        private void GainMaxHp(int increaseAmount)
-        {
-            PlayerStatsManager.GainMaxHealth(increaseAmount);
-        }
-
-        private void GainHp(int amount)
-        {
-            PlayerStatsManager.GainHealth(amount);
-        }
-
-        private void OnFireRangeUpdated(float currentRange)
-        {
-            findNearestTargetInArea.UpdateRadius(currentRange);
-        }
-
-        private void OnLevelChanged(int level)
-        {
-            if (level <= 1)
-                return;
-
-            Time.timeScale = 0f;
-            skillManager.OpenSkillUpgradePanel();
-        }
-
-        private void OnInteractedWithEnemy()
-        {
-            // TakeDamage(1);
-            // gfxManager.OnDamaged();
-            // playerInteractionManager.DisableInteractionForTime();
-        }
-
         private BaseEnemyManager GetNearestEnemy()
         {
             var targetToShoot = FindNearestTargetInArea.FindNearestChar<BaseEnemyManager>();
             return targetToShoot;
         }
-
-        private void OnShoot(bool isShooting)
-        {
-            // CameraActionManager.shakeCamera?.Invoke(new CameraShakeData(.09f, 4f, .1f));
-            animator.AnimatorStateManager.AnimOfObj.Play(Defs.ANIM_KEY_SHOOT, 1, 0);
-        }
-
         private bool IsInputExist()
         {
-            return Mathf.Abs(BaseMovement.PlayerInput.magnitude) > 0f;
+            return Mathf.Abs(input.magnitude) > 0f;
         }
     }
 }

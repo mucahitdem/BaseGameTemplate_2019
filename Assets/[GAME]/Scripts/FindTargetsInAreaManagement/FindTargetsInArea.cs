@@ -2,45 +2,40 @@
 using Scripts.BaseGameScripts.ComponentManagement;
 using UnityEngine;
 
-namespace Scripts.GameScripts.FindTargetsInAreaManagement
+namespace Scripts.FindTargetsInAreaManagement
 {
     [RequireComponent(typeof(FindTargetInAreaVisualizer))]
     public class FindTargetsInArea : BaseComponent
     {
-        private Collider[] _cols;
-        private LayerMask _layerToScan;
-        private int _size;
+        private float CurrentRadius { get; set; }
 
-
-        private FindTargetInAreaVisualizer _visualizer;
-
-
+        [SerializeField]
+        private LayerMask layerMask;
+        [SerializeField]
+        private int maxTargetCount;
+        [SerializeField]
+        private float radius;
         [SerializeField]
         private Transform castPosition;
 
-        [SerializeField]
-        private FindTargetsInAreaDataSo findTargetsInAreaDataSo;
+        
+        private Collider[] _cols;
+        private int _size;
+        private FindTargetInAreaVisualizer _visualizer;
 
-        public float CurrentRadius { get; private set; }
-
-        public float InitialRadius => FindTargetsInAreaDataSo.findTargetsInAreaData.radius;
-        private FindTargetsInAreaDataSo FindTargetsInAreaDataSo => findTargetsInAreaDataSo;
-
+        
         protected virtual void OnValidate()
         {
             if (!_visualizer)
                 _visualizer = GetComponent<FindTargetInAreaVisualizer>();
 
-            _visualizer.LoadNewData(FindTargetsInAreaDataSo.findTargetsInAreaData);
+            _visualizer.LoadNewData(radius, castPosition);
         }
-
         protected override void OnEnable()
         {
             base.OnEnable();
-            var data = FindTargetsInAreaDataSo.findTargetsInAreaData;
-            _layerToScan = data.layerMask;
-            _cols = new Collider[data.maxTargetCount];
-            CurrentRadius = data.radius;
+            _cols = new Collider[maxTargetCount];
+            CurrentRadius = radius;
         }
 
 
@@ -48,10 +43,9 @@ namespace Scripts.GameScripts.FindTargetsInAreaManagement
         {
             CurrentRadius = newRad;
         }
-
         public void Scan(Action<Collider> actionToDo)
         {
-            _size = Physics.OverlapSphereNonAlloc(castPosition.position, CurrentRadius, _cols, _layerToScan);
+            _size = Physics.OverlapSphereNonAlloc(castPosition.position, CurrentRadius, _cols, layerMask);
             if (_size <= 0)
                 return;
 
@@ -64,7 +58,7 @@ namespace Scripts.GameScripts.FindTargetsInAreaManagement
 
         public void Scan<T>(Func<Collider, T> actionToDo) where T : BaseComponent
         {
-            _size = Physics.OverlapSphereNonAlloc(castPosition.position, CurrentRadius, _cols, _layerToScan);
+            _size = Physics.OverlapSphereNonAlloc(castPosition.position, CurrentRadius, _cols, layerMask);
             if (_size <= 0)
                 return;
 
@@ -74,11 +68,8 @@ namespace Scripts.GameScripts.FindTargetsInAreaManagement
                 actionToDo?.Invoke(currentCol);
             }
         }
-
-
         public void UpdateRadius(float newRadius)
         {
-            //DebugHelper.LogYellow("NEW RADIUS UPDATED : " + newRadius);
             CurrentRadius = newRadius;
         }
     }

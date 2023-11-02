@@ -2,33 +2,30 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Scripts.GameScripts.FindTargetsInAreaManagement
+namespace Scripts.FindTargetsInAreaManagement
 {
     public class FindTargetInAreaVisualizer : BaseComponent
     {
-        [SerializeField]
-        private FindTargetsInAreaData _findTargetsInAreaData;
-
         [SerializeField]
         private bool disableVisual;
 
         [SerializeField]
         private Color gizmosColor = Color.red;
+        
+        private float radius;
+        private Transform castPosition;
 
-        public void LoadNewData(FindTargetsInAreaData findTargetsInAreaData)
+        public void LoadNewData(float newRadius, Transform castPoint)
         {
-            _findTargetsInAreaData = findTargetsInAreaData;
+            radius = newRadius;
+            castPosition = castPoint;
         }
 
         private void OnDrawGizmos()
         {
-            if (_findTargetsInAreaData == null || disableVisual)
-                return;
-            // Gizmos.color = gizmosColor;
-            // Gizmos.DrawWireSphere(TransformOfObj.position, _findTargetsInAreaData.radius);
 #if UNITY_EDITOR
             Handles.color = gizmosColor;
-            Handles.DrawWireDisc(TransformOfObj.position, Vector3.up, _findTargetsInAreaData.radius);
+            Handles.DrawWireDisc(castPosition.position, Vector3.up, radius);
 
 #endif
         }

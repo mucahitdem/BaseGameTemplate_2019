@@ -1,8 +1,8 @@
-using Scripts.GameScripts.MovementManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
+using Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeCollectRange.SkillPerspicacity;
 using Scripts.GameScripts.XpManagement;
 
-namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeCollectRange.SkillPerspicacity
+namespace Scripts.SkillManagement.AllSkills.SkillTreeCollectRange.SkillPerspicacity
 {
     public class Perspicacity : BaseSkill
     {
@@ -26,8 +26,8 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeCollectRange.Sk
             var data = PerspicacityDataSoDataSo.perspicacityData;
 
             XpCollectActionManager.increaseCollectRadiusPercentage?.Invoke(data.collectRangeIncreasePercentage);
-            MovementActionManager.increaseMovementSpeedPercentageInDuration?.Invoke(data.collectRangeIncreasePercentage,
-                data.movementSpeedDurationGainedOnCollectedXp);
+            // MovementActionManager.increaseMovementSpeedPercentageInDuration?.Invoke(data.collectRangeIncreasePercentage,
+            //     data.movementSpeedDurationGainedOnCollectedXp);
         }
     }
 }

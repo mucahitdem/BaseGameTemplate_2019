@@ -41,7 +41,7 @@ namespace Scripts.GameScripts.SkillHelpersManagement
 
         public void SetData(float duration, float percentage, ref Action onActionRaised)
         {
-            timer.UpdateInitialValue(duration);
+            timer.UpdateTimerValue(duration);
             _percentage = percentage;
             onActionRaised += IncreaseBulletDamagePercentage;
         }

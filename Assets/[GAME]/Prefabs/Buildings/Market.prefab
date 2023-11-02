@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8723973237182815100}
   - component: {fileID: 8723973237182815101}
   - component: {fileID: 8723973237182815099}
+  - component: {fileID: 8492177040455907883}
   m_Layer: 0
   m_Name: Market
   m_TagString: Untagged
@@ -48,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
-  <BaseBuildingDataSo>k__BackingField: {fileID: 0}
+  <BaseBuildingDataSo>k__BackingField: {fileID: 11400000, guid: 1ad0a80c97320c54494e77c98c763ebe, type: 2}
   buildsInTime: 0
   buildTimeInDays: 0
   buildingGfxManager: {fileID: 8723973237182815099}
@@ -56,7 +57,7 @@ MonoBehaviour:
     upgradeData: []
     enableSave: 0
     saveKey: 
-  baseStatsManager: {fileID: 0}
+  baseStatsManager: {fileID: 8492177040455907883}
   maxUpgradeCount: 1
 --- !u!114 &8723973237182815099
 MonoBehaviour:
@@ -71,6 +72,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gfx: {fileID: 8723973237364811901}
+--- !u!114 &8492177040455907883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8723973237182815102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caea1b2c4b284229afb6faf72af95d6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  baseStatsDataSo: {fileID: 0}
+  statsUiBar: {fileID: 0}
 --- !u!1 &8723973237364811901
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StatsUiBar
       objectReference: {fileID: 0}
+    - target: {fileID: 68419059725650093, guid: fe1c1532d3351274aaf6f3cf8f7fc5ad, type: 3}
+      propertyPath: statsManager
+      value: 
+      objectReference: {fileID: 8492177040455907883}
     - target: {fileID: 68419059725650094, guid: fe1c1532d3351274aaf6f3cf8f7fc5ad, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

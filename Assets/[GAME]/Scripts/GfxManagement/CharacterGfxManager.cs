@@ -3,9 +3,9 @@ using Scripts.BaseGameScripts.ComponentManagement;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Scripts.GameScripts.GfxManagement
+namespace Scripts.GfxManagement
 {
-    public class GfxManager : BaseComponent
+    public class CharacterGfxManager : BaseComponent
     {
         private int _convertedDelayedDuration;
         private int _i;

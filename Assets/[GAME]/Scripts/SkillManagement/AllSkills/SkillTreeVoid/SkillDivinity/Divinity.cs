@@ -2,6 +2,7 @@ using Scripts.EnemyManagement;
 using Scripts.GameScripts.EnemyManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
+using Scripts.PlayerManagement;
 using UnityEngine;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeVoid.SkillDivinity
@@ -45,7 +46,7 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeVoid.SkillDivin
             _diedEnemyCount++;
             if (_diedEnemyCount >= DivinityDataSo.divinityData.gainHealthAfterKilledEnemyAmount)
             {
-                PlayerActionManager.gainHp?.Invoke(1);
+                //PlayerActionManager.gainHp?.Invoke(1);
                 _diedEnemyCount = 0;
                 _repeatCount++;
                 if (_repeatCount >= DivinityDataSo.divinityData.maxRepeatAmount)

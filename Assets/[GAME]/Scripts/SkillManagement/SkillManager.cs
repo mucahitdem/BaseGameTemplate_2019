@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.BaseGameScripts.UiManagement;
-using Scripts.GameScripts.PlayerManagement;
+using Scripts.GameScripts.SkillManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
-using Scripts.GameScripts.SkillManagement.SkillTreeManagement;
 using Scripts.PlayerManagement;
 using Scripts.SkillManagement.SkillTreeManagement;
 using UnityEngine;
 
-namespace Scripts.GameScripts.SkillManagement
+namespace Scripts.SkillManagement
 {
     public class SkillManager : BaseComponent
     {
@@ -20,7 +19,7 @@ namespace Scripts.GameScripts.SkillManagement
         [SerializeField]
         private SkillTreeSelector skillTreeSelector; // also get with code
 
-        public List<BaseSkill> ActivatedSkills { get; } = new List<BaseSkill>();
+        private List<BaseSkill> ActivatedSkills { get; } = new List<BaseSkill>();
 
         public override void Insert(BaseComponent baseComponent)
         {
@@ -28,18 +27,38 @@ namespace Scripts.GameScripts.SkillManagement
             _playerManager = (PlayerManager) baseComponent;
         }
 
+        
         public override void SubscribeEvent()
         {
             base.SubscribeEvent();
             SkillActionManager.upgradeSkill += OnUpgradeSkill;
         }
-
         public override void UnsubscribeEvent()
         {
             base.UnsubscribeEvent();
             SkillActionManager.upgradeSkill -= OnUpgradeSkill;
         }
 
+
+        public void OpenSkillUpgradePanel()
+        {
+            var selectedSkills = skillTreeSelector.GetRandomSkill();
+            UiActionManager.showUiItem?.Invoke(Defs.UI_KEY_SKILL_UPGRADE_PANEL, null);
+            SkillActionManager.onSkillsSelected?.Invoke(selectedSkills);
+        }
+        public BaseSkill GetSkill(BaseSkill skill)
+        {
+            for (var i = 0; i < ActivatedSkills.Count; i++)
+            {
+                var currentSkill = ActivatedSkills[i];
+                if (currentSkill == skill)
+                    return skill;
+            }
+
+            return null;
+        }
+        
+        
         private void OnUpgradeSkill(BaseSkillTreeDataSo newSkillTree)
         {
             var skillTreeData = newSkillTree.skillTreeData;
@@ -52,25 +71,6 @@ namespace Scripts.GameScripts.SkillManagement
 
             ActivatedSkills.Add(skillCreated);
             skillTreeData.upgradeCount++;
-        }
-
-        public void OpenSkillUpgradePanel()
-        {
-            var selectedSkills = skillTreeSelector.GetRandomSkill();
-            UiActionManager.showUiItem?.Invoke(Defs.UI_KEY_SKILL_UPGRADE_PANEL, null);
-            SkillActionManager.onSkillsSelected?.Invoke(selectedSkills);
-        }
-
-        public BaseSkill GetSkill(BaseSkill skill)
-        {
-            for (var i = 0; i < ActivatedSkills.Count; i++)
-            {
-                var currentSkill = ActivatedSkills[i];
-                if (currentSkill == skill)
-                    return skill;
-            }
-
-            return null;
         }
     }
 }

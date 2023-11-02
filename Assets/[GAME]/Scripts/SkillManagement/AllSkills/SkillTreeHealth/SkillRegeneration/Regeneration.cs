@@ -1,6 +1,7 @@
 using Scripts.BaseGameScripts.TimerManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.GameScripts.SkillManagement.AllSkills._SkillBase;
+using Scripts.PlayerManagement;
 using UnityEngine;
 
 namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeHealth.SkillRegeneration
@@ -25,14 +26,14 @@ namespace Scripts.GameScripts.SkillManagement.AllSkills.SkillTreeHealth.SkillReg
         public override void UseSkill()
         {
             var data = RegenerationDataSo.regenerationData;
-            timer.UpdateInitialValue(data.hpGainDuration);
+            timer.UpdateTimerValue(data.hpGainDuration);
             timer.onTimerEnded += OnTimerEnded;
             timer.RestartTimer();
         }
 
         private void OnTimerEnded()
         {
-            PlayerActionManager.gainHp?.Invoke(RegenerationDataSo.regenerationData.hpGainAmount);
+            //PlayerActionManager.gainHp?.Invoke(RegenerationDataSo.regenerationData.hpGainAmount);
         }
     }
 }

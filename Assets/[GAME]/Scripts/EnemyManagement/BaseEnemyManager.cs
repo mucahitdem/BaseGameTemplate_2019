@@ -1,26 +1,19 @@
 ﻿using DG.Tweening;
-using Scripts.BaseGameScripts;
 using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.Pool;
-using Scripts.GameManagement;
-using Scripts.GameScripts;
+using Scripts.FindTargetsInAreaManagement;
 using Scripts.GameScripts.CharacterManagement;
 using Scripts.GameScripts.EnemyManagement;
 using Scripts.GameScripts.EnemyManagement.AiMovementManagement.BaseAiMovementManagement;
-using Scripts.GameScripts.FindTargetsInAreaManagement;
-using Scripts.GameScripts.StatsManagement.EnemyStatsManagement;
 using UnityEngine;
 
 namespace Scripts.EnemyManagement
 {
     public abstract class BaseEnemyManager : BaseCharacterManager
     {
-        private EventQueue _eventQueue;
-
-        private bool _isFrost;
-        private int _pushCount;
-        private Collider[] _tempCol;
-        private WaitForSeconds _waitForSeconds;
+        public BasePoolItem BasePoolItem => basePoolItem;
+        private BaseAiMovement BaseAiMovement => baseAiMovement;
+        
 
         [SerializeField]
         private BaseAiMovement baseAiMovement;
@@ -37,15 +30,14 @@ namespace Scripts.EnemyManagement
         [SerializeField]
         private Transform gfx;
 
-        public BasePoolItem BasePoolItem => basePoolItem;
-        public BaseEnemyStatsManager EnemyStatsManager { get; private set; }
-
-        private BaseAiMovement BaseAiMovement => baseAiMovement;
+        private bool _isFrost;
+        private int _pushCount;
+        private Collider[] _tempCol;
+        private WaitForSeconds _waitForSeconds;
 
         protected override void Awake()
         {
             base.Awake();
-            EnemyStatsManager = (BaseEnemyStatsManager) baseStatsManager;
             BasePoolItem.onSendToPool += OnGetFromPool;
         }
 
@@ -55,7 +47,6 @@ namespace Scripts.EnemyManagement
             IsEnabled = true;
             CanTakeDamage = true;
             IsDead = false;
-            DOVirtual.DelayedCall(.1f, () => { EnemyStatsManager.ResetHealth(); });
         }
 
 
@@ -130,12 +121,7 @@ namespace Scripts.EnemyManagement
             EnemyActionManager.onEnemyGotDamage?.Invoke(this);
             base.TakeDamage(damage);
             var createPos = TransformOfObj.position + new Vector3(0, 2, 0);
-            //UiActionManager.createFloatingUi?.Invoke(createPos, damage.ToString(CultureInfo.InvariantCulture));
             _pushCount++;
-            if (!IsPushedBack && baseAiMovement.Target && _pushCount % 2 == 1)
-                //IsPushedBack = true;
-                TransformOfObj.DOMove(-TransformOfObj.forward * .5f, .5f).SetRelative(true);
-            //Rb.AddForce(-TransformOfObj.forward * 3000f);
         }
 
         protected override void OnDied(float takenDamage)
@@ -147,7 +133,6 @@ namespace Scripts.EnemyManagement
 
             
             var position = TransformOfObj.position;
-            EnemyActionManager.onEnemyDiedWithHp?.Invoke(position, EnemyStatsManager.BaseEnemyStatsDataSo.enemyStatsData.xpValue);
             EnemyActionManager.onEnemyDiedAtPosition?.Invoke(position, takenDamage, fireType);
             EnemyActionManager.onEnemyDied?.Invoke(this);
 
