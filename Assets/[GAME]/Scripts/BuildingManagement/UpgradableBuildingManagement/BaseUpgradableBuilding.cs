@@ -5,14 +5,18 @@ namespace Scripts.BuildingManagement.UpgradableBuildingManagement
 {
     public class BaseUpgradableBuilding : BaseBuilding
     {
-        private int Level { get; set; }
+        protected bool IsMaxed { get; private set; }
 
-        
         [SerializeField]
         private int maxUpgradeCount;
-
         
-        protected bool IsMaxed { get; private set; }
+        private int Level { get; set; }
+
+        protected virtual void Awake()
+        {
+            Level = 1;
+            UpdateData();
+        }
 
         public virtual void Upgrade()
         {
@@ -24,6 +28,11 @@ namespace Scripts.BuildingManagement.UpgradableBuildingManagement
             {
                 IsMaxed = true;
             }
+        }
+
+        protected virtual void UpdateData()
+        {
+            
         }
     }
 }

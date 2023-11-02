@@ -1,10 +1,10 @@
 ﻿using _GAME_.Scripts.GameScripts.SoundManagement;
 using Scripts.AttackManagement;
 using Scripts.BaseGameScripts.Helper;
+using Scripts.CharacterManagement;
 using Scripts.EnemyManagement;
 using Scripts.GameScripts.AnimationEventsManagement;
 using Scripts.GameScripts.CameraManagement;
-using Scripts.GameScripts.CharacterManagement;
 using Scripts.GameScripts.FindTargetsInAreaManagement;
 using Scripts.GameScripts.RigUpdaterManagement;
 using Scripts.GfxManagement;

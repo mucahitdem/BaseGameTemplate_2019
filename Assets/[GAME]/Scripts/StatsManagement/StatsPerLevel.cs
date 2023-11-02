@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Scripts.GameScripts.StatsManagement
+namespace Scripts.StatsManagement
 {
     [Serializable]
     public class StatsPerLevel

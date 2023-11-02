@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Scripts.CharacterManagement;
 using Scripts.FindTargetsInAreaManagement;
-using Scripts.GameScripts.CharacterManagement;
 using UnityEngine;
 
 namespace Scripts.GameScripts.FindTargetsInAreaManagement

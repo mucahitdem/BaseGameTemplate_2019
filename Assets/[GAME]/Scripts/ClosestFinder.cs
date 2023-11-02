@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Scripts.GameScripts
+namespace Scripts
 {
     public class ClosestFinder : MonoBehaviour
     {
@@ -22,8 +22,7 @@ namespace Scripts.GameScripts
             return closestTransform;
         }
 
-        public static List<T> FindNearestTransforms<T>(List<T> targets, Vector3 targetPoint, int count)
-            where T : MonoBehaviour
+        public static List<T> FindNearestTransforms<T>(List<T> targets, Vector3 targetPoint, int count) where T : MonoBehaviour
         {
             if (targets.Count == 0)
             {

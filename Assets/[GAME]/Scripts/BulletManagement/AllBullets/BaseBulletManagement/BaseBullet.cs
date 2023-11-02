@@ -1,11 +1,11 @@
 ﻿using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.BaseGameScripts.Pool;
+using Scripts.CharacterManagement;
 using Scripts.EnemyManagement;
 using Scripts.GameScripts;
 using Scripts.GameScripts.BulletManagement;
 using Scripts.GameScripts.BulletManagement.AllBullets.BaseBulletManagement;
 using Scripts.GameScripts.BulletManagement.BaseBulletMovementManagement;
-using Scripts.GameScripts.CharacterManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.PlayerManagement;
 using UnityEngine;

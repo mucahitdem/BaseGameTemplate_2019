@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Scripts.GameScripts
+namespace Scripts
 {
     public class ParticleSizeController : MonoBehaviour
     {

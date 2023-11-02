@@ -3,7 +3,7 @@ using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.BaseGameScripts.TimerManagement;
 using UnityEngine;
 
-namespace Scripts.GameScripts
+namespace Scripts
 {
     public class AttackByTime : BaseComponent
     {

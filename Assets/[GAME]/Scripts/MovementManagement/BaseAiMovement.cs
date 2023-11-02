@@ -1,65 +1,56 @@
 using System;
-using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.BaseGameScripts.Helper;
 using UnityEngine;
 
-namespace Scripts.GameScripts.EnemyManagement.AiMovementManagement.BaseAiMovementManagement
+namespace Scripts.MovementManagement.AiMovementManagement.BaseAiMovementManagement
 {
-    public abstract class BaseAiMovement : BaseComponent
+    public abstract class BaseAiMovement : BaseMovement
     {
-        private float _initialSpeed;
-
-        [SerializeField]
-        private BaseAiMovementDataSo baseAiMovementDataSo;
-
-        protected float CurrentSpeed;
-        protected Transform CurrentTarget;
-        protected Vector3 CurrentTargetPos;
-
-        private bool isReachedTarget;
         public Action onGoingToTarget;
         public Action onReachedTarget;
-        protected float ReachingDist;
-
-        public Transform Target => CurrentTarget;
-
+        
+        public Transform Target => currentTarget;
         protected bool CanMove { get; set; }
 
-        protected virtual void Awake()
-        {
-        }
+        protected float currentSpeed;
+        protected Transform currentTarget;
+        protected Vector3 currentTargetPos;
 
+        private bool isReachedTarget;
+        private float _initialSpeed;
+        protected float ReachingDist { get; private set; }
+
+      
+        
         protected override void OnEnable()
         {
             base.OnEnable();
             CanMove = true;
-            _initialSpeed = baseAiMovementDataSo.movementData.speed[0].value;
-            ReachingDist = baseAiMovementDataSo.movementData.reachingDist;
-            CurrentSpeed = _initialSpeed;
-            DebugHelper.LogRed("AI SPEED: " + CurrentSpeed);
+            currentSpeed = _initialSpeed;
+            DebugHelper.LogRed("AI SPEED: " + currentSpeed);
         }
 
 
         public void SetTarget(Transform newTarget)
         {
-            CurrentTargetPos = default;
-            CurrentTarget = newTarget;
+            currentTargetPos = default;
+            currentTarget = newTarget;
         }
 
         public void SetTarget(Vector3 newTargetPos)
         {
-            CurrentTarget = null;
-            CurrentTargetPos = newTargetPos;
+            currentTarget = null;
+            currentTargetPos = newTargetPos;
         }
 
         public virtual void SetSpeed(float newSpeed)
         {
-            CurrentSpeed = newSpeed;
+            currentSpeed = newSpeed;
         }
 
         public virtual void ResetSpeed()
         {
-            CurrentSpeed = _initialSpeed;
+            currentSpeed = _initialSpeed;
         }
 
         protected virtual void SetIfReachedTarget(bool isReached)

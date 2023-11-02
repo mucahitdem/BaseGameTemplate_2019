@@ -2,24 +2,23 @@
 using Scripts.AnimatorManagement.Animators;
 using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.BaseGameScripts.RagDollManagement;
-using Scripts.CharacterManagement;
+using Scripts.GameScripts;
 using Scripts.GameScripts.AnimatorManagement.Animators;
-using Scripts.GameScripts.StatsManagement;
 using Scripts.StatsManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Scripts.GameScripts.CharacterManagement
+namespace Scripts.CharacterManagement
 {
     public abstract class BaseCharacterManager : BaseComponent
     {
         public Action<BaseCharacterManager> onDied;
-        
-        public bool IsEnabled { get; set; }
+
         public bool IsDead { get; protected set; }
+        protected bool IsEnabled { get; set; }
         protected bool CanTakeDamage { get; set; }
         
-        public virtual BaseAnimator Animator => animator;
+        public BaseAnimator Animator => animator;
         public BaseCharacterDataSo BaseCharacterDataSo => characterDataSo;
         protected BaseStatsManager StatsManager => baseStatsManager;
         

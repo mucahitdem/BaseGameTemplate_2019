@@ -69,7 +69,11 @@
             </e>
             <e p="BuildingManagement" t="Include">
               <e p="AllBuildings" t="Include">
-                <e p="Market.cs" t="Include" />
+                <e p="EconomyBuildings" t="Include">
+                  <e p="Base.cs" t="Include" />
+                  <e p="House.cs" t="Include" />
+                  <e p="Market.cs" t="Include" />
+                </e>
               </e>
               <e p="BaseBuildingManagement" t="Include">
                 <e p="BaseBuilding.cs" t="Include" />
@@ -123,12 +127,20 @@
               <e p="BaseCharacterData.cs" t="Include" />
               <e p="BaseCharacterDataSo.cs" t="Include" />
               <e p="BaseCharacterManager.cs" t="Include" />
+              <e p="BaseCharacterStats.cs" t="Include" />
             </e>
             <e p="ClosestFinder.cs" t="Include" />
-            <e p="CostAndValue.cs" t="Include" />
+            <e p="DayManagement" t="Include">
+              <e p="DayActionManager.cs" t="Include" />
+              <e p="DayManager.cs" t="Include" />
+              <e p="States" t="Include">
+                <e p="IDayState.cs" t="Include" />
+                <e p="Morning.cs" t="Include" />
+                <e p="Night.cs" t="Include" />
+              </e>
+            </e>
             <e p="DefendAreaManagement" t="Include">
               <e p="DefendArea.cs" t="Include" />
-              <e p="DefendAreaCapturePositionManager.cs" t="Include" />
               <e p="DefendAreaSoldierManager.cs" t="Include" />
               <e p="InteractionChecker.cs" t="Include" />
             </e>
@@ -153,17 +165,6 @@
               </e>
             </e>
             <e p="EnemyManagement" t="Include">
-              <e p="AiMovementManagement" t="Include">
-                <e p="BaseAiMovementManagement" t="Include">
-                  <e p="BaseAiMovement.cs" t="Include" />
-                  <e p="BaseAiMovementData.cs" t="Include" />
-                  <e p="BaseAiMovementDataSo.cs" t="Include" />
-                </e>
-                <e p="MovementTypes" t="Include">
-                  <e p="BasicFollower.cs" t="Include" />
-                  <e p="NavMeshAi.cs" t="Include" />
-                </e>
-              </e>
               <e p="BaseEnemyManager.cs" t="Include" />
               <e p="BaseEnemyManagerData.cs" t="Include" />
               <e p="BaseEnemyManagerDataSo.cs" t="Include" />
@@ -227,6 +228,7 @@
               <e p="InGameStateManagement.cs" t="Include" />
               <e p="InGameStates" t="Include">
                 <e p="LevelSelectState.cs" t="Include" />
+                <e p="PerkSelectState.cs" t="Include" />
               </e>
             </e>
             <e p="InputManagement" t="Include">
@@ -246,8 +248,12 @@
               <e p="LookAtCameraManager.cs" t="Include" />
             </e>
             <e p="MovementManagement" t="Include">
+              <e p="BaseAiMovement.cs" t="Include" />
               <e p="BaseMovement.cs" t="Include" />
               <e p="BaseMovementWithInput.cs" t="Include" />
+              <e p="BasicFollower.cs" t="Include" />
+              <e p="NavMeshAi.cs" t="Include" />
+              <e p="NavMeshRigidBodyMover.cs" t="Include" />
             </e>
             <e p="NavMeshManagement" t="Include">
               <e p="NavMeshAgentAnimation.cs" t="Include" />
@@ -259,7 +265,6 @@
               <e p="PlayerManagerData.cs" t="Include" />
               <e p="PlayerManagerDataSo.cs" t="Include" />
             </e>
-            <e p="PosAndIsFullFlag.cs" t="Include" />
             <e p="ProceduralTerrainGenerationManagement" t="Include">
               <e p="DrawMode.cs" t="Include" />
               <e p="Editor" t="Include">
@@ -283,7 +288,6 @@
               <e p="BaseRigUpdater.cs" t="Include" />
               <e p="UpdateRigWithBoneTransform.cs" t="Include" />
             </e>
-            <e p="ScaleUpDownAnim.cs" t="Include" />
             <e p="SendRayManagement" t="Include">
               <e p="SendRay.cs" t="Include" />
               <e p="SendRayData.cs" t="Include" />
@@ -602,7 +606,6 @@
               <e p="PooledAudioSource.cs" t="Include" />
               <e p="SoundManager.cs" t="Include" />
             </e>
-            <e p="SpriteAnim.cs" t="Include" />
             <e p="StatsManagement" t="Include">
               <e p="BaseStatsManager.cs" t="Include" />
               <e p="StatsPerLevel.cs" t="Include" />

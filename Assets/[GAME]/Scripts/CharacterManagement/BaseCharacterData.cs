@@ -1,5 +1,4 @@
 ﻿using System;
-using Scripts.GameScripts.CharacterManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -13,5 +12,7 @@ namespace Scripts.CharacterManagement
         public Sprite charIcon;
         
         public BaseCharacterManager baseCharacter;
+
+        public BaseCharacterStats baseCharacterStats;
     }
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using DG.Tweening;
 using Scripts.BaseGameScripts.EventManagement;
-using Scripts.GameScripts.StatsManagement;
 using UnityEngine;
 using UnityEngine.UI;
 

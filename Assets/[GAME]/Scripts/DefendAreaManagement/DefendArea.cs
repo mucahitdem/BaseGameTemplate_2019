@@ -1,12 +1,11 @@
 using System;
-using _GAME_.Scripts.GameScripts.DefendAreaManagement;
 using _GAME_.Scripts.GameScripts.SoundManagement;
 using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.DefendAreaManagement;
+using Scripts.GameScripts.DefendAreaManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Scripts.GameScripts.DefendAreaManagement
+namespace Scripts.DefendAreaManagement
 {
     public class DefendArea : BaseComponent
     {
@@ -17,9 +16,6 @@ namespace Scripts.GameScripts.DefendAreaManagement
         private InteractionChecker defendArea;
 
         [SerializeField]
-        private DefendAreaCapturePositionManager defendAreaCapturePositionManager;
-
-        [SerializeField]
         private DefendAreaSoldierManager defendAreaSoldierManager;
 
         [SerializeField]
@@ -27,9 +23,7 @@ namespace Scripts.GameScripts.DefendAreaManagement
         private bool isCaptured;
 
         public Action OnCaptured;
-
-        public Transform TargetCapturePos => defendAreaCapturePositionManager.CurrentPos();
-
+        
         public override void SubscribeEvent()
         {
             base.SubscribeEvent();

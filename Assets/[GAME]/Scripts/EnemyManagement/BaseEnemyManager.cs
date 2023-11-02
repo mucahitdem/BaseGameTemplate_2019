@@ -1,10 +1,9 @@
-﻿using DG.Tweening;
-using Scripts.BaseGameScripts.Helper;
+﻿using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.Pool;
+using Scripts.CharacterManagement;
 using Scripts.FindTargetsInAreaManagement;
-using Scripts.GameScripts.CharacterManagement;
 using Scripts.GameScripts.EnemyManagement;
-using Scripts.GameScripts.EnemyManagement.AiMovementManagement.BaseAiMovementManagement;
+using Scripts.MovementManagement.AiMovementManagement.BaseAiMovementManagement;
 using UnityEngine;
 
 namespace Scripts.EnemyManagement
@@ -12,7 +11,7 @@ namespace Scripts.EnemyManagement
     public abstract class BaseEnemyManager : BaseCharacterManager
     {
         public BasePoolItem BasePoolItem => basePoolItem;
-        private BaseAiMovement BaseAiMovement => baseAiMovement;
+        private BaseAiMovement BaseAiMovement => baseAiMovement; //todo carry to base class
         
 
         [SerializeField]

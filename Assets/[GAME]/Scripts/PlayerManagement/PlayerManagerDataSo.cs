@@ -1,5 +1,4 @@
 ﻿using Scripts.CharacterManagement;
-using Scripts.GameScripts.CharacterManagement;
 using UnityEngine;
 
 namespace Scripts.GameScripts.PlayerManagement

@@ -1,9 +1,8 @@
-using Scripts.GameScripts.EnemyManagement.AiMovementManagement.BaseAiMovementManagement;
-using Scripts.GameScripts.NavMeshManagement;
+using Scripts.MovementManagement.AiMovementManagement.BaseAiMovementManagement;
 using Scripts.NavMeshManagement;
 using UnityEngine;
 
-namespace Scripts.GameScripts.EnemyManagement.AiMovementManagement.MovementTypes
+namespace Scripts.EnemyManagement.AiMovementManagement.MovementTypes
 {
     public class NavMeshAi : BaseAiMovement
     {
@@ -15,7 +14,6 @@ namespace Scripts.GameScripts.EnemyManagement.AiMovementManagement.MovementTypes
             base.SubscribeEvent();
             navMeshAgentManager.onReachedTarget += OnAiReachedTarget;
         }
-
         public override void UnsubscribeEvent()
         {
             base.UnsubscribeEvent();
@@ -23,14 +21,16 @@ namespace Scripts.GameScripts.EnemyManagement.AiMovementManagement.MovementTypes
         }
 
 
+        
         public override void OnUpdate()
         {
             navMeshAgentManager.MoveAndUpdateAnimator();
         }
-
         public override void OnFixedUpdate()
         {
         }
+        
+        
 
         private void OnAiReachedTarget()
         {

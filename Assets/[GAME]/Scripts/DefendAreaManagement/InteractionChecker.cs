@@ -1,5 +1,6 @@
 using System;
 using Scripts.BaseGameScripts.ComponentManagement;
+using Scripts.DefendAreaManagement;
 using Scripts.GameScripts.PlayerManagement;
 using Scripts.PlayerManagement;
 using UnityEditor;

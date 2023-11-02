@@ -1,5 +1,5 @@
 ﻿using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.GameScripts.CharacterManagement;
+using Scripts.CharacterManagement;
 using UnityEngine;
 
 namespace Scripts.GameScripts.RigUpdaterManagement

@@ -1,4 +1,4 @@
-namespace Scripts.GameScripts
+namespace Scripts
 {
     public enum FireType
     {

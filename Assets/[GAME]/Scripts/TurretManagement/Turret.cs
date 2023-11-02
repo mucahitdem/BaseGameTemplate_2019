@@ -1,10 +1,10 @@
 using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.BaseGameScripts.TimerManagement;
 using Scripts.BulletManagement.AllBullets.BaseBulletManagement;
+using Scripts.CharacterManagement;
 using Scripts.EnemyManagement;
 using Scripts.GameScripts;
 using Scripts.GameScripts.BulletManagement.AllBullets;
-using Scripts.GameScripts.CharacterManagement;
 using Scripts.GameScripts.FindTargetsInAreaManagement;
 using Scripts.GameScripts.TurretManagement;
 using UnityEngine;

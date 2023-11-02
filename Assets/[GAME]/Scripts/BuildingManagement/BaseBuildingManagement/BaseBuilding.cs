@@ -1,5 +1,5 @@
-﻿using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.GameScripts.StatsManagement;
+﻿using System;
+using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.StatsManagement;
 using Scripts.UpgradeManagement;
 using Sirenix.OdinInspector;
@@ -9,6 +9,8 @@ namespace Scripts.BuildingManagement.BaseBuildingManagement
 {
     public abstract class BaseBuilding : BaseComponent, IDamageable
     {
+        public Action onDestroyed;
+        
         [field: SerializeField]
         public BaseBuildingDataSo BaseBuildingDataSo { get; protected set;}
 
@@ -69,6 +71,7 @@ namespace Scripts.BuildingManagement.BaseBuildingManagement
         {
             IsDestroyed = true;
             buildingGfxManager.DestroyBuilding();
+            onDestroyed?.Invoke();
         }
     }
 }

@@ -1,5 +1,5 @@
 using System;
-using Scripts.GameScripts.CharacterManagement;
+using Scripts.CharacterManagement;
 using Scripts.GameScripts.InteractionManagement;
 using UnityEngine;
 
