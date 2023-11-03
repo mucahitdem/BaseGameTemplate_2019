@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts.BaseGameScripts
+namespace Scripts.GameScripts
 {
-    public class EventQueue : MonoBehaviour
+    public class EventQueue
     {
         private readonly Dictionary<string, Action> _actionAndId;
         private readonly Queue<ActionData> _eventQueue;
@@ -19,7 +19,8 @@ namespace Scripts.BaseGameScripts
             _isProcessing = false;
         }
 
-
+        
+        
         private void OnQueueUpdated()
         {
             if (_eventQueue.Count > 0 && !_isProcessing)
@@ -29,7 +30,6 @@ namespace Scripts.BaseGameScripts
                 _isProcessing = true;
             }
         }
-
         public void Add(Action actionToEnqueue, string actionId)
         {
             if (ActionExistWithSameId(actionId))
@@ -39,7 +39,7 @@ namespace Scripts.BaseGameScripts
             }
 
             _actionAndId.Add(actionId, actionToEnqueue);
-            var newActionData = new ActionData
+            var newActionData = new ActionData()
             {
                 action = actionToEnqueue,
                 actionId = actionId
@@ -47,7 +47,6 @@ namespace Scripts.BaseGameScripts
             _eventQueue.Enqueue(newActionData);
             OnQueueUpdated();
         }
-
         public void Kill(string actionId)
         {
             if (actionId == _lastInvokedAction.actionId)
@@ -58,11 +57,12 @@ namespace Scripts.BaseGameScripts
             else
             {
                 Debug.LogError("THIS IS NOT THE RIGHT ACTION TO END");
-                Debug.Assert(true, "THIS IS A BREAK");
+                Debug.Assert(true,"THIS IS A BREAK");
             }
         }
 
-
+        
+        
         private bool ActionExistWithSameId(string actionId)
         {
             if (_actionAndId.TryGetValue(actionId, out _tempAct))
@@ -71,7 +71,6 @@ namespace Scripts.BaseGameScripts
             return false;
         }
     }
-
     public class ActionData
     {
         public Action action;

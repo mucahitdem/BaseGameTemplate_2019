@@ -1,4 +1,5 @@
 ﻿using Scripts.BaseGameScripts.Helper;
+using UnityEngine;
 
 namespace Scripts.BaseGameScripts.SaveAndLoadManagement
 {
@@ -38,7 +39,7 @@ namespace Scripts.BaseGameScripts.SaveAndLoadManagement
         }
 
         protected override void OnAwake()
-        {
+        { 
         }
 
         private void OnApplicationFocus(bool hasFocus)

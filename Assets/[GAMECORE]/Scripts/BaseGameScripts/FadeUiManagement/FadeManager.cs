@@ -1,22 +1,16 @@
 ﻿using System;
-using Scripts.BaseGameScripts.Helper;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scripts.BaseGameScripts.FadeUiManagement
+namespace Scripts.GameScripts.UiManagement.FadeUiManagement
 {
-    public class FadeManager : SingletonMono<FadeManager>
+    public class FadeManager : MonoBehaviour
     {
         [SerializeField]
         private float fadeDuration;
 
         [SerializeField]
         private Image fadeImage;
-        
-        protected override void OnAwake()
-        {
-            
-        }
 
         public void Fade(Action doOnFaded)
         {
@@ -41,7 +35,5 @@ namespace Scripts.BaseGameScripts.FadeUiManagement
         {
             //fadeImage.DOFade(fadeValue, fadeDuration).OnComplete(() => { onEnded?.Invoke(); });
         }
-
-      
     }
 }

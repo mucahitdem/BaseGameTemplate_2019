@@ -6,8 +6,9 @@ namespace Scripts.BaseGameScripts.Pool
 {
     public class PoolManager : SingletonMono<PoolManager>
     {
-        private readonly Dictionary<string, PoolingPattern> idAndPool = new Dictionary<string, PoolingPattern>();
         private PoolingPattern _tempPool;
+
+        private readonly Dictionary<string, PoolingPattern> idAndPool = new Dictionary<string, PoolingPattern>();
 
         [HideInInspector]
         public PoolingPattern[] itemsPool;
@@ -19,8 +20,8 @@ namespace Scripts.BaseGameScripts.Pool
         {
             Create();
         }
-
-
+        
+        
         public PoolingPattern GetPoolWithId(string poolId)
         {
             if (idAndPool.TryGetValue(poolId, out _tempPool)) return _tempPool;
@@ -28,7 +29,7 @@ namespace Scripts.BaseGameScripts.Pool
             //DebugHelper.LogRed("THERE IS NO POOL WITH ID : " + poolId);
             return null;
         }
-
+        
 
         private void Create()
         {
@@ -45,7 +46,6 @@ namespace Scripts.BaseGameScripts.Pool
                 {
                     //DebugHelper.LogYellow(ex.ToString());
                 }
-
                 idAndPool.Add(currentItem.PoolId, currentPool);
             }
         }

@@ -1,4 +1,5 @@
 using System;
+using Scripts.GameScripts;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;

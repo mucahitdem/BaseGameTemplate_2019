@@ -8,16 +8,6 @@ namespace Scripts.BaseGameScripts
     [CreateAssetMenu(fileName = "GameSettings", menuName = "BaseGame/Data/GameSettings", order = 0)]
     public class GameSettingsDataSo : ScriptableObject
     {
-        public bool isLogsEnabled;
-
-        private void OnValidate()
-        {
-            if (isLogsEnabled)
-                DefineSymbolsManager.AddDefineSymbol(Defs.DEFINE_SYMBOLS_ENABLE_LOG);
-            else
-                DefineSymbolsManager.RemoveDefineSymbol(Defs.DEFINE_SYMBOLS_ENABLE_LOG);
-        }
-
         #region StaticSO
 
         [ShowInInspector]
@@ -36,6 +26,16 @@ namespace Scripts.BaseGameScripts
         }
 
         #endregion
+        
+        public bool isLogsEnabled;
+
+        private void OnValidate()
+        {
+            if(isLogsEnabled)
+                DefineSymbolsManager.AddDefineSymbol(Defs.DEFINE_SYMBOLS_ENABLE_LOG);
+            else
+                DefineSymbolsManager.RemoveDefineSymbol(Defs.DEFINE_SYMBOLS_ENABLE_LOG);
+        }
     }
 }
 #endif

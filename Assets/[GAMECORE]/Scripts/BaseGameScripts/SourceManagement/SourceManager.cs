@@ -31,19 +31,16 @@ namespace Scripts.BaseGameScripts.SourceManagement
         {
             SubscribeEvent();
         }
-
         private void OnDisable()
         {
             UnsubscribeEvent();
         }
-
         private void SubscribeEvent()
         {
             SourceActionManager.addSource += AddSource;
             SourceActionManager.trySpendSource += TrySpendSource;
             SourceActionManager.getCurrentSource += GetCurrentSource;
         }
-
         private void UnsubscribeEvent()
         {
             SourceActionManager.addSource -= AddSource;
@@ -59,7 +56,6 @@ namespace Scripts.BaseGameScripts.SourceManagement
             //DebugHelper.LogYellow("SOURCE NAME :'" + sourceType.baseSourceData.sourceName + "'");
             return -1;
         }
-
         private bool TrySpendSource(int count, BaseSourceDataSo targetSo)
         {
             if (_dataAndSources.TryGetValue(targetSo, out _tempSource))
@@ -69,10 +65,13 @@ namespace Scripts.BaseGameScripts.SourceManagement
             //DebugHelper.LogYellow("SOURCE NAME :'" + targetSo.baseSourceData.sourceName + "'");
             return false;
         }
-
         private void AddSource(int count, BaseSourceDataSo targetSo)
         {
-            if (_dataAndSources.TryGetValue(targetSo, out _tempSource)) _tempSource.AddSource(count);
+            if (_dataAndSources.TryGetValue(targetSo, out _tempSource))
+            {
+                _tempSource.AddSource(count);
+                return;
+            }
 
             //DebugHelper.LogRed("THIS IS NOT AN EXIST SOURCE");
         }

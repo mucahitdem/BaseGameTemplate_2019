@@ -21,8 +21,7 @@ namespace Scripts.BaseGameScripts.EventManagement
             {
                 DebugHelper.LogRed("EVENT MEDIATOR IS NULL");
                 return;
-            }
-
+            } 
             EventMediator.Instance.Unsubscribe(@delegate, @this);
         }
     }

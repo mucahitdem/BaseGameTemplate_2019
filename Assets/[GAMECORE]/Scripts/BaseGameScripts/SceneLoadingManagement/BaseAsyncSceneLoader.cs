@@ -29,18 +29,20 @@ namespace Scripts.BaseGameScripts.SceneLoadingManagement
             for (var i = 0; i < sceneNames.Length; i++)
             {
                 if (_lastLoadedSceneNames != null)
-                    for (var j = 0; j < _lastLoadedSceneNames.Length; j++)
+                {
+                    for (int j = 0; j < _lastLoadedSceneNames.Length; j++)
                     {
                         var currentLastLoadedSceneName = _lastLoadedSceneNames[j];
-                        if (sceneNames[i] == currentLastLoadedSceneName)
+                        if(sceneNames[i] == currentLastLoadedSceneName)
                             goto ContinueOuterLoop;
                     }
+                }
 
                 var operation = SceneManager.LoadSceneAsync(sceneNames[i], LoadSceneMode.Additive);
                 operation.allowSceneActivation = false;
                 sceneLoadOperations.Add(operation);
                 ContinueOuterLoop: // Labeled statement
-                DebugHelper.LogRed("CONTINUE");
+                    DebugHelper.LogRed("CONTINUE");
             }
 
             while (!AllScenesLoaded(sceneLoadOperations))
@@ -55,27 +57,28 @@ namespace Scripts.BaseGameScripts.SceneLoadingManagement
                 var currentSceneName = sceneNames[i];
                 var sceneToLoad = SceneManager.GetSceneByName(currentSceneName);
                 sceneLoadOperations[i].allowSceneActivation = true;
-                yield return new WaitUntil(() => sceneToLoad.isLoaded);
+                yield return new WaitUntil(()=> sceneToLoad.isLoaded);
                 if (allScenesToLoad[i].IsActiveScene)
                     SceneManager.SetActiveScene(sceneToLoad);
             }
 
             if (_lastLoadedSceneNames != null)
+            {
                 for (var i = 0; i < _lastLoadedSceneNames.Length; i++)
                 {
-                    for (var j = 0; j < sceneNames.Length; j++)
+                    for (int j = 0; j < sceneNames.Length; j++)
                     {
                         var currentLoadedSceneName = sceneNames[j];
-                        if (_lastLoadedSceneNames[i] == currentLoadedSceneName)
+                        if(_lastLoadedSceneNames[i] == currentLoadedSceneName)
                             goto ContinueOuterLoop;
                     }
-
                     SceneManager.UnloadSceneAsync(_lastLoadedSceneNames[i]);
-
+                    
                     ContinueOuterLoop: // Labeled statement
-                    DebugHelper.LogRed("CONTINUE");
+                        DebugHelper.LogRed("CONTINUE");
                 }
-
+            }
+               
             _lastLoadedSceneNames = sceneNames;
 
 

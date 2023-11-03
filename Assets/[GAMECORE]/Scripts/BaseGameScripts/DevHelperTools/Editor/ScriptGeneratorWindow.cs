@@ -10,6 +10,11 @@ namespace Scripts.GameScripts.DevHelperTools.Editor
 {
     public class ScriptGeneratorWindow : EditorWindow
     {
+        private string[] baseTypeNames;
+
+        private string[] derivedTypeNames;
+        private string scriptName = "NewScript";
+
         private readonly string scriptTemplate = @"
 using UnityEngine;
 
@@ -22,11 +27,6 @@ namespace #NAMESPACE#
         // #SCRIPTNAME# is replaced by the actual script name when the script is created
     }
 }";
-
-        private string[] baseTypeNames;
-
-        private string[] derivedTypeNames;
-        private string scriptName = "NewScript";
 
         private int selectedBaseTypeIndex;
         private int selectedDerivedTypeIndex;

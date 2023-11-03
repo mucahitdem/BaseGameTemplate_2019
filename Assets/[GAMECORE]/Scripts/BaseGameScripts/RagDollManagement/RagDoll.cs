@@ -100,8 +100,7 @@ namespace Scripts.BaseGameScripts.RagDollManagement
 
         private void ChangeAllColliderLayer()
         {
-            // foreach (var col in _subCollider)
-            //     col.gameObject.layer = LayerMask.NameToLayer(Defs.LAYER_INTERACT_WITH_NOTHING);
+            foreach (var col in _subCollider) col.gameObject.layer = LayerMask.NameToLayer(Defs.LAYER_INTERACT_WITH_NOTHING);
         }
 
         // [Button]

@@ -2,7 +2,7 @@
 
 namespace Scripts.BaseGameScripts.EventManagement
 {
-    public abstract class EventSubscriber : BaseMono, IEventSubscriber
+    public abstract class EventSubscriber : BaseMono , IEventSubscriber
     {
         public abstract void SubscribeEvent();
 

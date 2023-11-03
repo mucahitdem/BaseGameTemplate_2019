@@ -6,14 +6,12 @@ namespace Scripts.BaseGameScripts.Helper
 {
     public class FrameRateManager : MonoBehaviour // not suggested to use
     {
-        private float _currentFrameTime;
-
         [Header("Frame Settings")]
         public int maxRate = 9999;
-
         public float targetFrameRate = 60.0f;
+        float _currentFrameTime;
 
-        private void Awake()
+        void Awake()
         {
             QualitySettings.vSyncCount = 0;
             Application.targetFrameRate = maxRate;
@@ -21,7 +19,7 @@ namespace Scripts.BaseGameScripts.Helper
             StartCoroutine(WaitForNextFrame());
         }
 
-        private IEnumerator WaitForNextFrame()
+        IEnumerator WaitForNextFrame()
         {
             while (true)
             {
@@ -30,7 +28,7 @@ namespace Scripts.BaseGameScripts.Helper
                 var t = Time.realtimeSinceStartup;
                 var sleepTime = _currentFrameTime - t - 0.01f;
                 if (sleepTime > 0)
-                    Thread.Sleep((int) (sleepTime * 1000));
+                    Thread.Sleep((int)(sleepTime * 1000));
                 while (t < _currentFrameTime)
                     t = Time.realtimeSinceStartup;
             }
