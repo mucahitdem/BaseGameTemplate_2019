@@ -11,13 +11,21 @@
       <e p="Assets" t="Include">
         <e p="[GAME]" t="Include">
           <e p="Animations" t="Include" />
+          <e p="Materials" t="Include" />
+          <e p="Models" t="Include" />
+          <e p="Prefabs" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="Defs.cs" t="Include" />
+            <e p="GameManager.cs" t="Include" />
+          </e>
+          <e p="Textures" t="Include" />
+        </e>
+        <e p="[GAMECORE]" t="Include">
           <e p="Datas" t="Include">
             <e p="Levels" t="Include" />
             <e p="Sources" t="Include" />
           </e>
           <e p="Fonts" t="Include" />
-          <e p="Materials" t="Include" />
-          <e p="Models" t="Include" />
           <e p="Prefabs" t="Include" />
           <e p="Scenes" t="Include">
             <e p="Level_1" t="Include" />
@@ -179,19 +187,14 @@
                 <e p="UiManager.cs" t="Include" />
               </e>
             </e>
-            <e p="GameScripts" t="Include">
-              <e p="Defs.cs" t="Include" />
-              <e p="GameManager.cs" t="Include" />
-            </e>
           </e>
           <e p="Textures" t="Include">
-            <e p="_Trail" t="Include" />
             <e p="Icons" t="Include">
               <e p="Company" t="Include" />
             </e>
-            <e p="UI" t="Include" />
           </e>
         </e>
+        <e p="Animations" t="Include" />
         <e p="BOXOPHOBIC" t="Include">
           <e p="Polyverse Skies" t="Include">
             <e p="Core" t="Include">
