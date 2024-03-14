@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allScenesToLoad:
   - isActiveScene: 1
-    scene: {fileID: 102900000, guid: 5ecc0303b06aa314785f543fde9e5a17, type: 3}
+    scene: {fileID: 102900000, guid: 819634a3fce8234428f9affcda20185a, type: 3}
     sceneName: Level1
   levelName: Level1
