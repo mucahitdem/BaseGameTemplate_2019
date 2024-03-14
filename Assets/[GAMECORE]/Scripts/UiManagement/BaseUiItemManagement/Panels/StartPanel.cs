@@ -1,14 +1,21 @@
-﻿using Scripts.BaseGameScripts.GameStateManagement.States;
+﻿using Scripts.BaseGameScripts.GameStateManagement;
+using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
 using Scripts.GameStateManagement.States;
+using Scripts.ServiceLocatorModule;
 using UnityEngine.EventSystems;
 
-namespace Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement.Panels
+namespace Scripts.UiManagement.BaseUiItemManagement.Panels
 {
     public class StartPanel : BaseUiPanel, IPointerClickHandler
     {
+        private GameStateManager _gameStateManager;
+
         public void OnPointerClick(PointerEventData eventData)
         {
-            BaseGameManager.Instance.GameStateManager.SetState(new GamePlayState());
+            if(_gameStateManager == null)
+                _gameStateManager = ServiceLocator.Instance.GetService<GameStateManager>();
+
+            _gameStateManager.SetState(new GamePlayState());
         }
     }
 }

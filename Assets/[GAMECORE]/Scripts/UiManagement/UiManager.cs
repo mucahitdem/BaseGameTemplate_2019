@@ -3,6 +3,7 @@ using GAME.Scripts;
 using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
 using Scripts.GameScripts;
+using Scripts.UiManagement.BaseUiItemManagement;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;

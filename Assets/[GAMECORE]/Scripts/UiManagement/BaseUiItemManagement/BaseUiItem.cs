@@ -7,7 +7,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
 
-namespace Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement
+namespace Scripts.UiManagement.BaseUiItemManagement
 {
     public abstract class BaseUiItem : BaseComponent
     {
@@ -45,12 +45,12 @@ namespace Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement
         }
 
         protected SoundManager soundManager;
-        private UiAnimManager uiAnimManager;
+        private UiAnimManager _uiAnimManager;
 
         protected virtual void Start()
         {
             soundManager = ServiceLocator.Instance.GetService<SoundManager>();
-            uiAnimManager = GetComponent<UiAnimManager>();
+            _uiAnimManager = GetComponent<UiAnimManager>();
         }
 
         public virtual void ShowUi()
@@ -60,7 +60,7 @@ namespace Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement
         }
         public virtual void HideUi()
         {
-            if(uiAnimManager)
+            if(_uiAnimManager)
                 onClose?.Invoke();
             else
                 Go.SetActive(false);

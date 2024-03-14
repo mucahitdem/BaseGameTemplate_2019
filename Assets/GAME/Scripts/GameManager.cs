@@ -1,14 +1,17 @@
-using Scripts.BaseGameScripts;
+using Scripts.BaseGameScripts.GameStateManagement;
 using Scripts.BaseGameScripts.GameStateManagement.States;
 using Scripts.BaseGameScripts.Helper;
+using Scripts.ServiceLocatorModule;
 
-namespace Scripts.GameScripts
+namespace GAME.Scripts
 {
     public class GameManager : SingletonMono<GameManager>
     {
+        private GameStateManager _gameStateManager;
         protected override void OnAwake()
         {
-            BaseGameManager.Instance.GameStateManager.SetState(new StartState());
+            _gameStateManager = ServiceLocator.Instance.GetService<GameStateManager>();
+            _gameStateManager.SetState(new StartState());
         }
     }
 }

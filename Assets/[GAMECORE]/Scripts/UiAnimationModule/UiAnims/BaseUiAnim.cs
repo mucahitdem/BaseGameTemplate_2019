@@ -1,5 +1,6 @@
 ﻿using System;
 using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
+using Scripts.UiManagement.BaseUiItemManagement;
 using UnityEngine;
 
 namespace GAME.Scripts.UiAnimationModule.UiAnims

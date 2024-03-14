@@ -1,5 +1,6 @@
 ﻿using GAME.Scripts;
 using Scripts.SoundManagement;
+using Scripts.UiManagement.BaseUiItemManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -59,7 +60,8 @@ namespace Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement
         {
             if(!playSoundOnTap)
                 return;
-            soundManager.PlayAudio(useCustomSound ? audioId : SoundManager.AUDIO_BUTTON_CLICK);
+            if(soundManager)
+                soundManager.PlayAudio(useCustomSound ? audioId : SoundManager.AUDIO_BUTTON_CLICK);
         }
     }
 }

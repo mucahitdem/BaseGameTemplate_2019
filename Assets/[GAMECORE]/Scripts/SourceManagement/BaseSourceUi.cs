@@ -1,5 +1,6 @@
 ﻿using System;
 using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
+using Scripts.UiManagement.BaseUiItemManagement;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;

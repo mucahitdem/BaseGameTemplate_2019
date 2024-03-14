@@ -1,19 +1,14 @@
-﻿using Scripts.BaseGameScripts.GameStateManagement;
-using Scripts.BaseGameScripts.Helper;
+﻿using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.SceneLoadingManagement;
 using UnityEngine;
 
-namespace Scripts.BaseGameScripts
+namespace Scripts
 {
     public class BaseGameManager : SingletonMono<BaseGameManager>
     {
         [SerializeField]
-        private GameStateManager gameStateManager;
-
-        [SerializeField]
         private Camera loaderCamera;
 
-        public GameStateManager GameStateManager => gameStateManager;
         public Camera LoaderCamera => loaderCamera;
 
         protected override void OnAwake()

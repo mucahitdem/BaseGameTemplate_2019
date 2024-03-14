@@ -5,6 +5,7 @@ using GAME.Scripts.UiAnimationModule.UiAnims;
 using Scripts.BaseGameScripts.EventManagement;
 using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
+using Scripts.UiManagement.BaseUiItemManagement;
 using Sirenix.Utilities;
 
 namespace GAME.Scripts.UiAnimationModule

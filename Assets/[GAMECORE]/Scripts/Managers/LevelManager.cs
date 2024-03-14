@@ -1,22 +1,20 @@
-﻿using DG.Tweening;
-using Scripts.BaseGameScripts.Helper;
+﻿using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.SceneLoadingManagement;
-using UnityEngine.SceneManagement;
 
-namespace Scripts.BaseGameScripts.Managers
+namespace Scripts.Managers
 {
     public class LevelManager : SingletonMono<LevelManager>
     {
-        private int lastLoadedLevelNum;
+        private int _lastLoadedLevelNum;
         protected override void OnAwake()
         {
-            lastLoadedLevelNum = 1;
+            _lastLoadedLevelNum = 1;
         }
 
 
         public void LoadLevel(int levelNum)
         {
-            lastLoadedLevelNum = levelNum;
+            _lastLoadedLevelNum = levelNum;
             SceneLoadActionManager.loadScene?.Invoke(AllLevelsDataSo.Instance.LevelWithName("Level" + levelNum));
         }
         public void NextLevel()
