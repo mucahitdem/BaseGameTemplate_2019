@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using Scripts.AllInterfaces;
+using GAME.Scripts;
 using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.BaseGameScripts.Helper;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -14,19 +12,20 @@ namespace Scripts.FindTargetsInAreaManagement
     {
         [SerializeField]
         private int maxTargetCount;
-        
+
         [SerializeField]
         [ReadOnly]
         private LayerMask layerMask;
+
         [SerializeField]
         [ReadOnly]
         private float radius;
-        
+
         private Collider[] _cols;
         private int _size;
         private FindTargetInAreaVisualizer _visualizer;
 
-        public override void OnEnable()
+        protected override void OnEnable()
         {
             base.OnEnable();
             if (maxTargetCount == 0)
@@ -41,6 +40,7 @@ namespace Scripts.FindTargetsInAreaManagement
             layerMask = targetLayer;
             OnValidate();
         }
+
         public void Scan<T>(Func<Collider, T> actionToDo, Vector3 castPos) where T : BaseComponent
         {
             _size = Physics.OverlapSphereNonAlloc(castPos, radius, _cols, layerMask);
@@ -53,6 +53,7 @@ namespace Scripts.FindTargetsInAreaManagement
                 actionToDo?.Invoke(currentCol);
             }
         }
+
         public void Scan(Action<Collider> actionToDo, Vector3 castPos)
         {
             _size = Physics.OverlapSphereNonAlloc(castPos, radius, _cols, layerMask);
@@ -65,8 +66,8 @@ namespace Scripts.FindTargetsInAreaManagement
                 actionToDo?.Invoke(currentCol);
             }
         }
-        
-        
+
+
         public Collider[] TargetSortedAccordingToDist(Vector3 castPos)
         {
             _size = Physics.OverlapSphereNonAlloc(castPos, radius, _cols, layerMask);
@@ -74,14 +75,15 @@ namespace Scripts.FindTargetsInAreaManagement
                 return null;
             if (_size == 1)
                 return _cols;
-            
+
             var sortedCollider = _cols
                 .Take(_size)
                 .OrderBy(t => Vector3.Distance(t.transform.position, castPos));
-            
+
             return sortedCollider.Take(_size).ToArray();
         }
-        public T[] DataInRange<T>(Vector3 castPos) where T : IMonoBehaviour
+
+        public T[] DataInRange<T>(Vector3 castPos) where T : MonoBehaviour
         {
             _size = Physics.OverlapSphereNonAlloc(castPos, radius, _cols, layerMask);
             if (_size <= 0)
@@ -98,10 +100,11 @@ namespace Scripts.FindTargetsInAreaManagement
                     index++;
                 }
             }
-            
+
             return list;
         }
-        public T[] DataInRangeSortedAccordingToDist<T>(Vector3 castPos) where T : IMonoBehaviour
+
+        public T[] DataInRangeSortedAccordingToDist<T>(Vector3 castPos) where T : MonoBehaviour
         {
             _size = Physics.OverlapSphereNonAlloc(castPos, radius, _cols, layerMask);
             if (_size <= 0)
@@ -118,13 +121,12 @@ namespace Scripts.FindTargetsInAreaManagement
                     index++;
                 }
             }
-            
-            
-            list = list.OrderBy(t => Vector3.Distance(t.TransformOfObj.position, castPos)).ToArray();
+
+
+            list = list.OrderBy(t => Vector3.Distance(t.transform.position, castPos)).ToArray();
 
             return list;
         }
-        
 
 
         private void OnValidate()

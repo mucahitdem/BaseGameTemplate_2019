@@ -1,9 +1,9 @@
 using DG.Tweening;
 using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.BaseGameScripts.Pool;
+using Scripts.Pool;
 using UnityEngine;
 
-namespace Scripts.SoundManagement
+namespace GAME.Scripts.SoundManagement
 {
     public class PooledAudioSource : BaseComponent
     {
@@ -14,7 +14,7 @@ namespace Scripts.SoundManagement
 
         public BasePoolItem BasePoolItem => basePoolItem;
 
-        public override void OnEnable()
+        protected override void OnEnable()
         {
             base.OnEnable();
             AudioSource = GetComponent<AudioSource>();

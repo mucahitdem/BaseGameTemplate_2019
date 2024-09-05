@@ -1,4 +1,5 @@
 ﻿using Scripts.BaseGameScripts.EventManagement;
+using Scripts.EventManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

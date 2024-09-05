@@ -1,6 +1,4 @@
-﻿using Scripts.UiManagement.BaseUiItemManagement;
-
-namespace Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement
+﻿namespace Scripts.UiManagement.BaseUiItemManagement
 {
     public class BaseUiPanel : BaseUiItem
     {

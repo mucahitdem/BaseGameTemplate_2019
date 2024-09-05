@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
-using Scripts.BaseGameScripts.Helper;
+using DG.Tweening;
+using Sirenix.Utilities;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
-namespace Scripts.SoundManagement
+namespace GAME.Scripts.SoundManagement
 {
     public class SoundManager : MonoBehaviour
     {
@@ -11,145 +12,221 @@ namespace Scripts.SoundManagement
         private PooledAudioSource audioSource;
 
         [SerializeField]
-        private AudioSource generalAudio;
-        
+        private AudioSource music;
+
         [SerializeField]
-        private AudioSource bg;
-        
+        private AudioSource environment;
+
         [SerializeField]
-        private AudioSource secondBg;
+        private AudioSource gamePlay;
 
         [SerializeField]
         private AudioClipAndId[] clips;
 
-        
-        private readonly Dictionary<string, AudioClipAndId> _idsAndClips = new Dictionary<string, AudioClipAndId>();
-        
-        private float _initialBgVolume;
-        private float _initialSecondBgVolume;
-        private float _bgSoundVolumeMultiply;
-        private float _globalSoundVolume;
-        private bool _isEffectsDisabled;
-        private AudioClip _tempClip;
 
-        public static readonly string SAVE_KEY_BG_VOLUME_MULTIPLIER = "BgVolumeMultiplier";
-        public static readonly string SAVE_KEY_GLOBAL_VOLUME = "GlobalVolumeMultiplier";
-        public static readonly string SAVE_KEY_IS_EFFECTS_DISABLED = "EffectIsDısabled";
-        public static readonly string AUDIO_BUTTON_CLICK = "AudioButtonClick";
+        public float GamePlaySoundVolume { get; private set; }
+        public float MusicSoundVolume { get; private set; }
+        public float EnvironmentSoundVolume { get; private set; }
+
+
+        private readonly Dictionary<string, AudioClipAndId> _idsAndClips = new Dictionary<string, AudioClipAndId>();
+
+
+        public static readonly string SAVE_KEYS_GAME_PLAY_VOLUME_MULTIPLIER = "GamePlayVolume";
+        public static readonly string SAVE_KEY_MUSIC_VOLUME_MULTIPLIER = "MusicVolume";
+        public static readonly string SAVE_KEY_ENVIRONMENT_VOLUME_MULTIPLIER = "EnvironmentVolume";
+        
+        public static readonly string AUDIO_BUTTON_CLICK = "ButtonClick";
+        public static readonly string AUDIO_SMART_PHONE_NOTIFICATION = "SmartphoneNotification";
+        public static readonly string AUDIO_SMART_PHONE_NEW_ORDER_NOTIFICATION = "NewOrderNotification";
+        public static readonly string AUDIO_CITY_BG = "CityBg";
+        public static readonly string AUDIO_SUBURB_BG = "SuburbanBg";
+        public static readonly string AUDIO_ORDER_CANCELLED = "OrderCancelled";
+        public static readonly string AUDIO_ORDER_DELIVERED = "OrderDelivered";
+        public static readonly string AUDIO_LEVEL_UP = "LevelUp";
 
         private void Awake()
         {
-            for (var i = 0; i < clips.Length; i++)
-            {
-                var currentData = clips[i];
-                _idsAndClips[currentData.clipId] = currentData;
-            }
+            CreateDictionary();
+
+            GamePlaySoundVolume = ES3.Load<float>(SAVE_KEYS_GAME_PLAY_VOLUME_MULTIPLIER, 1);
+            MusicSoundVolume = ES3.Load<float>(SAVE_KEY_MUSIC_VOLUME_MULTIPLIER, 1);
+            EnvironmentSoundVolume = ES3.Load<float>(SAVE_KEY_ENVIRONMENT_VOLUME_MULTIPLIER, 1);
             
-            _initialBgVolume = bg.volume;
-            _initialSecondBgVolume = secondBg.volume;
-            
-            _bgSoundVolumeMultiply = PlayerPrefs.GetFloat(SAVE_KEY_BG_VOLUME_MULTIPLIER, 1);
-            _globalSoundVolume = PlayerPrefs.GetFloat(SAVE_KEY_GLOBAL_VOLUME, 1);
-            _isEffectsDisabled = PlayerPrefs.GetInt(SAVE_KEY_IS_EFFECTS_DISABLED, 0) != 0;
-            
-            SetBgSoundVolume(_bgSoundVolumeMultiply);
+            UpdateVolume(GamePlaySoundVolume, AudioType.GamePlay);
+            UpdateVolume(MusicSoundVolume, AudioType.Music);
+            UpdateVolume(EnvironmentSoundVolume, AudioType.Environment);
         }
+        public void StopMusic(string id)
+        {
+            var clipData = ClipDataWithId(id);
+
+            AudioSource currentSource = null;
+
+            switch (clipData.audioType)
+            {
+                case AudioType.Music:
+
+                    currentSource = music;
+                    break;
+
+                case AudioType.Environment:
+
+                    currentSource = environment;
+                    break;
+
+                case AudioType.GamePlay:
+
+                    currentSource = gamePlay;
+                    break;
+            }
+
+            var currentSourceVolume = currentSource.volume;
+            DOTween.To(() => currentSourceVolume, x => currentSourceVolume = x, 0, 1f)
+                .OnUpdate(() => { currentSource.volume = currentSourceVolume; });
+        }
+
         
+        
+        public void UpdateVolume(float value, AudioType audioType)
+        {
+            switch (audioType)
+            {
+                case AudioType.Master:
+                    GamePlaySoundVolume = value;
+                    MusicSoundVolume = value;
+                    EnvironmentSoundVolume = value;
+                    break;
 
-        public void ControlBg(bool isEnabled)
-        {
-            if (isEnabled)
-            {
-                bg.Play();
-                secondBg.Play();
+                case AudioType.GamePlay:
+                    GamePlaySoundVolume = value;
+                    break;
+
+                case AudioType.Music:
+                    MusicSoundVolume = value;
+                    break;
+
+                case AudioType.Environment:
+                    EnvironmentSoundVolume = value;
+                    break;
             }
-            else
+
+            gamePlay.volume = GamePlaySoundVolume;
+            music.volume = MusicSoundVolume;
+            environment.volume = EnvironmentSoundVolume;
+        }
+        public void PlayAudio(string id) //sounds ignores position // todo refactor
+        {
+            if (id.IsNullOrWhitespace())
             {
-                bg.Stop();
-                secondBg.Stop();
-            }
-        }
-        public void ControlGlobalVolume(bool isEnabled)
-        {
-            _isEffectsDisabled = isEnabled;
-            PlayerPrefs.SetInt(SAVE_KEY_IS_EFFECTS_DISABLED, _isEffectsDisabled ? 1 : 0);
-        }
-        public float GetMusicVolume()
-        {
-            return _bgSoundVolumeMultiply;
-        }
-        public float GetFxVolume()
-        {
-            return _globalSoundVolume;
-        }
-        public void SetGlobalSoundVolume(float volume)
-        {
-            _globalSoundVolume = volume;
-            PlayerPrefs.SetFloat(SAVE_KEY_GLOBAL_VOLUME, _globalSoundVolume);
-        }
-        public void SetSecondBgSound(string id)
-        {
-            var clip = ClipData(id);
-            secondBg.clip = clip.audioClip;
-            secondBg.Play();
-        }
-        public void ClearBgSound()
-        {
-            secondBg.Stop();
-        }
-        public void SetBgSound(string id)
-        {
-            Addressables.LoadAssetAsync<AudioClip>(id).Completed += handle =>
-            {
-                bg.clip = handle.Result;
-                bg.Play();
-            };
-        }
-        public void PlayAudio(string id)
-        {
-            if (_isEffectsDisabled)
+                Debug.LogError("NULL ID");
                 return;
-            var clip = ClipData(id);
+            }
 
-            if (clip.audioClip)
+            var clipData = ClipDataWithId(id);
+
+            if (clipData == null)
             {
-                generalAudio.volume = _globalSoundVolume;
-                generalAudio.PlayOneShot(clip.audioClip);
+                Debug.LogError("CLIP DATA WITH ID : " + id + " NULL");
+                return;
+            }
+
+            AudioSource currentSource = null;
+            float currentSoundVolumeMultiplier = 0;
+
+
+            switch (clipData.audioType)
+            {
+                case AudioType.Music:
+
+                    currentSource = music;
+                    currentSoundVolumeMultiplier = MusicSoundVolume;
+
+                    break;
+
+                case AudioType.Environment:
+
+                    currentSource = environment;
+                    currentSoundVolumeMultiplier = EnvironmentSoundVolume;
+
+                    break;
+
+                case AudioType.GamePlay:
+
+                    currentSource = gamePlay;
+                    currentSoundVolumeMultiplier = GamePlaySoundVolume;
+
+                    break;
+            }
+
+            if (currentSoundVolumeMultiplier <= 0)
+                return;
+
+            var clip = clipData.audioClip;
+
+            if (currentSource != null)
+            {
+                currentSource.volume = clipData.volume * currentSoundVolumeMultiplier;
+
+                if (currentSource == gamePlay)
+                    currentSource.PlayOneShot(clip);
+                else
+                {
+                    SoundTransition(currentSource, clip);
+                    // currentSource.clip = clip;
+                    // currentSource.Play();
+                }
             }
         }
         public void PlayAudioAtPosition(string id, Vector3 targetPos)
         {
-            var clip = ClipData(id);
+            if (GamePlaySoundVolume <= 0)
+                return;
+            var clip = ClipDataWithId(id);
 
             var source = audioSource.BasePoolItem.PullObjFromPool<PooledAudioSource>(targetPos);
             source.AudioSource.volume = clip.volume;
             source.PlayClip(clip.audioClip);
         }
-        public AudioClip ClipWithId(string id)
-        {
-            if (_idsAndClips.TryGetValue(id, out AudioClipAndId clipAndId)) 
-                return clipAndId.audioClip;
-        
-            DebugHelper.LogRed("THERE IS NO AUDIO WITH ID : " + id);
-            return default;
-        }
 
-        
-        private AudioClipAndId ClipData(string id)
+
+        private AudioClipAndId ClipDataWithId(string id)
         {
-            if (_idsAndClips.TryGetValue(id, out AudioClipAndId clipAndId)) 
+            if (_idsAndClips.TryGetValue(id, out AudioClipAndId clipAndId))
                 return clipAndId;
 
-            DebugHelper.LogRed("THERE IS NO AUDIO WITH ID : " + id);
+            //Debug.LogError("THERE IS NO AUDIO WITH ID : " + id);
             return default;
         }
-        private void SetBgSoundVolume(float volume)
+        private void CreateDictionary()
         {
-            _bgSoundVolumeMultiply = volume;
-            PlayerPrefs.SetFloat(SAVE_KEY_BG_VOLUME_MULTIPLIER, _bgSoundVolumeMultiply);
-
-            bg.volume = _bgSoundVolumeMultiply * _initialBgVolume;
-            secondBg.volume *= _bgSoundVolumeMultiply * _initialSecondBgVolume;
+            for (var i = 0; i < clips.Length; i++)
+            {
+                var currentData = clips[i];
+                _idsAndClips[currentData.clipAddress] = currentData;
+            }
+        }
+        private void SoundTransition(AudioSource currentSource, AudioClip clipToSet)
+        {
+            var currentSourceVolume = currentSource.volume;
+            UpdateVolume(currentSource, 0, 1, () =>
+            {
+                currentSource.clip = clipToSet;
+                UpdateVolume(currentSource, currentSourceVolume, 1, null);
+            });
+        }
+        private void UpdateVolume(AudioSource currentSource, float endValue, float duration, Action onEnd)
+        {
+            var currentSourceVolume = currentSource.volume;
+            DOTween.To(() => currentSourceVolume, x => currentSourceVolume = x, endValue, duration)
+                .OnUpdate(() =>
+                {
+                    currentSource.volume = currentSourceVolume;
+                })
+                .OnComplete(() =>
+                {
+                    onEnd?.Invoke();
+                });
         }
     }
 }

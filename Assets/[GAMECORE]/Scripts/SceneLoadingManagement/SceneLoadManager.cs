@@ -1,10 +1,9 @@
 using GAME.Scripts;
 using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.BaseGameScripts.Helper;
-using Scripts.SceneLoadingManagement;
+using Scripts.BaseGameScripts.SceneLoadingManagement;
 using UnityEngine;
 
-namespace Scripts.BaseGameScripts.SceneLoadingManagement
+namespace Scripts.SceneLoadingManagement
 {
     public class SceneLoadManager : BaseComponent
     {
@@ -56,7 +55,7 @@ namespace Scripts.BaseGameScripts.SceneLoadingManagement
         }
         private void UpdateData()
         {
-            _sceneIndexToLoad = PlayerPrefs.GetInt(Defs.SAVE_KEY_LEVEL, 0);
+            _sceneIndexToLoad = ES3.Load(Defs.SAVE_KEY_LEVEL_1, 0);
             _scenes = AllLevelsDataSo.Instance.ScenesToLoadAtLevels[_sceneIndexToLoad];
         }
         private void OnScenesLoaded(ScenesToLoadAtLevelDataSo scenesToLoadAtLevelDataSo)
@@ -66,7 +65,7 @@ namespace Scripts.BaseGameScripts.SceneLoadingManagement
         private void LoadScene(ScenesToLoadAtLevelDataSo scenesToLoadAtLevelsDataSo)
         {
             if (scenesToLoadAtLevelsDataSo == null)
-                DebugHelper.LogRed("NULL SCENES DATA");
+                Debug.LogError("NULL SCENES DATA");
             baseAsyncSceneLoader.LoadScene(scenesToLoadAtLevelsDataSo);
         }
     }

@@ -7,7 +7,7 @@ namespace Scripts.UpdateManagement
     [DefaultExecutionOrder(1000)]
     public class UpdateManager : MonoBehaviour
     {
-        private readonly List<IUpdate> allObjToUpdate = new List<IUpdate>();
+        private readonly List<IUpdate> _allObjToUpdate = new List<IUpdate>();
         
 
         private void Awake()
@@ -17,11 +17,11 @@ namespace Scripts.UpdateManagement
 
         private void Update()
         {
-            if (allObjToUpdate.Count == 0)
+            if (_allObjToUpdate.Count == 0)
                 return;
-            for (int i = 0; i < allObjToUpdate.Count; i++)
+            for (int i = 0; i < _allObjToUpdate.Count; i++)
             {
-                allObjToUpdate?[i].OnUpdate();
+                _allObjToUpdate?[i].OnUpdate();
             }
         }
 
@@ -30,17 +30,17 @@ namespace Scripts.UpdateManagement
         
         public void Register(IUpdate objToUpdate)
         {
-            if(allObjToUpdate.Contains(objToUpdate))
+            if(_allObjToUpdate.Contains(objToUpdate))
                return;
             
-            allObjToUpdate.Add(objToUpdate);
+            _allObjToUpdate.Add(objToUpdate);
         }
         public void Unregister(IUpdate objToUpdate)
         {
-            if(!allObjToUpdate.Contains(objToUpdate))
+            if(!_allObjToUpdate.Contains(objToUpdate))
                 return;
             
-            allObjToUpdate.Remove(objToUpdate);
+            _allObjToUpdate.Remove(objToUpdate);
         }
     }
 }

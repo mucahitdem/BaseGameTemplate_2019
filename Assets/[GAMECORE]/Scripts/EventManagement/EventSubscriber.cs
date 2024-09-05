@@ -1,6 +1,7 @@
 ﻿using Scripts.BaseGameScripts.ComponentManagement;
+using Scripts.BaseGameScripts.EventManagement;
 
-namespace Scripts.BaseGameScripts.EventManagement
+namespace Scripts.EventManagement
 {
     public abstract class EventSubscriber : BaseMono, IEventSubscriber
     {
@@ -8,7 +9,7 @@ namespace Scripts.BaseGameScripts.EventManagement
 
         public abstract void UnsubscribeEvent();
 
-        public virtual void OnEnable()
+        protected virtual void OnEnable()
         {
             SubscribeEvent();
         }

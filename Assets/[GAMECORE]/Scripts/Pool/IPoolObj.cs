@@ -1,4 +1,6 @@
-﻿namespace Scripts.BaseGameScripts.Pool
+﻿using Scripts.Pool;
+
+namespace Scripts.BaseGameScripts.Pool
 {
     public interface IPoolObj 
     {

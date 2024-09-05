@@ -114,7 +114,7 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
                 var dialogResult = EditorUtility.DisplayDialogComplex(
                     "Scene has been modified",
                     "Do you want to save the changes you made in the current scene?",
-                    "Save", "Don't Save", "Cancel");
+                    "Save", "Don't Save", "DisableCompassElements");
 
                 switch (dialogResult)
                 {
@@ -125,7 +125,7 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
                     case 1: //Open the new scene without saving current.
                         EditorSceneManager.OpenScene(SceneUtility.GetScenePathByBuildIndex(index));
                         break;
-                    case 2: //Cancel process (Basically do nothing for now.)
+                    case 2: //DisableCompassElements process (Basically do nothing for now.)
                         break;
                     default:
                         Debug.LogWarning("Something went wrong when switching scenes.");

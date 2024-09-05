@@ -1,7 +1,7 @@
 ﻿using System;
 using Sirenix.OdinInspector;
 
-namespace Scripts.BaseGameScripts.TimerManagement
+namespace Scripts.TimerManagement
 {
     [Serializable]
     public class TimerData

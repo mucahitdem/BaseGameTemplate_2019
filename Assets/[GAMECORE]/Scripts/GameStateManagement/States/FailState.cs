@@ -8,12 +8,12 @@ namespace Scripts.BaseGameScripts.GameStateManagement.States
     {
         public void OnEnter()
         {
-            UiActionManager.showUiItem?.Invoke(Defs.UI_KEY_FAIL_SCREEN);
+            UiActionManager.showUiItem?.Invoke(Defs.UI_KEY_LOSE_SCREEN);
         }
 
         public void OnExit()
         {
-            UiActionManager.hideUiItem?.Invoke(Defs.UI_KEY_FAIL_SCREEN);
+            UiActionManager.hideUiItem?.Invoke(Defs.UI_KEY_LOSE_SCREEN);
         }
     }
 }

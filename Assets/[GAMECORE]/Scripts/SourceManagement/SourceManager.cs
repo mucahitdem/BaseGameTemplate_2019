@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
-using Scripts.BaseGameScripts.EventManagement;
 using Scripts.BaseGameScripts.Helper;
+using Scripts.BaseGameScripts.SourceManagement;
 using Scripts.BaseGameScripts.SourceManagement.SourceTypes.ClampedSourceManagement;
+using Scripts.EventManagement;
+using Scripts.Helpers;
 using UnityEngine;
 
-namespace Scripts.BaseGameScripts.SourceManagement
+namespace Scripts.SourceManagement
 {
     public sealed class SourceManager : EventSubscriber
     {
@@ -119,7 +121,7 @@ namespace Scripts.BaseGameScripts.SourceManagement
         private int LoadSource(BaseSourceDataSo sourceDataSo)
         {
             var data = sourceDataSo.baseSourceData;
-            var amount = PlayerPrefs.GetInt(data.sourceName, data.initialSourceCount);
+            var amount = ES3.Load(data.sourceName, data.initialSourceCount);
             return amount;
         }
     }

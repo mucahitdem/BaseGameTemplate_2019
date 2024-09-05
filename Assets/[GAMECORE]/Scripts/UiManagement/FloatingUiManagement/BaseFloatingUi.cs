@@ -1,6 +1,6 @@
 ﻿using System;
 using Scripts.BaseGameScripts.Pool;
-using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
+using Scripts.Pool;
 using Scripts.UiManagement.BaseUiItemManagement;
 using UnityEngine;
 

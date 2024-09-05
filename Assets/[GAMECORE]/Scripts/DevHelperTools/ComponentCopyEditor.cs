@@ -20,7 +20,7 @@ public class ComponentCopyEditor : EditorWindow
 
     private void OnGUI()
     {
-        GUILayout.Label("Select Source Object", EditorStyles.boldLabel);
+        GUILayout.Label("SelectStateModify Source Object", EditorStyles.boldLabel);
         newSourceObject =
             EditorGUILayout.ObjectField("Source Object", newSourceObject, typeof(GameObject), true) as GameObject;
         if (sourceObject != newSourceObject)
@@ -31,7 +31,7 @@ public class ComponentCopyEditor : EditorWindow
 
         GUILayout.Space(10);
 
-        GUILayout.Label("Select Target Objects", EditorStyles.boldLabel);
+        GUILayout.Label("SelectStateModify Target Objects", EditorStyles.boldLabel);
 
         if (GUILayout.Button("Add Target Objects")) AddSelectedTargetObjects();
 
@@ -51,7 +51,7 @@ public class ComponentCopyEditor : EditorWindow
 
         GUILayout.Space(10);
 
-        GUILayout.Label("Select Components to Copy", EditorStyles.boldLabel);
+        GUILayout.Label("SelectStateModify Components to Copy", EditorStyles.boldLabel);
         if (GUILayout.Button("Refresh Component List")) RefreshComponentList();
 
         if (sourceComponents != null && sourceComponents.Length > 0)

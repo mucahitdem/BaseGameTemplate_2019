@@ -63,7 +63,7 @@ namespace Scripts.BaseGameScripts.DevHelperTools.Editor
                         if (remainingWidth >= componentWidth)
                         {
                             labelBuilder.Append(" " + componentName);
-                            remainingWidth -= componentWidth + 5f; // 5f: For spacing between component names
+                            remainingWidth -= componentWidth + 5f; // 5f: For spacing between component allNames
                         }
                         else
                         {

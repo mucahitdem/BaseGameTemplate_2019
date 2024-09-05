@@ -1,25 +1,25 @@
 using System.Collections.Generic;
 using System.Linq;
-using Scripts.AllInterfaces;
+using GAME.Scripts;
 using UnityEngine;
 
 namespace Scripts.Helpers
 {
     public class ClosestFinder : MonoBehaviour
     {
-        public static T FindClosestType<T>(List<T> targets, Vector3 targetPoint) where T : IMonoBehaviour
+        public static T FindClosestType<T>(List<T> targets, Vector3 targetPoint) where T : MonoBehaviour
         {
             var closestTransform = targets
-                .OrderBy(obj => Vector3.Distance(obj.TransformOfObj.position, targetPoint))
+                .OrderBy(obj => Vector3.Distance(obj.transform.position, targetPoint))
                 .First();
         
             return closestTransform;
         }
         
-        public static T FindClosestTransform<T>(List<T> targets, Vector3 targetPoint) where T : IMonoBehaviour
+        public static T FindClosestTransform<T>(List<T> targets, Vector3 targetPoint) where T : MonoBehaviour
         {
             var closestTransform = targets
-                .OrderBy(obj => Vector3.Distance(obj.TransformOfObj.position, targetPoint))
+                .OrderBy(obj => Vector3.Distance(obj.transform.position, targetPoint))
                 .First();
 
             return closestTransform;
@@ -33,14 +33,14 @@ namespace Scripts.Helpers
         }
 
         public static void TargetsInRangeSortedByDist<T>(ref List<T> sortedList, Vector3 point, float maxRange)
-            where T : IMonoBehaviour
+            where T : MonoBehaviour
         {
             float sqrMaxRange = maxRange * maxRange;
 
             for (int i = sortedList.Count - 1; i >= 0; i--)
             {
                 T target = sortedList[i];
-                float sqrDistance = (target.TransformOfObj.position - point).sqrMagnitude;
+                float sqrDistance = (target.transform.position - point).sqrMagnitude;
 
                 if (sqrDistance > sqrMaxRange)
                 {
@@ -48,7 +48,7 @@ namespace Scripts.Helpers
                 }
             }
 
-            sortedList.Sort((a, b) => (a.TransformOfObj.position - point).sqrMagnitude.CompareTo((b.TransformOfObj.position - point).sqrMagnitude));
+            sortedList.Sort((a, b) => (a.transform.position - point).sqrMagnitude.CompareTo((b.transform.position - point).sqrMagnitude));
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using GAME.Scripts;
 using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
 using Scripts.GameScripts;
 using Scripts.UiManagement.BaseUiItemManagement;
 using Sirenix.OdinInspector;
@@ -21,7 +20,7 @@ namespace Scripts.BaseGameScripts.UiManagement
         [ReadOnly]
         private BaseUiItem[] allUiItems;
 
-        public override void OnEnable()
+        protected override void OnEnable()
         {
             base.OnEnable();
             GetAllUiItems();

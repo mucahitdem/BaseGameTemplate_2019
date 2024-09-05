@@ -1,6 +1,5 @@
 ﻿using GAME.Scripts;
 using Scripts.BaseGameScripts.UiManagement;
-using Scripts.SoundManagement;
 
 namespace Scripts.BaseGameScripts.GameStateManagement.States
 {

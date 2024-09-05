@@ -1,13 +1,19 @@
-﻿using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
+﻿using Scripts.BaseGameScripts.SceneLoadingManagement;
+using Scripts.UiManagement.BaseUiItemManagement;
+using UnityEngine;
 
-namespace Scripts.BaseGameScripts.SceneLoadingManagement
+namespace Scripts.SceneLoadingManagement
 {
     public class SceneLoadButton : BaseUiButton
     {
+
+        [SerializeField]
+        private string sceneNameToLoad;
+        
         private void LoadScene()
         {
-            var allScenes = AllLevelsDataSo.Instance.ScenesToLoadAtLevels;
-            SceneLoadActionManager.loadScene?.Invoke(allScenes[1]);
+            var sceneToLoad = AllLevelsDataSo.Instance.LevelWithName(sceneNameToLoad);
+            SceneLoadActionManager.loadScene?.Invoke(sceneToLoad);
         }
 
         protected override string GetUiId()

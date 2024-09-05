@@ -11,7 +11,7 @@ namespace GAME.Scripts
         #region Save Keys
         
         public static readonly string SAVE_KEY_SCENE_LOADER_TOOL = "LoaderTool";
-        public static readonly string SAVE_KEY_LEVEL = "Level";
+        public static readonly string SAVE_KEY_LEVEL_1 = "Level1";
         #endregion
 
         #region Ui Keys
@@ -22,7 +22,7 @@ namespace GAME.Scripts
         public static readonly string UI_KEY_GENERIC_SCREEN = "GenericScreen";
         public static readonly string UI_KEY_GAME_PLAY_SCREEN = "GamePlayScreen";
         public static readonly string UI_KEY_WIN_SCREEN = "WinScreen";
-        public static readonly string UI_KEY_FAIL_SCREEN = "LoseScreen";
+        public static readonly string UI_KEY_LOSE_SCREEN = "LoseScreen";
         
         public static readonly string UI_KEY_LOADING_SCREEN = "LoadingScreen";
 

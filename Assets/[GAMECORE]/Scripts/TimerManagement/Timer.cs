@@ -1,11 +1,10 @@
 ﻿using System;
-using Scripts.BaseGameScripts.TimerManagement;
-using Scripts.ServiceLocatorModule;
+using Scripts.UpdateManagement;
 using UnityEngine;
 
 namespace Scripts.TimerManagement
 {
-    public class Timer : MonoBehaviour
+    public class Timer : MonoBehaviour, IUpdate
     {
         public Action onTimerEnded;
 
@@ -16,68 +15,65 @@ namespace Scripts.TimerManagement
         public float RemainedDurationRate => TimerValue / timerData.timerValue; // returns between 0 - 1
 
         public bool IsRunning { get; private set; }
-        private bool IsPaused { get; set; }
+        //private bool IsPaused { get; set; }
 
         public float TimerValue
         {
             get => _timerValue;
-            set
+            private set
             {
                 if (Math.Abs(value - _timerValue) > .0001f)
                 {
                     _timerValue = value;
 
-                    if (IsTimerEnded()) OnTimerEnded();
+                    if (IsTimerEnded()) 
+                        OnTimerEnded();
                 }
             }
         }
-        private float timerValueOnPaused;
+        private float _timerValueOnPaused;
         private float _timerValue;
-        private TimerManager timerManager;
 
         private void Awake()
         {
-            timerManager = ServiceLocator.Instance.GetService<TimerManager>();
-
             if (!timerData.restartManually) 
                 RestartTimer();
         }
         private void Start()
         {
             if(IsRunning)
-                timerManager.AddNewTimer(this);
+                UpdateManagerRegisterer.ModifyRegisterState(this, true);
         }
         
         public void RestartTimer()
         {
-            if (IsPaused)
-                IsPaused = false;
+            // if (IsPaused)
+            //     IsPaused = false;
 
             ResetTimer();
             StartTimer();
         }
-        public void PausePlayTimer(bool pause)
-        {
-            IsPaused = pause;
-            if (IsPaused)
-                StopTimer();
-            else
-                StartTimer();
-        }
+        // public void PausePlayTimer(bool pause)
+        // {
+        //     IsPaused = pause;
+        //     if (IsPaused)
+        //         StopTimer();
+        //     else
+        //         StartTimer();
+        // }
         public void StopTimer()
         {
             IsRunning = false;
-            timerManager.RemoveTimer(this);
+            UpdateManagerRegisterer.ModifyRegisterState(this, false);
         }
         public void UpdateTimerValue(float newTimerValue)
         {
             timerData.timerValue = newTimerValue;
         }
-        public void OnUpdate(float deltaTime)
+        public void OnUpdate()
         {
-            TimerValue -= deltaTime;
+            TimerValue -= Time.deltaTime;
         }
-
         
         
         private bool IsTimerEnded()
@@ -95,8 +91,8 @@ namespace Scripts.TimerManagement
         }
         private void StartTimer()
         {
-            IsRunning = true; 
-            timerManager.AddNewTimer(this);
+            IsRunning = true;
+            UpdateManagerRegisterer.ModifyRegisterState(this, true);
         }
         private void ResetTimer()
         {

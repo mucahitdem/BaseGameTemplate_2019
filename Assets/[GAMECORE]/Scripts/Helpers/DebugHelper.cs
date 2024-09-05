@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Debug = UnityEngine.Debug;
 
-namespace Scripts.BaseGameScripts.Helper
+namespace Scripts.Helpers
 {
     public static class DebugHelper
     {

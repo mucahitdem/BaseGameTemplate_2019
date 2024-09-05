@@ -16,6 +16,7 @@ namespace Scripts.DevHelperTools.Editor
         {
             var tree = new OdinMenuTree();
             tree.Selection.SupportsMultiSelect = false;
+            tree.Add("Designer Settings", DesignerSettingsDataSo.Instance);
 
             return tree;
         }

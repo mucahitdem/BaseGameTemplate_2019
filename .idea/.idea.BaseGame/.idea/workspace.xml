@@ -8,17 +8,27 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/UiManagement/BaseUiItemManagement/BaseUiButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GAME/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/FindTargetsInAreaManagement/FindTargetsInArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/Helpers/CreateCircle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/UiManagement/BaseUiItemManagement/Panels/StartPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/Helpers/ActionQueue.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/SoundManagement/SoundManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/MakeAssetsAddressable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/SceneLoadingManagement/SceneLoadManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/Helpers/ClosestFinder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/ControlManagement/ControlTypes/RotateWithJoyStick.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/GameStateManagement/States/GamePlayState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/AddressableModule/AddressableLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/SourceManagement/SourceManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/DevHelperTools/Editor/DesignerWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/DesignerSettingsDataSo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/GameStateManagement/GameStateManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/SourceManagement/AllSourceDataSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/TimerManagement/Timer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GAME/Scripts/Defs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/Helpers/FieldDamagerManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/Helpers/ShortCuts.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/Helpers/MoveTowardsTarget.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/SceneLoadingManagement/BaseAsyncSceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -28,14 +38,19 @@
         <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/ControlManagement/ControlTypes/RotateWithJoyStick.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/GameStateManagement/States/GamePlayState.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/Helpers/ActionQueue.cs" />
-        <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/Helpers/ClosestFinder.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/Helpers/CreateCircle.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/Helpers/FieldDamagerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/DevHelperTools/Editor/DesignerWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/SceneLoadingManagement/BaseAsyncSceneLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/TimerManagement/Timer.cs" />
         <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/SoundManagement/SoundManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/Helpers/ClosestFinder.cs" />
+        <option value="$PROJECT_DIR$/Assets/GAME/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/FindTargetsInAreaManagement/FindTargetsInArea.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/Helpers/ShortCuts.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/GameStateManagement/GameStateManager.cs" />
         <option value="$PROJECT_DIR$/Assets/GAME/Scripts/Defs.cs" />
+        <option value="$PROJECT_DIR$/Assets/[GAMECORE]/Scripts/SourceManagement/SourceManager.cs" />
       </list>
     </option>
   </component>

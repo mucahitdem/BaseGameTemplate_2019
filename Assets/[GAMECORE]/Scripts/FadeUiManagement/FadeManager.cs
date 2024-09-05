@@ -1,23 +1,17 @@
 ﻿using System;
 using DG.Tweening;
-using Scripts.BaseGameScripts.Helper;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scripts.BaseGameScripts.FadeUiManagement
+namespace Scripts.FadeUiManagement
 {
-    public class FadeManager : SingletonMono<FadeManager>
+    public class FadeManager : MonoBehaviour
     {
         [SerializeField]
         private float fadeDuration;
 
         [SerializeField]
         private Image fadeImage;
-        
-        protected override void OnAwake()
-        {
-        }
-
         
         
         

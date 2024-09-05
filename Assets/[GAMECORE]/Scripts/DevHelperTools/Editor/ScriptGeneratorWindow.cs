@@ -81,7 +81,7 @@ namespace #NAMESPACE#
             EditorGUILayout.Space();
 
             EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("Select Folder")) ShowFolderSelectionDialog();
+            if (GUILayout.Button("SelectStateModify Folder")) ShowFolderSelectionDialog();
 
             if (GUILayout.Button("Create Script")) CreateNewScript();
             EditorGUILayout.EndHorizontal();
@@ -117,7 +117,7 @@ namespace #NAMESPACE#
             // Load the new script as a MonoScript
             var newScript = AssetDatabase.LoadAssetAtPath<MonoScript>(newScriptPath);
 
-            // Select the new script in the Project window
+            // SelectStateModify the new script in the Project window
             Selection.activeObject = newScript;
 
             // Close the window
@@ -126,7 +126,7 @@ namespace #NAMESPACE#
 
         private void ShowFolderSelectionDialog()
         {
-            var folderPath = EditorUtility.OpenFolderPanel("Select Folder", "Assets", "");
+            var folderPath = EditorUtility.OpenFolderPanel("SelectStateModify Folder", "Assets", "");
             if (!string.IsNullOrEmpty(folderPath)) selectedFolder = AssetDatabase.LoadAssetAtPath<Object>(folderPath);
         }
     }

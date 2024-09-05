@@ -1,9 +1,9 @@
 ﻿using System;
-using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
+using GAME.Scripts.UiAnimationModule;
 using Scripts.UiManagement.BaseUiItemManagement;
 using UnityEngine;
 
-namespace GAME.Scripts.UiAnimationModule.UiAnims
+namespace Scripts.UiAnimationModule.UiAnims
 {
     public abstract class BaseUiAnim : MonoBehaviour
     {
@@ -11,10 +11,6 @@ namespace GAME.Scripts.UiAnimationModule.UiAnims
         
         [SerializeField]
         private AnimPlayMoment animPlayMoment;
-
-        [SerializeField]
-        protected bool customize;
-
 
         public virtual void Init(BaseUiItem uiItem)
         {

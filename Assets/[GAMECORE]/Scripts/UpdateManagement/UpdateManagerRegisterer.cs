@@ -2,24 +2,31 @@
 
 namespace Scripts.UpdateManagement
 {
-    public class UpdateManagerRegisterer
+    public static class UpdateManagerRegisterer
     {
-        private UpdateManager updateManager;
-
-
-        public void Register(IUpdate update)
+        private static UpdateManager UpdateManager
         {
-            if (updateManager == null)
-                updateManager = ServiceLocator.Instance.GetService<UpdateManager>();
-            updateManager.Register(update);
-        } 
+            get
+            {
+                if (s_updateManager == null)
+                    s_updateManager = ServiceLocator.Instance.GetService<UpdateManager>();
 
-        public void Unregister(IUpdate update)
+                return s_updateManager;
+            }
+            set => s_updateManager = value;
+        }
+
+        private static UpdateManager s_updateManager;
+
+
+        public static void ModifyRegisterState(IUpdate update, bool startRegister)
         {
-            if (updateManager == null)
-                return;
-            
-            updateManager.Unregister(update);
+            if (UpdateManager == null)
+                UpdateManager = ServiceLocator.Instance.GetService<UpdateManager>();
+            if(startRegister)
+                UpdateManager.Register(update);
+            else
+                UpdateManager.Unregister(update);
         }
     }
 }

@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using DG.Tweening;
-using GAME.Scripts.UiAnimationModule.UiAnims;
-using Scripts.BaseGameScripts.EventManagement;
+using GAME.Scripts.UiAnimationModule;
 using Scripts.BaseGameScripts.Helper;
-using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
+using Scripts.EventManagement;
+using Scripts.Helpers;
+using Scripts.UiAnimationModule.UiAnims;
 using Scripts.UiManagement.BaseUiItemManagement;
 using Sirenix.Utilities;
 
-namespace GAME.Scripts.UiAnimationModule
+namespace Scripts.UiAnimationModule
 {
     public class UiAnimManager : EventSubscriber
     {
@@ -86,6 +87,7 @@ namespace GAME.Scripts.UiAnimationModule
 
         private void TryPlayAnim(AnimPlayMoment animPlayMoment, Action onComplete)
         {
+            DOTween.Kill(uiItem.transform);
             if (momentsAndAnims.TryGetValue(animPlayMoment, out BaseUiAnim[] animsToPlay))
             {
                 animsToPlay.ForEach(a => a.PlayAnimSeq(uiItem, onComplete));

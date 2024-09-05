@@ -2,19 +2,20 @@
 using Scripts.ServiceLocatorModule;
 using Sirenix.OdinInspector;
 using UnityEditor;
+using UnityEngine;
+
 #if UNITY_EDITOR
 using UnityEditor.AddressableAssets;
 #endif
-using UnityEngine;
 
-namespace Scripts.BaseGameScripts.Pool
+namespace Scripts.Pool
 {
     public class BasePoolItem : MonoBehaviour
     {
         public Action onSendToPool;
         
         
-        public MonoBehaviour PoolItem => poolItem;
+        public GameObject PoolItem => poolItem;
         public string PoolId
         {
             get => poolId;
@@ -35,7 +36,7 @@ namespace Scripts.BaseGameScripts.Pool
 
         [SerializeField]
         [FoldoutGroup("Pool Variables")]
-        private MonoBehaviour poolItem;
+        private GameObject poolItem;
         
         
         private PoolingPattern PoolingPattern
@@ -43,7 +44,7 @@ namespace Scripts.BaseGameScripts.Pool
             get
             {
                 if (_poolingPattern == null)
-                    _poolingPattern = ServiceLocator.Instance.GetService<PoolManager>().GetPoolWithId(PoolId);
+                    _poolingPattern = ServiceLocator.Instance.GetService<PoolManager>().PoolWithId(PoolId);
 
                 return _poolingPattern;
             }

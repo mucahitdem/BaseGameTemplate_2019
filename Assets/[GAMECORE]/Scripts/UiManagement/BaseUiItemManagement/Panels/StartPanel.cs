@@ -1,5 +1,5 @@
 ﻿using Scripts.BaseGameScripts.GameStateManagement;
-using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
+using Scripts.GameStateManagement;
 using Scripts.GameStateManagement.States;
 using Scripts.ServiceLocatorModule;
 using UnityEngine.EventSystems;

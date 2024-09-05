@@ -1,5 +1,4 @@
 ﻿using System;
-using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
 using Scripts.UiManagement.BaseUiItemManagement;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -19,7 +18,7 @@ namespace Scripts.BaseGameScripts.SourceManagement
         [SerializeField]
         private Image sourceIcon;
 
-        public override void OnEnable()
+        protected override void OnEnable()
         {
             base.OnEnable();
             UpdateSourceVisual();

@@ -1,19 +1,20 @@
 ﻿using System;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
-namespace Scripts.BaseGameScripts.Pool
+namespace Scripts.Pool
 {
     [Serializable]
     public class AddressablePoolData
     {
         [HorizontalGroup]
-        public string prefabId;
+        public GameObject prefab;
         [HorizontalGroup]
         public int prefabAmount;
 
-        public AddressablePoolData(string id, int amount)
+        public AddressablePoolData(GameObject id, int amount)
         {
-            prefabId = id;
+            prefab = id;
             prefabAmount = amount;
         }
     }

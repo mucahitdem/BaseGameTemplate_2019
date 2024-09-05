@@ -1,11 +1,10 @@
-﻿using GAME.Scripts;
-using Scripts.SoundManagement;
-using Scripts.UiManagement.BaseUiItemManagement;
+﻿using System;
+using GAME.Scripts.SoundManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement
+namespace Scripts.UiManagement.BaseUiItemManagement
 {
     public abstract class BaseUiButton : BaseUiItem
     {
@@ -20,8 +19,7 @@ namespace Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement
         private string audioId;
         
         private Button _button;
-
-        private Button Button
+        public Button Button
         {
             get
             {
@@ -29,16 +27,21 @@ namespace Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement
                     _button = GetComponent<Button>();
                 return _button;
             }
-            set => _button = value;
+            private set => _button = value;
         }
 
+        
         public override void SubscribeEvent()
         {
             base.SubscribeEvent();
             if (Button)
                 Button.onClick.AddListener(OnClick);
             else
-                Debug.LogError("NO BUTTON FOUND !!!! ");
+            {
+                Button = gameObject.AddComponent<Button>();
+                Button.onClick.AddListener(OnClick);
+                Debug.LogError(transform.name + " NO BUTTON FOUND. ADDED VIA CODE");
+            }
         }
         public override void UnsubscribeEvent()
         {
@@ -51,6 +54,7 @@ namespace Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement
         protected virtual void OnClick()
         {
             PlaySound();
+            onClick?.Invoke();
         }
         protected override string GetUiId()
         {

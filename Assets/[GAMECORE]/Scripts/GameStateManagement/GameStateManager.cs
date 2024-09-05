@@ -1,7 +1,7 @@
 ﻿using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.BaseGameScripts.Helper;
+using Scripts.BaseGameScripts.GameStateManagement;
 
-namespace Scripts.BaseGameScripts.GameStateManagement
+namespace Scripts.GameStateManagement
 {
     public class GameStateManager : BaseComponent
     {
@@ -14,12 +14,6 @@ namespace Scripts.BaseGameScripts.GameStateManagement
             //DebugHelper.LogGreen("GAME STATE : " + gameState.ToString());
             _currentState = gameState;
             _currentState.OnEnter();
-        }
-
-        protected override void OnDisable()
-        {
-            base.OnDisable();
-            
         }
     }
 }

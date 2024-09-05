@@ -1,12 +1,12 @@
 ﻿using System;
+using Scripts.BaseGameScripts.SourceManagement;
 using Scripts.BaseGameScripts.SourceManagement.SourceTypes.ClampedSourceManagement;
-using Scripts.BaseGameScripts.UiManagement.BaseUiItemManagement;
 using Scripts.UiManagement.BaseUiItemManagement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scripts.BaseGameScripts.SourceManagement
+namespace Scripts.SourceManagement
 {
     public class ClampedSourceUi : BaseUiItem
     {
@@ -28,8 +28,10 @@ namespace Scripts.BaseGameScripts.SourceManagement
         {
             if(sourceIcon)
                 sourceIcon.sprite = clampedSourceDataSo.baseSourceData.sourceIcon;
+            if(sourceAmount)
+                sourceAmount.text = clampedSourceDataSo.baseSourceData.initialSourceCount + "/" + _maxAmount;
+            
             _maxAmount = clampedSourceDataSo.clampedSourceData.maxSourceAmount;
-            sourceAmount.text = 0 + "/" + _maxAmount;
         }
 
 
@@ -54,7 +56,8 @@ namespace Scripts.BaseGameScripts.SourceManagement
         private void OnClampedSourceUpdated(ClampedSourceDataSo sourceDataSo, int currentSource)
         {
             var ratio = currentSource / _maxAmount;
-            sourceAmount.text = currentSource + "/" + _maxAmount;
+            if(sourceAmount)
+                sourceAmount.text = currentSource + "/" + _maxAmount;
             if(fillBar)
                 fillBar.fillAmount = ratio;
         }

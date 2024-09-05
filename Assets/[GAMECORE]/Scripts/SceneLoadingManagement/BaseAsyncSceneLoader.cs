@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Scripts.BaseGameScripts.ComponentManagement;
-using Scripts.BaseGameScripts.FadeUiManagement;
 using Scripts.BaseGameScripts.Helper;
 using Scripts.BaseGameScripts.SceneLoadingManagement;
+using Scripts.FadeUiManagement;
+using Scripts.Helpers;
+using Scripts.ServiceLocatorModule;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,16 +16,24 @@ namespace Scripts.SceneLoadingManagement
     {
         private string[] _lastLoadedSceneNames;
 
+        private FadeManager _fadeManager;
+
+
+        private void Awake()
+        {
+            _fadeManager = ServiceLocator.Instance.GetService<FadeManager>();
+        }
+
         public void LoadScene(ScenesToLoadAtLevelDataSo scenesToLoadAtLevelsDataSo)
         {
-            FadeManager.Instance.FadeIn(() =>
+            _fadeManager.FadeIn(() =>
             {
                 StartCoroutine(LoadScenes(scenesToLoadAtLevelsDataSo));
             });
         }
         public void ReloadScene()
         {
-            FadeManager.Instance.FadeIn(() =>
+            _fadeManager.FadeIn(() =>
             {
                 var scenesToLoad = AllLevelsDataSo.Instance.LevelWithName(_lastLoadedSceneNames[0]);
                 StartCoroutine(LoadScenes(scenesToLoad));
@@ -77,7 +88,7 @@ namespace Scripts.SceneLoadingManagement
 
 
             SceneLoadActionManager.onLoadingSceneCompleted?.Invoke(scenesToLoadAtLevelsDataSo);
-            FadeManager.Instance.FadeOut();
+            _fadeManager.FadeOut();
         }
         private void UnloadScenes()
         {

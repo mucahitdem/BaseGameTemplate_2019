@@ -1,27 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Scripts.BaseGameScripts.Pool;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace Scripts.BaseGameScripts.Pool
+namespace Scripts.Pool
 {
     public class PoolingPattern
     {
         private readonly Stack<GameObject> _objPool = new Stack<GameObject>();
-        private readonly string prefabId;
+        //private readonly string prefab;
         private readonly int prefabAmount;
-        private bool isInitialized;
+        //private bool isInitialized;
         private GameObject prefab;
         private readonly PoolManager poolManager;
 
-        public PoolingPattern(string prefabId, int prefabAmount, PoolManager poolManager)
+        public PoolingPattern(GameObject prefabId, int prefabAmount, PoolManager poolManager)
         {
-            this.prefabId = prefabId;
+            //this.prefab = prefab;
+            prefab = prefabId;
             this.prefabAmount = prefabAmount;
             this.poolManager = poolManager;
-            isInitialized = false;
+            //isInitialized = false;
+            FillPool();
         }
         
         
@@ -95,8 +96,8 @@ namespace Scripts.BaseGameScripts.Pool
         
         private GameObject GetItem()
         {
-            if (!isInitialized)
-                Init();
+            // if (!isInitialized)
+            //     Init();
             
             if (_objPool.Count > 0)
                 return _objPool.Pop();
@@ -105,19 +106,19 @@ namespace Scripts.BaseGameScripts.Pool
         }
         private void Init()
         {
-            AsyncOperationHandle<GameObject> handle = Addressables.LoadAssetAsync<GameObject>(prefabId);
-            handle.WaitForCompletion(); // Wait for the loading to complete synchronously
-        
-            if (handle.Status == AsyncOperationStatus.Succeeded)
-            {
-                prefab = handle.Result;
-                FillPool();
-                isInitialized = true;
-            }
-            else
-            {
-                Debug.LogError("Failed to load asset with key: " + prefabId);
-            }
+            // AsyncOperationHandle<GameObject> handle = Addressables.LoadAssetAsync<GameObject>(prefab);
+            // handle.WaitForCompletion(); // Wait for the loading to complete synchronously
+            //
+            // if (handle.Status == AsyncOperationStatus.Succeeded)
+            // {
+            //     prefab = handle.Result;
+            //     FillPool();
+            //     isInitialized = true;
+            // }
+            // else
+            // {
+            //     Debug.LogError("Failed to load asset with key: " + prefab);
+            // }
         }
         private void FillPool()
         {

@@ -1,8 +1,8 @@
 ﻿using System;
-using GAME.Scripts.UiAnimationModule;
+using GAME.Scripts.SoundManagement;
 using Scripts.BaseGameScripts.ComponentManagement;
 using Scripts.ServiceLocatorModule;
-using Scripts.SoundManagement;
+using Scripts.UiAnimationModule;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -73,7 +73,6 @@ namespace Scripts.UiManagement.BaseUiItemManagement
         // {
         //    onEnter?.Invoke();
         // }
-        //
         // public void OnPointerExit(PointerEventData eventData)
         // {
         //     onExit?.Invoke();
